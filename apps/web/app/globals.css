@@ -1,0 +1,122 @@
+﻿@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #afc6ff;
+  --color-on-primary: #002d6d;
+  --color-primary-container: #123c82;
+  --color-on-primary-container: #88a9f6;
+  
+  --color-secondary: #ba9563;
+  --color-secondary-gold: #e8c08a;
+  --color-secondary-container: #5d4117;
+  --color-on-secondary-container: #d6af7a;
+  
+  --color-surface: #0f2244;
+  --color-surface-dim: #0f2244;
+  --color-surface-bright: #2c3953;
+  --color-surface-container-lowest: #0b1a37;
+  --color-surface-container-low: #162a4d;
+  --color-surface-container: #111f38;
+  --color-surface-container-high: #1c2a43;
+  --color-surface-container-highest: #27354e;
+  
+  --color-on-surface: #d7e2ff;
+  --color-on-surface-variant: #c4c6d2;
+  --color-outline: #8e909c;
+  --color-outline-variant: #434651;
+  
+  --color-navy: #123c82;
+  --color-navy-dark: #0d2e6a;
+  --color-navy-tint: #f4f6fa;
+  --color-gold: #ba9563;
+  --color-gold-light: #d4b27a;
+  --color-dark: #231f20;
+  --color-muted: #5b5b5b;
+
+  --font-display: var(--font-display), 'Montserrat', sans-serif;
+  --font-body: var(--font-body), 'Inter', sans-serif;
+  --font-label: var(--font-label), 'Space Grotesk', sans-serif;
+  --font-arabic: var(--font-arabic), 'IBM Plex Arabic', sans-serif;
+}
+
+:root {
+  --color-navy: #123c82;
+  --color-navy-dark: #0d2e6a;
+  --color-navy-tint: #f4f6fa;
+  --color-gold: #ba9563;
+  --color-gold-light: #d4b27a;
+  --color-dark: #231f20;
+  --color-muted: #5b5b5b;
+}
+
+/* Base Resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body), 'Inter', sans-serif;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  background-color: #0f2244;
+  color: #d7e2ff;
+  font-family: var(--font-body), 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
+}
+
+/* Architectural Welded Drafting Grid Styles */
+.blueprint-crosshair {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  pointer-events: none;
+  z-index: 20;
+}
+.blueprint-crosshair::before,
+.blueprint-crosshair::after {
+  content: '';
+  position: absolute;
+  background-color: #ba9563;
+}
+.blueprint-crosshair::before {
+  top: 8px;
+  left: 0;
+  width: 17px;
+  height: 1px;
+}
+.blueprint-crosshair::after {
+  top: 0;
+  left: 8px;
+  width: 1px;
+  height: 17px;
+}
+
+.welded-joint {
+  position: relative;
+}
+.welded-joint::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #ba9563;
+  box-shadow: 0 0 6px rgba(186, 149, 99, 0.6);
+  transform: translate(-50%, -50%);
+  z-index: 15;
+}
+
+/* RTL support */
+[dir='rtl'] {
+  font-family: var(--font-arabic), 'IBM Plex Arabic', sans-serif;
+}
