@@ -1,0 +1,17 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs
+.next
+dist
+out
+build
+.turbo
+
+# Git & OS
+.git
+.DS_Store
+Thumbs.db
+*.pdf
+uploads/
