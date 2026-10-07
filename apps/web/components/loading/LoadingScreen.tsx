@@ -93,7 +93,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
           transition={{ duration: 0.5, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
         >
           <Image
-            src="/dar-elmashrq-logo.png"
+            src="/Dar-elmashrq-logo.png"
             alt="Dar El Mashrq"
             fill
             priority
