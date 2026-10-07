@@ -118,10 +118,12 @@ export function ProjectExplorer({ initialProjects }: ProjectExplorerProps) {
           />
         </div>
 
-        {/* Detail Overlay / Modal */}
+        {/* Full-Screen Project Detail Overlay */}
         <ProjectDetailOverlay
           project={selectedProject}
+          allProjects={initialProjects}
           onClose={() => setSelectedProject(null)}
+          onSelectProject={(p) => setSelectedProject(p)}
         />
       </section>
     </>
