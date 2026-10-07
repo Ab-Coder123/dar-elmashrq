@@ -81,7 +81,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
           style={{ width: '180px' }}
           initial={{ scaleX: 0, originX: 0.5 }}
           animate={{ scaleX: 1 }}
-          transition={{ duration: 0.4, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 5.4, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           aria-hidden="true"
         />
 
@@ -93,7 +93,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
           transition={{ duration: 0.5, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
         >
           <Image
-            src="/Dar-elmashrq-logo-white"
+            src="/Dar-elmashrq-logo-white.png"
             alt="Dar El Mashrq"
             fill
             priority
