@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
    * Catches potential issues early — always keep this on.
    */
   reactStrictMode: true,
+  distDir: '../../.next',
 
   /**
    * Image domains — configured when real project images are available.
