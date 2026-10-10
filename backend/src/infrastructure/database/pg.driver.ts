@@ -22,12 +22,17 @@ export interface PgOptions {
 
 /** Production driver. Pool size is bounded (conn-limits) with idle + statement timeouts. */
 export function createPgDb(opts: PgOptions): Db {
+  // Strip any query sslmode params so opts.ssl explicitly controls rejectUnauthorized
+  const cleanConnStr = opts.connectionString
+    .replace(/([?&])sslmode=[^&]+(&|$)/, '$1')
+    .replace(/[?&]$/, '')
+
   const pool = new Pool({
-    connectionString: opts.connectionString,
+    connectionString: cleanConnStr,
     max: opts.max ?? 10,
     idleTimeoutMillis: 30_000,
-    connectionTimeoutMillis: 5_000,
-    statement_timeout: 15_000,
+    connectionTimeoutMillis: 10_000,
+    statement_timeout: 20_000,
     ssl: opts.ssl ? { rejectUnauthorized: false } : undefined,
   })
 
