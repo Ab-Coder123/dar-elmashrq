@@ -80,7 +80,7 @@ runCheck(
 // 3. Automated Vitest Suite (All Units & Integration)
 runCheck(
   'CHECK_TESTS',
-  'Automated Test Suite (Vitest 61 Tests)',
+  'Automated Test Suite (Vitest 80 Tests across 8 test suites)',
   'pnpm exec vitest run'
 )
 
@@ -131,9 +131,9 @@ const phaseStatus = [
   {
     phase: '06',
     title: 'Projects API',
-    status: 'NOT IMPLEMENTED',
-    evidence: 'Repository skeleton exists for Phase 03/05 relations; public & admin CRUD endpoints not yet built.',
-    remainingIssues: 'To be implemented in Phase 06 with country filtering (KSA, Egypt, Qatar).',
+    status: 'PASS',
+    evidence: 'Public GET /projects, /featured, /:slug, country filters (KSA, Egypt, Qatar), category & search, admin CRUD & reorder (19/19 tests passing).',
+    remainingIssues: 'None. Full CRUD, country filtering, and relations verified.',
   },
   {
     phase: '07',

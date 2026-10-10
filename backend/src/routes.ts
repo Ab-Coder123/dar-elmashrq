@@ -4,6 +4,7 @@ import { healthRouter } from './modules/health/health.routes'
 import { createPublicHomeRouter, createAdminHomeRouter } from './modules/home/home.routes'
 import { createPublicAboutRouter, createAdminAboutRouter } from './modules/about/about.routes'
 import { createPublicServicesRouter, createAdminServicesRouter } from './modules/services/services.routes'
+import { createPublicProjectsRouter, createAdminProjectsRouter } from './modules/projects/projects.routes'
 
 export function createAppRouter(db?: Db): Router {
   const router = Router()
@@ -16,9 +17,10 @@ export function createAppRouter(db?: Db): Router {
   router.use('/admin/about', createAdminAboutRouter(db))
   router.use('/services', createPublicServicesRouter(db))
   router.use('/admin/services', createAdminServicesRouter(db))
+  router.use('/projects', createPublicProjectsRouter(db))
+  router.use('/admin/projects', createAdminProjectsRouter(db))
 
-  // Future Modules (Phases 06 - 09):
-  // router.use('/projects', createProjectsRouter(db))
+  // Future Modules (Phases 07 - 09):
   // router.use('/media', createMediaRouter(db))
   // router.use('/contact', createContactRouter(db))
   // router.use('/settings', createSettingsRouter(db))
