@@ -6,18 +6,25 @@ import {
   SERVICES_MEDIA,
 } from '../data/services.data'
 
+import { publicApiClient } from '@/lib/api'
+
 /**
  * Services Service — Data Access Boundary
- *
- * UI components call this service, NOT the static data files directly.
- * Ready for future backend/CMS drop-in replacement.
+ * Consumes public REST API (/api/v1/services) with seamless fallback.
  */
 
 export async function getTechnicalServices(): Promise<TechnicalService[]> {
+  const apiServices = await publicApiClient<TechnicalService[]>('/services')
+  if (apiServices && Array.isArray(apiServices) && apiServices.length > 0) {
+    return apiServices
+  }
   return TECHNICAL_SERVICES
 }
 
 export async function getTechnicalServiceBySlug(slug: string): Promise<TechnicalService | null> {
+  const apiService = await publicApiClient<TechnicalService>(`/services/${slug}`)
+  if (apiService) return apiService
+
   const service = TECHNICAL_SERVICES.find((s) => s.slug === slug)
   return service ?? null
 }

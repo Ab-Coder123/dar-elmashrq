@@ -8,7 +8,7 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./test/setup.ts'],
-    pool: 'threads',
+    pool: 'forks',
     testTimeout: 10000,
   },
   resolve: {

@@ -1,63 +1,63 @@
 import type { Project, ProjectFilters, ProjectSummary } from '@dar-elmashrq/types'
 import { filterProjects } from '@dar-elmashrq/utils'
 import { getAllProjects, getFeaturedProjects } from '../data/projects.data'
+import { publicApiClient } from '@/lib/api'
 
 /**
  * Project Service — the boundary between UI and data.
- *
- * ═══════════════════════════════════════════════════════════════
- * ARCHITECTURE CONTRACT
- * ═══════════════════════════════════════════════════════════════
- *
- * UI components call THIS file. Never the data layer directly.
- *
- * This is the integration point. When the backend API is ready (Phase 03):
- *   - Replace the function bodies below with API calls
- *   - Zero UI changes required
- *   - The function signatures stay the same
- * ═══════════════════════════════════════════════════════════════
+ * Consumes public REST API (/api/v1/projects) with seamless fallback to static verified assets.
  */
 
-/**
- * Get all projects, optionally filtered.
- */
 export async function getProjects(filters?: ProjectFilters): Promise<ProjectSummary[]> {
-  const projects = await getAllProjects()
-  if (!filters) return projects
-  return filterProjects(projects, filters)
+  const queryParams = new URLSearchParams()
+  if (filters?.country && filters.country !== 'all') queryParams.set('country', filters.country)
+  if (filters?.category && filters.category !== 'all') queryParams.set('category', filters.category)
+  if (filters?.search) queryParams.set('search', filters.search)
+
+  const queryString = queryParams.toString()
+  const endpoint = `/projects${queryString ? `?${queryString}` : ''}`
+
+  const apiProjects = await publicApiClient<ProjectSummary[]>(endpoint)
+  if (apiProjects && Array.isArray(apiProjects) && apiProjects.length > 0) {
+    return apiProjects
+  }
+
+  // Fallback to static verified PDF projects
+  const staticProjects = await getAllProjects()
+  if (!filters) return staticProjects
+  return filterProjects(staticProjects, filters)
 }
 
-/**
- * Get full project details for all projects.
- */
 export async function getAllProjectDetails(): Promise<Project[]> {
+  const apiProjects = await publicApiClient<Project[]>('/projects')
+  if (apiProjects && Array.isArray(apiProjects) && apiProjects.length > 0) {
+    return apiProjects
+  }
   return getAllProjects()
 }
 
-/**
- * Get a single project by its URL slug.
- * Returns null if not found — caller handles the 404.
- */
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
-  const projects = await getAllProjects()
-  return projects.find((p) => p.slug === slug) ?? null
+  const apiProject = await publicApiClient<Project>(`/projects/${slug}`)
+  if (apiProject) return apiProject
+
+  const staticProjects = await getAllProjects()
+  return staticProjects.find((p) => p.slug === slug) ?? null
 }
 
-/**
- * Get featured projects for the homepage and project highlights.
- */
 export async function getFeatured(): Promise<Project[]> {
+  const apiFeatured = await publicApiClient<Project[]>('/projects/featured')
+  if (apiFeatured && Array.isArray(apiFeatured) && apiFeatured.length > 0) {
+    return apiFeatured
+  }
   return getFeaturedProjects()
 }
 
-/**
- * Get project count by country — for the stats display.
- */
 export async function getProjectCountByCountry(): Promise<Record<string, number>> {
-  const projects = await getAllProjects()
+  const projects = await getProjects()
   return projects.reduce<Record<string, number>>((acc, project) => {
     const count = acc[project.country]
     acc[project.country] = (count ?? 0) + 1
     return acc
   }, {})
 }
+

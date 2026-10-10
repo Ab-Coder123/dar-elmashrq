@@ -19,9 +19,7 @@ export const env = {
   IS_DEVELOPMENT: process.env['NODE_ENV'] === 'development',
 
   /**
-   * Server-only — never exposed to client.
-   * Uncomment when backend is introduced (Phase 03).
+   * Backend API URL — connects to local or Railway production backend
    */
-  // API_URL: process.env['API_URL'],
-  // API_SECRET_KEY: process.env['API_SECRET_KEY'],
+  API_URL: process.env['NEXT_PUBLIC_API_URL'] ?? process.env['API_URL'] ?? 'http://localhost:4000/api/v1',
 } as const

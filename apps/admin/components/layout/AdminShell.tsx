@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import {
   Menu,
   X,
@@ -10,8 +10,11 @@ import {
   ShieldCheck,
   ChevronRight,
   ExternalLink,
+  LogOut,
+  User,
 } from 'lucide-react'
 import { ADMIN_NAV_ITEMS } from '@/config/navigation'
+import { fetchCurrentAdminUser, logoutAdmin, type AdminUser } from '@/lib/auth'
 
 interface AdminShellProps {
   children: React.ReactNode
@@ -19,7 +22,27 @@ interface AdminShellProps {
 
 export function AdminShell({ children }: AdminShellProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [currentUser, setCurrentUser] = useState<AdminUser | null>(null)
   const pathname = usePathname()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (pathname !== '/login') {
+      fetchCurrentAdminUser().then((user) => {
+        if (user) setCurrentUser(user)
+      })
+    }
+  }, [pathname])
+
+  if (pathname === '/login') {
+    return <>{children}</>
+  }
+
+  const handleLogout = async () => {
+    await logoutAdmin()
+    setCurrentUser(null)
+    router.push('/login')
+  }
 
   const currentItem = ADMIN_NAV_ITEMS.find((item) => {
     if (item.href === '/') {
@@ -177,6 +200,32 @@ export function AdminShell({ children }: AdminShellProps) {
           </div>
 
           <div className="flex items-center gap-3">
+            {currentUser ? (
+              <div className="flex items-center gap-2 rounded-xs border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-700">
+                <User className="h-3.5 w-3.5 text-[#BA9563]" />
+                <span className="font-semibold">{currentUser.displayName || currentUser.email}</span>
+                <span className="rounded-2xs bg-[#123C82] px-1.5 py-0.5 text-[10px] font-bold text-white uppercase">
+                  {currentUser.role}
+                </span>
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  className="ml-2 flex items-center gap-1 text-slate-500 hover:text-red-600 transition-colors"
+                  title="Sign Out"
+                >
+                  <LogOut className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            ) : (
+              <Link
+                href="/login"
+                className="inline-flex items-center gap-1.5 rounded-sm bg-[#123C82] px-3 py-1.5 text-xs font-semibold text-white shadow-2xs hover:bg-[#1a4e9f]"
+              >
+                <User className="h-3.5 w-3.5 text-[#BA9563]" />
+                <span>Sign In</span>
+              </Link>
+            )}
+
             <a
               href="http://localhost:3000"
               target="_blank"

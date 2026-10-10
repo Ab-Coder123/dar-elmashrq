@@ -6,6 +6,10 @@ import * as navigation from 'next/navigation'
 // Mock next/navigation
 vi.mock('next/navigation', () => ({
   usePathname: vi.fn(),
+  useRouter: vi.fn(() => ({
+    push: vi.fn(),
+    refresh: vi.fn(),
+  })),
 }))
 
 describe('AdminShell Layout Component', () => {
