@@ -2,6 +2,7 @@ import { Router } from 'express'
 import type { Db } from './infrastructure/database/db'
 import { healthRouter } from './modules/health/health.routes'
 import { createPublicHomeRouter, createAdminHomeRouter } from './modules/home/home.routes'
+import { createPublicAboutRouter, createAdminAboutRouter } from './modules/about/about.routes'
 
 export function createAppRouter(db?: Db): Router {
   const router = Router()
@@ -10,10 +11,10 @@ export function createAppRouter(db?: Db): Router {
   router.use('/health', healthRouter)
   router.use('/home', createPublicHomeRouter(db))
   router.use('/admin/home', createAdminHomeRouter(db))
+  router.use('/about', createPublicAboutRouter(db))
+  router.use('/admin/about', createAdminAboutRouter(db))
 
-  // Future Modules (Phases 04 - 09):
-  // router.use('/about', createPublicAboutRouter(db))
-  // router.use('/admin/about', createAdminAboutRouter(db))
+  // Future Modules (Phases 05 - 09):
   // router.use('/services', createServicesRouter(db))
   // router.use('/projects', createProjectsRouter(db))
   // router.use('/media', createMediaRouter(db))
