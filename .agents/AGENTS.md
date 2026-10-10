@@ -1,7 +1,7 @@
 # Dar ElMashrq — AI Coding Agent Contract & Architecture Guidelines
 
 > **Project:** Dar ElMashrq Trading & Contracting Company — Corporate Portfolio Website
-> **Phase:** 01 (Foundation & Architecture) Complete → Ready for Phase 02 (UI & Experience)
+> **Phase:** Phase 02 Complete → Ready for Phase 03 (Backend & Database Integration)
 
 ---
 
@@ -27,7 +27,7 @@
 ### Rule B: Strict Data Boundary
 - **NEVER** import from `*.data.ts` or database clients directly inside UI components.
 - UI components **MUST** consume data through service functions located in `features/[featureName]/services/` (e.g. `getProjects()`, `getProjectBySlug()`).
-- This ensures the UI is 100% agnostic to whether data is sourced from static mock files or a live NestJS / PostgreSQL backend.
+- This ensures the UI is 100% agnostic to whether data is sourced from static mock files or a live NestJS / Express / PostgreSQL backend.
 
 ### Rule C: Server Components First
 - Treat every component as a Server Component by default.
@@ -62,3 +62,34 @@
 2. **Document Privacy:** Sensitive corporate documents (such as the Bank IBAN Letter on page 67 of the PDF) are strictly omitted from public configs.
 3. **Admin Isolation:** `apps/admin` is isolated from `apps/web` with separate ports, layouts, and `robots: noindex` meta tags.
 4. **Font Licensing:** Never bundle unlicensed `AudiType` font files; use the web-safe abstraction (`Barlow Condensed` / `IBM Plex Arabic`).
+
+---
+
+## 5. Mandatory Specialized Agent Skills & Best Practices Enforcement
+
+Before initiating or implementing any code changes in the frontend, backend, database, UI design, testing, or deployment, the agent **MUST** inspect and apply the corresponding specialized skill:
+
+1. **Backend & Database Design / PostgreSQL / Migrations:**
+   - **Mandatory Skill:** `supabase-postgres-best-practices`
+   - **Path:** `C:\Users\TaFrA\.agents\skills\supabase-postgres-best-practices\SKILL.md`
+   - **Trigger:** Any database schema design, Prisma/SQL migrations, table structures, column types, indexing, or database query authoring.
+
+2. **Frontend & React / Next.js Performance Best Practices:**
+   - **Mandatory Skill:** `vercel-react-best-practices`
+   - **Path:** `C:\Users\TaFrA\.agents\skills\vercel-react-best-practices\SKILL.md`
+   - **Trigger:** Writing or refactoring React components, Next.js App Router pages, data fetching strategies, or bundle optimization.
+
+3. **UI / UX Design & Web Interface Guidelines:**
+   - **Mandatory Skill:** `web-design-guidelines`
+   - **Path:** `C:\Users\TaFrA\.agents\skills\web-design-guidelines\SKILL.md`
+   - **Trigger:** Creating or auditing user interfaces, layout design, typography scaling, responsive behavior, or accessibility compliance.
+
+4. **Web Application Testing & Runtime Verification:**
+   - **Mandatory Skill:** `webapp-testing`
+   - **Path:** `C:\Users\TaFrA\.agents\skills\webapp-testing\SKILL.md`
+   - **Trigger:** End-to-end testing, interactive Playwright verification, testing frontend user flows, or verifying runtime behavior.
+
+5. **Vercel Deployment & Release Management:**
+   - **Mandatory Skill:** `deploy-to-vercel`
+   - **Path:** `C:\Users\TaFrA\.agents\skills\deploy-to-vercel\SKILL.md`
+   - **Trigger:** Preparing or executing production deployments, environment variable configuration on Vercel, or release verification.

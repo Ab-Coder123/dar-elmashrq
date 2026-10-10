@@ -1,92 +1,117 @@
-# Dar ElMashrq — Backend
+# Dar ElMashrq — Backend API Service
 
-This directory contains the future API and business logic layer.
+Production-ready backend API service for **Dar ElMashrq Trading & Contracting Company**.
 
-## Status
+## Overview
 
-**Phase 01**: Architecture boundary established. Implementation pending.
+- **Framework:** Node.js (v24 LTS) + Express + TypeScript (Strict Mode)
+- **Database:** PostgreSQL with SQL Migrations + PGlite for isolated tests
+- **Security:** Helmet, CORS, Centralized Error Handling, Zod Validation
+- **Logging:** Morgan
+- **Testing:** Vitest + Supertest (34 automated tests passing)
+- **Port:** 4000 (configurable via `.env`)
 
-## Planned Architecture
+---
 
-The backend will be a modular Node.js API — NestJS is recommended.
-
-### Modules
-
-| Module | Responsibility |
-|--------|---------------|
-| `projects/` | CRUD for project data, images, metadata |
-| `services/` | Company services management |
-| `company/` | Company profile and content management |
-| `media/` | Image/file upload and storage |
-| `auth/` | Authentication and authorization for admin access |
-
-### Each Module Contains
+## Architecture & Modules Structure
 
 ```
-module/
-├── controller.ts     — HTTP request handling
-├── service.ts        — Business logic
-├── repository.ts     — Data access (database)
-├── dto/              — Validation schemas (class-validator)
-├── types.ts          — Module-local types
-└── module.ts         — NestJS module definition
+backend/
+├── src/
+│   ├── config/
+│   │   └── env.ts                 # Validated runtime environment schema (Zod)
+│   ├── shared/
+│   │   ├── errors/
+│   │   │   ├── AppError.ts        # Custom typed error classes hierarchy
+│   │   │   └── errorHandler.ts    # Centralized Express error handler
+│   │   └── middleware/
+│   │       ├── cors.ts            # Configured CORS middleware
+│   │       └── requestLogger.ts   # Request logging middleware
+│   ├── modules/
+│   │   ├── health/                # Health-check endpoints (/health & /api/v1/health)
+│   │   ├── home/                  # Home Page API (Phase 03 - Public & Admin endpoints)
+│   │   ├── projects/              # Projects module (Phase 06)
+│   │   ├── services/              # Services module (Phase 05)
+│   │   ├── company/               # Company profile & About module (Phase 04)
+│   │   ├── media/                 # Media storage & library module (Phase 07)
+│   │   └── auth/                  # Admin auth & JWT module (Phase 09)
+│   ├── infrastructure/
+│   │   ├── database/              # DB connection pool, migrations, repositories
+│   │   └── storage/               # Media storage provider (Phase 07)
+│   ├── routes.ts                  # Main API router (/api/v1)
+│   ├── app.ts                     # Express application factory
+│   └── server.ts                  # Server entry point & graceful shutdown
+├── test/
+│   ├── health.test.ts             # Health check tests
+│   ├── errors.test.ts             # Error handling & status code tests
+│   ├── cors.test.ts               # Security headers & CORS tests
+│   ├── database.test.ts           # DB schema, relations, constraints tests
+│   └── home.test.ts               # Home page public & admin API integration tests
+├── migrations/
+│   └── 001_init.sql               # Database DDL schema & triggers
+├── scripts/
+│   ├── migrate.ts                 # Database migration runner CLI
+│   └── create-admin.ts            # Secure first admin user creation CLI
+├── Dockerfile                     # Multi-stage production container image
+├── railway.json                   # Railway platform deployment configuration
+├── .env.example                   # Environment configuration template
+└── tsconfig.json
 ```
 
-### Infrastructure
+---
 
-```
-infrastructure/
-├── database/         — Prisma ORM config, migrations
-├── storage/          — S3-compatible media storage
-└── cache/            — Response caching (Redis, future)
-```
+## Home Page API (Phase 03)
 
-## Database Recommendation
+| Method | Path | Description | Access | Cache Header |
+| :--- | :--- | :--- | :--- | :--- |
+| `GET` | `/api/v1/home` | Returns published Home Page data, featured projects & active services | Public | `public, max-age=60, s-maxage=300` |
+| `GET` | `/api/v1/admin/home` | Returns draft/published Home Page data for admin editor | Admin | `no-cache` |
+| `PUT` | `/api/v1/admin/home` | Saves/updates Home Page content with full Zod validation | Admin | `no-cache` |
+| `PATCH` | `/api/v1/admin/home/status` | Toggles publication status (`draft` / `published`) | Admin | `no-cache` |
 
-| Option | Recommendation | Reason |
-|--------|---------------|--------|
-| **PostgreSQL + Prisma** | ✅ Recommended | Relational (projects → images → categories), type-safe ORM, excellent Next.js integration |
-| MongoDB | ⚠️ Possible | Flexible schema but overkill for this relational domain |
-| SQLite | ❌ Development only | Not suitable for production media management |
+---
 
-## Authentication Strategy
+## Railway Deployment Guide
 
-The admin application requires:
-- JWT-based sessions
-- Role-based access control (admin only, initially)
-- All admin operations validated server-side
-- Zero admin credentials in the public website
-- Protected routes via Next.js middleware in `apps/admin`
+This backend is containerized and ready for direct deployment on **Railway**.
 
-## Data Flow (Future)
+### 1. Railway Environment Variables Required:
+- `PORT`: Automatically provided by Railway (defaults to 4000)
+- `NODE_ENV`: `production`
+- `DATABASE_URL`: PostgreSQL connection string (can be added via Railway Postgres Plugin or Supabase/Neon)
+- `DATABASE_SSL`: `true` (if using managed cloud Postgres)
+- `CORS_ORIGIN`: Your deployed frontend domains (e.g. `https://darelmashrq.com,https://admin.darelmashrq.com`)
+- `API_PREFIX`: `/api/v1`
 
-```
-Admin User
-    ↓ (authenticate)
-apps/admin
-    ↓ (API call with JWT)
-backend/modules/projects
-    ↓ (Prisma query)
-PostgreSQL Database
-    ↓ (media upload)
-S3-compatible Storage
-```
+### 2. Deploy via Railway CLI or GitHub:
+```bash
+# Option A: Deploy with Railway CLI
+npm i -g @railway/cli
+railway login
+railway init
+railway up
 
-## Integration with apps/web (Future)
+# Run DB Migrations on Railway:
+railway run pnpm --filter @dar-elmashrq/backend db:migrate
 
-When the backend is ready, ONLY these files change in `apps/web`:
-
-```
-features/projects/services/project.service.ts
-features/services/services/service.service.ts
+# Create First Admin User on Railway:
+railway run env ADMIN_EMAIL=admin@elmashrq.com ADMIN_PASSWORD=your_secure_password pnpm --filter @dar-elmashrq/backend admin:create
 ```
 
-Zero UI component changes are required.
-This is the key architectural guarantee of the service layer pattern.
+---
 
-## When to Start
+## Local Development & Testing
 
-Implement the backend when:
-1. Phase 02 (public website UI) is complete
-2. The client is ready to manage content themselves
-3. Image upload requirements are confirmed
+```bash
+# Run all unit & integration tests (34 tests across 5 files)
+pnpm --filter @dar-elmashrq/backend test
+
+# Type-check TypeScript strictly
+pnpm --filter @dar-elmashrq/backend type-check
+
+# Compile production build
+pnpm --filter @dar-elmashrq/backend build
+
+# Start dev server with hot reload
+pnpm --filter @dar-elmashrq/backend dev
+```

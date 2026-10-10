@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
+import './globals.css'
+import { AdminShell } from '@/components/layout/AdminShell'
 
 export const metadata: Metadata = {
-  title: 'Dar ElMashrq — Admin',
+  title: {
+    default: 'Dar ElMashrq — Admin CMS',
+    template: '%s | Dar ElMashrq Admin',
+  },
   description: 'Internal content management system — authorized access only.',
   robots: {
     // Admin must NEVER be indexed by search engines.
@@ -11,22 +16,15 @@ export const metadata: Metadata = {
   },
 }
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body>
-        {/*
-         * Authentication boundary — Phase 03 implementation.
-         *
-         * When implementing auth:
-         * 1. Add middleware.ts at apps/admin/middleware.ts
-         * 2. Protect all /dashboard/* routes
-         * 3. Never share auth state with apps/web
-         * 4. JWT validation happens server-side only
-         *
-         * This layout intentionally has no UI — it is a Phase 01 boundary.
-         */}
-        {children}
+      <body className="antialiased">
+        <AdminShell>{children}</AdminShell>
       </body>
     </html>
   )
