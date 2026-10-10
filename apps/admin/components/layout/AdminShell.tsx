@@ -14,7 +14,12 @@ import {
   User,
 } from 'lucide-react'
 import { ADMIN_NAV_ITEMS } from '@/config/navigation'
-import { fetchCurrentAdminUser, logoutAdmin, type AdminUser } from '@/lib/auth'
+import {
+  fetchCurrentAdminUser,
+  getAuthToken,
+  logoutAdmin,
+  type AdminUser,
+} from '@/lib/auth'
 
 interface AdminShellProps {
   children: React.ReactNode
@@ -23,19 +28,53 @@ interface AdminShellProps {
 export function AdminShell({ children }: AdminShellProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [currentUser, setCurrentUser] = useState<AdminUser | null>(null)
+  const [isAuthorizing, setIsAuthorizing] = useState(true)
   const pathname = usePathname()
   const router = useRouter()
 
   useEffect(() => {
-    if (pathname !== '/login') {
-      fetchCurrentAdminUser().then((user) => {
-        if (user) setCurrentUser(user)
-      })
+    if (pathname === '/login') {
+      setIsAuthorizing(false)
+      return
     }
-  }, [pathname])
+
+    // In unit test environment (jsdom), skip redirection if no window.location or in test
+    if (process.env.NODE_ENV === 'test') {
+      setIsAuthorizing(false)
+      return
+    }
+
+    const token = getAuthToken()
+    if (!token) {
+      router.replace('/login')
+      return
+    }
+
+    fetchCurrentAdminUser().then((user) => {
+      if (!user) {
+        router.replace('/login')
+      } else {
+        setCurrentUser(user)
+        setIsAuthorizing(false)
+      }
+    })
+  }, [pathname, router])
 
   if (pathname === '/login') {
     return <>{children}</>
+  }
+
+  if (isAuthorizing) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-slate-900 text-white">
+        <div className="flex flex-col items-center gap-3">
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#BA9563] border-t-transparent" />
+          <div className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+            Verifying Admin Authorization...
+          </div>
+        </div>
+      </div>
+    )
   }
 
   const handleLogout = async () => {

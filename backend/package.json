@@ -12,7 +12,8 @@
                     "type-check":  "tsc --noEmit -p tsconfig.check.json",
                     "audit":  "node scripts/audit-backend.mjs",
                     "db:migrate":  "tsx scripts/migrate.ts",
-                    "admin:create":  "tsx scripts/create-admin.ts"
+                    "admin:create":  "tsx scripts/create-admin.ts",
+                    "admin:seed":  "tsx scripts/seed-initial-admin.ts"
                 },
     "dependencies":  {
                          "@dar-elmashrq/types":  "workspace:*",
