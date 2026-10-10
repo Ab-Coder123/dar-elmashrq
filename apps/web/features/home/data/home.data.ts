@@ -198,3 +198,34 @@ export const HOME_CREDENTIALS: HomeCredential[] = [
     status: 'VERIFIED',
   },
 ]
+
+export const WHY_PILLARS = [
+  {
+    iconName: 'Cpu',
+    code: 'PROTOCOL // 01',
+    title: 'Engineering Rigor & BIM Precision',
+    description:
+      'Integrating modern CAD/BIM modeling and structural engineering standards to optimize clash detection, material estimation, and constructability before field execution.',
+  },
+  {
+    iconName: 'Zap',
+    code: 'PROTOCOL // 02',
+    title: 'Multi-Disciplinary Turnkey Power',
+    description:
+      'In-house self-performance across heavy civil, MEP, HVAC, fire fighting, and luxury finishes eliminates subcontractor delays and enforces single-point accountability.',
+  },
+  {
+    iconName: 'Shield',
+    code: 'PROTOCOL // 03',
+    title: 'Stringent QA/QC & Life-Safety Codes',
+    description:
+      'ISO-aligned management protocols paired with Civil Defense pre-qualification ensure structural integrity, fire life-safety, and longevity across all developments.',
+  },
+  {
+    iconName: 'Award',
+    code: 'PROTOCOL // 04',
+    title: '30-Year Regional Heritage',
+    description:
+      'Since 1994, our multi-country licensing and sovereign presence have anchored landmark contracts for ministries, private sector giants, and institutional developers.',
+  },
+]

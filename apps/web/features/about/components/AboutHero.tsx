@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -8,8 +8,26 @@ import { ABOUT_MEDIA } from '../data/about.data'
 import { BlueprintCrosshair } from '@/components/ui/BlueprintCrosshair'
 import { heroStaggerVariants, fadeUpVariants, slideInLeftVariants, DURATIONS, EASE } from '@/lib/motion'
 
-export function AboutHero() {
+export interface AboutHeroProps {
+  hero?: {
+    badge?: string
+    headline?: string
+    tagline?: string
+    description?: string
+    heroImage?: string
+  }
+}
+
+export function AboutHero({ hero }: AboutHeroProps = {}) {
   const prefersReduced = useReducedMotion()
+
+  const heroImage = hero?.heroImage || ABOUT_MEDIA.heroImage
+  const badge = hero?.badge || 'ESTABLISHED 1994 • KSA • EGY • QAT'
+  const headline = hero?.headline || 'ABOUT US'
+  const tagline = hero?.tagline || 'Building With Purpose. Engineering With Longevity.'
+  const description =
+    hero?.description ||
+    'Three continuous decades of tier-one civil engineering, electro-mechanical execution, and real estate development across Saudi Arabia, Egypt, and Qatar.'
 
   return (
     <section className="relative min-h-[55vh] sm:min-h-[65vh] flex items-center pt-28 pb-16 overflow-hidden border-b border-slate-200 dark:border-[#434651]/60 transition-colors duration-300">
@@ -22,8 +40,8 @@ export function AboutHero() {
           transition={{ duration: DURATIONS.INTRO, ease: EASE.cinematic }}
         >
           <Image
-            src={ABOUT_MEDIA.heroImage}
-            alt="Dar El Mashrq Architectural Engineering Horizon"
+            src={heroImage}
+            alt={headline}
             fill
             priority
             sizes="100vw"
@@ -73,7 +91,7 @@ export function AboutHero() {
             <BlueprintCrosshair position="top-left" />
             <span className="w-2 h-2 bg-[#ba9563] rounded-none" />
             <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.2em] text-[#ba9563] font-medium">
-              ESTABLISHED 1994 &bull; KSA &bull; EGY &bull; QAT
+              {badge}
             </span>
             <BlueprintCrosshair position="bottom-right" />
           </motion.div>
@@ -96,21 +114,21 @@ export function AboutHero() {
                   }
             }
           >
-            ABOUT US
+            {headline}
           </motion.h1>
 
           <motion.p
             className="font-['Montserrat'] text-lg sm:text-2xl text-[#ba9563] font-semibold uppercase tracking-wider mb-6"
             variants={fadeUpVariants}
           >
-            Building With Purpose. Engineering With Longevity.
+            {tagline}
           </motion.p>
 
           <motion.p
             className="font-['Inter'] text-sm sm:text-base text-slate-200 dark:text-[#c4c6d2] max-w-2xl leading-relaxed border-l-2 border-[#ba9563] pl-6 bg-[#0b1a37]/40 backdrop-blur-sm py-1.5"
             variants={fadeUpVariants}
           >
-            Three continuous decades of tier-one civil engineering, electro-mechanical execution, and real estate development across Saudi Arabia, Egypt, and Qatar.
+            {description}
           </motion.p>
         </motion.div>
       </div>

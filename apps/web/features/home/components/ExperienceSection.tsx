@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { motion } from 'framer-motion'
 import { HOME_STATS } from '../data/home.data'
@@ -16,7 +16,15 @@ const statVariants: Variants = {
   },
 }
 
-export function ExperienceSection() {
+import type { HomeStat } from '../types'
+
+export interface ExperienceSectionProps {
+  stats?: HomeStat[]
+}
+
+export function ExperienceSection({ stats = HOME_STATS }: ExperienceSectionProps = {}) {
+  const displayStats = Array.isArray(stats) && stats.length > 0 ? stats : HOME_STATS
+
   return (
     <section className="relative bg-slate-50 dark:bg-[#0f2244] py-16 md:py-24 border-b border-slate-200 dark:border-[#434651]/40 transition-colors duration-300">
       <div className="w-full max-w-[1440px] px-4 sm:px-8 md:px-12 mx-auto">
@@ -41,8 +49,8 @@ export function ExperienceSection() {
           <BlueprintCrosshair position="bottom-left" />
           <BlueprintCrosshair position="bottom-right" />
 
-          {HOME_STATS.map((stat, idx) => {
-            const isLast = idx === HOME_STATS.length - 1
+          {displayStats.map((stat, idx) => {
+            const isLast = idx === displayStats.length - 1
 
             return (
               <motion.div

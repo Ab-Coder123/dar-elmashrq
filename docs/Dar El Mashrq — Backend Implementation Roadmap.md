@@ -447,7 +447,7 @@ Connect the Public Website and existing Admin Dashboard to the completed backend
 - Final implementation report.
 
 ## Testing & Acceptance
-
+ 
 - [ ] Backend unit and integration tests pass.
 - [ ] Frontend and Admin Dashboard builds pass.
 - [ ] Public pages load data from the backend.

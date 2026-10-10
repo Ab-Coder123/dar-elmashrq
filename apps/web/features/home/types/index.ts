@@ -37,3 +37,11 @@ export interface HomeCredential {
   registrationNumber: string
   status: string
 }
+
+export interface WhyPillar {
+  iconName: string
+  code: string
+  title: string
+  description: string
+}
+

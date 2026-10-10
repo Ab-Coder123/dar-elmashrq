@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { TopNavBar } from '@/components/navigation/TopNavBar'
 import { Footer } from '@/components/navigation/Footer'
 import {
@@ -25,16 +25,20 @@ export const metadata: Metadata = {
   },
 }
 
+import { getAboutContent } from '@/features/about/services/about.service'
+
 /**
- * About Us Page — Server Component by default.
+ * About Us Page — Server Component with ISR revalidation.
  *
  * Implements Phase 03: Public Corporate About Us Experience.
  * Strict architectural adherence:
  * - Feature modularity (`features/about/`)
  * - Official company source facts (1994, KSA/EGY/QAT, ISO 9001, Verified Org Hierarchy)
- * - Complete dual light & dark mode support
+ * - Dynamic CMS Content from Cloud Backend with robust fallbacks
  */
-export default function AboutPage() {
+export default async function AboutPage() {
+  const aboutContent = await getAboutContent()
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0f2244] text-[#191c1d] dark:text-[#d7e2ff] flex flex-col selection:bg-[#ba9563]/30 dark:selection:bg-[#5d4117] selection:text-[#ba9563] dark:selection:text-[#ffddb3] transition-colors duration-300">
       {/* 1. Global Navigation Bar */}
@@ -43,7 +47,7 @@ export default function AboutPage() {
       {/* 2. Main About Experience */}
       <main id="main-content" className="flex-grow">
         {/* Section 00 — Atmospheric Cinematic Hero & Breadcrumbs */}
-        <AboutHero />
+        <AboutHero hero={aboutContent.hero} />
 
         {/* Section 01 — Corporate Profile & 4 Pillars */}
         <CompanyIntroduction />

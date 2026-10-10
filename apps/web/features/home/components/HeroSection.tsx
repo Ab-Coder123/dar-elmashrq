@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 /**
  * HeroSection — Animated Home Hero
@@ -28,8 +28,30 @@ import {
   EASE,
 } from '@/lib/motion'
 
-export function HeroSection() {
+export interface HeroSectionProps {
+  hero?: {
+    badge?: string
+    headline?: string
+    tagline?: string
+    bodyCopy?: string
+    heroImage?: string
+    exploreCtaText?: string
+    aboutCtaText?: string
+  }
+}
+
+export function HeroSection({ hero }: HeroSectionProps = {}) {
   const prefersReduced = useReducedMotion()
+
+  const heroImage = hero?.heroImage || HOME_MEDIA.heroImage
+  const badge = hero?.badge || 'CONTRACTING & REAL ESTATE • ESTABLISHED 1994'
+  const headline = hero?.headline || 'DAR EL MASHRQ'
+  const tagline = hero?.tagline || 'Architectural Precision. Sovereign Scale.'
+  const bodyCopy =
+    hero?.bodyCopy ||
+    'Tier-one civil contracting, electro-mechanical prowess, and master-planned structural execution across Saudi Arabia, Egypt, and Qatar for three continuous decades.'
+  const exploreCtaText = hero?.exploreCtaText || 'Explore Projects'
+  const aboutCtaText = hero?.aboutCtaText || 'About The Enterprise'
 
   return (
     <section className="relative min-h-[92vh] md:min-h-screen flex items-center pt-24 pb-16 overflow-hidden border-b border-[#434651]/60">
@@ -45,8 +67,8 @@ export function HeroSection() {
           }}
         >
           <Image
-            src={HOME_MEDIA.heroImage}
-            alt="Tier-one mega civil infrastructure and skyscraper development site in Riyadh at dusk"
+            src={heroImage}
+            alt={headline}
             fill
             priority
             sizes="100vw"
@@ -85,7 +107,7 @@ export function HeroSection() {
             <BlueprintCrosshair position="top-left" />
             <span className="w-2 h-2 bg-[#ba9563] rounded-none" />
             <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.2em] text-[#ba9563] font-medium">
-              CONTRACTING &amp; REAL ESTATE &bull; ESTABLISHED 1994
+              {badge}
             </span>
             <BlueprintCrosshair position="bottom-right" />
           </motion.div>
@@ -109,7 +131,7 @@ export function HeroSection() {
                 }
             }
           >
-            DAR EL MASHRQ
+            {headline}
           </motion.h1>
 
           {/* Tagline */}
@@ -117,7 +139,7 @@ export function HeroSection() {
             className="font-['Montserrat'] text-lg sm:text-2xl text-[#ba9563] font-semibold uppercase tracking-wider mb-6"
             variants={fadeUpVariants}
           >
-            Architectural Precision. Sovereign Scale.
+            {tagline}
           </motion.p>
 
           {/* Body copy */}
@@ -125,8 +147,7 @@ export function HeroSection() {
             className="font-['Inter'] text-base sm:text-lg text-[#c4c6d2] max-w-2xl mb-10 leading-relaxed border-l-2 border-[#ba9563]/60 pl-6 bg-[#0b1a37]/30 backdrop-blur-sm py-1"
             variants={fadeUpVariants}
           >
-            Tier-one civil contracting, electro-mechanical prowess, and master-planned structural
-            execution across Saudi Arabia, Egypt, and Qatar for three continuous decades.
+            {bodyCopy}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -138,7 +159,7 @@ export function HeroSection() {
               href="/#projects"
               className="bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs font-bold uppercase tracking-[0.15em] px-8 py-4 border border-[#ba9563] flex items-center justify-center space-x-3 transition-all duration-200 shadow-lg shadow-[#ba9563]/20 group"
             >
-              <span>Explore Projects</span>
+              <span>{exploreCtaText}</span>
               <HardHat className="w-4 h-4 text-[#0b1a37] group-hover:rotate-12 transition-transform duration-200" />
             </Link>
 
@@ -146,7 +167,7 @@ export function HeroSection() {
               href="/about"
               className="border border-[#8e909c]/60 bg-[#162a4d]/70 hover:border-[#ba9563] hover:text-[#ba9563] text-white font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] px-8 py-4 backdrop-blur-sm transition-all duration-300 text-center flex items-center justify-center space-x-2 group"
             >
-              <span>About The Enterprise</span>
+              <span>{aboutCtaText}</span>
               <ArrowRight className="w-3.5 h-3.5 opacity-70 group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
           </motion.div>
