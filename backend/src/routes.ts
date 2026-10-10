@@ -6,6 +6,9 @@ import { createPublicAboutRouter, createAdminAboutRouter } from './modules/about
 import { createPublicServicesRouter, createAdminServicesRouter } from './modules/services/services.routes'
 import { createPublicProjectsRouter, createAdminProjectsRouter } from './modules/projects/projects.routes'
 import { createPublicMediaRouter, createAdminMediaRouter } from './modules/media/media.routes'
+import { createPublicContactRouter, createAdminContactRouter } from './modules/contact/contact.routes'
+import { createPublicSettingsRouter, createAdminSettingsRouter } from './modules/settings/settings.routes'
+import { createPublicSeoRouter, createAdminSeoRouter } from './modules/seo/seo.routes'
 
 export function createAppRouter(db?: Db): Router {
   const router = Router()
@@ -22,10 +25,14 @@ export function createAppRouter(db?: Db): Router {
   router.use('/admin/projects', createAdminProjectsRouter(db))
   router.use('/media', createPublicMediaRouter(db))
   router.use('/admin/media', createAdminMediaRouter(db))
+  router.use('/contact', createPublicContactRouter(db))
+  router.use('/admin/contact', createAdminContactRouter(db))
+  router.use('/settings', createPublicSettingsRouter(db))
+  router.use('/admin/settings', createAdminSettingsRouter(db))
+  router.use('/seo', createPublicSeoRouter(db))
+  router.use('/admin/seo', createAdminSeoRouter(db))
 
-  // Future Modules (Phases 08 - 09):
-  // router.use('/contact', createContactRouter(db))
-  // router.use('/settings', createSettingsRouter(db))
+  // Future Modules (Phase 09):
   // router.use('/auth', createAuthRouter(db))
 
   return router

@@ -1,4 +1,4 @@
-﻿import { z } from 'zod'
+import { z } from 'zod'
 import type { Country, ProjectCategory } from '@dar-elmashrq/types'
 
 export const COUNTRIES = ['saudi-arabia', 'egypt', 'qatar'] as const satisfies readonly Country[]
@@ -112,16 +112,32 @@ export const seoInputSchema = z
   .strict()
 export type SeoInput = z.input<typeof seoInputSchema>
 
-/** Contact is strictly validated; other documents are refined in their API phases. */
-export const contactDocumentSchema = z
+const fullContactSchema = z
   .object({
-    website: z.string().url(),
-    email: z.string().email(),
-    phones: z.array(z.string().regex(/^\+?[0-9]{7,16}$/, 'invalid phone')).min(1).max(10),
-    address: z.object({ country: text(100), city: text(100), district: text(100).optional() }).strict(),
-    socialLinks: z.record(z.string().url()).optional(),
+    hero: z
+      .object({
+        badge: z.string().trim().min(1),
+        headline: z.string().trim().min(1),
+      })
+      .passthrough(),
+    offices: z.array(z.record(z.unknown())).min(1),
+    generalEmail: z.string().email(),
+    phones: z.array(z.string().trim()).min(1),
   })
-  .strict()
+  .passthrough()
+
+export const contactDocumentSchema = z.union([
+  z
+    .object({
+      website: z.string().url(),
+      email: z.string().email(),
+      phones: z.array(z.string().regex(/^\+?[0-9]{7,16}$/, 'invalid phone')).min(1).max(10),
+      address: z.object({ country: text(100), city: text(100), district: text(100).optional() }).strict(),
+      socialLinks: z.record(z.string().url()).optional(),
+    })
+    .strict(),
+  fullContactSchema,
+])
 
 const looseDocument = z.record(z.unknown())
 export const documentSchemas = {
