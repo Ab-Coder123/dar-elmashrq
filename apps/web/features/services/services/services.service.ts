@@ -13,17 +13,37 @@ import { publicApiClient } from '@/lib/api'
  * Consumes public REST API (/api/v1/services) with seamless fallback.
  */
 
+function normalizeTechnicalService(s: any, index: number): TechnicalService {
+  const fallback =
+    TECHNICAL_SERVICES.find((ts) => ts.slug === s.slug || ts.id === s.id) ||
+    TECHNICAL_SERVICES[index % TECHNICAL_SERVICES.length]!
+  return {
+    id: String(s.id || fallback.id),
+    slug: s.slug || fallback.slug,
+    number: s.number || fallback.number || `0${index + 1}`,
+    title: s.name || s.title || fallback.title,
+    shortTitle: s.shortTitle || s.name || fallback.shortTitle,
+    category: s.category || fallback.category,
+    specCode: s.specCode || fallback.specCode,
+    description: s.description || fallback.description,
+    scopeItems: Array.isArray(s.scopeItems) && s.scopeItems.length > 0 ? s.scopeItems : fallback.scopeItems,
+    standards: Array.isArray(s.standards) && s.standards.length > 0 ? s.standards : fallback.standards,
+    image: s.image || fallback.image,
+    iconName: s.icon || s.iconName || fallback.iconName,
+  }
+}
+
 export async function getTechnicalServices(): Promise<TechnicalService[]> {
-  const apiServices = await publicApiClient<TechnicalService[]>('/services')
+  const apiServices = await publicApiClient<any[]>('/services')
   if (apiServices && Array.isArray(apiServices) && apiServices.length > 0) {
-    return apiServices
+    return apiServices.map(normalizeTechnicalService)
   }
   return TECHNICAL_SERVICES
 }
 
 export async function getTechnicalServiceBySlug(slug: string): Promise<TechnicalService | null> {
-  const apiService = await publicApiClient<TechnicalService>(`/services/${slug}`)
-  if (apiService) return apiService
+  const apiService = await publicApiClient<any>(`/services/${slug}`)
+  if (apiService) return normalizeTechnicalService(apiService, 0)
 
   const service = TECHNICAL_SERVICES.find((s) => s.slug === slug)
   return service ?? null

@@ -84,7 +84,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
   }
 
   const imageUrl: string =
-    project.images[0]?.url ||
+    project.images?.[0]?.url ||
     PROJECT_IMAGE_FALLBACKS[project.slug] ||
     PROJECT_IMAGE_FALLBACKS['default'] ||
     'https://images.unsplash.com/photo-1541888946425-d0fbb18f15f6?auto=format&fit=crop&w=1600&q=85'
@@ -124,7 +124,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
               {/* Status Pill */}
               <div className="absolute top-6 left-6 bg-[#ba9563] text-[#0b1a37] px-3.5 py-1.5 font-['Space_Grotesk'] text-xs uppercase tracking-[0.2em] font-extrabold shadow-md">
-                OFFICIAL CONTRACT RECORD // {project.id.toUpperCase()}
+                OFFICIAL CONTRACT RECORD // {String(project.id).toUpperCase()}
               </div>
 
               {/* Title & Category */}

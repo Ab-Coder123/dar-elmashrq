@@ -8,6 +8,18 @@ import { publicApiClient } from '@/lib/api'
  * Consumes public REST API (/api/v1/projects) with seamless fallback to static verified assets.
  */
 
+function normalizeProject(p: any): Project {
+  if (!p) return p
+  return {
+    ...p,
+    id: String(p.id),
+    services: Array.isArray(p.services)
+      ? p.services.map((s: any) => (typeof s === 'string' ? s : s?.nameAr || s?.name || String(s)))
+      : [],
+    images: Array.isArray(p.images) ? p.images : [],
+  }
+}
+
 export async function getProjects(filters?: ProjectFilters): Promise<ProjectSummary[]> {
   const queryParams = new URLSearchParams()
   if (filters?.country && filters.country !== 'all') queryParams.set('country', filters.country)
@@ -17,9 +29,9 @@ export async function getProjects(filters?: ProjectFilters): Promise<ProjectSumm
   const queryString = queryParams.toString()
   const endpoint = `/projects${queryString ? `?${queryString}` : ''}`
 
-  const apiProjects = await publicApiClient<ProjectSummary[]>(endpoint)
+  const apiProjects = await publicApiClient<any[]>(endpoint)
   if (apiProjects && Array.isArray(apiProjects) && apiProjects.length > 0) {
-    return apiProjects
+    return apiProjects.map(normalizeProject)
   }
 
   // Fallback to static verified PDF projects
@@ -29,25 +41,26 @@ export async function getProjects(filters?: ProjectFilters): Promise<ProjectSumm
 }
 
 export async function getAllProjectDetails(): Promise<Project[]> {
-  const apiProjects = await publicApiClient<Project[]>('/projects')
+  const apiProjects = await publicApiClient<any[]>('/projects')
   if (apiProjects && Array.isArray(apiProjects) && apiProjects.length > 0) {
-    return apiProjects
+    return apiProjects.map(normalizeProject)
   }
   return getAllProjects()
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
-  const apiProject = await publicApiClient<Project>(`/projects/${slug}`)
-  if (apiProject) return apiProject
+  const apiProject = await publicApiClient<any>(`/projects/${slug}`)
+  if (apiProject) return normalizeProject(apiProject)
 
   const staticProjects = await getAllProjects()
-  return staticProjects.find((p) => p.slug === slug) ?? null
+  const found = staticProjects.find((p) => p.slug === slug) ?? null
+  return found ? normalizeProject(found) : null
 }
 
 export async function getFeatured(): Promise<Project[]> {
-  const apiFeatured = await publicApiClient<Project[]>('/projects/featured')
+  const apiFeatured = await publicApiClient<any[]>('/projects/featured')
   if (apiFeatured && Array.isArray(apiFeatured) && apiFeatured.length > 0) {
-    return apiFeatured
+    return apiFeatured.map(normalizeProject)
   }
   return getFeaturedProjects()
 }

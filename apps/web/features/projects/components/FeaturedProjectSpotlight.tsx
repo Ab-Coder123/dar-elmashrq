@@ -16,7 +16,7 @@ export function FeaturedProjectSpotlight({ project, onOpenDossier }: FeaturedPro
   if (!project) return null
 
   const imageUrl =
-    project.images[0]?.url ||
+    project.images?.[0]?.url ||
     'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1600&q=85'
 
   return (

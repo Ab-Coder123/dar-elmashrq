@@ -68,7 +68,7 @@ export function RelatedProjects({ relatedProjects, onSelectProject }: RelatedPro
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {relatedProjects.map((relProject) => {
             const relImg =
-              relProject.images[0]?.url ||
+              relProject.images?.[0]?.url ||
               PROJECT_IMAGE_FALLBACKS[relProject.slug] ||
               PROJECT_IMAGE_FALLBACKS['default'] ||
               'https://images.unsplash.com/photo-1541888946425-d0fbb18f15f6?auto=format&fit=crop&w=1600&q=85'

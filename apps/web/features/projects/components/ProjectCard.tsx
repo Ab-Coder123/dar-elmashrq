@@ -53,7 +53,7 @@ const PROJECT_IMAGE_FALLBACKS: Record<string, string> = {
 
 export function ProjectCard({ project, onOpenDossier, isPriority = false }: ProjectCardProps) {
   const imageUrl: string =
-    project.images[0]?.url ||
+    project.images?.[0]?.url ||
     PROJECT_IMAGE_FALLBACKS[project.slug] ||
     PROJECT_IMAGE_FALLBACKS['default'] ||
     'https://images.unsplash.com/photo-1541888946425-d0fbb18f15f6?auto=format&fit=crop&w=1600&q=85'
