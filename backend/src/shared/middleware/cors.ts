@@ -6,7 +6,7 @@ export const corsMiddleware = cors({
     // Allow requests with no origin (like mobile apps, curl, server-to-server)
     if (!origin) return callback(null, true)
 
-    if (env.corsOrigins.includes(origin) || !env.isProduction) {
+    if (env.corsOrigins.includes('*') || env.corsOrigins.includes(origin) || !env.isProduction) {
       return callback(null, true)
     }
 

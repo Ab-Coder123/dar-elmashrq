@@ -14,6 +14,7 @@
   "dependencies": {
     "@dar-elmashrq/types": "workspace:*",
     "@dar-elmashrq/utils": "workspace:*",
+    "lucide-react": "^0.511.0",
     "next": "^16.3.8",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
