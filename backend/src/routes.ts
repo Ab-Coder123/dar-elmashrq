@@ -3,6 +3,7 @@ import type { Db } from './infrastructure/database/db'
 import { healthRouter } from './modules/health/health.routes'
 import { createPublicHomeRouter, createAdminHomeRouter } from './modules/home/home.routes'
 import { createPublicAboutRouter, createAdminAboutRouter } from './modules/about/about.routes'
+import { createPublicServicesRouter, createAdminServicesRouter } from './modules/services/services.routes'
 
 export function createAppRouter(db?: Db): Router {
   const router = Router()
@@ -13,9 +14,10 @@ export function createAppRouter(db?: Db): Router {
   router.use('/admin/home', createAdminHomeRouter(db))
   router.use('/about', createPublicAboutRouter(db))
   router.use('/admin/about', createAdminAboutRouter(db))
+  router.use('/services', createPublicServicesRouter(db))
+  router.use('/admin/services', createAdminServicesRouter(db))
 
-  // Future Modules (Phases 05 - 09):
-  // router.use('/services', createServicesRouter(db))
+  // Future Modules (Phases 06 - 09):
   // router.use('/projects', createProjectsRouter(db))
   // router.use('/media', createMediaRouter(db))
   // router.use('/contact', createContactRouter(db))
