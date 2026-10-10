@@ -80,7 +80,7 @@ runCheck(
 // 3. Automated Vitest Suite (All Units & Integration)
 runCheck(
   'CHECK_TESTS',
-  'Automated Test Suite (Vitest 80 Tests across 8 test suites)',
+  'Automated Test Suite (Vitest 97 Tests across 9 test suites)',
   'pnpm exec vitest run'
 )
 
@@ -138,9 +138,9 @@ const phaseStatus = [
   {
     phase: '07',
     title: 'Media Library API',
-    status: 'NOT IMPLEMENTED',
-    evidence: 'media_assets table defined; upload endpoints & S3/storage integration not yet built.',
-    remainingIssues: 'To be implemented in Phase 07.',
+    status: 'PASS',
+    evidence: 'Public GET /media, /:id (public assets only), Admin CRUD, file type/size/path traversal validation, safe deletion FK conflict protection (17/17 tests passing).',
+    remainingIssues: 'None. Storage metadata, private document protection, and validations verified.',
   },
   {
     phase: '08',
