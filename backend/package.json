@@ -12,6 +12,7 @@
                     "type-check":  "tsc --noEmit -p tsconfig.check.json",
                     "audit":  "node scripts/audit-backend.mjs",
                     "db:migrate":  "tsx scripts/migrate.ts",
+                    "db:seed":  "tsx scripts/seed-all-data.ts",
                     "admin:create":  "tsx scripts/create-admin.ts",
                     "admin:seed":  "tsx scripts/seed-initial-admin.ts"
                 },
