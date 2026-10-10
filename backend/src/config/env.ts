@@ -17,6 +17,8 @@ const envSchema = z.object({
     .enum(['true', 'false'])
     .default('false')
     .transform((v) => v === 'true'),
+  JWT_SECRET: z.string().min(16).default('dar-elmashrq-super-secret-jwt-key-2026!'),
+  JWT_EXPIRES_IN_SECONDS: z.coerce.number().int().default(86400),
 })
 
 const parseEnv = () => {

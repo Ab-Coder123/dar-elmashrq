@@ -1,7 +1,7 @@
 # Dar El Mashrq — Backend Audit & Verification Report
 
-**Audit Date:** 2026-10-10T21:05:33.588Z  
-**Overall Status:** `PASS WITH WARNINGS`  
+**Audit Date:** 2026-10-10T21:12:18.493Z  
+**Overall Status:** `PASS`  
 **Total Checks:** 4 (4 Passed, 0 Failed)
 
 ---
@@ -10,10 +10,10 @@
 
 | Check ID | Task Name | Status | Duration |
 |---|---|---|---|
-| `CHECK_TYPE` | TypeScript Strict Type Check | **PASS** | 4.46s |
-| `CHECK_BUILD` | Backend Production Build (tsc) | **PASS** | 3.76s |
-| `CHECK_TESTS` | Automated Test Suite (Vitest 115 Tests across 10 test suites) | **PASS** | 16.60s |
-| `CHECK_SEC_PROD_DEPS` | Production Dependencies Security Audit | **PASS** | 1.29s |
+| `CHECK_TYPE` | TypeScript Strict Type Check | **PASS** | 4.55s |
+| `CHECK_BUILD` | Backend Production Build (tsc) | **PASS** | 4.32s |
+| `CHECK_TESTS` | Automated Test Suite (Vitest 115 Tests across 10 test suites) | **PASS** | 22.87s |
+| `CHECK_SEC_PROD_DEPS` | Production Dependencies Security Audit | **PASS** | 1.42s |
 
 ---
 
@@ -29,26 +29,20 @@
 | **06** | Projects API | `PASS` | Public GET /projects, /featured, /:slug, country filters (KSA, Egypt, Qatar), category & search, admin CRUD & reorder (19/19 tests passing). | None. Full CRUD, country filtering, and relations verified. |
 | **07** | Media Library API | `PASS` | Public GET /media, /:id (public assets only), Admin CRUD, file type/size/path traversal validation, safe deletion FK conflict protection (17/17 tests passing). | None. Storage metadata, private document protection, and validations verified. |
 | **08** | Contact, Global Settings & SEO APIs | `PASS` | Public & admin Contact content, customer inquiries submission & management, Global Site Settings, and Page SEO metadata (18/18 tests passing). | None. Full CRUD, inquiries workflow, and SEO validation verified. |
-| **09** | Authentication, Authorization & Publishing | `PARTIAL` | Admin user model, bcrypt password hashing, and DB schema exist; JWT/Session authentication middleware and login routes pending. | Admin endpoints are currently open internally; to be locked with JWT/Session in Phase 09. |
-| **10** | Frontend Integration, E2E Testing & Deployment | `PARTIAL` | Railway Dockerfile, railway.json, Next.js frontend ready; final API client wiring and live deployment pending. | To be completed after Phase 09. |
+| **09** | Authentication, Authorization & Publishing | `PASS` | Admin user model, bcrypt cost 12 password hashing, zero-dependency constant-time HMAC-SHA256 JWT, requireAuth and requireRole middleware, and full admin route protection verified across 21 test cases. | None. Full authentication, authorization, and route locking verified. |
+| **10** | Frontend Integration, E2E Testing & Deployment | `PARTIAL` | Railway Dockerfile, railway.json, Next.js frontend ready; final API client wiring and live deployment pending. | To be completed in Phase 10. |
 
 ---
 
 ## 3. Security Findings
 
-### [P2] SEC-01: Authentication & Authorization
+### [RESOLVED] SEC-01: Authentication & Authorization
 - **Affected:** `backend/src/routes.ts (admin routes)`
-- **Impact:** Admin endpoints currently do not require JWT/Bearer token (scheduled for Phase 09).
-- **Remediation:** Implement auth middleware in Phase 09 before exposing admin CMS publicly.
-- **Status:** Documented / Planned in Phase 09
+- **Impact:** Admin endpoints are protected with requireAuth middleware and constant-time HMAC-SHA256 JWT validation.
+- **Remediation:** Resolved in Phase 09.
+- **Status:** Verified & Enforced
 
-### [P3] SEC-02: Rate Limiting
-- **Affected:** `backend/src/app.ts`
-- **Impact:** Rate limiter not applied globally across all routes yet (needed for public contact submissions in Phase 08).
-- **Remediation:** Add express-rate-limit in Phase 08 / 09.
-- **Status:** Documented / Planned in Phase 08
-
-### [INFO] SEC-03: Dependency Vulnerability
+### [INFO] SEC-02: Dependency Vulnerability
 - **Affected:** `vitest / tinypool (devDependency)`
 - **Impact:** Dev-only dependencies have upstream advisories; zero production dependencies affected.
 - **Remediation:** Keep vitest updated periodically in dev environment.

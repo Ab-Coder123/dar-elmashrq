@@ -6,10 +6,12 @@ import { corsMiddleware } from './shared/middleware/cors'
 import { requestLogger } from './shared/middleware/requestLogger'
 import { errorHandler } from './shared/errors/errorHandler'
 import { NotFoundError } from './shared/errors/AppError'
-import { createAppRouter } from './routes'
+import { createAppRouter, type RouterOptions } from './routes'
 import { getHealthStatus } from './modules/health/health.controller'
 
-export function createApp(customDb?: Db): Application {
+export interface AppOptions extends RouterOptions {}
+
+export function createApp(customDb?: Db, options: AppOptions = {}): Application {
   const app = express()
 
   // Security Middleware
@@ -27,7 +29,7 @@ export function createApp(customDb?: Db): Application {
   app.get('/health', getHealthStatus)
 
   // API Version 1 Routes
-  app.use(env.API_PREFIX, createAppRouter(customDb))
+  app.use(env.API_PREFIX, createAppRouter(customDb, options))
 
   // Fallback 404 Route
   app.use((req, _res, next) => {
@@ -39,3 +41,4 @@ export function createApp(customDb?: Db): Application {
 
   return app
 }
+

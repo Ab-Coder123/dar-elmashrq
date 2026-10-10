@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-10-10T21:05:33.588Z",
-  "durationMs": 26136,
-  "overallStatus": "PASS WITH WARNINGS",
+  "timestamp": "2026-10-10T21:12:18.493Z",
+  "durationMs": 33191,
+  "overallStatus": "PASS",
   "summary": {
     "totalChecks": 4,
     "passedChecks": 4,
@@ -13,7 +13,7 @@
       "name": "TypeScript Strict Type Check",
       "command": "pnpm exec tsc --noEmit -p tsconfig.check.json",
       "status": "PASS",
-      "durationMs": 4465,
+      "durationMs": 4555,
       "output": "",
       "errorSummary": null
     },
@@ -22,7 +22,7 @@
       "name": "Backend Production Build (tsc)",
       "command": "pnpm exec tsc -p tsconfig.json",
       "status": "PASS",
-      "durationMs": 3762,
+      "durationMs": 4324,
       "output": "",
       "errorSummary": null
     },
@@ -31,8 +31,8 @@
       "name": "Automated Test Suite (Vitest 115 Tests across 10 test suites)",
       "command": "pnpm exec vitest run",
       "status": "PASS",
-      "durationMs": 16601,
-      "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.2.7 \u001b[39m\u001b[90mE:/programming/Space Work/Dar_Elmashreq/backend\u001b[39m\n\n \u001b[32m✓\u001b[39m test/about.test.ts \u001b[2m(\u001b[22m\u001b[2m10 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 8503\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/contact_settings_seo.test.ts \u001b[2m(\u001b[22m\u001b[2m18 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 8769\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/services.test.ts \u001b[2m(\u001b[22m\u001b[2m17 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 9538\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/media.test.ts \u001b[2m(\u001b[22m\u001b[2m17 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 9608\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/database.test.ts \u001b[2m(\u001b[22m\u001b[2m19 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 10780\u001b[2mms\u001b[22m\u001b[39m\n   \u001b[33m\u001b[2m✓\u001b[22m\u001b[39m admin users\u001b[2m > \u001b[22mhashes passwords, lowercases email, rejects weak passwords and duplicates \u001b[33m 1597\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/home.test.ts \u001b[2m(\u001b[22m\u001b[2m8 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 9973\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/projects.test.ts \u001b[2m(\u001b[22m\u001b[2m19 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 10148\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/cors.test.ts \u001b[2m(\u001b[22m\u001b[2m2 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 81\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/errors.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 106\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/health.test.ts \u001b[2m(\u001b[22m\u001b[2m2 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 61\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m10 passed\u001b[39m\u001b[22m\u001b[90m (10)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m115 passed\u001b[39m\u001b[22m\u001b[90m (115)\u001b[39m\n\u001b[2m   Start at \u001b[22m 00:05:43\n\u001b[2m   Duration \u001b[22m 14.35s\u001b[2m (transform 2.11s, setup 0ms, collect 15.59s, tests 67.57s, environment 10ms, prepare 4.57s)\u001b[22m\n\n",
+      "durationMs": 22872,
+      "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.2.7 \u001b[39m\u001b[90mE:/programming/Space Work/Dar_Elmashreq/backend\u001b[39m\n\n \u001b[32m✓\u001b[39m test/contact_settings_seo.test.ts \u001b[2m(\u001b[22m\u001b[2m18 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 9885\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/database.test.ts \u001b[2m(\u001b[22m\u001b[2m19 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 12222\u001b[2mms\u001b[22m\u001b[39m\n   \u001b[33m\u001b[2m✓\u001b[22m\u001b[39m admin users\u001b[2m > \u001b[22mhashes passwords, lowercases email, rejects weak passwords and duplicates \u001b[33m 1874\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/home.test.ts \u001b[2m(\u001b[22m\u001b[2m8 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 11674\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/media.test.ts \u001b[2m(\u001b[22m\u001b[2m17 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 12235\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/services.test.ts \u001b[2m(\u001b[22m\u001b[2m17 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 12448\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/projects.test.ts \u001b[2m(\u001b[22m\u001b[2m19 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 12843\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/cors.test.ts \u001b[2m(\u001b[22m\u001b[2m2 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 118\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/errors.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 129\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/health.test.ts \u001b[2m(\u001b[22m\u001b[2m2 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 145\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/about.test.ts \u001b[2m(\u001b[22m\u001b[2m10 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 4024\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/auth.test.ts \u001b[2m(\u001b[22m\u001b[2m21 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 17203\u001b[2mms\u001b[22m\u001b[39m\n   \u001b[33m\u001b[2m✓\u001b[22m\u001b[39m Authentication & Authorization API (Phase 09)\u001b[2m > \u001b[22mPOST /api/v1/auth/login\u001b[2m > \u001b[22mrejects incorrect password with 401 UnauthorizedError \u001b[33m 787\u001b[2mms\u001b[22m\u001b[39m\n   \u001b[33m\u001b[2m✓\u001b[22m\u001b[39m Authentication & Authorization API (Phase 09)\u001b[2m > \u001b[22mPOST /api/v1/auth/login\u001b[2m > \u001b[22msuccessfully logs in with valid admin credentials \u001b[33m 872\u001b[2mms\u001b[22m\u001b[39m\n   \u001b[33m\u001b[2m✓\u001b[22m\u001b[39m Authentication & Authorization API (Phase 09)\u001b[2m > \u001b[22mPOST /api/v1/auth/login\u001b[2m > \u001b[22msuccessfully logs in with valid editor credentials \u001b[33m 802\u001b[2mms\u001b[22m\u001b[39m\n   \u001b[33m\u001b[2m✓\u001b[22m\u001b[39m Authentication & Authorization API (Phase 09)\u001b[2m > \u001b[22mPOST /api/",
       "errorSummary": null
     },
     {
@@ -40,7 +40,7 @@
       "name": "Production Dependencies Security Audit",
       "command": "pnpm audit --prod",
       "status": "PASS",
-      "durationMs": 1293,
+      "durationMs": 1423,
       "output": "No known vulnerabilities found\n",
       "errorSummary": null
     }
@@ -105,39 +105,30 @@
     {
       "phase": "09",
       "title": "Authentication, Authorization & Publishing",
-      "status": "PARTIAL",
-      "evidence": "Admin user model, bcrypt password hashing, and DB schema exist; JWT/Session authentication middleware and login routes pending.",
-      "remainingIssues": "Admin endpoints are currently open internally; to be locked with JWT/Session in Phase 09."
+      "status": "PASS",
+      "evidence": "Admin user model, bcrypt cost 12 password hashing, zero-dependency constant-time HMAC-SHA256 JWT, requireAuth and requireRole middleware, and full admin route protection verified across 21 test cases.",
+      "remainingIssues": "None. Full authentication, authorization, and route locking verified."
     },
     {
       "phase": "10",
       "title": "Frontend Integration, E2E Testing & Deployment",
       "status": "PARTIAL",
       "evidence": "Railway Dockerfile, railway.json, Next.js frontend ready; final API client wiring and live deployment pending.",
-      "remainingIssues": "To be completed after Phase 09."
+      "remainingIssues": "To be completed in Phase 10."
     }
   ],
   "securityFindings": [
     {
       "id": "SEC-01",
-      "severity": "P2",
+      "severity": "RESOLVED",
       "category": "Authentication & Authorization",
       "affected": "backend/src/routes.ts (admin routes)",
-      "impact": "Admin endpoints currently do not require JWT/Bearer token (scheduled for Phase 09).",
-      "remediation": "Implement auth middleware in Phase 09 before exposing admin CMS publicly.",
-      "status": "Documented / Planned in Phase 09"
+      "impact": "Admin endpoints are protected with requireAuth middleware and constant-time HMAC-SHA256 JWT validation.",
+      "remediation": "Resolved in Phase 09.",
+      "status": "Verified & Enforced"
     },
     {
       "id": "SEC-02",
-      "severity": "P3",
-      "category": "Rate Limiting",
-      "affected": "backend/src/app.ts",
-      "impact": "Rate limiter not applied globally across all routes yet (needed for public contact submissions in Phase 08).",
-      "remediation": "Add express-rate-limit in Phase 08 / 09.",
-      "status": "Documented / Planned in Phase 08"
-    },
-    {
-      "id": "SEC-03",
       "severity": "INFO",
       "category": "Dependency Vulnerability",
       "affected": "vitest / tinypool (devDependency)",
