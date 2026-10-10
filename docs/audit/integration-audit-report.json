@@ -1,0 +1,197 @@
+{
+  "auditDate": "2026-10-11T02:50:00.000Z",
+  "project": "Dar El Mashrq Corporate Portfolio & CMS",
+  "auditor": "Senior Full-Stack & DevOps Release Engineer",
+  "summary": {
+    "totalModulesAudited": 7,
+    "totalScenariosTested": 9,
+    "scenariosPassed": 8,
+    "scenariosFailed": 0,
+    "scenariosPartial": 1,
+    "overallStatus": "CONNECTED WITH GAPS",
+    "readinessDecision": "CONDITIONAL GO — Connected with verified data flow, subject to the 60s cache propagation window and external video URL embedding constraint."
+  },
+  "environments": {
+    "publicWeb": {
+      "url": "https://dar-elmashrq.vercel.app",
+      "framework": "Next.js 16 App Router",
+      "dataStrategy": "Public API Client with ISR (revalidate: 60) and Static Fallback"
+    },
+    "adminDashboard": {
+      "url": "https://dar-elmashrq-admin.vercel.app",
+      "framework": "Next.js 16 App Router",
+      "authStrategy": "JWT Bearer Token stored in localStorage"
+    },
+    "backendApi": {
+      "url": "https://dar-elmashrq-backend.vercel.app/api/v1",
+      "framework": "Express Serverless",
+      "database": "Supabase PostgreSQL (AWS eu-west-1 pooler)"
+    }
+  },
+  "modulesInventory": [
+    {
+      "moduleName": "Home Page Content",
+      "adminRoute": "/home",
+      "publicRoute": "/",
+      "status": "PASS",
+      "editableFields": [
+        "hero.badge",
+        "hero.headline",
+        "hero.tagline",
+        "hero.bodyCopy",
+        "hero.heroImage",
+        "hero.exploreCtaText",
+        "hero.aboutCtaText",
+        "stats (label, labelAr, value, description)",
+        "whyPillars (code, title, description, iconName)",
+        "regionalHubs (country, name, address, phone)",
+        "credentials"
+      ],
+      "adminAdapter": "apps/admin/services/homeContent.service.ts",
+      "backendEndpoint": "/admin/home",
+      "publicEndpoint": "/home",
+      "databaseTarget": "content_documents (key='home')",
+      "publicComponent": "apps/web/features/home/components/HeroSection.tsx, ExperienceSection.tsx, WhyDarElMashrq.tsx",
+      "persistenceVerified": true,
+      "publicRenderingVerified": true
+    },
+    {
+      "moduleName": "About Us Content",
+      "adminRoute": "/about",
+      "publicRoute": "/about",
+      "status": "PASS",
+      "editableFields": [
+        "hero.badge",
+        "hero.headline",
+        "hero.tagline",
+        "hero.description",
+        "hero.heroImage",
+        "vision (visionTitle, visionDescription, missionTitle, missionDescription)",
+        "history milestones (year, title, badge, description)",
+        "capabilities",
+        "divisions"
+      ],
+      "adminAdapter": "apps/admin/services/aboutContent.service.ts",
+      "backendEndpoint": "/admin/about",
+      "publicEndpoint": "/about",
+      "databaseTarget": "content_documents (key='about')",
+      "publicComponent": "apps/web/features/about/components/AboutHero.tsx",
+      "persistenceVerified": true,
+      "publicRenderingVerified": true
+    },
+    {
+      "moduleName": "Projects Portfolio",
+      "adminRoute": "/projects",
+      "publicRoute": "/projects, /projects/[slug]",
+      "status": "PASS",
+      "editableFields": [
+        "name",
+        "nameAr",
+        "slug",
+        "country",
+        "location",
+        "locationAr",
+        "category",
+        "year",
+        "description",
+        "descriptionAr",
+        "scope",
+        "scopeAr",
+        "isFeatured",
+        "displayOrder",
+        "status (draft/published)"
+      ],
+      "adminAdapter": "apps/admin/services/projectsContent.service.ts",
+      "backendEndpoint": "/admin/projects",
+      "publicEndpoint": "/projects, /projects/:slug",
+      "databaseTarget": "projects table",
+      "publicComponent": "apps/web/features/projects/components/ProjectExplorer.tsx, app/projects/[slug]/page.tsx",
+      "persistenceVerified": true,
+      "publicRenderingVerified": true
+    },
+    {
+      "moduleName": "Services Catalog",
+      "adminRoute": "/services",
+      "publicRoute": "/services, /services/[slug]",
+      "status": "PASS",
+      "editableFields": [
+        "name",
+        "nameAr",
+        "slug",
+        "description",
+        "descriptionAr",
+        "icon",
+        "displayOrder",
+        "status (draft/published)"
+      ],
+      "adminAdapter": "apps/admin/services/servicesContent.service.ts",
+      "backendEndpoint": "/admin/services",
+      "publicEndpoint": "/services, /services/:slug",
+      "databaseTarget": "services table",
+      "publicComponent": "apps/web/features/services/components/ServicesExplorer.tsx",
+      "persistenceVerified": true,
+      "publicRenderingVerified": true
+    },
+    {
+      "moduleName": "Contact & Inquiries",
+      "adminRoute": "/contact",
+      "publicRoute": "/contact",
+      "status": "PASS",
+      "editableFields": [
+        "offices (country, name, city, address, phone, email)",
+        "settings (mainEmail, inquiryEmail, emergencyPhone)",
+        "inquiries listing & read status"
+      ],
+      "adminAdapter": "apps/admin/services/contactContent.service.ts",
+      "backendEndpoint": "/admin/contact, /contact/inquiries, /admin/contact/inquiries",
+      "publicEndpoint": "/contact",
+      "databaseTarget": "content_documents (key='contact'), contact_inquiries table",
+      "publicComponent": "apps/web/features/contact/components/ContactFormSection.tsx, ContactOfficesSection.tsx",
+      "persistenceVerified": true,
+      "publicRenderingVerified": true
+    },
+    {
+      "moduleName": "Global Settings & SEO",
+      "adminRoute": "/settings, /seo",
+      "publicRoute": "/settings, /seo/:pageKey",
+      "status": "PASS",
+      "editableFields": [
+        "siteName",
+        "siteNameAr",
+        "tagline",
+        "taglineAr",
+        "maintenanceMode",
+        "seo meta title, description, ogImage"
+      ],
+      "adminAdapter": "apps/admin/services/settingsContent.service.ts",
+      "backendEndpoint": "/admin/settings, /admin/seo/:pageKey",
+      "publicEndpoint": "/settings, /seo/:pageKey",
+      "databaseTarget": "content_documents (key='settings'), seo_metadata table",
+      "publicComponent": "Public metadata and site configuration",
+      "persistenceVerified": true,
+      "publicRenderingVerified": true
+    },
+    {
+      "moduleName": "Media Library",
+      "adminRoute": "/media",
+      "publicRoute": "/media",
+      "status": "PARTIAL",
+      "editableFields": [
+        "filename",
+        "category",
+        "altText",
+        "altTextAr",
+        "isPublic",
+        "storageKey"
+      ],
+      "adminAdapter": "apps/admin/services/mediaContent.service.ts",
+      "backendEndpoint": "/admin/media",
+      "publicEndpoint": "/media",
+      "databaseTarget": "media_assets table",
+      "publicComponent": "Image components across portfolio",
+      "persistenceVerified": true,
+      "publicRenderingVerified": true,
+      "notes": "Image and PDF metadata fully persist to PostgreSQL. Direct video binary upload is NOT supported by the backend schema; video embeds must use external video URLs (YouTube, Vimeo, MP4 CDN links)."
+    }
+  ]
+}

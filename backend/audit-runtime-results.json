@@ -1,0 +1,115 @@
+{
+  "scenarios": {
+    "AUTH-01": {
+      "id": "AUTH-01",
+      "name": "Admin Authentication Handshake",
+      "status": "PASS",
+      "details": {
+        "email": "elmashrq5555@gmail.com",
+        "role": "admin"
+      },
+      "timestamp": "2026-10-10T23:49:20.230Z"
+    },
+    "SCENARIO-A": {
+      "id": "SCENARIO-A",
+      "name": "Home Hero Text Update End-to-End Persistence",
+      "status": "PASS",
+      "details": {
+        "endpoint": "/admin/home",
+        "sentHeadline": "DAR EL MASHRQ // AUDIT-TEST-1791676160233",
+        "dbPersisted": "DAR EL MASHRQ // AUDIT-TEST-1791676160233",
+        "publicApiReturned": "DAR EL MASHRQ // AUDIT-TEST-1791676160233"
+      },
+      "timestamp": "2026-10-10T23:49:22.467Z"
+    },
+    "SCENARIO-D": {
+      "id": "SCENARIO-D",
+      "name": "Services Catalog Lifecycle (CRUD + Public Propagation)",
+      "status": "PASS",
+      "details": {
+        "createdId": 12,
+        "slug": "audit-svc-1791676162467",
+        "createdStatus": 201,
+        "foundInPublicListing": true,
+        "deletedStatus": 200,
+        "publicRemovalConfirmed": true
+      },
+      "timestamp": "2026-10-10T23:49:24.159Z"
+    },
+    "SCENARIO-E": {
+      "id": "SCENARIO-E",
+      "name": "Projects Portfolio Lifecycle (Draft/Publish/Delete)",
+      "status": "PASS",
+      "details": {
+        "createdId": 33,
+        "slug": "audit-proj-1791676164159",
+        "draftIsolationVerified": true,
+        "publishedVisibilityVerified": true,
+        "slugRouteVerified": true,
+        "deletionVerified": true
+      },
+      "timestamp": "2026-10-10T23:49:26.687Z"
+    },
+    "SCENARIO-F": {
+      "id": "SCENARIO-F",
+      "name": "Contact Inquiries & Global Settings End-to-End",
+      "status": "PASS",
+      "details": {
+        "inquiryId": 3,
+        "inquiryStored": true,
+        "settingsAccessible": true
+      },
+      "timestamp": "2026-10-10T23:49:27.554Z"
+    },
+    "SCENARIO-B": {
+      "id": "SCENARIO-B",
+      "name": "Media Asset Metadata Lifecycle (Images & PDFs)",
+      "status": "PASS",
+      "details": {
+        "createdMediaId": 3,
+        "mediaPostStatus": 201,
+        "storageNote": "Metadata & storageKey persisted to media_assets PostgreSQL table. Binary storage relies on storage provider/local uploads."
+      },
+      "timestamp": "2026-10-10T23:49:28.302Z"
+    },
+    "SCENARIO-C": {
+      "id": "SCENARIO-C",
+      "name": "Video Media Upload Support",
+      "status": "PARTIAL",
+      "details": {
+        "videoUploadAttemptStatus": 422,
+        "videoSupported": false,
+        "validationEnforced": true,
+        "auditFinding": "Backend strict validation restricts ALLOWED_MIME to images and PDFs. Video URLs can be embedded in content strings, but video binary uploads are not supported by the current media schema."
+      },
+      "timestamp": "2026-10-10T23:49:28.302Z"
+    },
+    "SCENARIO-G": {
+      "id": "SCENARIO-G",
+      "name": "Security & Validation Guardrails",
+      "status": "PASS",
+      "details": {
+        "unauthCode": 401,
+        "validationErrorCode": 422
+      },
+      "timestamp": "2026-10-10T23:49:28.719Z"
+    },
+    "SCENARIO-H": {
+      "id": "SCENARIO-H",
+      "name": "Read-after-Write Consistency & Cache Header Verification",
+      "status": "PASS",
+      "details": {
+        "cacheControlHeader": "public, max-age=60",
+        "dataRetrieved": true
+      },
+      "timestamp": "2026-10-10T23:49:28.930Z"
+    }
+  },
+  "inventory": {},
+  "summary": {
+    "total": 9,
+    "passed": 8,
+    "failed": 0,
+    "partial": 1
+  }
+}
