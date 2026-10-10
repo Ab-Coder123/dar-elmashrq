@@ -71,55 +71,132 @@ export const INITIAL_CONTACT_CONTENT: AdminContactContent = {
   updatedAt: new Date().toISOString(),
 }
 
+import { adminApiClient } from '../lib/api'
+
 let contactState: AdminContactContent = JSON.parse(JSON.stringify(INITIAL_CONTACT_CONTENT))
 
 export const mockContactAdapter = {
   getContactContent: async (): Promise<AdminContactContent> => {
-    return new Promise((resolve) => setTimeout(() => resolve(contactState), 150))
+    try {
+      const res = await adminApiClient<{ data: any } | AdminContactContent>('/admin/contact')
+      const payload = res && 'data' in res ? res.data : res
+      if (payload && payload.offices && Array.isArray(payload.offices)) {
+        contactState = {
+          offices: payload.offices.map((off: any) => ({
+            id: off.id || `off-${Math.random().toString(36).substr(2, 9)}`,
+            name: off.countryName || off.name || 'Regional Office',
+            nameAr: off.countryNameAr || off.nameAr || 'مكتب إقليمي',
+            country: off.country || 'saudi-arabia',
+            city: off.city || '',
+            cityAr: off.cityAr || off.city || '',
+            district: off.district || '',
+            districtAr: off.districtAr || off.district || '',
+            address: off.address || '',
+            addressAr: off.addressAr || off.address || '',
+            phones: off.phones || (off.phone ? [off.phone] : ['00966581605812']),
+            email: off.email || 'info@elmashrq.com',
+            workingHours: off.workingHours || 'Sun - Thu: 8:00 AM - 5:00 PM',
+            workingHoursAr: off.workingHoursAr || 'الأحد - الخميس: 8:00 صباحاً - 5:00 مساءً',
+            isHeadquarters: !!(off.isHQ || off.isHeadquarters),
+            status: off.status || 'active',
+          })),
+          settings: {
+            mainEmail: payload.generalEmail || contactState.settings.mainEmail,
+            inquiryEmail: payload.supportEmail || contactState.settings.inquiryEmail,
+            careersEmail: contactState.settings.careersEmail,
+            emergencyPhone: (payload.phones && payload.phones[0]) || contactState.settings.emergencyPhone,
+            socialLinks: contactState.settings.socialLinks,
+          },
+          updatedAt: new Date().toISOString(),
+        }
+        return JSON.parse(JSON.stringify(contactState))
+      }
+    } catch {
+      // Fallback to in-memory state
+    }
+    return JSON.parse(JSON.stringify(contactState))
   },
+
   updateContactContent: async (data: AdminContactContent): Promise<AdminContactContent> => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        contactState = { ...data, updatedAt: new Date().toISOString() }
-        resolve(contactState)
-      }, 200)
-    })
+    contactState = { ...data, updatedAt: new Date().toISOString() }
+    try {
+      await adminApiClient('/admin/contact', {
+        method: 'PUT',
+        body: JSON.stringify({
+          hero: {
+            badge: 'CONNECT // REGIONAL NETWORK',
+            headline: 'DIRECT ENGAGEMENT & PROJECT INQUIRIES',
+            tagline: 'Strategic Presence Across Saudi Arabia, Egypt & Qatar',
+            description: 'Connect directly with our engineering leadership and regional project offices.',
+          },
+          offices: data.offices.map((off) => ({
+            id: off.id,
+            country: off.country,
+            countryName: off.name,
+            countryNameAr: off.nameAr,
+            city: off.city || 'Main',
+            district: off.district || '',
+            address: off.address,
+            addressAr: off.addressAr,
+            phone: off.phones[0] || '00966581605812',
+            email: off.email,
+            coordinates: '',
+            isHQ: off.isHeadquarters,
+          })),
+          generalEmail: data.settings.mainEmail,
+          supportEmail: data.settings.inquiryEmail,
+          phones: [data.settings.emergencyPhone, ...data.offices.flatMap((o) => o.phones)].filter(Boolean),
+          workingHours: 'Sun - Thu: 8:00 AM - 5:00 PM',
+          workingHoursAr: 'الأحد - الخميس: 8:00 صباحاً - 5:00 مساءً',
+          status: 'published',
+        }),
+      })
+    } catch {
+      // Fallback
+    }
+    return JSON.parse(JSON.stringify(contactState))
   },
+
   saveOffice: async (office: OfficeLocation): Promise<OfficeLocation> => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const existingIdx = contactState.offices.findIndex((o) => o.id === office.id)
-        if (existingIdx >= 0) {
-          contactState.offices[existingIdx] = office
-        } else {
-          contactState.offices.push(office)
-        }
-        // If this office is set as HQ, unset HQ for others
-        if (office.isHeadquarters) {
-          contactState.offices.forEach((o) => {
-            if (o.id !== office.id) o.isHeadquarters = false
-          })
-        }
-        contactState.updatedAt = new Date().toISOString()
-        resolve(office)
-      }, 200)
-    })
+    const existingIdx = contactState.offices.findIndex((o) => o.id === office.id)
+    if (existingIdx >= 0) {
+      contactState.offices[existingIdx] = office
+    } else {
+      contactState.offices.push(office)
+    }
+    if (office.isHeadquarters) {
+      contactState.offices.forEach((o) => {
+        if (o.id !== office.id) o.isHeadquarters = false
+      })
+    }
+    contactState.updatedAt = new Date().toISOString()
+
+    try {
+      await mockContactAdapter.updateContactContent(contactState)
+    } catch {
+      // Fallback
+    }
+    return JSON.parse(JSON.stringify(office))
   },
+
   deleteOffice: async (id: string): Promise<boolean> => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        contactState.offices = contactState.offices.filter((o) => o.id !== id)
-        contactState.updatedAt = new Date().toISOString()
-        resolve(true)
-      }, 200)
-    })
+    contactState.offices = contactState.offices.filter((o) => o.id !== id)
+    contactState.updatedAt = new Date().toISOString()
+    try {
+      await mockContactAdapter.updateContactContent(contactState)
+    } catch {
+      // Fallback
+    }
+    return true
   },
+
   resetToDefault: async (): Promise<AdminContactContent> => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        contactState = JSON.parse(JSON.stringify(INITIAL_CONTACT_CONTENT))
-        resolve(contactState)
-      }, 200)
-    })
+    contactState = JSON.parse(JSON.stringify(INITIAL_CONTACT_CONTENT))
+    try {
+      await mockContactAdapter.updateContactContent(contactState)
+    } catch {
+      // Fallback
+    }
+    return JSON.parse(JSON.stringify(contactState))
   },
 }

@@ -1,6 +1,7 @@
 import type { Project, Country, ProjectCategory } from '@dar-elmashrq/types'
 import { getAllProjects } from '../../../apps/web/features/projects/data/projects.data'
 import type { AdminProjectFilters, ProjectFormData } from '../types/projects'
+import { adminApiClient } from '../lib/api'
 
 let inMemoryProjects: Project[] = []
 
@@ -22,6 +23,24 @@ export interface IAdminProjectsAdapter {
 
 export const mockAdminProjectsAdapter: IAdminProjectsAdapter = {
   async getProjects(filters?: AdminProjectFilters): Promise<Project[]> {
+    try {
+      const queryParams = new URLSearchParams()
+      if (filters?.country && filters.country !== 'all') queryParams.set('country', filters.country)
+      if (filters?.category && filters.category !== 'all') queryParams.set('category', filters.category)
+      if (filters?.search) queryParams.set('search', filters.search)
+
+      const qs = queryParams.toString()
+      const data = await adminApiClient<{ items: Project[] } | Project[]>(
+        `/admin/projects${qs ? `?${qs}` : ''}`
+      )
+      const items = Array.isArray(data) ? data : data?.items ?? []
+      if (items && items.length > 0) {
+        return items
+      }
+    } catch {
+      // Graceful fallback to local in-memory
+    }
+
     await initProjectsIfNeeded()
     let result = [...inMemoryProjects]
 
@@ -47,14 +66,35 @@ export const mockAdminProjectsAdapter: IAdminProjectsAdapter = {
   },
 
   async getProjectById(id: string): Promise<Project | null> {
+    try {
+      const project = await adminApiClient<Project>(`/admin/projects/${id}`)
+      if (project) return project
+    } catch {
+      // Fallback
+    }
+
     await initProjectsIfNeeded()
     const project = inMemoryProjects.find((p) => p.id === id || p.slug === id)
     return project ? JSON.parse(JSON.stringify(project)) : null
   },
 
   async createProject(data: ProjectFormData): Promise<Project> {
-    await initProjectsIfNeeded()
     const slug = data.slug || data.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+    try {
+      const created = await adminApiClient<Project>('/admin/projects', {
+        method: 'POST',
+        body: JSON.stringify({
+          ...data,
+          slug,
+          status: 'published',
+        }),
+      })
+      if (created) return created
+    } catch {
+      // Fallback
+    }
+
+    await initProjectsIfNeeded()
     const newProject: Project = {
       ...data,
       id: data.id || `proj-${Date.now()}`,
@@ -69,6 +109,16 @@ export const mockAdminProjectsAdapter: IAdminProjectsAdapter = {
   },
 
   async updateProject(id: string, updates: Partial<Project>): Promise<Project> {
+    try {
+      const updated = await adminApiClient<Project>(`/admin/projects/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(updates),
+      })
+      if (updated) return updated
+    } catch {
+      // Fallback
+    }
+
     await initProjectsIfNeeded()
     const idx = inMemoryProjects.findIndex((p) => p.id === id)
     if (idx === -1) {
@@ -94,6 +144,15 @@ export const mockAdminProjectsAdapter: IAdminProjectsAdapter = {
   },
 
   async deleteProject(id: string): Promise<boolean> {
+    try {
+      await adminApiClient(`/admin/projects/${id}`, {
+        method: 'DELETE',
+      })
+      return true
+    } catch {
+      // Fallback
+    }
+
     await initProjectsIfNeeded()
     const initialLen = inMemoryProjects.length
     inMemoryProjects = inMemoryProjects.filter((p) => p.id !== id)

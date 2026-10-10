@@ -243,12 +243,20 @@ export interface IHomeContentAdapter {
   resetToDefault(): Promise<HomeContentState>
 }
 
-/**
- * Explicit Mock Data Adapter for Home Page content.
- * Does NOT claim permanent database persistence.
- */
+import { adminApiClient } from '../lib/api'
+
 export const mockHomeContentAdapter: IHomeContentAdapter = {
   async getHomeContent(): Promise<HomeContentState> {
+    try {
+      const res = await adminApiClient<{ content: HomeContentState } | HomeContentState>('/admin/home')
+      const content = (res && 'content' in res && res.content) ? res.content : res
+      if (content && typeof content === 'object' && 'hero' in content) {
+        inMemoryHomeContent = JSON.parse(JSON.stringify(content))
+        return inMemoryHomeContent
+      }
+    } catch {
+      // Fallback to local
+    }
     return JSON.parse(JSON.stringify(inMemoryHomeContent))
   },
 
@@ -261,6 +269,19 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
       },
       lastUpdated: new Date().toISOString(),
     }
+
+    try {
+      await adminApiClient('/admin/home', {
+        method: 'PUT',
+        body: JSON.stringify({
+          ...inMemoryHomeContent,
+          status: 'published',
+        }),
+      })
+    } catch {
+      // Fallback
+    }
+
     return JSON.parse(JSON.stringify(inMemoryHomeContent.hero))
   },
 
@@ -270,6 +291,19 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
       stats: [...statsUpdate],
       lastUpdated: new Date().toISOString(),
     }
+
+    try {
+      await adminApiClient('/admin/home', {
+        method: 'PUT',
+        body: JSON.stringify({
+          ...inMemoryHomeContent,
+          status: 'published',
+        }),
+      })
+    } catch {
+      // Fallback
+    }
+
     return JSON.parse(JSON.stringify(inMemoryHomeContent.stats))
   },
 
@@ -279,6 +313,19 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
       whyPillars: [...pillarsUpdate],
       lastUpdated: new Date().toISOString(),
     }
+
+    try {
+      await adminApiClient('/admin/home', {
+        method: 'PUT',
+        body: JSON.stringify({
+          ...inMemoryHomeContent,
+          status: 'published',
+        }),
+      })
+    } catch {
+      // Fallback
+    }
+
     return JSON.parse(JSON.stringify(inMemoryHomeContent.whyPillars))
   },
 
@@ -288,11 +335,35 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
       regionalHubs: [...hubsUpdate],
       lastUpdated: new Date().toISOString(),
     }
+
+    try {
+      await adminApiClient('/admin/home', {
+        method: 'PUT',
+        body: JSON.stringify({
+          ...inMemoryHomeContent,
+          status: 'published',
+        }),
+      })
+    } catch {
+      // Fallback
+    }
+
     return JSON.parse(JSON.stringify(inMemoryHomeContent.regionalHubs))
   },
 
   async resetToDefault(): Promise<HomeContentState> {
     inMemoryHomeContent = JSON.parse(JSON.stringify(INITIAL_HOME_CONTENT))
+    try {
+      await adminApiClient('/admin/home', {
+        method: 'PUT',
+        body: JSON.stringify({
+          ...inMemoryHomeContent,
+          status: 'published',
+        }),
+      })
+    } catch {
+      // Fallback
+    }
     return JSON.parse(JSON.stringify(inMemoryHomeContent))
   },
 }

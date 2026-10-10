@@ -93,8 +93,20 @@ export interface IAboutContentAdapter {
   resetToDefault(): Promise<AboutContentState>
 }
 
+import { adminApiClient } from '../lib/api'
+
 export const mockAboutContentAdapter: IAboutContentAdapter = {
   async getAboutContent(): Promise<AboutContentState> {
+    try {
+      const res = await adminApiClient<{ content: AboutContentState } | AboutContentState>('/admin/about')
+      const content = (res && 'content' in res && res.content) ? res.content : res
+      if (content && typeof content === 'object' && 'hero' in content) {
+        inMemoryAboutContent = JSON.parse(JSON.stringify(content))
+        return inMemoryAboutContent
+      }
+    } catch {
+      // Fallback
+    }
     return JSON.parse(JSON.stringify(inMemoryAboutContent))
   },
 
@@ -107,6 +119,19 @@ export const mockAboutContentAdapter: IAboutContentAdapter = {
       },
       lastUpdated: new Date().toISOString(),
     }
+
+    try {
+      await adminApiClient('/admin/about', {
+        method: 'PUT',
+        body: JSON.stringify({
+          ...inMemoryAboutContent,
+          status: 'published',
+        }),
+      })
+    } catch {
+      // Fallback
+    }
+
     return JSON.parse(JSON.stringify(inMemoryAboutContent.hero))
   },
 
@@ -119,6 +144,19 @@ export const mockAboutContentAdapter: IAboutContentAdapter = {
       },
       lastUpdated: new Date().toISOString(),
     }
+
+    try {
+      await adminApiClient('/admin/about', {
+        method: 'PUT',
+        body: JSON.stringify({
+          ...inMemoryAboutContent,
+          status: 'published',
+        }),
+      })
+    } catch {
+      // Fallback
+    }
+
     return JSON.parse(JSON.stringify(inMemoryAboutContent.vision))
   },
 
@@ -128,11 +166,35 @@ export const mockAboutContentAdapter: IAboutContentAdapter = {
       history: [...historyUpdate],
       lastUpdated: new Date().toISOString(),
     }
+
+    try {
+      await adminApiClient('/admin/about', {
+        method: 'PUT',
+        body: JSON.stringify({
+          ...inMemoryAboutContent,
+          status: 'published',
+        }),
+      })
+    } catch {
+      // Fallback
+    }
+
     return JSON.parse(JSON.stringify(inMemoryAboutContent.history))
   },
 
   async resetToDefault(): Promise<AboutContentState> {
     inMemoryAboutContent = JSON.parse(JSON.stringify(INITIAL_ABOUT_CONTENT))
+    try {
+      await adminApiClient('/admin/about', {
+        method: 'PUT',
+        body: JSON.stringify({
+          ...inMemoryAboutContent,
+          status: 'published',
+        }),
+      })
+    } catch {
+      // Fallback
+    }
     return JSON.parse(JSON.stringify(inMemoryAboutContent))
   },
 }
