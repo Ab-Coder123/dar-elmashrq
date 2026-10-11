@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { TopNavBar } from '@/components/navigation/TopNavBar'
 import { Footer } from '@/components/navigation/Footer'
 import {
@@ -26,6 +26,9 @@ export const metadata: Metadata = {
       'Turnkey civil engineering, electro-mechanical prowess, and real estate development execution since 1994.',
   },
 }
+
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function ServicesPage() {
   const [technicalServices, projectShowcases, media] = await Promise.all([

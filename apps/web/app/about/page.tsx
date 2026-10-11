@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 import { getAboutContent } from '@/features/about/services/about.service'
 
 /**
- * About Us Page — Server Component with ISR revalidation.
+ * About Us Page — Server Component with instant live dynamic rendering.
  *
  * Implements Phase 03: Public Corporate About Us Experience.
  * Strict architectural adherence:
@@ -36,6 +36,9 @@ import { getAboutContent } from '@/features/about/services/about.service'
  * - Official company source facts (1994, KSA/EGY/QAT, ISO 9001, Verified Org Hierarchy)
  * - Dynamic CMS Content from Cloud Backend with robust fallbacks
  */
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default async function AboutPage() {
   const aboutContent = await getAboutContent()
 

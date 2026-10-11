@@ -16,11 +16,14 @@ import { getHomeContent } from '@/features/home/services/home.service'
 import { getAllProjectDetails } from '@/features/projects/services/project.service'
 
 /**
- * Home Page — Server Component with ISR revalidation.
+ * Home Page — Server Component with instant live dynamic rendering.
  *
- * Implements dynamic integration with Dar El Mashrq Cloud API.
- * Any update published from the Admin Dashboard triggers live rerendering.
+ * Implements real-time synchronization with Dar El Mashrq Cloud API.
+ * Any update published from the Admin Dashboard immediately reflects on the public website.
  */
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default async function HomePage() {
   const [homeContent, initialProjects] = await Promise.all([
     getHomeContent(),

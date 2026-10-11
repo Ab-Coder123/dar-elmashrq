@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     'Explore the comprehensive contracting and civil engineering project portfolio of Dar El Mashrq across Saudi Arabia, Egypt, and Qatar since 1994. Commercial, residential, hospital, and infrastructure developments.',
 }
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default async function ProjectsPage() {
   const allProjects = await getAllProjectDetails()
 

@@ -21,7 +21,7 @@ export async function publicApiClient<T>(
         'Content-Type': 'application/json',
         ...(options.headers as Record<string, string>),
       },
-      next: { revalidate: 60 }, // Next.js ISR cache 60s
+      cache: 'no-store', // Real-time immediate synchronization with backend
     })
 
     if (!res.ok) {
