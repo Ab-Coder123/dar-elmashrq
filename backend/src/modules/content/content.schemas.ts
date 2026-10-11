@@ -18,8 +18,8 @@ const slug = z
   .min(2)
   .max(120)
   .regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, 'slug must be lowercase kebab-case')
-const text = (max = 500) => z.string().trim().min(1).max(max)
-const longText = z.string().trim().min(1).max(5000)
+const text = (max = 500) => z.string().trim().max(max).nullish().transform((v) => (v === null ? undefined : v))
+const longText = z.string().trim().max(5000).nullish().transform((v) => (v === null ? undefined : v))
 const idList = z.array(z.number().int().positive()).max(100).default([])
 
 export const countrySchema = z.enum(COUNTRIES)
@@ -29,13 +29,13 @@ export const statusSchema = z.enum(PUBLISH_STATUSES)
 export const projectInputSchema = z
   .object({
     slug,
-    name: text(200),
+    name: z.string().trim().min(1).max(200),
     nameAr: text(200).optional(),
     country: countrySchema,
     location: text(200).optional(),
     locationAr: text(200).optional(),
     category: projectCategorySchema,
-    year: z.number().int().min(1900).max(2100).optional(),
+    year: z.number().int().min(1900).max(2100).nullish().transform((v) => (v === null ? undefined : v)),
     description: longText.optional(),
     descriptionAr: longText.optional(),
     scope: longText.optional(),
@@ -45,26 +45,26 @@ export const projectInputSchema = z
     isFeatured: z.boolean().default(false),
     displayOrder: z.number().int().min(0).default(0),
     status: statusSchema.default('draft'),
-    coverImageId: z.number().int().positive().optional(),
+    coverImageId: z.number().int().positive().nullish().transform((v) => (v === null ? undefined : v)),
     serviceIds: idList,
     imageIds: idList,
   })
-  .strict()
+  .passthrough()
 export type ProjectInput = z.input<typeof projectInputSchema>
 
 export const serviceInputSchema = z
   .object({
     slug,
-    name: text(200),
+    name: z.string().trim().min(1).max(200),
     nameAr: text(200).optional(),
     description: longText.optional(),
     descriptionAr: longText.optional(),
     icon: text(60).optional(),
     displayOrder: z.number().int().min(0).default(0),
     status: statusSchema.default('draft'),
-    imageId: z.number().int().positive().optional(),
+    imageId: z.number().int().positive().nullish().transform((v) => (v === null ? undefined : v)),
   })
-  .strict()
+  .passthrough()
 export type ServiceInput = z.input<typeof serviceInputSchema>
 
 const ALLOWED_MIME = ['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml', 'application/pdf'] as const

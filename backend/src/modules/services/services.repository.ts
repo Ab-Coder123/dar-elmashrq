@@ -70,17 +70,24 @@ export function createServicesRepository(db: Db) {
       return rows
     },
 
-    async getById(id: number): Promise<ServiceRecord> {
-      const { rows } = await db.query<ServiceRecord>(
-        `select s.id, s.slug, s.name, s.name_ar, s.description, s.description_ar,
+    async getById(idOrSlug: number | string): Promise<ServiceRecord> {
+      const isNum = typeof idOrSlug === 'number' || /^\d+$/.test(String(idOrSlug))
+      const query = isNum
+        ? `select s.id, s.slug, s.name, s.name_ar, s.description, s.description_ar,
                 s.icon, s.display_order, s.status, s.image_id, s.published_at,
                 s.created_at, s.updated_at, m.storage_key as image_storage_key
          from services s
          left join media_assets m on s.image_id = m.id
-         where s.id = $1`,
-        [id]
-      )
-      if (!rows[0]) throw new NotFoundError(`Service with ID ${id} not found`)
+         where s.id = $1`
+        : `select s.id, s.slug, s.name, s.name_ar, s.description, s.description_ar,
+                s.icon, s.display_order, s.status, s.image_id, s.published_at,
+                s.created_at, s.updated_at, m.storage_key as image_storage_key
+         from services s
+         left join media_assets m on s.image_id = m.id
+         where s.slug = $1`
+
+      const { rows } = await db.query<ServiceRecord>(query, [isNum ? Number(idOrSlug) : String(idOrSlug)])
+      if (!rows[0]) throw new NotFoundError(`Service with identifier '${idOrSlug}' not found`)
       return rows[0]
     },
 
@@ -98,9 +105,10 @@ export function createServicesRepository(db: Db) {
       return rows[0]
     },
 
-    async update(id: number, raw: UpdateServiceInput): Promise<ServiceRecord> {
+    async update(idOrSlug: number | string, raw: UpdateServiceInput): Promise<ServiceRecord> {
       const s = updateServiceSchema.parse(raw)
-      const existing = await this.getById(id)
+      const existing = await this.getById(idOrSlug)
+      const numericId = Number(existing.id)
 
       const updatedSlug = s.slug ?? existing.slug
       const updatedName = s.name ?? existing.name
@@ -121,7 +129,7 @@ export function createServicesRepository(db: Db) {
            where id = $1
            returning id, slug, name, name_ar, description, description_ar, icon, display_order, status, image_id, published_at, created_at, updated_at`,
           [
-            id,
+            numericId,
             updatedSlug,
             updatedName,
             updatedNameAr,
@@ -133,7 +141,7 @@ export function createServicesRepository(db: Db) {
             updatedImageId,
           ]
         )
-        if (!rows[0]) throw new NotFoundError(`Service with ID ${id} not found`)
+        if (!rows[0]) throw new NotFoundError(`Service with ID ${numericId} not found`)
         return rows[0]
       } catch (e) {
         return mapDbError(e, 'Service')

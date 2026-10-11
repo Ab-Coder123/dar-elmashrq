@@ -62,9 +62,10 @@ export function createServicesController(customDb?: Db) {
 
     async getAdminServiceById(req: Request, res: Response, next: NextFunction): Promise<void> {
       try {
-        const id = Number(req.params.id)
+        const idParam = String(req.params.id ?? '')
+        const idOrSlug = /^\d+$/.test(idParam) ? Number(idParam) : idParam
         const service = createServicesService(getDatabase())
-        const data = await service.getAdminServiceById(id)
+        const data = await service.getAdminServiceById(idOrSlug)
 
         res.status(200).json({
           success: true,
@@ -92,9 +93,10 @@ export function createServicesController(customDb?: Db) {
 
     async updateAdminService(req: Request, res: Response, next: NextFunction): Promise<void> {
       try {
-        const id = Number(req.params.id)
+        const idParam = String(req.params.id ?? '')
+        const idOrSlug = /^\d+$/.test(idParam) ? Number(idParam) : idParam
         const service = createServicesService(getDatabase())
-        const data = await service.updateService(id, req.body)
+        const data = await service.updateService(idOrSlug, req.body)
 
         res.status(200).json({
           success: true,

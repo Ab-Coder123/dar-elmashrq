@@ -111,8 +111,9 @@ export function ProjectsContentEditor() {
       }
       await loadProjects()
       handleCloseModal()
-    } catch {
-      setErrorMessage('حدث خطأ أثناء حفظ المشروع.')
+    } catch (err: unknown) {
+      const msg = (err as { message?: string })?.message || 'حدث خطأ أثناء حفظ المشروع.'
+      setErrorMessage(msg)
     } finally {
       setSaving(false)
     }

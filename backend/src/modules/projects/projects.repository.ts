@@ -157,9 +157,11 @@ export function createProjectsRepository(db: Db) {
       }
     },
 
-    async getById(id: number): Promise<ProjectRecord> {
-      const { rows } = await db.query<ProjectRecord>(`${SELECT} where p.id = $1`, [id])
-      if (!rows[0]) throw new NotFoundError(`Project with ID ${id} not found`)
+    async getById(idOrSlug: number | string): Promise<ProjectRecord> {
+      const isNum = typeof idOrSlug === 'number' || /^\d+$/.test(String(idOrSlug))
+      const query = isNum ? `${SELECT} where p.id = $1` : `${SELECT} where p.slug = $1`
+      const { rows } = await db.query<ProjectRecord>(query, [isNum ? Number(idOrSlug) : String(idOrSlug)])
+      if (!rows[0]) throw new NotFoundError(`Project with identifier '${idOrSlug}' not found`)
       return rows[0]
     },
 
@@ -220,9 +222,10 @@ export function createProjectsRepository(db: Db) {
       return { items: rows, total }
     },
 
-    async update(id: number, raw: UpdateProjectInput): Promise<ProjectRecord> {
+    async update(idOrSlug: number | string, raw: UpdateProjectInput): Promise<ProjectRecord> {
       const p = updateProjectSchema.parse(raw)
-      const existing = await this.getById(id)
+      const existing = await this.getById(idOrSlug)
+      const numericId = Number(existing.id)
 
       const updatedSlug = p.slug ?? existing.slug
       const updatedName = p.name ?? existing.name
@@ -254,7 +257,7 @@ export function createProjectsRepository(db: Db) {
              where id = $1
              returning id`,
             [
-              id,
+              numericId,
               updatedSlug,
               updatedName,
               updatedNameAr,
@@ -276,31 +279,31 @@ export function createProjectsRepository(db: Db) {
             ]
           )
 
-          if (!rows[0]) throw new NotFoundError(`Project with ID ${id} not found`)
+          if (!rows[0]) throw new NotFoundError(`Project with ID ${numericId} not found`)
 
           if (p.serviceIds !== undefined) {
-            await tx.query('delete from project_services where project_id = $1', [id])
+            await tx.query('delete from project_services where project_id = $1', [numericId])
             if (p.serviceIds.length > 0) {
               await tx.query(
                 'insert into project_services (project_id, service_id) select $1, unnest($2::bigint[])',
-                [id, p.serviceIds]
+                [numericId, p.serviceIds]
               )
             }
           }
 
           if (p.imageIds !== undefined) {
-            await tx.query('delete from project_images where project_id = $1', [id])
+            await tx.query('delete from project_images where project_id = $1', [numericId])
             if (p.imageIds.length > 0) {
               await tx.query(
                 `insert into project_images (project_id, media_id, sort_order)
                  select $1, m, o - 1 from unnest($2::bigint[]) with ordinality as t(m, o)`,
-                [id, p.imageIds]
+                [numericId, p.imageIds]
               )
             }
           }
         })
 
-        return await this.getById(id)
+        return await this.getById(numericId)
       } catch (e) {
         return mapDbError(e, 'Project')
       }

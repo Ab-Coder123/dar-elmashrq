@@ -95,8 +95,9 @@ export function ServicesContentEditor() {
       }
       await loadServices()
       handleCloseModal()
-    } catch {
-      setErrorMessage('حدث خطأ أثناء حفظ الخدمة.')
+    } catch (err: unknown) {
+      const msg = (err as { message?: string })?.message || 'حدث خطأ أثناء حفظ الخدمة.'
+      setErrorMessage(msg)
     } finally {
       setSaving(false)
     }

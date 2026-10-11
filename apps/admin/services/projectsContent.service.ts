@@ -109,14 +109,33 @@ export const mockAdminProjectsAdapter: IAdminProjectsAdapter = {
   },
 
   async updateProject(id: string, updates: Partial<Project>): Promise<Project> {
+    const payload = {
+      name: updates.name,
+      nameAr: updates.nameAr,
+      slug: updates.slug,
+      country: updates.country,
+      location: updates.location,
+      locationAr: updates.locationAr,
+      category: updates.category,
+      year: updates.year,
+      description: updates.description,
+      descriptionAr: updates.descriptionAr,
+      scope: updates.scope,
+      scopeAr: updates.scopeAr,
+      clientName: updates.clientName,
+      isFeatured: updates.isFeatured,
+      displayOrder: updates.order,
+    }
+
     try {
       const updated = await adminApiClient<Project>(`/admin/projects/${id}`, {
         method: 'PUT',
-        body: JSON.stringify(updates),
+        body: JSON.stringify(payload),
       })
       if (updated) return updated
-    } catch {
-      // Fallback
+    } catch (err) {
+      console.error('Failed to update project on backend:', err)
+      throw err
     }
 
     await initProjectsIfNeeded()

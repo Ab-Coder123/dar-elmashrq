@@ -150,8 +150,8 @@ export function createProjectsService(db: Db) {
       }
     },
 
-    async getAdminProjectById(id: number): Promise<ProjectDto> {
-      const record = await repo.getById(id)
+    async getAdminProjectById(idOrSlug: number | string): Promise<ProjectDto> {
+      const record = await repo.getById(idOrSlug)
       return mapToDto(record)
     },
 
@@ -162,12 +162,12 @@ export function createProjectsService(db: Db) {
     },
 
     async updateProject(
-      id: number,
+      idOrSlug: number | string,
       raw: UpdateProjectInput,
       _userId?: number
     ): Promise<ProjectDto> {
       const validated = updateProjectSchema.parse(raw)
-      const record = await repo.update(id, validated)
+      const record = await repo.update(idOrSlug, validated)
       return mapToDto(record)
     },
 

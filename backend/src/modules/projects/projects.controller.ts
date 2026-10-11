@@ -82,9 +82,10 @@ export function createProjectsController(customDb?: Db) {
 
     async getAdminProjectById(req: Request, res: Response, next: NextFunction): Promise<void> {
       try {
-        const id = Number(req.params.id)
+        const idParam = String(req.params.id ?? '')
+        const idOrSlug = /^\d+$/.test(idParam) ? Number(idParam) : idParam
         const service = createProjectsService(getDatabase())
-        const data = await service.getAdminProjectById(id)
+        const data = await service.getAdminProjectById(idOrSlug)
 
         res.status(200).json({
           success: true,
@@ -112,9 +113,10 @@ export function createProjectsController(customDb?: Db) {
 
     async updateAdminProject(req: Request, res: Response, next: NextFunction): Promise<void> {
       try {
-        const id = Number(req.params.id)
+        const idParam = String(req.params.id ?? '')
+        const idOrSlug = /^\d+$/.test(idParam) ? Number(idParam) : idParam
         const service = createProjectsService(getDatabase())
-        const data = await service.updateProject(id, req.body)
+        const data = await service.updateProject(idOrSlug, req.body)
 
         res.status(200).json({
           success: true,

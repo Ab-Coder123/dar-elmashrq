@@ -69,14 +69,26 @@ export const mockServicesAdapter: IServicesAdapter = {
   },
 
   async updateService(id: string, updates: Partial<AdminServiceItem>): Promise<AdminServiceItem> {
+    const payload = {
+      name: updates.name,
+      nameAr: updates.nameAr,
+      slug: updates.slug,
+      description: updates.description,
+      descriptionAr: updates.descriptionAr,
+      icon: updates.icon,
+      displayOrder: updates.order,
+      status: updates.status,
+    }
+
     try {
       const updated = await adminApiClient<AdminServiceItem>(`/admin/services/${id}`, {
         method: 'PUT',
-        body: JSON.stringify(updates),
+        body: JSON.stringify(payload),
       })
       if (updated) return updated
-    } catch {
-      // Fallback
+    } catch (err) {
+      console.error('Failed to update service on backend:', err)
+      throw err
     }
 
     const idx = inMemoryServices.findIndex((s) => s.id === id)

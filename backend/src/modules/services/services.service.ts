@@ -69,8 +69,8 @@ export function createServicesService(db: Db) {
       return records.map(mapToDto)
     },
 
-    async getAdminServiceById(id: number): Promise<ServiceDto> {
-      const record = await repo.getById(id)
+    async getAdminServiceById(idOrSlug: number | string): Promise<ServiceDto> {
+      const record = await repo.getById(idOrSlug)
       return mapToDto(record)
     },
 
@@ -81,12 +81,12 @@ export function createServicesService(db: Db) {
     },
 
     async updateService(
-      id: number,
+      idOrSlug: number | string,
       raw: UpdateServiceInput,
       _userId?: number
     ): Promise<ServiceDto> {
       const validated = updateServiceSchema.parse(raw)
-      const updated = await repo.update(id, validated)
+      const updated = await repo.update(idOrSlug, validated)
       return mapToDto(updated)
     },
 
