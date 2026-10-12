@@ -75,72 +75,67 @@ export function TopNavBar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-7 rtl:space-x-reverse" aria-label="Main Navigation">
-          <div className="relative flex items-center group">
-            <Link
-              href="/"
-              className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-1 font-medium ${pathname === '/' ? 'text-[#ba9563] font-bold' : 'text-slate-800 dark:text-[#d7e2ff] hover:text-[#ba9563]'}`}
-            >
-              {t.home}
-            </Link>
-            <div className="relative ml-1.5 rtl:ml-0 rtl:mr-1.5 flex items-center">
-              <select
-                aria-label="Jump to Home Section"
-                onChange={handleHomeSectionChange}
-                defaultValue=""
-                className="appearance-none bg-transparent text-[11px] font-['Space_Grotesk'] uppercase tracking-wider text-slate-500 dark:text-[#ba9563] hover:text-[#ba9563] cursor-pointer pl-1 pr-4 py-0.5 border-none focus:outline-none focus:ring-0"
-              >
-                <option value="" disabled className="bg-white dark:bg-[#0b1a37] text-slate-800 dark:text-[#d7e2ff]">{locale === 'ar' ? 'الأقسام' : 'Sections'}</option>
-                <option value="#projects" className="bg-white dark:bg-[#0b1a37] text-slate-800 dark:text-[#d7e2ff]">{t.projects}</option>
-                <option value="#capabilities" className="bg-white dark:bg-[#0b1a37] text-slate-800 dark:text-[#d7e2ff]">{locale === 'ar' ? 'القدرات الهندسية' : 'Capabilities'}</option>
-                <option value="#presence" className="bg-white dark:bg-[#0b1a37] text-slate-800 dark:text-[#d7e2ff]">{locale === 'ar' ? 'التواجد الإقليمي' : 'Regional Presence'}</option>
-                <option value="#credentials" className="bg-white dark:bg-[#0b1a37] text-slate-800 dark:text-[#d7e2ff]">{locale === 'ar' ? 'الشهادات والاعتمادات' : 'Credentials'}</option>
-              </select>
-              <ChevronDown className="w-3 h-3 text-slate-400 dark:text-[#ba9563] pointer-events-none absolute right-0 rtl:right-auto rtl:left-0" />
-            </div>
-            <span className={`absolute bottom-0 left-0 rtl:left-auto rtl:right-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
-          </div>
+        <nav className="hidden md:flex items-center space-x-6 lg:space-x-8 rtl:space-x-reverse" aria-label="Main Navigation">
+          <Link
+            href="/"
+            className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-2 relative group font-medium ${pathname === '/' ? 'text-[#ba9563] font-bold' : 'text-slate-800 dark:text-[#d7e2ff] hover:text-[#ba9563]'}`}
+          >
+            {t.home}
+            <span className={`absolute bottom-0 inset-x-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname === '/' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+          </Link>
 
-          <Link href="/about" className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-1 relative group font-medium ${pathname === '/about' ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}>
+          <Link
+            href="/about"
+            className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-2 relative group font-medium ${pathname === '/about' ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}
+          >
             {t.about}
-            <span className={`absolute bottom-0 left-0 rtl:left-auto rtl:right-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+            <span className={`absolute bottom-0 inset-x-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname === '/about' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
           </Link>
 
-          <Link href="/services" className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-1 relative group font-medium ${pathname === '/services' ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}>
+          <Link
+            href="/services"
+            className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-2 relative group font-medium ${pathname === '/services' ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}
+          >
             {t.services}
-            <span className={`absolute bottom-0 left-0 rtl:left-auto rtl:right-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname === '/services' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+            <span className={`absolute bottom-0 inset-x-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname === '/services' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
           </Link>
 
-          <Link href="/projects" className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-1 relative group font-medium ${pathname.startsWith('/projects') ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}>
+          <Link
+            href="/projects"
+            className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-2 relative group font-medium ${pathname.startsWith('/projects') ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}
+          >
             {t.projects}
-            <span className={`absolute bottom-0 left-0 rtl:left-auto rtl:right-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname.startsWith('/projects') ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+            <span className={`absolute bottom-0 inset-x-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname.startsWith('/projects') ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
           </Link>
 
-          <Link href="/contact" className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-1 relative group font-medium ${pathname === '/contact' ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}>
+          <Link
+            href="/contact"
+            className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-2 relative group font-medium ${pathname === '/contact' ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}
+          >
             {t.contact}
-            <span className={`absolute bottom-0 left-0 rtl:left-auto rtl:right-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+            <span className={`absolute bottom-0 inset-x-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname === '/contact' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
           </Link>
         </nav>
 
-        {/* Action Buttons */}
-        <div className="flex items-center space-x-3 sm:space-x-4 rtl:space-x-reverse">
+        {/* Action Controls */}
+        <div className="flex items-center space-x-2.5 sm:space-x-3.5 rtl:space-x-reverse">
           {/* Language Toggle Button */}
           <button
             type="button"
             onClick={toggleLanguage}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 border border-slate-300 dark:border-[#434651]/60 text-slate-700 dark:text-[#d7e2ff] bg-slate-100 dark:bg-[#0f2244] hover:border-[#ba9563] hover:text-[#ba9563] transition-all cursor-pointer font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider"
+            className="flex items-center gap-1.5 px-3 py-1.5 border border-slate-300 dark:border-[#434651]/60 text-slate-700 dark:text-[#d7e2ff] bg-slate-100 dark:bg-[#0f2244] hover:border-[#ba9563] hover:text-[#ba9563] transition-all cursor-pointer font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider shadow-2xs"
             aria-label="Toggle Language Arabic / English"
             title={locale === 'ar' ? 'Switch to English' : 'التحويل إلى العربية'}
           >
-            <Globe className="w-3.5 h-3.5 text-[#ba9563]" />
-            <span>{locale === 'ar' ? 'EN' : 'عربي'}</span>
+            <Globe className="w-3.5 h-3.5 text-[#ba9563] shrink-0" />
+            <span>{locale === 'ar' ? 'English' : 'عربي'}</span>
           </button>
 
           {/* Theme Toggle Button */}
           <button
             type="button"
             onClick={toggleTheme}
-            className="p-2 border border-slate-300 dark:border-[#434651]/60 text-slate-700 dark:text-[#ba9563] bg-slate-100 dark:bg-[#0f2244] hover:border-[#ba9563] transition-all cursor-pointer"
+            className="p-1.5 sm:p-2 border border-slate-300 dark:border-[#434651]/60 text-slate-700 dark:text-[#ba9563] bg-slate-100 dark:bg-[#0f2244] hover:border-[#ba9563] transition-all cursor-pointer shadow-2xs"
             aria-label="Toggle Light and Dark Mode"
             title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           >
@@ -151,18 +146,16 @@ export function TopNavBar() {
             )}
           </button>
 
-          <span className="hidden lg:inline-block font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-slate-500 dark:text-[#c4c6d2] px-3 py-1.5 border border-slate-300 dark:border-[#434651]/50">
-            Profile 1994
-          </span>
-
+          {/* Contact CTA Button */}
           <Link
-            href="/#contact"
-            className="bg-[#123c82] hover:bg-[#ba9563] text-white hover:text-[#0b1a37] border border-[#ba9563]/60 font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-[0.15em] px-4 sm:px-5 py-2 sm:py-2.5 transition-all duration-200 flex items-center space-x-2 rtl:space-x-reverse shadow-sm"
+            href="/contact"
+            className="hidden sm:inline-flex bg-[#123c82] hover:bg-[#ba9563] text-white hover:text-[#0b1a37] border border-[#ba9563]/60 font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-[0.15em] px-4 sm:px-5 py-2 transition-all duration-200 items-center space-x-2 rtl:space-x-reverse shadow-sm"
           >
-            <span>{t.contact}</span>
+            <span>{t.contactUs}</span>
             <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
           </Link>
 
+          {/* Mobile Menu Hamburger */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
