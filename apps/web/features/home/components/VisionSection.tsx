@@ -1,12 +1,37 @@
-﻿'use client'
+'use client'
 
 import { motion } from 'framer-motion'
 import { COMPANY_PROFILE } from '@/config/site'
 import { BlueprintCrosshair } from '@/components/ui/BlueprintCrosshair'
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll'
 import { fadeUpVariants, scaleInVariants } from '@/lib/motion'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 export function VisionSection() {
+  const { locale } = useLanguage()
+
+  const mandateLabel =
+    locale === 'ar'
+      ? 'الميثاق والهدف المؤسسي // الرؤية المستقبلية'
+      : 'OUR CORPORATE MANDATE // THE VISION'
+
+  const visionText =
+    locale === 'ar'
+      ? COMPANY_PROFILE.visionAr ||
+        'أن نكون الوجهة المفضلة لعملائنا في المملكة العربية السعودية ومصر ومنطقة الشرق الأوسط وشمال أفريقيا في تقديم حلول إدارة المشاريع والبرامج، بدمج الأساليب الدولية الحديثة في الصناعة والمعايير مع الأساليب الإقليمية.'
+      : COMPANY_PROFILE.vision
+
+  const visionComment =
+    locale === 'ar'
+      ? 'منذ انطلاقتنا في عام 1994، تلتزم دار المشرق بدمج أحدث الممارسات الهندسية العالمية مع عمق الخبرة الميدانية الإقليمية، لإنشاء بنية تحتية وصروح معمارية تدوم لأجيال.'
+      : 'From our founding in 1994, Dar El Mashrq has merged modern international engineering practices with deep regional execution expertise, building foundational infrastructure designed for lasting longevity.'
+
+  const govTitle = locale === 'ar' ? 'الإدارة التنفيذية العليا' : 'EXECUTIVE GOVERNANCE'
+  const companyTitle =
+    locale === 'ar'
+      ? 'شركة دار المشرق للتجارة والمقاولات'
+      : 'DAR EL MASHRQ TRADING & CONTRACTING CO.'
+
   return (
     <section className="relative bg-slate-100 dark:bg-[#0b1a37] py-24 md:py-32 border-b border-slate-200 dark:border-[#434651]/40 overflow-hidden transition-colors duration-300">
       {/* Blueprint Grid Drafting Lines Background */}
@@ -28,39 +53,39 @@ export function VisionSection() {
             <BlueprintCrosshair position="bottom-left" />
             <BlueprintCrosshair position="bottom-right" />
 
-            <div className="flex items-center space-x-3 mb-6">
-              <span className="w-2.5 h-2.5 bg-[#ba9563]" />
-              <span className="font-['Space_Grotesk'] text-xs uppercase tracking-[0.2em] text-[#ba9563] font-semibold">
-                OUR CORPORATE MANDATE // THE VISION
+            <div className="flex items-center space-x-3 rtl:space-x-reverse mb-6">
+              <span className="w-2.5 h-2.5 bg-[#ba9563] shrink-0" />
+              <span className="font-arabic text-xs uppercase tracking-wider text-[#ba9563] font-bold">
+                {mandateLabel}
               </span>
             </div>
 
             {/* Vision Statement (Official text from PDF page 6) */}
-            <blockquote className="font-['Montserrat'] text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase tracking-tight text-slate-950 dark:text-white leading-tight mb-8">
-              &ldquo;{COMPANY_PROFILE.vision}&rdquo;
+            <blockquote className="font-arabic text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase tracking-tight text-slate-950 dark:text-white leading-relaxed mb-8">
+              &ldquo;{visionText}&rdquo;
             </blockquote>
 
-            <p className="font-['Inter'] text-sm sm:text-base text-slate-600 dark:text-[#c4c6d2] leading-relaxed mb-8 border-l border-[#ba9563]/40 pl-6">
-              From our founding in 1994, Dar El Mashrq has merged modern international engineering practices with deep regional execution expertise, building foundational infrastructure designed for lasting longevity.
+            <p className="font-arabic text-sm sm:text-base text-slate-600 dark:text-[#c4c6d2] leading-relaxed mb-8 border-l rtl:border-l-0 rtl:border-r border-[#ba9563]/40 pl-6 rtl:pl-0 rtl:pr-6 font-normal">
+              {visionComment}
             </p>
 
             {/* Signature / Governance Bar */}
             <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-200 dark:border-[#434651]/40">
-              <div className="flex items-center space-x-4">
-                <div className="w-10 h-10 border border-[#ba9563] flex items-center justify-center font-['Montserrat'] text-sm font-bold text-[#ba9563] bg-slate-50 dark:bg-[#0b1a37]">
-                  DM
+              <div className="flex items-center space-x-4 rtl:space-x-reverse">
+                <div className="w-10 h-10 border border-[#ba9563] flex items-center justify-center font-arabic text-sm font-bold text-[#ba9563] bg-slate-50 dark:bg-[#0b1a37]">
+                  {locale === 'ar' ? 'دم' : 'DM'}
                 </div>
                 <div>
-                  <span className="font-['Montserrat'] text-xs text-slate-900 dark:text-white block font-bold uppercase">
-                    EXECUTIVE GOVERNANCE
+                  <span className="font-arabic text-xs text-slate-900 dark:text-white block font-bold uppercase">
+                    {govTitle}
                   </span>
-                  <span className="font-['Space_Grotesk'] text-[10px] text-slate-500 dark:text-[#8e909c] uppercase tracking-[0.15em] font-medium">
-                    DAR EL MASHRQ TRADING &amp; CONTRACTING CO.
+                  <span className="font-arabic text-[11px] text-slate-500 dark:text-[#8e909c] uppercase tracking-wide font-medium">
+                    {companyTitle}
                   </span>
                 </div>
               </div>
 
-              <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold">
+              <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold" dir="ltr">
                 EST. 1994 &bull; KSA &bull; EGY &bull; QAT
               </span>
             </div>
