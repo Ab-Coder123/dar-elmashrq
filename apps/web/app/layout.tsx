@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Montserrat, Inter, Space_Grotesk, IBM_Plex_Sans_Arabic } from 'next/font/google'
+import { Montserrat, Inter, Space_Grotesk, Cairo } from 'next/font/google'
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -23,11 +23,11 @@ const spaceGrotesk = Space_Grotesk({
   weight: ['400', '500', '600', '700'],
 })
 
-const ibmPlexArabic = IBM_Plex_Sans_Arabic({
-  subsets: ['arabic'],
+const cairo = Cairo({
+  subsets: ['arabic', 'latin'],
   variable: '--font-arabic',
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700', '800', '900'],
 })
 
 export const metadata: Metadata = {
@@ -88,7 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="ar"
       dir="rtl"
-      className={`${montserrat.variable} ${inter.variable} ${spaceGrotesk.variable} ${ibmPlexArabic.variable} scroll-smooth overflow-x-hidden`}
+      className={`${montserrat.variable} ${inter.variable} ${spaceGrotesk.variable} ${cairo.variable} scroll-smooth overflow-x-hidden`}
       suppressHydrationWarning
     >
       <head>

@@ -1,4 +1,4 @@
-﻿@import 'tailwindcss';
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -38,7 +38,7 @@
   --font-display: var(--font-display), 'Montserrat', sans-serif;
   --font-body: var(--font-body), 'Inter', sans-serif;
   --font-label: var(--font-label), 'Space Grotesk', sans-serif;
-  --font-arabic: var(--font-arabic), 'IBM Plex Arabic', sans-serif;
+  --font-arabic: var(--font-arabic), 'Cairo', sans-serif;
 }
 
 :root {
@@ -118,5 +118,5 @@ body {
 
 /* RTL support */
 [dir='rtl'] {
-  font-family: var(--font-arabic), 'IBM Plex Arabic', sans-serif;
+  font-family: var(--font-arabic), 'Cairo', sans-serif;
 }

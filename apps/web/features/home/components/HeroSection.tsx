@@ -20,6 +20,7 @@ import { HardHat, ArrowRight } from 'lucide-react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { HOME_MEDIA } from '../data/home.data'
 import { BlueprintCrosshair } from '@/components/ui/BlueprintCrosshair'
+import { useLanguage } from '@/providers/LanguageProvider'
 import {
   heroStaggerVariants,
   fadeUpVariants,
@@ -31,27 +32,58 @@ import {
 export interface HeroSectionProps {
   hero?: {
     badge?: string
+    badgeAr?: string
     headline?: string
+    headlineAr?: string
     tagline?: string
+    taglineAr?: string
     bodyCopy?: string
+    bodyCopyAr?: string
     heroImage?: string
     exploreCtaText?: string
+    exploreCtaTextAr?: string
     aboutCtaText?: string
+    aboutCtaTextAr?: string
   }
 }
 
 export function HeroSection({ hero }: HeroSectionProps = {}) {
   const prefersReduced = useReducedMotion()
+  const { locale, isRtl } = useLanguage()
 
   const heroImage = hero?.heroImage || HOME_MEDIA.heroImage
-  const badge = hero?.badge || 'CONTRACTING & REAL ESTATE • ESTABLISHED 1994'
-  const headline = hero?.headline || 'DAR EL MASHRQ'
-  const tagline = hero?.tagline || 'Architectural Precision. Sovereign Scale.'
+
+  const badge =
+    locale === 'ar'
+      ? hero?.badgeAr || 'مقاولات عامة وتطوير عقاري • تأسست 1994'
+      : hero?.badge || 'CONTRACTING & REAL ESTATE • ESTABLISHED 1994'
+
+  const headline =
+    locale === 'ar'
+      ? hero?.headlineAr || 'دار المشرق'
+      : hero?.headline || 'DAR EL MASHRQ'
+
+  const tagline =
+    locale === 'ar'
+      ? hero?.taglineAr || 'دقة معمارية. صدارة هندسية بمقاييس سيادية.'
+      : hero?.tagline || 'Architectural Precision. Sovereign Scale.'
+
   const bodyCopy =
-    hero?.bodyCopy ||
-    'Tier-one civil contracting, electro-mechanical prowess, and master-planned structural execution across Saudi Arabia, Egypt, and Qatar for three continuous decades.'
-  const exploreCtaText = hero?.exploreCtaText || 'Explore Projects'
-  const aboutCtaText = hero?.aboutCtaText || 'About The Enterprise'
+    locale === 'ar'
+      ? hero?.bodyCopyAr ||
+        'تنفيذ إنشائي وهندسي رفيع المستوى، كفاءة كهروميكانيكية متقدمة، وإدارة متكاملة للمشاريع الكبرى في المملكة العربية السعودية ومصر وقطر لثلاثة عقود متتالية.'
+      : hero?.bodyCopy ||
+        'Tier-one civil contracting, electro-mechanical prowess, and master-planned structural execution across Saudi Arabia, Egypt, and Qatar for three continuous decades.'
+
+  const exploreCtaText =
+    locale === 'ar'
+      ? hero?.exploreCtaTextAr || 'استكشف المشاريع'
+      : hero?.exploreCtaText || 'Explore Projects'
+
+  const aboutCtaText =
+    locale === 'ar'
+      ? hero?.aboutCtaTextAr || 'عن المجموعة'
+      : hero?.aboutCtaText || 'About The Enterprise'
 
   return (
     <section className="relative min-h-[92vh] md:min-h-screen flex items-center pt-24 pb-16 overflow-hidden border-b border-[#434651]/60">
@@ -114,7 +146,7 @@ export function HeroSection({ hero }: HeroSectionProps = {}) {
 
           {/* Headline */}
           <motion.h1
-            className="font-['Montserrat'] text-4xl sm:text-6xl lg:text-7xl xl:text-8xl text-white uppercase font-extrabold tracking-tight leading-[1.05] mb-4 drop-shadow-md"
+            className="font-arabic font-extrabold text-4xl sm:text-6xl lg:text-7xl xl:text-8xl text-white uppercase tracking-tight leading-[1.1] mb-4 drop-shadow-md"
             variants={
               prefersReduced
                 ? fadeUpVariants
@@ -136,7 +168,7 @@ export function HeroSection({ hero }: HeroSectionProps = {}) {
 
           {/* Tagline */}
           <motion.p
-            className="font-['Montserrat'] text-lg sm:text-2xl text-[#ba9563] font-semibold uppercase tracking-wider mb-6"
+            className="font-arabic text-lg sm:text-2xl text-[#ba9563] font-bold uppercase tracking-wider mb-6 leading-relaxed"
             variants={fadeUpVariants}
           >
             {tagline}
@@ -144,7 +176,7 @@ export function HeroSection({ hero }: HeroSectionProps = {}) {
 
           {/* Body copy */}
           <motion.p
-            className="font-['Inter'] text-base sm:text-lg text-[#c4c6d2] max-w-2xl mb-10 leading-relaxed border-l-2 border-[#ba9563]/60 pl-6 bg-[#0b1a37]/30 backdrop-blur-sm py-1"
+            className="font-arabic text-base sm:text-lg text-[#c4c6d2] max-w-2xl mb-10 leading-relaxed border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#ba9563]/60 pl-6 rtl:pl-0 rtl:pr-6 bg-[#0b1a37]/30 backdrop-blur-sm py-1 font-normal"
             variants={fadeUpVariants}
           >
             {bodyCopy}
@@ -157,18 +189,18 @@ export function HeroSection({ hero }: HeroSectionProps = {}) {
           >
             <Link
               href="/#projects"
-              className="bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs font-bold uppercase tracking-[0.15em] px-8 py-4 border border-[#ba9563] flex items-center justify-center space-x-3 transition-all duration-200 shadow-lg shadow-[#ba9563]/20 group"
+              className="bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-arabic text-xs sm:text-sm font-bold uppercase tracking-wider px-8 py-4 border border-[#ba9563] flex items-center justify-center space-x-3 rtl:space-x-reverse transition-all duration-200 shadow-lg shadow-[#ba9563]/20 group"
             >
               <span>{exploreCtaText}</span>
-              <HardHat className="w-4 h-4 text-[#0b1a37] group-hover:rotate-12 transition-transform duration-200" />
+              <HardHat className="w-4 h-4 text-[#0b1a37] group-hover:rotate-12 transition-transform duration-200 shrink-0" />
             </Link>
 
             <Link
               href="/about"
-              className="border border-[#8e909c]/60 bg-[#162a4d]/70 hover:border-[#ba9563] hover:text-[#ba9563] text-white font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] px-8 py-4 backdrop-blur-sm transition-all duration-300 text-center flex items-center justify-center space-x-2 group"
+              className="border border-[#8e909c]/60 bg-[#162a4d]/70 hover:border-[#ba9563] hover:text-[#ba9563] text-white font-arabic text-xs sm:text-sm uppercase tracking-wider px-8 py-4 backdrop-blur-sm transition-all duration-300 text-center flex items-center justify-center space-x-2 rtl:space-x-reverse group font-semibold"
             >
               <span>{aboutCtaText}</span>
-              <ArrowRight className="w-3.5 h-3.5 opacity-70 group-hover:translate-x-1 transition-transform duration-200" />
+              <ArrowRight className="w-3.5 h-3.5 opacity-70 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform duration-200 shrink-0" />
             </Link>
           </motion.div>
         </motion.div>
