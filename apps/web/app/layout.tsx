@@ -69,7 +69,10 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: '/dar-elmashrq-logo.png',
+    icon: [
+      { url: '/dar-elmashrq-logo.png', type: 'image/png' },
+      { url: '/dar_elmashrq_logo-dark.png', type: 'image/png' },
+    ],
     shortcut: '/dar-elmashrq-logo.png',
     apple: '/dar-elmashrq-logo.png',
   },
