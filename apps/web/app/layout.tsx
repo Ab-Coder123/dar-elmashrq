@@ -79,13 +79,15 @@ export const metadata: Metadata = {
 }
 
 import { ThemeProvider } from '@/providers/ThemeProvider'
+import { LanguageProvider } from '@/providers/LanguageProvider'
 import { LoadingScreenController } from '@/components/loading/LoadingScreen'
 import { PageTransition } from '@/components/transitions/PageTransition'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      lang="en"
+      lang="ar"
+      dir="rtl"
       className={`${montserrat.variable} ${inter.variable} ${spaceGrotesk.variable} ${ibmPlexArabic.variable} scroll-smooth overflow-x-hidden`}
       suppressHydrationWarning
     >
@@ -100,17 +102,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 } else {
                   document.documentElement.classList.remove('dark');
                 }
+                const savedLocale = localStorage.getItem('dar-locale') || 'ar';
+                document.documentElement.lang = savedLocale;
+                document.documentElement.dir = savedLocale === 'ar' ? 'rtl' : 'ltr';
               } catch (e) {}
             `,
           }}
         />
       </head>
       <body className="bg-slate-50 dark:bg-[#0f2244] text-slate-900 dark:text-[#d7e2ff] font-body antialiased selection:bg-[#ba9563]/30 dark:selection:bg-[#5d4117] selection:text-[#ba9563] dark:selection:text-[#ffddb3] transition-colors duration-300 overflow-x-hidden max-w-full relative">
-        <ThemeProvider>
-          <LoadingScreenController>
-            <PageTransition>{children}</PageTransition>
-          </LoadingScreenController>
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider>
+            <LoadingScreenController>
+              <PageTransition>{children}</PageTransition>
+            </LoadingScreenController>
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   )
