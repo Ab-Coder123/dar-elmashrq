@@ -6,14 +6,14 @@ const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['500', '600', '700', '800'],
 })
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700'],
 })
 
 const spaceGrotesk = Space_Grotesk({
@@ -24,10 +24,10 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 const cairo = Cairo({
-  subsets: ['arabic', 'latin'],
+  subsets: ['arabic'],
   variable: '--font-arabic',
   display: 'swap',
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['400', '600', '700', '800'],
 })
 
 export const metadata: Metadata = {

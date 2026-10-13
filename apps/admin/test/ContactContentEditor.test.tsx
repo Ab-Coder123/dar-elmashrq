@@ -13,8 +13,8 @@ describe('ContactContentEditor', () => {
       expect(screen.getByText('إدارة بيانات التواصل والفروع')).toBeInTheDocument()
     })
 
-    expect(screen.getByText('المقر الرئيسي - الرياض')).toBeInTheDocument()
-    expect(screen.getByText('المكتب الإقليمي - القاهرة')).toBeInTheDocument()
+    expect(screen.getByText('المقر الرئيسي — الدمام')).toBeInTheDocument()
+    expect(screen.getByText('الفرع الإقليمي — القاهرة')).toBeInTheDocument()
     expect(screen.getByText('المكتب الإقليمي - الدوحة')).toBeInTheDocument()
   })
 })

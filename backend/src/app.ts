@@ -1,5 +1,6 @@
 import express, { type Application } from 'express'
 import helmet from 'helmet'
+import compression from 'compression'
 import type { Db } from './infrastructure/database/db'
 import { env } from './config/env'
 import { corsMiddleware } from './shared/middleware/cors'
@@ -13,6 +14,12 @@ export interface AppOptions extends RouterOptions {}
 
 export function createApp(customDb?: Db, options: AppOptions = {}): Application {
   const app = express()
+
+  // Performance Middleware: Gzip / Deflate compression
+  app.use(compression({
+    level: 6,
+    threshold: 1024, // compress responses above 1KB
+  }))
 
   // Security Middleware
   app.use(helmet())

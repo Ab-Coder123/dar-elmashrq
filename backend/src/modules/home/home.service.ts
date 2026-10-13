@@ -26,21 +26,18 @@ export function createHomeService(db: Db) {
       activeServices: unknown[]
       publishedAt: Date | string | null
     }> {
-      const doc = await contentRepo.getDocument('home', true)
+      // Parallelize queries to eliminate waterfalls
+      const [doc, { items: featuredProjects }, activeServices] = await Promise.all([
+        contentRepo.getDocument('home', true),
+        projectsRepo.list({ publishedOnly: true, pageSize: 6 }),
+        servicesRepo.list(true),
+      ])
+
       if (!doc || doc.status !== 'published') {
         throw new NotFoundError('Home page content has not been published yet.')
       }
 
       const parsedContent = homeContentSchema.parse(doc.data)
-
-      // Fetch active featured projects for homepage showcase
-      const { items: featuredProjects } = await projectsRepo.list({
-        publishedOnly: true,
-        pageSize: 6,
-      })
-
-      // Fetch published services
-      const activeServices = await servicesRepo.list(true)
 
       return {
         content: parsedContent,

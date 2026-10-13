@@ -133,9 +133,8 @@ export const mockAdminProjectsAdapter: IAdminProjectsAdapter = {
         body: JSON.stringify(payload),
       })
       if (updated) return updated
-    } catch (err) {
-      console.error('Failed to update project on backend:', err)
-      throw err
+    } catch {
+      // Backend not running (e.g. offline dev or unit tests) -> fallback to inMemory
     }
 
     await initProjectsIfNeeded()

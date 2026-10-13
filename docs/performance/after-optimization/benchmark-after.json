@@ -1,0 +1,1028 @@
+{
+  "http://localhost:3000/": {
+    "category": "public-page",
+    "status": 200,
+    "avgTtfbMs": 504.5,
+    "avgTotalTimeMs": 511.8,
+    "p95TotalTimeMs": 998.9,
+    "sizeBytes": 202598,
+    "sizeKB": 197.8,
+    "samples": [
+      {
+        "url": "http://localhost:3000/",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 988.4,
+        "totalTimeMs": 998.86,
+        "sizeBytes": 202598,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 272.73,
+        "totalTimeMs": 279.36,
+        "sizeBytes": 202598,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 252.44,
+        "totalTimeMs": 257.2,
+        "sizeBytes": 202598,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3000/about": {
+    "category": "public-page",
+    "status": 200,
+    "avgTtfbMs": 117.2,
+    "avgTotalTimeMs": 122.3,
+    "p95TotalTimeMs": 125.1,
+    "sizeBytes": 170029,
+    "sizeKB": 166,
+    "samples": [
+      {
+        "url": "http://localhost:3000/about",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 117.27,
+        "totalTimeMs": 123.15,
+        "sizeBytes": 170029,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/about",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 121.01,
+        "totalTimeMs": 125.14,
+        "sizeBytes": 170029,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/about",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 113.36,
+        "totalTimeMs": 118.49,
+        "sizeBytes": 170029,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3000/services": {
+    "category": "public-page",
+    "status": 200,
+    "avgTtfbMs": 118.9,
+    "avgTotalTimeMs": 124,
+    "p95TotalTimeMs": 130.4,
+    "sizeBytes": 204570,
+    "sizeKB": 199.8,
+    "samples": [
+      {
+        "url": "http://localhost:3000/services",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 126.55,
+        "totalTimeMs": 130.44,
+        "sizeBytes": 204570,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/services",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 111.87,
+        "totalTimeMs": 117.26,
+        "sizeBytes": 204570,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/services",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 118.13,
+        "totalTimeMs": 124.22,
+        "sizeBytes": 204570,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3000/projects": {
+    "category": "public-page",
+    "status": 200,
+    "avgTtfbMs": 192.2,
+    "avgTotalTimeMs": 198.1,
+    "p95TotalTimeMs": 222,
+    "sizeBytes": 322563,
+    "sizeKB": 315,
+    "samples": [
+      {
+        "url": "http://localhost:3000/projects",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 216.55,
+        "totalTimeMs": 222.01,
+        "sizeBytes": 322563,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/projects",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 179.42,
+        "totalTimeMs": 186.03,
+        "sizeBytes": 322563,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/projects",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 180.7,
+        "totalTimeMs": 186.41,
+        "sizeBytes": 322563,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3000/projects?country=saudi-arabia": {
+    "category": "public-page",
+    "status": 200,
+    "avgTtfbMs": 183.9,
+    "avgTotalTimeMs": 189.3,
+    "p95TotalTimeMs": 196.8,
+    "sizeBytes": 322657,
+    "sizeKB": 315.1,
+    "samples": [
+      {
+        "url": "http://localhost:3000/projects?country=saudi-arabia",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 191.3,
+        "totalTimeMs": 196.84,
+        "sizeBytes": 322657,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/projects?country=saudi-arabia",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 180.09,
+        "totalTimeMs": 185.1,
+        "sizeBytes": 322657,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/projects?country=saudi-arabia",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 180.23,
+        "totalTimeMs": 186.03,
+        "sizeBytes": 322657,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3000/projects?country=egypt": {
+    "category": "public-page",
+    "status": 200,
+    "avgTtfbMs": 188.1,
+    "avgTotalTimeMs": 197,
+    "p95TotalTimeMs": 208.5,
+    "sizeBytes": 322623,
+    "sizeKB": 315.1,
+    "samples": [
+      {
+        "url": "http://localhost:3000/projects?country=egypt",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 176.44,
+        "totalTimeMs": 182.58,
+        "sizeBytes": 322623,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/projects?country=egypt",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 203.57,
+        "totalTimeMs": 208.49,
+        "sizeBytes": 322623,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/projects?country=egypt",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 184.36,
+        "totalTimeMs": 199.9,
+        "sizeBytes": 322623,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3000/projects?country=qatar": {
+    "category": "public-page",
+    "status": 200,
+    "avgTtfbMs": 196.1,
+    "avgTotalTimeMs": 202,
+    "p95TotalTimeMs": 230.4,
+    "sizeBytes": 322623,
+    "sizeKB": 315.1,
+    "samples": [
+      {
+        "url": "http://localhost:3000/projects?country=qatar",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 224.81,
+        "totalTimeMs": 230.43,
+        "sizeBytes": 322623,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/projects?country=qatar",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 179,
+        "totalTimeMs": 184.82,
+        "sizeBytes": 322623,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/projects?country=qatar",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 184.55,
+        "totalTimeMs": 190.87,
+        "sizeBytes": 322623,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3000/projects/way-care-medical-hospital": {
+    "category": "public-page",
+    "status": 200,
+    "avgTtfbMs": 105.5,
+    "avgTotalTimeMs": 107.7,
+    "p95TotalTimeMs": 110.7,
+    "sizeBytes": 47866,
+    "sizeKB": 46.7,
+    "samples": [
+      {
+        "url": "http://localhost:3000/projects/way-care-medical-hospital",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 107.7,
+        "totalTimeMs": 109.63,
+        "sizeBytes": 47866,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/projects/way-care-medical-hospital",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 100.9,
+        "totalTimeMs": 102.81,
+        "sizeBytes": 47866,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/projects/way-care-medical-hospital",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 108.01,
+        "totalTimeMs": 110.68,
+        "sizeBytes": 47866,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3000/projects/beverly-al-azeeza-new-facade": {
+    "category": "public-page",
+    "status": 200,
+    "avgTtfbMs": 93.6,
+    "avgTotalTimeMs": 96,
+    "p95TotalTimeMs": 100.8,
+    "sizeBytes": 46431,
+    "sizeKB": 45.3,
+    "samples": [
+      {
+        "url": "http://localhost:3000/projects/beverly-al-azeeza-new-facade",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 96.8,
+        "totalTimeMs": 99.55,
+        "sizeBytes": 46431,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/projects/beverly-al-azeeza-new-facade",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 98.57,
+        "totalTimeMs": 100.8,
+        "sizeBytes": 46431,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/projects/beverly-al-azeeza-new-facade",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 85.35,
+        "totalTimeMs": 87.67,
+        "sizeBytes": 46431,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3000/contact": {
+    "category": "public-page",
+    "status": 200,
+    "avgTtfbMs": 25.9,
+    "avgTotalTimeMs": 27,
+    "p95TotalTimeMs": 55,
+    "sizeBytes": 66235,
+    "sizeKB": 64.7,
+    "samples": [
+      {
+        "url": "http://localhost:3000/contact",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 53.85,
+        "totalTimeMs": 54.99,
+        "sizeBytes": 66235,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/contact",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 10.45,
+        "totalTimeMs": 11.81,
+        "sizeBytes": 66235,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3000/contact",
+        "category": "public-page",
+        "status": 200,
+        "ttfbMs": 13.28,
+        "totalTimeMs": 14.3,
+        "sizeBytes": 66235,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3001/login": {
+    "category": "admin-page",
+    "status": 200,
+    "avgTtfbMs": 64.5,
+    "avgTotalTimeMs": 65.1,
+    "p95TotalTimeMs": 154.6,
+    "sizeBytes": 10828,
+    "sizeKB": 10.6,
+    "samples": [
+      {
+        "url": "http://localhost:3001/login",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 154.04,
+        "totalTimeMs": 154.59,
+        "sizeBytes": 10828,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/login",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 16.8,
+        "totalTimeMs": 17.41,
+        "sizeBytes": 10828,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/login",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 22.72,
+        "totalTimeMs": 23.4,
+        "sizeBytes": 10828,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3001/": {
+    "category": "admin-page",
+    "status": 200,
+    "avgTtfbMs": 16.5,
+    "avgTotalTimeMs": 17.7,
+    "p95TotalTimeMs": 23.9,
+    "sizeBytes": 34227,
+    "sizeKB": 33.4,
+    "samples": [
+      {
+        "url": "http://localhost:3001/",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 22.98,
+        "totalTimeMs": 23.9,
+        "sizeBytes": 34227,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 14.06,
+        "totalTimeMs": 15.06,
+        "sizeBytes": 34227,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 12.47,
+        "totalTimeMs": 14.02,
+        "sizeBytes": 34227,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3001/projects": {
+    "category": "admin-page",
+    "status": 200,
+    "avgTtfbMs": 14,
+    "avgTotalTimeMs": 14.8,
+    "p95TotalTimeMs": 15.3,
+    "sizeBytes": 7648,
+    "sizeKB": 7.5,
+    "samples": [
+      {
+        "url": "http://localhost:3001/projects",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 13.22,
+        "totalTimeMs": 13.96,
+        "sizeBytes": 7648,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/projects",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 14.16,
+        "totalTimeMs": 15.06,
+        "sizeBytes": 7648,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/projects",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 14.47,
+        "totalTimeMs": 15.29,
+        "sizeBytes": 7648,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3001/services": {
+    "category": "admin-page",
+    "status": 200,
+    "avgTtfbMs": 14.8,
+    "avgTotalTimeMs": 15.5,
+    "p95TotalTimeMs": 15.9,
+    "sizeBytes": 7412,
+    "sizeKB": 7.2,
+    "samples": [
+      {
+        "url": "http://localhost:3001/services",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 15.16,
+        "totalTimeMs": 15.85,
+        "sizeBytes": 7412,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/services",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 15.16,
+        "totalTimeMs": 15.8,
+        "sizeBytes": 7412,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/services",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 14.01,
+        "totalTimeMs": 14.73,
+        "sizeBytes": 7412,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3001/home": {
+    "category": "admin-page",
+    "status": 200,
+    "avgTtfbMs": 14.9,
+    "avgTotalTimeMs": 15.6,
+    "p95TotalTimeMs": 16.5,
+    "sizeBytes": 7400,
+    "sizeKB": 7.2,
+    "samples": [
+      {
+        "url": "http://localhost:3001/home",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 14.61,
+        "totalTimeMs": 15.33,
+        "sizeBytes": 7400,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/home",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 14.18,
+        "totalTimeMs": 14.85,
+        "sizeBytes": 7400,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/home",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 15.96,
+        "totalTimeMs": 16.47,
+        "sizeBytes": 7400,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3001/about": {
+    "category": "admin-page",
+    "status": 200,
+    "avgTtfbMs": 14.9,
+    "avgTotalTimeMs": 15.9,
+    "p95TotalTimeMs": 16.7,
+    "sizeBytes": 7403,
+    "sizeKB": 7.2,
+    "samples": [
+      {
+        "url": "http://localhost:3001/about",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 14.64,
+        "totalTimeMs": 15.25,
+        "sizeBytes": 7403,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/about",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 15.25,
+        "totalTimeMs": 15.88,
+        "sizeBytes": 7403,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/about",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 14.79,
+        "totalTimeMs": 16.71,
+        "sizeBytes": 7403,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3001/contact": {
+    "category": "admin-page",
+    "status": 200,
+    "avgTtfbMs": 14.1,
+    "avgTotalTimeMs": 15,
+    "p95TotalTimeMs": 16.3,
+    "sizeBytes": 7409,
+    "sizeKB": 7.2,
+    "samples": [
+      {
+        "url": "http://localhost:3001/contact",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 13.88,
+        "totalTimeMs": 14.48,
+        "sizeBytes": 7409,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/contact",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 15,
+        "totalTimeMs": 16.29,
+        "sizeBytes": 7409,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/contact",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 13.45,
+        "totalTimeMs": 14.24,
+        "sizeBytes": 7409,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3001/media": {
+    "category": "admin-page",
+    "status": 200,
+    "avgTtfbMs": 14.8,
+    "avgTotalTimeMs": 15.5,
+    "p95TotalTimeMs": 16.3,
+    "sizeBytes": 7402,
+    "sizeKB": 7.2,
+    "samples": [
+      {
+        "url": "http://localhost:3001/media",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 14.77,
+        "totalTimeMs": 15.39,
+        "sizeBytes": 7402,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/media",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 15.51,
+        "totalTimeMs": 16.31,
+        "sizeBytes": 7402,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/media",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 14.26,
+        "totalTimeMs": 14.87,
+        "sizeBytes": 7402,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:3001/settings": {
+    "category": "admin-page",
+    "status": 200,
+    "avgTtfbMs": 14.8,
+    "avgTotalTimeMs": 15.3,
+    "p95TotalTimeMs": 16,
+    "sizeBytes": 7412,
+    "sizeKB": 7.2,
+    "samples": [
+      {
+        "url": "http://localhost:3001/settings",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 15.53,
+        "totalTimeMs": 16.03,
+        "sizeBytes": 7412,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/settings",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 14.63,
+        "totalTimeMs": 15.12,
+        "sizeBytes": 7412,
+        "contentType": "text/html; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:3001/settings",
+        "category": "admin-page",
+        "status": 200,
+        "ttfbMs": 14.17,
+        "totalTimeMs": 14.75,
+        "sizeBytes": 7412,
+        "contentType": "text/html; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:4000/health": {
+    "category": "api-endpoint",
+    "status": 200,
+    "avgTtfbMs": 4.3,
+    "avgTotalTimeMs": 4.6,
+    "p95TotalTimeMs": 5.9,
+    "sizeBytes": 276,
+    "sizeKB": 0.3,
+    "samples": [
+      {
+        "url": "http://localhost:4000/health",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 3.48,
+        "totalTimeMs": 3.68,
+        "sizeBytes": 276,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/health",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 3.7,
+        "totalTimeMs": 4.14,
+        "sizeBytes": 277,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/health",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 5.81,
+        "totalTimeMs": 5.92,
+        "sizeBytes": 277,
+        "contentType": "application/json; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:4000/api/v1/projects": {
+    "category": "api-endpoint",
+    "status": 200,
+    "avgTtfbMs": 183.5,
+    "avgTotalTimeMs": 184.5,
+    "p95TotalTimeMs": 233.1,
+    "sizeBytes": 56131,
+    "sizeKB": 54.8,
+    "samples": [
+      {
+        "url": "http://localhost:4000/api/v1/projects",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 231.85,
+        "totalTimeMs": 233.06,
+        "sizeBytes": 56131,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/projects",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 165.94,
+        "totalTimeMs": 166.9,
+        "sizeBytes": 56131,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/projects",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 152.82,
+        "totalTimeMs": 153.59,
+        "sizeBytes": 56131,
+        "contentType": "application/json; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:4000/api/v1/projects?country=saudi-arabia": {
+    "category": "api-endpoint",
+    "status": 200,
+    "avgTtfbMs": 159.3,
+    "avgTotalTimeMs": 160.6,
+    "p95TotalTimeMs": 167.7,
+    "sizeBytes": 52045,
+    "sizeKB": 50.8,
+    "samples": [
+      {
+        "url": "http://localhost:4000/api/v1/projects?country=saudi-arabia",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 165.96,
+        "totalTimeMs": 167.67,
+        "sizeBytes": 52045,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/projects?country=saudi-arabia",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 160.54,
+        "totalTimeMs": 162.17,
+        "sizeBytes": 52045,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/projects?country=saudi-arabia",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 151.33,
+        "totalTimeMs": 152.02,
+        "sizeBytes": 52045,
+        "contentType": "application/json; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:4000/api/v1/projects/way-care-medical-hospital": {
+    "category": "api-endpoint",
+    "status": 200,
+    "avgTtfbMs": 93.1,
+    "avgTotalTimeMs": 93.7,
+    "p95TotalTimeMs": 112.9,
+    "sizeBytes": 3581,
+    "sizeKB": 3.5,
+    "samples": [
+      {
+        "url": "http://localhost:4000/api/v1/projects/way-care-medical-hospital",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 112.41,
+        "totalTimeMs": 112.9,
+        "sizeBytes": 3581,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/projects/way-care-medical-hospital",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 77.66,
+        "totalTimeMs": 78.53,
+        "sizeBytes": 3581,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/projects/way-care-medical-hospital",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 89.22,
+        "totalTimeMs": 89.73,
+        "sizeBytes": 3581,
+        "contentType": "application/json; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:4000/api/v1/services": {
+    "category": "api-endpoint",
+    "status": 200,
+    "avgTtfbMs": 79.6,
+    "avgTotalTimeMs": 80,
+    "p95TotalTimeMs": 92.2,
+    "sizeBytes": 4264,
+    "sizeKB": 4.2,
+    "samples": [
+      {
+        "url": "http://localhost:4000/api/v1/services",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 91.68,
+        "totalTimeMs": 92.22,
+        "sizeBytes": 4264,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/services",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 73.92,
+        "totalTimeMs": 74.32,
+        "sizeBytes": 4264,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/services",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 73.06,
+        "totalTimeMs": 73.53,
+        "sizeBytes": 4264,
+        "contentType": "application/json; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:4000/api/v1/home": {
+    "category": "api-endpoint",
+    "status": 200,
+    "avgTtfbMs": 170,
+    "avgTotalTimeMs": 171.2,
+    "p95TotalTimeMs": 173.3,
+    "sizeBytes": 16554,
+    "sizeKB": 16.2,
+    "samples": [
+      {
+        "url": "http://localhost:4000/api/v1/home",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 170.99,
+        "totalTimeMs": 171.96,
+        "sizeBytes": 16554,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/home",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 167.98,
+        "totalTimeMs": 168.45,
+        "sizeBytes": 16554,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/home",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 170.92,
+        "totalTimeMs": 173.27,
+        "sizeBytes": 16554,
+        "contentType": "application/json; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:4000/api/v1/about": {
+    "category": "api-endpoint",
+    "status": 200,
+    "avgTtfbMs": 81.9,
+    "avgTotalTimeMs": 82.3,
+    "p95TotalTimeMs": 87.7,
+    "sizeBytes": 7990,
+    "sizeKB": 7.8,
+    "samples": [
+      {
+        "url": "http://localhost:4000/api/v1/about",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 78.22,
+        "totalTimeMs": 78.61,
+        "sizeBytes": 7990,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/about",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 87.27,
+        "totalTimeMs": 87.7,
+        "sizeBytes": 7990,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/about",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 80.27,
+        "totalTimeMs": 80.69,
+        "sizeBytes": 7990,
+        "contentType": "application/json; charset=utf-8"
+      }
+    ]
+  },
+  "http://localhost:4000/api/v1/contact": {
+    "category": "api-endpoint",
+    "status": 200,
+    "avgTtfbMs": 77,
+    "avgTotalTimeMs": 77.4,
+    "p95TotalTimeMs": 79.4,
+    "sizeBytes": 1874,
+    "sizeKB": 1.8,
+    "samples": [
+      {
+        "url": "http://localhost:4000/api/v1/contact",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 79.04,
+        "totalTimeMs": 79.41,
+        "sizeBytes": 1874,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/contact",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 74,
+        "totalTimeMs": 74.4,
+        "sizeBytes": 1874,
+        "contentType": "application/json; charset=utf-8"
+      },
+      {
+        "url": "http://localhost:4000/api/v1/contact",
+        "category": "api-endpoint",
+        "status": 200,
+        "ttfbMs": 78.05,
+        "totalTimeMs": 78.38,
+        "sizeBytes": 1874,
+        "contentType": "application/json; charset=utf-8"
+      }
+    ]
+  }
+}

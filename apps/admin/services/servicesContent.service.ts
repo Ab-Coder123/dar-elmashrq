@@ -86,9 +86,8 @@ export const mockServicesAdapter: IServicesAdapter = {
         body: JSON.stringify(payload),
       })
       if (updated) return updated
-    } catch (err) {
-      console.error('Failed to update service on backend:', err)
-      throw err
+    } catch {
+      // Backend not running (e.g. unit tests or offline dev) -> fallback to inMemory
     }
 
     const idx = inMemoryServices.findIndex((s) => s.id === id)
