@@ -994,7 +994,16 @@ const PROJECTS: Project[] = [
     location: 'Riyadh',
     category: 'government-institutional',
     services: ['Civil Works', 'Construction'],
-    images: [],
+    images: [
+      {
+            "id": "forensic-evidence-site-preparation-riyadh-01",
+            "url": "/images/projects/forensic-evidence-site-preparation-riyadh/cover.jpg",
+            "alt": "Forensic Evidence General Administration Site Preparation Riyadh",
+            "altAr": "مشروع تجهيز الموقع العام لمبنى الإدارة العامة للأدلة الجنائية في الرياض",
+            "isCover": true,
+            "order": 1
+      }
+    ],
     isFeatured: false,
     order: 16,
   },
@@ -1258,7 +1267,16 @@ const PROJECTS: Project[] = [
     location: 'Al-Balina, Sohag',
     category: 'healthcare',
     services: ['Electrical Works', 'Technical Installation'],
-    images: [],
+    images: [
+      {
+            "id": "al-balina-hospital-medical-equipment-01",
+            "url": "/images/projects/al-balina-hospital-medical-equipment/cover.jpg",
+            "alt": "Al-Balina Central Hospital Medical Equipment Supply & Installation",
+            "altAr": "أعمال توريد وتركيب وصيانة أجهزة طبية — مستشفى البلينا المركزي",
+            "isCover": true,
+            "order": 1
+      }
+    ],
     isFeatured: false,
     order: 6,
   },
@@ -1271,7 +1289,16 @@ const PROJECTS: Project[] = [
     location: 'Taha, Sohag',
     category: 'healthcare',
     services: ['Civil Works', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "taha-general-hospital-renovation-01",
+            "url": "/images/projects/taha-general-hospital-renovation/cover.jpg",
+            "alt": "Taha General Hospital Renovation",
+            "altAr": "أعمال ترميم وتجديد مستشفى طهطا العام",
+            "isCover": true,
+            "order": 1
+      }
+    ],
     isFeatured: false,
     order: 7,
   },
@@ -1477,7 +1504,16 @@ const PROJECTS: Project[] = [
     category: 'residential',
     clientName: 'Fahad Al-Maadeed',
     services: ['Civil Works', 'Construction', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "two-villas-al-sali-01",
+            "url": "/images/projects/two-villas-al-sali/cover.jpg",
+            "alt": "Two Private Villas Al-Sali Qatar",
+            "altAr": "مشروع عدد 2 فيلا بمنطقة السلي",
+            "isCover": true,
+            "order": 1
+      }
+    ],
     isFeatured: false,
     order: 5,
   },
@@ -1491,7 +1527,16 @@ const PROJECTS: Project[] = [
     category: 'residential',
     clientName: 'Ahmed Al-Hamr',
     services: ['Civil Works', 'Construction', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "villa-ain-khaled-01",
+            "url": "/images/projects/villa-ain-khaled/cover.jpg",
+            "alt": "Private Villa Ain Khaled Qatar",
+            "altAr": "مشروع فيلا بمنطقة عين خالد",
+            "isCover": true,
+            "order": 1
+      }
+    ],
     isFeatured: false,
     order: 6,
   },

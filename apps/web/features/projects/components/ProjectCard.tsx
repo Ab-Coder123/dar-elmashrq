@@ -82,7 +82,10 @@ export function ProjectCard({ project, onOpenDossier, isPriority = false }: Proj
 
   return (
     <motion.div
-      variants={fadeUpVariants}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
       className="group relative border border-slate-200 dark:border-[#ba9563]/30 bg-white dark:bg-[#0b1a37] overflow-hidden flex flex-col justify-between hover:border-[#ba9563] transition-all duration-300 shadow-md hover:shadow-2xl"
     >
       <BlueprintCrosshair position={isAr ? 'top-right' : 'top-left'} />
