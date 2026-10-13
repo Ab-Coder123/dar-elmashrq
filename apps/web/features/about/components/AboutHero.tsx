@@ -7,27 +7,49 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ABOUT_MEDIA } from '../data/about.data'
 import { BlueprintCrosshair } from '@/components/ui/BlueprintCrosshair'
 import { heroStaggerVariants, fadeUpVariants, slideInLeftVariants, DURATIONS, EASE } from '@/lib/motion'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 export interface AboutHeroProps {
   hero?: {
     badge?: string
+    badgeAr?: string
     headline?: string
+    headlineAr?: string
     tagline?: string
+    taglineAr?: string
     description?: string
+    descriptionAr?: string
     heroImage?: string
   }
 }
 
 export function AboutHero({ hero }: AboutHeroProps = {}) {
   const prefersReduced = useReducedMotion()
+  const { locale, isRtl } = useLanguage()
 
   const heroImage = hero?.heroImage || ABOUT_MEDIA.heroImage
-  const badge = hero?.badge || 'ESTABLISHED 1994 • KSA • EGY • QAT'
-  const headline = hero?.headline || 'ABOUT US'
-  const tagline = hero?.tagline || 'Building With Purpose. Engineering With Longevity.'
+
+  const badge =
+    locale === 'ar'
+      ? hero?.badgeAr || 'تأسست عام 1994 • المملكة • مصر • قطر'
+      : hero?.badge || 'ESTABLISHED 1994 • KSA • EGY • QAT'
+
+  const headline =
+    locale === 'ar'
+      ? hero?.headlineAr || 'عن دار المشرق'
+      : hero?.headline || 'ABOUT US'
+
+  const tagline =
+    locale === 'ar'
+      ? hero?.taglineAr || 'بناء هادف ورؤية هندسية راسخة للأجيال.'
+      : hero?.tagline || 'Building With Purpose. Engineering With Longevity.'
+
   const description =
-    hero?.description ||
-    'Three continuous decades of tier-one civil engineering, electro-mechanical execution, and real estate development across Saudi Arabia, Egypt, and Qatar.'
+    locale === 'ar'
+      ? hero?.descriptionAr ||
+        'ثلاثة عقود متتالية من التميز في المقاولات العامة والهندسة المدنية والحلول الكهروميكانيكية المتكاملة والاستثمار العقاري عبر المملكة العربية السعودية وجمهورية مصر العربية ودولة قطر.'
+      : hero?.description ||
+        'Three continuous decades of tier-one civil engineering, electro-mechanical execution, and real estate development across Saudi Arabia, Egypt, and Qatar.'
 
   return (
     <section className="relative min-h-[55vh] sm:min-h-[65vh] flex items-center pt-28 pb-16 overflow-hidden border-b border-slate-200 dark:border-[#434651]/60 transition-colors duration-300">
@@ -73,31 +95,31 @@ export function AboutHero({ hero }: AboutHeroProps = {}) {
           {/* Breadcrumb Navigation */}
           <motion.nav
             aria-label="Breadcrumb"
-            className="flex items-center space-x-2 text-xs font-['Space_Grotesk'] uppercase tracking-[0.2em] mb-6 text-[#ba9563]"
+            className="flex items-center space-x-2 rtl:space-x-reverse text-xs font-arabic uppercase tracking-wider mb-6 text-[#ba9563] font-bold"
             variants={fadeUpVariants}
           >
             <Link href="/" className="hover:text-white transition-colors">
-              Home
+              {locale === 'ar' ? 'الرئيسية' : 'Home'}
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-[#ba9563]/60" />
-            <span className="text-white font-semibold">About Us</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#ba9563]/60 rtl:rotate-180" />
+            <span className="text-white font-extrabold">{locale === 'ar' ? 'عن الشركة' : 'About Us'}</span>
           </motion.nav>
 
           {/* Badge */}
           <motion.div
-            className="inline-flex items-center space-x-3 border border-[#ba9563]/50 bg-[#0b1a37]/85 px-4 py-2 mb-6 backdrop-blur-md relative shadow-lg"
+            className="inline-flex items-center space-x-3 rtl:space-x-reverse border border-[#ba9563]/50 bg-[#0b1a37]/85 px-4 py-2 mb-6 backdrop-blur-md relative shadow-lg"
             variants={slideInLeftVariants}
           >
             <BlueprintCrosshair position="top-left" />
-            <span className="w-2 h-2 bg-[#ba9563] rounded-none" />
-            <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.2em] text-[#ba9563] font-medium">
+            <span className="w-2 h-2 bg-[#ba9563] rounded-none shrink-0" />
+            <span className="font-arabic text-xs uppercase tracking-wider text-[#ba9563] font-bold">
               {badge}
             </span>
             <BlueprintCrosshair position="bottom-right" />
           </motion.div>
 
           <motion.h1
-            className="font-['Montserrat'] text-4xl sm:text-6xl lg:text-7xl text-white uppercase font-extrabold tracking-tight leading-[1.08] mb-4 drop-shadow-md"
+            className="font-arabic text-4xl sm:text-6xl lg:text-7xl text-white uppercase font-extrabold tracking-tight leading-[1.1] mb-4 drop-shadow-md"
             variants={
               prefersReduced
                 ? fadeUpVariants
@@ -118,14 +140,14 @@ export function AboutHero({ hero }: AboutHeroProps = {}) {
           </motion.h1>
 
           <motion.p
-            className="font-['Montserrat'] text-lg sm:text-2xl text-[#ba9563] font-semibold uppercase tracking-wider mb-6"
+            className="font-arabic text-lg sm:text-2xl text-[#ba9563] font-bold uppercase tracking-wider mb-6 leading-relaxed"
             variants={fadeUpVariants}
           >
             {tagline}
           </motion.p>
 
           <motion.p
-            className="font-['Inter'] text-sm sm:text-base text-slate-200 dark:text-[#c4c6d2] max-w-2xl leading-relaxed border-l-2 border-[#ba9563] pl-6 bg-[#0b1a37]/40 backdrop-blur-sm py-1.5"
+            className="font-arabic text-sm sm:text-base text-slate-200 dark:text-[#c4c6d2] max-w-2xl leading-relaxed border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#ba9563] pl-6 rtl:pl-0 rtl:pr-6 bg-[#0b1a37]/40 backdrop-blur-sm py-1.5 font-normal"
             variants={fadeUpVariants}
           >
             {description}
