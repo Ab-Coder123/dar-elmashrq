@@ -44,7 +44,64 @@ const PROJECTS: Project[] = [
     location: 'Al-Azeeza',
     category: 'commercial',
     services: ['Civil Works', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "beverly-al-azeeza-new-facade-01",
+            "url": "/images/projects/beverly-al-azeeza-new-facade/cover.jpg",
+            "alt": "Project beverly-al-azeeza-new-facade Image 1",
+            "altAr": "صورة مشروع beverly-al-azeeza-new-facade رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "beverly-al-azeeza-new-facade-02",
+            "url": "/images/projects/beverly-al-azeeza-new-facade/photo-02.jpg",
+            "alt": "Project beverly-al-azeeza-new-facade Image 2",
+            "altAr": "صورة مشروع beverly-al-azeeza-new-facade رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "beverly-al-azeeza-new-facade-03",
+            "url": "/images/projects/beverly-al-azeeza-new-facade/photo-03.jpg",
+            "alt": "Project beverly-al-azeeza-new-facade Image 3",
+            "altAr": "صورة مشروع beverly-al-azeeza-new-facade رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "beverly-al-azeeza-new-facade-04",
+            "url": "/images/projects/beverly-al-azeeza-new-facade/photo-04.jpg",
+            "alt": "Project beverly-al-azeeza-new-facade Image 4",
+            "altAr": "صورة مشروع beverly-al-azeeza-new-facade رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "beverly-al-azeeza-new-facade-05",
+            "url": "/images/projects/beverly-al-azeeza-new-facade/photo-05.jpg",
+            "alt": "Project beverly-al-azeeza-new-facade Image 5",
+            "altAr": "صورة مشروع beverly-al-azeeza-new-facade رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "beverly-al-azeeza-new-facade-06",
+            "url": "/images/projects/beverly-al-azeeza-new-facade/photo-06.jpg",
+            "alt": "Project beverly-al-azeeza-new-facade Image 6",
+            "altAr": "صورة مشروع beverly-al-azeeza-new-facade رقم 6",
+            "isCover": false,
+            "order": 6
+      },
+      {
+            "id": "beverly-al-azeeza-new-facade-07",
+            "url": "/images/projects/beverly-al-azeeza-new-facade/photo-07.jpg",
+            "alt": "Project beverly-al-azeeza-new-facade Image 7",
+            "altAr": "صورة مشروع beverly-al-azeeza-new-facade رقم 7",
+            "isCover": false,
+            "order": 7
+      }
+],
     isFeatured: true,
     order: 1,
   },
@@ -57,7 +114,56 @@ const PROJECTS: Project[] = [
     location: 'Saudi Arabia',
     category: 'infrastructure',
     services: ['Civil Works', 'Construction'],
-    images: [],
+    images: [
+      {
+            "id": "grc-factory-01",
+            "url": "/images/projects/grc-factory/cover.jpg",
+            "alt": "Project grc-factory Image 1",
+            "altAr": "صورة مشروع grc-factory رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "grc-factory-02",
+            "url": "/images/projects/grc-factory/photo-02.jpg",
+            "alt": "Project grc-factory Image 2",
+            "altAr": "صورة مشروع grc-factory رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "grc-factory-03",
+            "url": "/images/projects/grc-factory/photo-03.jpg",
+            "alt": "Project grc-factory Image 3",
+            "altAr": "صورة مشروع grc-factory رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "grc-factory-04",
+            "url": "/images/projects/grc-factory/photo-04.jpg",
+            "alt": "Project grc-factory Image 4",
+            "altAr": "صورة مشروع grc-factory رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "grc-factory-05",
+            "url": "/images/projects/grc-factory/photo-05.jpg",
+            "alt": "Project grc-factory Image 5",
+            "altAr": "صورة مشروع grc-factory رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "grc-factory-06",
+            "url": "/images/projects/grc-factory/photo-06.jpg",
+            "alt": "Project grc-factory Image 6",
+            "altAr": "صورة مشروع grc-factory رقم 6",
+            "isCover": false,
+            "order": 6
+      }
+],
     isFeatured: false,
     order: 2,
   },
@@ -70,7 +176,64 @@ const PROJECTS: Project[] = [
     location: 'Saudi Arabia',
     category: 'healthcare',
     services: ['Civil Works', 'Electrical Works', 'Air Conditioning', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "way-care-medical-hospital-01",
+            "url": "/images/projects/way-care-medical-hospital/cover.jpg",
+            "alt": "Project way-care-medical-hospital Image 1",
+            "altAr": "صورة مشروع way-care-medical-hospital رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "way-care-medical-hospital-02",
+            "url": "/images/projects/way-care-medical-hospital/photo-02.jpg",
+            "alt": "Project way-care-medical-hospital Image 2",
+            "altAr": "صورة مشروع way-care-medical-hospital رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "way-care-medical-hospital-03",
+            "url": "/images/projects/way-care-medical-hospital/photo-03.jpg",
+            "alt": "Project way-care-medical-hospital Image 3",
+            "altAr": "صورة مشروع way-care-medical-hospital رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "way-care-medical-hospital-04",
+            "url": "/images/projects/way-care-medical-hospital/photo-04.jpg",
+            "alt": "Project way-care-medical-hospital Image 4",
+            "altAr": "صورة مشروع way-care-medical-hospital رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "way-care-medical-hospital-05",
+            "url": "/images/projects/way-care-medical-hospital/photo-05.jpg",
+            "alt": "Project way-care-medical-hospital Image 5",
+            "altAr": "صورة مشروع way-care-medical-hospital رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "way-care-medical-hospital-06",
+            "url": "/images/projects/way-care-medical-hospital/photo-06.jpg",
+            "alt": "Project way-care-medical-hospital Image 6",
+            "altAr": "صورة مشروع way-care-medical-hospital رقم 6",
+            "isCover": false,
+            "order": 6
+      },
+      {
+            "id": "way-care-medical-hospital-07",
+            "url": "/images/projects/way-care-medical-hospital/photo-07.jpg",
+            "alt": "Project way-care-medical-hospital Image 7",
+            "altAr": "صورة مشروع way-care-medical-hospital رقم 7",
+            "isCover": false,
+            "order": 7
+      }
+],
     isFeatured: true,
     order: 3,
   },
@@ -83,7 +246,56 @@ const PROJECTS: Project[] = [
     location: 'Al-Qatif',
     category: 'residential',
     services: ['Civil Works', 'Finishing', 'Electrical Works', 'Sanitary Works'],
-    images: [],
+    images: [
+      {
+            "id": "residential-villas-al-qatif-01",
+            "url": "/images/projects/residential-villas-al-qatif/cover.jpg",
+            "alt": "Project residential-villas-al-qatif Image 1",
+            "altAr": "صورة مشروع residential-villas-al-qatif رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "residential-villas-al-qatif-02",
+            "url": "/images/projects/residential-villas-al-qatif/photo-02.jpg",
+            "alt": "Project residential-villas-al-qatif Image 2",
+            "altAr": "صورة مشروع residential-villas-al-qatif رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "residential-villas-al-qatif-03",
+            "url": "/images/projects/residential-villas-al-qatif/photo-03.jpg",
+            "alt": "Project residential-villas-al-qatif Image 3",
+            "altAr": "صورة مشروع residential-villas-al-qatif رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "residential-villas-al-qatif-04",
+            "url": "/images/projects/residential-villas-al-qatif/photo-04.jpg",
+            "alt": "Project residential-villas-al-qatif Image 4",
+            "altAr": "صورة مشروع residential-villas-al-qatif رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "residential-villas-al-qatif-05",
+            "url": "/images/projects/residential-villas-al-qatif/photo-05.jpg",
+            "alt": "Project residential-villas-al-qatif Image 5",
+            "altAr": "صورة مشروع residential-villas-al-qatif رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "residential-villas-al-qatif-06",
+            "url": "/images/projects/residential-villas-al-qatif/photo-06.jpg",
+            "alt": "Project residential-villas-al-qatif Image 6",
+            "altAr": "صورة مشروع residential-villas-al-qatif رقم 6",
+            "isCover": false,
+            "order": 6
+      }
+],
     isFeatured: false,
     order: 4,
   },
@@ -96,7 +308,80 @@ const PROJECTS: Project[] = [
     location: 'Al-Naeriyah',
     category: 'infrastructure',
     services: ['Civil Works', 'Infrastructure'],
-    images: [],
+    images: [
+      {
+            "id": "asbestos-pipe-replacement-al-naeriyah-01",
+            "url": "/images/projects/asbestos-pipe-replacement-al-naeriyah/cover.jpg",
+            "alt": "Project asbestos-pipe-replacement-al-naeriyah Image 1",
+            "altAr": "صورة مشروع asbestos-pipe-replacement-al-naeriyah رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "asbestos-pipe-replacement-al-naeriyah-02",
+            "url": "/images/projects/asbestos-pipe-replacement-al-naeriyah/photo-02.jpg",
+            "alt": "Project asbestos-pipe-replacement-al-naeriyah Image 2",
+            "altAr": "صورة مشروع asbestos-pipe-replacement-al-naeriyah رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "asbestos-pipe-replacement-al-naeriyah-03",
+            "url": "/images/projects/asbestos-pipe-replacement-al-naeriyah/photo-03.jpg",
+            "alt": "Project asbestos-pipe-replacement-al-naeriyah Image 3",
+            "altAr": "صورة مشروع asbestos-pipe-replacement-al-naeriyah رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "asbestos-pipe-replacement-al-naeriyah-04",
+            "url": "/images/projects/asbestos-pipe-replacement-al-naeriyah/photo-04.jpg",
+            "alt": "Project asbestos-pipe-replacement-al-naeriyah Image 4",
+            "altAr": "صورة مشروع asbestos-pipe-replacement-al-naeriyah رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "asbestos-pipe-replacement-al-naeriyah-05",
+            "url": "/images/projects/asbestos-pipe-replacement-al-naeriyah/photo-05.jpg",
+            "alt": "Project asbestos-pipe-replacement-al-naeriyah Image 5",
+            "altAr": "صورة مشروع asbestos-pipe-replacement-al-naeriyah رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "asbestos-pipe-replacement-al-naeriyah-06",
+            "url": "/images/projects/asbestos-pipe-replacement-al-naeriyah/photo-06.jpg",
+            "alt": "Project asbestos-pipe-replacement-al-naeriyah Image 6",
+            "altAr": "صورة مشروع asbestos-pipe-replacement-al-naeriyah رقم 6",
+            "isCover": false,
+            "order": 6
+      },
+      {
+            "id": "asbestos-pipe-replacement-al-naeriyah-07",
+            "url": "/images/projects/asbestos-pipe-replacement-al-naeriyah/photo-07.jpg",
+            "alt": "Project asbestos-pipe-replacement-al-naeriyah Image 7",
+            "altAr": "صورة مشروع asbestos-pipe-replacement-al-naeriyah رقم 7",
+            "isCover": false,
+            "order": 7
+      },
+      {
+            "id": "asbestos-pipe-replacement-al-naeriyah-08",
+            "url": "/images/projects/asbestos-pipe-replacement-al-naeriyah/photo-08.jpg",
+            "alt": "Project asbestos-pipe-replacement-al-naeriyah Image 8",
+            "altAr": "صورة مشروع asbestos-pipe-replacement-al-naeriyah رقم 8",
+            "isCover": false,
+            "order": 8
+      },
+      {
+            "id": "asbestos-pipe-replacement-al-naeriyah-09",
+            "url": "/images/projects/asbestos-pipe-replacement-al-naeriyah/photo-09.jpg",
+            "alt": "Project asbestos-pipe-replacement-al-naeriyah Image 9",
+            "altAr": "صورة مشروع asbestos-pipe-replacement-al-naeriyah رقم 9",
+            "isCover": false,
+            "order": 9
+      }
+],
     isFeatured: false,
     order: 5,
   },
@@ -113,7 +398,88 @@ const PROJECTS: Project[] = [
       'محطة ضخ المياه الغربية — رأس تنورة — الإدارة العامة لخدمات المياه بالمنطقة الشرقية.',
     category: 'infrastructure',
     services: ['Civil Works', 'Infrastructure', 'Electrical Works'],
-    images: [],
+    images: [
+      {
+            "id": "western-water-pump-station-ras-tanura-01",
+            "url": "/images/projects/western-water-pump-station-ras-tanura/cover.png",
+            "alt": "Project western-water-pump-station-ras-tanura Image 1",
+            "altAr": "صورة مشروع western-water-pump-station-ras-tanura رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "western-water-pump-station-ras-tanura-02",
+            "url": "/images/projects/western-water-pump-station-ras-tanura/photo-02.jpg",
+            "alt": "Project western-water-pump-station-ras-tanura Image 2",
+            "altAr": "صورة مشروع western-water-pump-station-ras-tanura رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "western-water-pump-station-ras-tanura-03",
+            "url": "/images/projects/western-water-pump-station-ras-tanura/photo-03.jpg",
+            "alt": "Project western-water-pump-station-ras-tanura Image 3",
+            "altAr": "صورة مشروع western-water-pump-station-ras-tanura رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "western-water-pump-station-ras-tanura-04",
+            "url": "/images/projects/western-water-pump-station-ras-tanura/photo-04.jpg",
+            "alt": "Project western-water-pump-station-ras-tanura Image 4",
+            "altAr": "صورة مشروع western-water-pump-station-ras-tanura رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "western-water-pump-station-ras-tanura-05",
+            "url": "/images/projects/western-water-pump-station-ras-tanura/photo-05.jpg",
+            "alt": "Project western-water-pump-station-ras-tanura Image 5",
+            "altAr": "صورة مشروع western-water-pump-station-ras-tanura رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "western-water-pump-station-ras-tanura-06",
+            "url": "/images/projects/western-water-pump-station-ras-tanura/photo-06.jpg",
+            "alt": "Project western-water-pump-station-ras-tanura Image 6",
+            "altAr": "صورة مشروع western-water-pump-station-ras-tanura رقم 6",
+            "isCover": false,
+            "order": 6
+      },
+      {
+            "id": "western-water-pump-station-ras-tanura-07",
+            "url": "/images/projects/western-water-pump-station-ras-tanura/photo-07.jpg",
+            "alt": "Project western-water-pump-station-ras-tanura Image 7",
+            "altAr": "صورة مشروع western-water-pump-station-ras-tanura رقم 7",
+            "isCover": false,
+            "order": 7
+      },
+      {
+            "id": "western-water-pump-station-ras-tanura-08",
+            "url": "/images/projects/western-water-pump-station-ras-tanura/photo-08.jpg",
+            "alt": "Project western-water-pump-station-ras-tanura Image 8",
+            "altAr": "صورة مشروع western-water-pump-station-ras-tanura رقم 8",
+            "isCover": false,
+            "order": 8
+      },
+      {
+            "id": "western-water-pump-station-ras-tanura-09",
+            "url": "/images/projects/western-water-pump-station-ras-tanura/photo-09.jpg",
+            "alt": "Project western-water-pump-station-ras-tanura Image 9",
+            "altAr": "صورة مشروع western-water-pump-station-ras-tanura رقم 9",
+            "isCover": false,
+            "order": 9
+      },
+      {
+            "id": "western-water-pump-station-ras-tanura-10",
+            "url": "/images/projects/western-water-pump-station-ras-tanura/photo-10.jpg",
+            "alt": "Project western-water-pump-station-ras-tanura Image 10",
+            "altAr": "صورة مشروع western-water-pump-station-ras-tanura رقم 10",
+            "isCover": false,
+            "order": 10
+      }
+],
     isFeatured: false,
     order: 6,
   },
@@ -126,7 +492,48 @@ const PROJECTS: Project[] = [
     location: 'Saudi Arabia',
     category: 'residential',
     services: ['Civil Works', 'Construction', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "residential-tower-01",
+            "url": "/images/projects/residential-tower/cover.jpg",
+            "alt": "Project residential-tower Image 1",
+            "altAr": "صورة مشروع residential-tower رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "residential-tower-02",
+            "url": "/images/projects/residential-tower/photo-02.jpg",
+            "alt": "Project residential-tower Image 2",
+            "altAr": "صورة مشروع residential-tower رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "residential-tower-03",
+            "url": "/images/projects/residential-tower/photo-03.jpg",
+            "alt": "Project residential-tower Image 3",
+            "altAr": "صورة مشروع residential-tower رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "residential-tower-04",
+            "url": "/images/projects/residential-tower/photo-04.jpg",
+            "alt": "Project residential-tower Image 4",
+            "altAr": "صورة مشروع residential-tower رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "residential-tower-05",
+            "url": "/images/projects/residential-tower/photo-05.jpg",
+            "alt": "Project residential-tower Image 5",
+            "altAr": "صورة مشروع residential-tower رقم 5",
+            "isCover": false,
+            "order": 5
+      }
+],
     isFeatured: true,
     order: 7,
   },
@@ -139,7 +546,56 @@ const PROJECTS: Project[] = [
     location: 'Saudi Arabia',
     category: 'residential',
     services: ['Civil Works', 'Construction', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "al-smaeel-tower-01",
+            "url": "/images/projects/al-smaeel-tower/cover.jpg",
+            "alt": "Project al-smaeel-tower Image 1",
+            "altAr": "صورة مشروع al-smaeel-tower رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "al-smaeel-tower-02",
+            "url": "/images/projects/al-smaeel-tower/photo-02.jpg",
+            "alt": "Project al-smaeel-tower Image 2",
+            "altAr": "صورة مشروع al-smaeel-tower رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "al-smaeel-tower-03",
+            "url": "/images/projects/al-smaeel-tower/photo-03.jpg",
+            "alt": "Project al-smaeel-tower Image 3",
+            "altAr": "صورة مشروع al-smaeel-tower رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "al-smaeel-tower-04",
+            "url": "/images/projects/al-smaeel-tower/photo-04.jpg",
+            "alt": "Project al-smaeel-tower Image 4",
+            "altAr": "صورة مشروع al-smaeel-tower رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "al-smaeel-tower-05",
+            "url": "/images/projects/al-smaeel-tower/photo-05.jpg",
+            "alt": "Project al-smaeel-tower Image 5",
+            "altAr": "صورة مشروع al-smaeel-tower رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "al-smaeel-tower-06",
+            "url": "/images/projects/al-smaeel-tower/photo-06.jpg",
+            "alt": "Project al-smaeel-tower Image 6",
+            "altAr": "صورة مشروع al-smaeel-tower رقم 6",
+            "isCover": false,
+            "order": 6
+      }
+],
     isFeatured: false,
     order: 8,
   },
@@ -152,7 +608,56 @@ const PROJECTS: Project[] = [
     location: 'Saudi Arabia',
     category: 'hospitality',
     services: ['Civil Works', 'Finishing', 'Electrical Works', 'MEP'],
-    images: [],
+    images: [
+      {
+            "id": "crispy-restaurant-al-sharea-al-awal-01",
+            "url": "/images/projects/crispy-restaurant-al-sharea-al-awal/cover.jpg",
+            "alt": "Project crispy-restaurant-al-sharea-al-awal Image 1",
+            "altAr": "صورة مشروع crispy-restaurant-al-sharea-al-awal رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "crispy-restaurant-al-sharea-al-awal-02",
+            "url": "/images/projects/crispy-restaurant-al-sharea-al-awal/photo-02.jpg",
+            "alt": "Project crispy-restaurant-al-sharea-al-awal Image 2",
+            "altAr": "صورة مشروع crispy-restaurant-al-sharea-al-awal رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "crispy-restaurant-al-sharea-al-awal-03",
+            "url": "/images/projects/crispy-restaurant-al-sharea-al-awal/photo-03.jpg",
+            "alt": "Project crispy-restaurant-al-sharea-al-awal Image 3",
+            "altAr": "صورة مشروع crispy-restaurant-al-sharea-al-awal رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "crispy-restaurant-al-sharea-al-awal-04",
+            "url": "/images/projects/crispy-restaurant-al-sharea-al-awal/photo-04.jpg",
+            "alt": "Project crispy-restaurant-al-sharea-al-awal Image 4",
+            "altAr": "صورة مشروع crispy-restaurant-al-sharea-al-awal رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "crispy-restaurant-al-sharea-al-awal-05",
+            "url": "/images/projects/crispy-restaurant-al-sharea-al-awal/photo-05.jpg",
+            "alt": "Project crispy-restaurant-al-sharea-al-awal Image 5",
+            "altAr": "صورة مشروع crispy-restaurant-al-sharea-al-awal رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "crispy-restaurant-al-sharea-al-awal-06",
+            "url": "/images/projects/crispy-restaurant-al-sharea-al-awal/photo-06.jpg",
+            "alt": "Project crispy-restaurant-al-sharea-al-awal Image 6",
+            "altAr": "صورة مشروع crispy-restaurant-al-sharea-al-awal رقم 6",
+            "isCover": false,
+            "order": 6
+      }
+],
     isFeatured: false,
     order: 9,
   },
@@ -165,7 +670,56 @@ const PROJECTS: Project[] = [
     location: 'Dhahran',
     category: 'hospitality',
     services: ['Civil Works', 'Finishing', 'Electrical Works'],
-    images: [],
+    images: [
+      {
+            "id": "crispy-cream-dhahran-01",
+            "url": "/images/projects/crispy-cream-dhahran/cover.jpg",
+            "alt": "Project crispy-cream-dhahran Image 1",
+            "altAr": "صورة مشروع crispy-cream-dhahran رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "crispy-cream-dhahran-02",
+            "url": "/images/projects/crispy-cream-dhahran/photo-02.jpg",
+            "alt": "Project crispy-cream-dhahran Image 2",
+            "altAr": "صورة مشروع crispy-cream-dhahran رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "crispy-cream-dhahran-03",
+            "url": "/images/projects/crispy-cream-dhahran/photo-03.jpg",
+            "alt": "Project crispy-cream-dhahran Image 3",
+            "altAr": "صورة مشروع crispy-cream-dhahran رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "crispy-cream-dhahran-04",
+            "url": "/images/projects/crispy-cream-dhahran/photo-04.jpg",
+            "alt": "Project crispy-cream-dhahran Image 4",
+            "altAr": "صورة مشروع crispy-cream-dhahran رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "crispy-cream-dhahran-05",
+            "url": "/images/projects/crispy-cream-dhahran/photo-05.jpg",
+            "alt": "Project crispy-cream-dhahran Image 5",
+            "altAr": "صورة مشروع crispy-cream-dhahran رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "crispy-cream-dhahran-06",
+            "url": "/images/projects/crispy-cream-dhahran/photo-06.jpg",
+            "alt": "Project crispy-cream-dhahran Image 6",
+            "altAr": "صورة مشروع crispy-cream-dhahran رقم 6",
+            "isCover": false,
+            "order": 6
+      }
+],
     isFeatured: false,
     order: 10,
   },
@@ -178,7 +732,56 @@ const PROJECTS: Project[] = [
     location: 'Al-Khobar',
     category: 'hospitality',
     services: ['Civil Works', 'Finishing', 'Electrical Works'],
-    images: [],
+    images: [
+      {
+            "id": "kfc-hardees-prince-turki-khobar-01",
+            "url": "/images/projects/kfc-hardees-prince-turki-khobar/cover.jpg",
+            "alt": "Project kfc-hardees-prince-turki-khobar Image 1",
+            "altAr": "صورة مشروع kfc-hardees-prince-turki-khobar رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "kfc-hardees-prince-turki-khobar-02",
+            "url": "/images/projects/kfc-hardees-prince-turki-khobar/photo-02.jpg",
+            "alt": "Project kfc-hardees-prince-turki-khobar Image 2",
+            "altAr": "صورة مشروع kfc-hardees-prince-turki-khobar رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "kfc-hardees-prince-turki-khobar-03",
+            "url": "/images/projects/kfc-hardees-prince-turki-khobar/photo-03.jpg",
+            "alt": "Project kfc-hardees-prince-turki-khobar Image 3",
+            "altAr": "صورة مشروع kfc-hardees-prince-turki-khobar رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "kfc-hardees-prince-turki-khobar-04",
+            "url": "/images/projects/kfc-hardees-prince-turki-khobar/photo-04.jpg",
+            "alt": "Project kfc-hardees-prince-turki-khobar Image 4",
+            "altAr": "صورة مشروع kfc-hardees-prince-turki-khobar رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "kfc-hardees-prince-turki-khobar-05",
+            "url": "/images/projects/kfc-hardees-prince-turki-khobar/photo-05.jpg",
+            "alt": "Project kfc-hardees-prince-turki-khobar Image 5",
+            "altAr": "صورة مشروع kfc-hardees-prince-turki-khobar رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "kfc-hardees-prince-turki-khobar-06",
+            "url": "/images/projects/kfc-hardees-prince-turki-khobar/photo-06.jpg",
+            "alt": "Project kfc-hardees-prince-turki-khobar Image 6",
+            "altAr": "صورة مشروع kfc-hardees-prince-turki-khobar رقم 6",
+            "isCover": false,
+            "order": 6
+      }
+],
     isFeatured: false,
     order: 11,
   },
@@ -191,7 +794,56 @@ const PROJECTS: Project[] = [
     location: 'Saudi Arabia',
     category: 'hospitality',
     services: ['Civil Works', 'Finishing', 'Electrical Works'],
-    images: [],
+    images: [
+      {
+            "id": "kfc-al-safa-al-rakha-01",
+            "url": "/images/projects/kfc-al-safa-al-rakha/cover.jpg",
+            "alt": "Project kfc-al-safa-al-rakha Image 1",
+            "altAr": "صورة مشروع kfc-al-safa-al-rakha رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "kfc-al-safa-al-rakha-02",
+            "url": "/images/projects/kfc-al-safa-al-rakha/photo-02.jpg",
+            "alt": "Project kfc-al-safa-al-rakha Image 2",
+            "altAr": "صورة مشروع kfc-al-safa-al-rakha رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "kfc-al-safa-al-rakha-03",
+            "url": "/images/projects/kfc-al-safa-al-rakha/photo-03.jpg",
+            "alt": "Project kfc-al-safa-al-rakha Image 3",
+            "altAr": "صورة مشروع kfc-al-safa-al-rakha رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "kfc-al-safa-al-rakha-04",
+            "url": "/images/projects/kfc-al-safa-al-rakha/photo-04.jpg",
+            "alt": "Project kfc-al-safa-al-rakha Image 4",
+            "altAr": "صورة مشروع kfc-al-safa-al-rakha رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "kfc-al-safa-al-rakha-05",
+            "url": "/images/projects/kfc-al-safa-al-rakha/photo-05.jpg",
+            "alt": "Project kfc-al-safa-al-rakha Image 5",
+            "altAr": "صورة مشروع kfc-al-safa-al-rakha رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "kfc-al-safa-al-rakha-06",
+            "url": "/images/projects/kfc-al-safa-al-rakha/photo-06.jpg",
+            "alt": "Project kfc-al-safa-al-rakha Image 6",
+            "altAr": "صورة مشروع kfc-al-safa-al-rakha رقم 6",
+            "isCover": false,
+            "order": 6
+      }
+],
     isFeatured: false,
     order: 12,
   },
@@ -204,7 +856,56 @@ const PROJECTS: Project[] = [
     location: 'Madinah',
     category: 'government-institutional',
     services: ['Civil Works', 'Construction', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "educational-buildings-public-security-madinah-01",
+            "url": "/images/projects/educational-buildings-public-security-madinah/cover.jpg",
+            "alt": "Project educational-buildings-public-security-madinah Image 1",
+            "altAr": "صورة مشروع educational-buildings-public-security-madinah رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "educational-buildings-public-security-madinah-02",
+            "url": "/images/projects/educational-buildings-public-security-madinah/photo-02.jpg",
+            "alt": "Project educational-buildings-public-security-madinah Image 2",
+            "altAr": "صورة مشروع educational-buildings-public-security-madinah رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "educational-buildings-public-security-madinah-03",
+            "url": "/images/projects/educational-buildings-public-security-madinah/photo-03.jpg",
+            "alt": "Project educational-buildings-public-security-madinah Image 3",
+            "altAr": "صورة مشروع educational-buildings-public-security-madinah رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "educational-buildings-public-security-madinah-04",
+            "url": "/images/projects/educational-buildings-public-security-madinah/photo-04.jpg",
+            "alt": "Project educational-buildings-public-security-madinah Image 4",
+            "altAr": "صورة مشروع educational-buildings-public-security-madinah رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "educational-buildings-public-security-madinah-05",
+            "url": "/images/projects/educational-buildings-public-security-madinah/photo-05.jpg",
+            "alt": "Project educational-buildings-public-security-madinah Image 5",
+            "altAr": "صورة مشروع educational-buildings-public-security-madinah رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "educational-buildings-public-security-madinah-06",
+            "url": "/images/projects/educational-buildings-public-security-madinah/photo-06.jpg",
+            "alt": "Project educational-buildings-public-security-madinah Image 6",
+            "altAr": "صورة مشروع educational-buildings-public-security-madinah رقم 6",
+            "isCover": false,
+            "order": 6
+      }
+],
     isFeatured: true,
     order: 13,
   },
@@ -217,7 +918,32 @@ const PROJECTS: Project[] = [
     location: 'Riyadh',
     category: 'government-institutional',
     services: ['Civil Works', 'Construction', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "forensic-evidence-building-development-riyadh-01",
+            "url": "/images/projects/forensic-evidence-building-development-riyadh/cover.jpg",
+            "alt": "Project forensic-evidence-building-development-riyadh Image 1",
+            "altAr": "صورة مشروع forensic-evidence-building-development-riyadh رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "forensic-evidence-building-development-riyadh-02",
+            "url": "/images/projects/forensic-evidence-building-development-riyadh/photo-02.jpg",
+            "alt": "Project forensic-evidence-building-development-riyadh Image 2",
+            "altAr": "صورة مشروع forensic-evidence-building-development-riyadh رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "forensic-evidence-building-development-riyadh-03",
+            "url": "/images/projects/forensic-evidence-building-development-riyadh/photo-03.jpg",
+            "alt": "Project forensic-evidence-building-development-riyadh Image 3",
+            "altAr": "صورة مشروع forensic-evidence-building-development-riyadh رقم 3",
+            "isCover": false,
+            "order": 3
+      }
+],
     isFeatured: false,
     order: 14,
   },
@@ -230,7 +956,32 @@ const PROJECTS: Project[] = [
     location: 'Riyadh',
     category: 'government-institutional',
     services: ['Civil Works', 'Construction', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "disciplinary-councils-renovation-riyadh-01",
+            "url": "/images/projects/disciplinary-councils-renovation-riyadh/cover.jpg",
+            "alt": "Project disciplinary-councils-renovation-riyadh Image 1",
+            "altAr": "صورة مشروع disciplinary-councils-renovation-riyadh رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "disciplinary-councils-renovation-riyadh-02",
+            "url": "/images/projects/disciplinary-councils-renovation-riyadh/photo-02.png",
+            "alt": "Project disciplinary-councils-renovation-riyadh Image 2",
+            "altAr": "صورة مشروع disciplinary-councils-renovation-riyadh رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "disciplinary-councils-renovation-riyadh-03",
+            "url": "/images/projects/disciplinary-councils-renovation-riyadh/photo-03.png",
+            "alt": "Project disciplinary-councils-renovation-riyadh Image 3",
+            "altAr": "صورة مشروع disciplinary-councils-renovation-riyadh رقم 3",
+            "isCover": false,
+            "order": 3
+      }
+],
     isFeatured: false,
     order: 15,
   },
@@ -266,7 +1017,112 @@ const PROJECTS: Project[] = [
       'إنشاء وتجهيز أكثر من 21 فرعاً لسلسلة سوبر ماركت أولاد رجب في الفترة من 2010 إلى 2021.',
     category: 'commercial',
     services: ['Civil Works', 'Finishing', 'Electrical Works', 'MEP'],
-    images: [],
+    images: [
+      {
+            "id": "awlad-ragab-supermarket-chain-21-branches-01",
+            "url": "/images/projects/awlad-ragab-supermarket-chain-21-branches/cover.jpg",
+            "alt": "Project awlad-ragab-supermarket-chain-21-branches Image 1",
+            "altAr": "صورة مشروع awlad-ragab-supermarket-chain-21-branches رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "awlad-ragab-supermarket-chain-21-branches-02",
+            "url": "/images/projects/awlad-ragab-supermarket-chain-21-branches/photo-02.jpg",
+            "alt": "Project awlad-ragab-supermarket-chain-21-branches Image 2",
+            "altAr": "صورة مشروع awlad-ragab-supermarket-chain-21-branches رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "awlad-ragab-supermarket-chain-21-branches-03",
+            "url": "/images/projects/awlad-ragab-supermarket-chain-21-branches/photo-03.jpg",
+            "alt": "Project awlad-ragab-supermarket-chain-21-branches Image 3",
+            "altAr": "صورة مشروع awlad-ragab-supermarket-chain-21-branches رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "awlad-ragab-supermarket-chain-21-branches-04",
+            "url": "/images/projects/awlad-ragab-supermarket-chain-21-branches/photo-04.jpg",
+            "alt": "Project awlad-ragab-supermarket-chain-21-branches Image 4",
+            "altAr": "صورة مشروع awlad-ragab-supermarket-chain-21-branches رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "awlad-ragab-supermarket-chain-21-branches-05",
+            "url": "/images/projects/awlad-ragab-supermarket-chain-21-branches/photo-05.jpg",
+            "alt": "Project awlad-ragab-supermarket-chain-21-branches Image 5",
+            "altAr": "صورة مشروع awlad-ragab-supermarket-chain-21-branches رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "awlad-ragab-supermarket-chain-21-branches-06",
+            "url": "/images/projects/awlad-ragab-supermarket-chain-21-branches/photo-06.jpg",
+            "alt": "Project awlad-ragab-supermarket-chain-21-branches Image 6",
+            "altAr": "صورة مشروع awlad-ragab-supermarket-chain-21-branches رقم 6",
+            "isCover": false,
+            "order": 6
+      },
+      {
+            "id": "awlad-ragab-supermarket-chain-21-branches-07",
+            "url": "/images/projects/awlad-ragab-supermarket-chain-21-branches/photo-07.jpg",
+            "alt": "Project awlad-ragab-supermarket-chain-21-branches Image 7",
+            "altAr": "صورة مشروع awlad-ragab-supermarket-chain-21-branches رقم 7",
+            "isCover": false,
+            "order": 7
+      },
+      {
+            "id": "awlad-ragab-supermarket-chain-21-branches-08",
+            "url": "/images/projects/awlad-ragab-supermarket-chain-21-branches/photo-08.jpg",
+            "alt": "Project awlad-ragab-supermarket-chain-21-branches Image 8",
+            "altAr": "صورة مشروع awlad-ragab-supermarket-chain-21-branches رقم 8",
+            "isCover": false,
+            "order": 8
+      },
+      {
+            "id": "awlad-ragab-supermarket-chain-21-branches-09",
+            "url": "/images/projects/awlad-ragab-supermarket-chain-21-branches/photo-09.jpg",
+            "alt": "Project awlad-ragab-supermarket-chain-21-branches Image 9",
+            "altAr": "صورة مشروع awlad-ragab-supermarket-chain-21-branches رقم 9",
+            "isCover": false,
+            "order": 9
+      },
+      {
+            "id": "awlad-ragab-supermarket-chain-21-branches-10",
+            "url": "/images/projects/awlad-ragab-supermarket-chain-21-branches/photo-10.jpg",
+            "alt": "Project awlad-ragab-supermarket-chain-21-branches Image 10",
+            "altAr": "صورة مشروع awlad-ragab-supermarket-chain-21-branches رقم 10",
+            "isCover": false,
+            "order": 10
+      },
+      {
+            "id": "awlad-ragab-supermarket-chain-21-branches-11",
+            "url": "/images/projects/awlad-ragab-supermarket-chain-21-branches/photo-11.jpg",
+            "alt": "Project awlad-ragab-supermarket-chain-21-branches Image 11",
+            "altAr": "صورة مشروع awlad-ragab-supermarket-chain-21-branches رقم 11",
+            "isCover": false,
+            "order": 11
+      },
+      {
+            "id": "awlad-ragab-supermarket-chain-21-branches-12",
+            "url": "/images/projects/awlad-ragab-supermarket-chain-21-branches/photo-12.jpg",
+            "alt": "Project awlad-ragab-supermarket-chain-21-branches Image 12",
+            "altAr": "صورة مشروع awlad-ragab-supermarket-chain-21-branches رقم 12",
+            "isCover": false,
+            "order": 12
+      },
+      {
+            "id": "awlad-ragab-supermarket-chain-21-branches-13",
+            "url": "/images/projects/awlad-ragab-supermarket-chain-21-branches/photo-13.jpg",
+            "alt": "Project awlad-ragab-supermarket-chain-21-branches Image 13",
+            "altAr": "صورة مشروع awlad-ragab-supermarket-chain-21-branches رقم 13",
+            "isCover": false,
+            "order": 13
+      }
+],
     isFeatured: true,
     order: 1,
   },
@@ -285,7 +1141,16 @@ const PROJECTS: Project[] = [
     contractValue: { amount: 20000000, currency: 'EGP' },
     clientName: 'Al-Hussein Real Estate Development Company',
     services: ['Civil Works', 'Construction'],
-    images: [],
+    images: [
+      {
+            "id": "qasr-al-husseini-residential-towers-01",
+            "url": "/images/projects/qasr-al-husseini-residential-towers/cover.jpg",
+            "alt": "Project qasr-al-husseini-residential-towers Image 1",
+            "altAr": "صورة مشروع qasr-al-husseini-residential-towers رقم 1",
+            "isCover": true,
+            "order": 1
+      }
+],
     isFeatured: true,
     order: 2,
   },
@@ -304,7 +1169,16 @@ const PROJECTS: Project[] = [
     contractValue: { amount: 60000000, currency: 'EGP' },
     clientName: 'Eskan Investment Company',
     services: ['Civil Works', 'Construction'],
-    images: [],
+    images: [
+      {
+            "id": "al-shorouk-housing-complex-30-towers-01",
+            "url": "/images/projects/al-shorouk-housing-complex-30-towers/cover.jpg",
+            "alt": "Project al-shorouk-housing-complex-30-towers Image 1",
+            "altAr": "صورة مشروع al-shorouk-housing-complex-30-towers رقم 1",
+            "isCover": true,
+            "order": 1
+      }
+],
     isFeatured: true,
     order: 3,
   },
@@ -322,7 +1196,16 @@ const PROJECTS: Project[] = [
     contractValue: { amount: 21000000, currency: 'EGP' },
     clientName: 'Al-Hassan Real Estate Development Company',
     services: ['Civil Works', 'Construction'],
-    images: [],
+    images: [
+      {
+            "id": "al-hassan-towers-8-towers-01",
+            "url": "/images/projects/al-hassan-towers-8-towers/cover.jpg",
+            "alt": "Project al-hassan-towers-8-towers Image 1",
+            "altAr": "صورة مشروع al-hassan-towers-8-towers رقم 1",
+            "isCover": true,
+            "order": 1
+      }
+],
     isFeatured: false,
     order: 4,
   },
@@ -337,7 +1220,32 @@ const PROJECTS: Project[] = [
     description:
       'Demolition and reconstruction of the reception and outpatient clinic sections of Al-Maraga Central Hospital, Sohag Governorate.',
     services: ['Civil Works', 'Construction', 'Finishing', 'MEP'],
-    images: [],
+    images: [
+      {
+            "id": "al-maraga-central-hospital-reconstruction-01",
+            "url": "/images/projects/al-maraga-central-hospital-reconstruction/cover.png",
+            "alt": "Project al-maraga-central-hospital-reconstruction Image 1",
+            "altAr": "صورة مشروع al-maraga-central-hospital-reconstruction رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "al-maraga-central-hospital-reconstruction-02",
+            "url": "/images/projects/al-maraga-central-hospital-reconstruction/photo-02.jpg",
+            "alt": "Project al-maraga-central-hospital-reconstruction Image 2",
+            "altAr": "صورة مشروع al-maraga-central-hospital-reconstruction رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "al-maraga-central-hospital-reconstruction-03",
+            "url": "/images/projects/al-maraga-central-hospital-reconstruction/photo-03.jpg",
+            "alt": "Project al-maraga-central-hospital-reconstruction Image 3",
+            "altAr": "صورة مشروع al-maraga-central-hospital-reconstruction رقم 3",
+            "isCover": false,
+            "order": 3
+      }
+],
     isFeatured: false,
     order: 5,
   },
@@ -381,7 +1289,32 @@ const PROJECTS: Project[] = [
     category: 'residential',
     clientName: 'Qasim Al-Obeidan',
     services: ['Civil Works', 'Construction', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "villa-al-mishaf-qatar-01",
+            "url": "/images/projects/villa-al-mishaf-qatar/cover.jpg",
+            "alt": "Project villa-al-mishaf-qatar Image 1",
+            "altAr": "صورة مشروع villa-al-mishaf-qatar رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "villa-al-mishaf-qatar-02",
+            "url": "/images/projects/villa-al-mishaf-qatar/photo-02.jpg",
+            "alt": "Project villa-al-mishaf-qatar Image 2",
+            "altAr": "صورة مشروع villa-al-mishaf-qatar رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "villa-al-mishaf-qatar-03",
+            "url": "/images/projects/villa-al-mishaf-qatar/photo-03.jpg",
+            "alt": "Project villa-al-mishaf-qatar Image 3",
+            "altAr": "صورة مشروع villa-al-mishaf-qatar رقم 3",
+            "isCover": false,
+            "order": 3
+      }
+],
     isFeatured: false,
     order: 1,
   },
@@ -395,7 +1328,56 @@ const PROJECTS: Project[] = [
     category: 'residential',
     clientName: 'Khaled Al-Ali',
     services: ['Civil Works', 'Construction', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "villa-muraikh-qatar-01",
+            "url": "/images/projects/villa-muraikh-qatar/cover.jpg",
+            "alt": "Project villa-muraikh-qatar Image 1",
+            "altAr": "صورة مشروع villa-muraikh-qatar رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "villa-muraikh-qatar-02",
+            "url": "/images/projects/villa-muraikh-qatar/photo-02.jpg",
+            "alt": "Project villa-muraikh-qatar Image 2",
+            "altAr": "صورة مشروع villa-muraikh-qatar رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "villa-muraikh-qatar-03",
+            "url": "/images/projects/villa-muraikh-qatar/photo-03.jpg",
+            "alt": "Project villa-muraikh-qatar Image 3",
+            "altAr": "صورة مشروع villa-muraikh-qatar رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "villa-muraikh-qatar-04",
+            "url": "/images/projects/villa-muraikh-qatar/photo-04.jpg",
+            "alt": "Project villa-muraikh-qatar Image 4",
+            "altAr": "صورة مشروع villa-muraikh-qatar رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "villa-muraikh-qatar-05",
+            "url": "/images/projects/villa-muraikh-qatar/photo-05.jpg",
+            "alt": "Project villa-muraikh-qatar Image 5",
+            "altAr": "صورة مشروع villa-muraikh-qatar رقم 5",
+            "isCover": false,
+            "order": 5
+      },
+      {
+            "id": "villa-muraikh-qatar-06",
+            "url": "/images/projects/villa-muraikh-qatar/photo-06.jpg",
+            "alt": "Project villa-muraikh-qatar Image 6",
+            "altAr": "صورة مشروع villa-muraikh-qatar رقم 6",
+            "isCover": false,
+            "order": 6
+      }
+],
     isFeatured: false,
     order: 2,
   },
@@ -409,7 +1391,48 @@ const PROJECTS: Project[] = [
     category: 'residential',
     clientName: 'Muhammad Al-Dosari',
     services: ['Civil Works', 'Construction', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "residential-commercial-building-muwazzar-01",
+            "url": "/images/projects/residential-commercial-building-muwazzar/cover.jpg",
+            "alt": "Project residential-commercial-building-muwazzar Image 1",
+            "altAr": "صورة مشروع residential-commercial-building-muwazzar رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "residential-commercial-building-muwazzar-02",
+            "url": "/images/projects/residential-commercial-building-muwazzar/photo-02.jpg",
+            "alt": "Project residential-commercial-building-muwazzar Image 2",
+            "altAr": "صورة مشروع residential-commercial-building-muwazzar رقم 2",
+            "isCover": false,
+            "order": 2
+      },
+      {
+            "id": "residential-commercial-building-muwazzar-03",
+            "url": "/images/projects/residential-commercial-building-muwazzar/photo-03.jpg",
+            "alt": "Project residential-commercial-building-muwazzar Image 3",
+            "altAr": "صورة مشروع residential-commercial-building-muwazzar رقم 3",
+            "isCover": false,
+            "order": 3
+      },
+      {
+            "id": "residential-commercial-building-muwazzar-04",
+            "url": "/images/projects/residential-commercial-building-muwazzar/photo-04.jpg",
+            "alt": "Project residential-commercial-building-muwazzar Image 4",
+            "altAr": "صورة مشروع residential-commercial-building-muwazzar رقم 4",
+            "isCover": false,
+            "order": 4
+      },
+      {
+            "id": "residential-commercial-building-muwazzar-05",
+            "url": "/images/projects/residential-commercial-building-muwazzar/photo-05.jpg",
+            "alt": "Project residential-commercial-building-muwazzar Image 5",
+            "altAr": "صورة مشروع residential-commercial-building-muwazzar رقم 5",
+            "isCover": false,
+            "order": 5
+      }
+],
     isFeatured: false,
     order: 3,
   },
@@ -423,7 +1446,24 @@ const PROJECTS: Project[] = [
     category: 'residential',
     clientName: 'Nasser & Hammad Al-Noaimi',
     services: ['Civil Works', 'Construction', 'Finishing'],
-    images: [],
+    images: [
+      {
+            "id": "three-villas-al-dakheel-01",
+            "url": "/images/projects/three-villas-al-dakheel/cover.jpg",
+            "alt": "Project three-villas-al-dakheel Image 1",
+            "altAr": "صورة مشروع three-villas-al-dakheel رقم 1",
+            "isCover": true,
+            "order": 1
+      },
+      {
+            "id": "three-villas-al-dakheel-02",
+            "url": "/images/projects/three-villas-al-dakheel/photo-02.jpg",
+            "alt": "Project three-villas-al-dakheel Image 2",
+            "altAr": "صورة مشروع three-villas-al-dakheel رقم 2",
+            "isCover": false,
+            "order": 2
+      }
+],
     isFeatured: false,
     order: 4,
   },

@@ -1,0 +1,1353 @@
+{
+  "sourcePdf": "E:\\programming\\Space Work\\Dar_Elmashreq\\dar el masrq .pdf",
+  "sourceFolder": "E:\\ملفاتي\\Downloads\\dar el masrq",
+  "totalImagesDiscovered": 144,
+  "totalProjectPhotos": 127,
+  "totalCertificates": 8,
+  "totalCorporateBranding": 9,
+  "totalUnmatched": 0,
+  "totalNeedsReview": 0,
+  "projects": [
+    {
+      "projectName": "Beverly Al-Azeeza New Facade",
+      "projectSlug": "beverly-al-azeeza-new-facade",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        10,
+        11
+      ],
+      "images": [
+        {
+          "originalFilename": "9.jpg",
+          "projectRole": "cover",
+          "sourcePage": 10,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 10 under section: 'SAUDI ARABIA  PROJECTS | اﻧﺸﺎء وﺗﻨﻔﻴﺬ ﻣﺸﺮوع | ﺑﻴﻔﺮﻟﻲ اﻟﻮاﺟﻬﺔ'"
+        },
+        {
+          "originalFilename": "10.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 11,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 11 under section: ''"
+        },
+        {
+          "originalFilename": "11.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 11,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 11 under section: ''"
+        },
+        {
+          "originalFilename": "12.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 11,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 11 under section: ''"
+        },
+        {
+          "originalFilename": "13.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 11,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 11 under section: ''"
+        },
+        {
+          "originalFilename": "14.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 11,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 11 under section: ''"
+        },
+        {
+          "originalFilename": "15.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 11,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 11 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "GRC Factory",
+      "projectSlug": "grc-factory",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        13
+      ],
+      "images": [
+        {
+          "originalFilename": "16.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 13,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 13 under section: ''"
+        },
+        {
+          "originalFilename": "17.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 13,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 13 under section: ''"
+        },
+        {
+          "originalFilename": "18.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 13,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 13 under section: ''"
+        },
+        {
+          "originalFilename": "19.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 13,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 13 under section: ''"
+        },
+        {
+          "originalFilename": "20.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 13,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 13 under section: ''"
+        },
+        {
+          "originalFilename": "21.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 13,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 13 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "Way Care Medical Hospital",
+      "projectSlug": "way-care-medical-hospital",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        14,
+        15,
+        16
+      ],
+      "images": [
+        {
+          "originalFilename": "22.jpg",
+          "projectRole": "cover",
+          "sourcePage": 14,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 14 under section: 'SAUDI ARABIA  PROJECTS | اﻧﺸﺎء وﺗﻨﻔﻴﺬ ﻣﺸﺮوع | ﻣﺴﺘﺸﻔﻰ وي ﻛﻴﺮ '"
+        },
+        {
+          "originalFilename": "23.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 15,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 15 under section: ''"
+        },
+        {
+          "originalFilename": "24.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 15,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 15 under section: ''"
+        },
+        {
+          "originalFilename": "25.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 15,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 15 under section: ''"
+        },
+        {
+          "originalFilename": "26.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 15,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 15 under section: ''"
+        },
+        {
+          "originalFilename": "27.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 15,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 15 under section: ''"
+        },
+        {
+          "originalFilename": "28.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 15,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 15 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "Residential Villas, Al-Qatif",
+      "projectSlug": "residential-villas-al-qatif",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        17,
+        18
+      ],
+      "images": [
+        {
+          "originalFilename": "29.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 17,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 17 under section: ''"
+        },
+        {
+          "originalFilename": "30.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 17,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 17 under section: ''"
+        },
+        {
+          "originalFilename": "31.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 17,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 17 under section: ''"
+        },
+        {
+          "originalFilename": "32.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 17,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 17 under section: ''"
+        },
+        {
+          "originalFilename": "33.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 17,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 17 under section: ''"
+        },
+        {
+          "originalFilename": "34.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 17,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 17 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "Asbestos Water Pipes Replacement — Nuayriyah",
+      "projectSlug": "asbestos-pipes-nuayriyah",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "images": [
+        {
+          "originalFilename": "35.jpg",
+          "projectRole": "cover",
+          "sourcePage": 18,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 18 under section: 'SAUDI ARABIA  PROJECTS | ﺗﻨﻔﻴﺬ ﻣﺸﺮوع | ﺗﻐﻴﺮ ﻣﻮاﺳﻴﺮ اﻻﺳﺒﻴﺴﺘﻮس'"
+        },
+        {
+          "originalFilename": "36.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 19,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 19 under section: ''"
+        },
+        {
+          "originalFilename": "37.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 19,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 19 under section: ''"
+        },
+        {
+          "originalFilename": "38.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 19,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 19 under section: ''"
+        },
+        {
+          "originalFilename": "39.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 20,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 20 under section: ''"
+        },
+        {
+          "originalFilename": "40.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 20,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 20 under section: ''"
+        },
+        {
+          "originalFilename": "41.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 20,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 20 under section: ''"
+        },
+        {
+          "originalFilename": "42.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 21,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 21 under section: ''"
+        },
+        {
+          "originalFilename": "43.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 21,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 21 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "Western Water Pump Station — Ras Tanura",
+      "projectSlug": "western-water-pump-station-ras-tanura",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "images": [
+        {
+          "originalFilename": "44.png",
+          "projectRole": "cover",
+          "sourcePage": 22,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 22 under section: 'SAUDI ARABIA  PROJECTS | ﺗﻨﻔﻴﺬ ﻣﺸﺮوع | ﻣﺤﻄﺔ ﺿﺦ اﻟﻤﻴﺎﻩ اﻟﻐﺮﺑﻴ'"
+        },
+        {
+          "originalFilename": "45.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 23,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 23 under section: ''"
+        },
+        {
+          "originalFilename": "46.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 23,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 23 under section: ''"
+        },
+        {
+          "originalFilename": "47.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 23,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 23 under section: ''"
+        },
+        {
+          "originalFilename": "48.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 24,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 24 under section: ''"
+        },
+        {
+          "originalFilename": "49.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 24,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 24 under section: ''"
+        },
+        {
+          "originalFilename": "50.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 24,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 24 under section: ''"
+        },
+        {
+          "originalFilename": "51.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 25,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 25 under section: ''"
+        },
+        {
+          "originalFilename": "52.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 25,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 25 under section: ''"
+        },
+        {
+          "originalFilename": "53.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 25,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 25 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "Residential Tower",
+      "projectSlug": "residential-tower-saudi",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        27
+      ],
+      "images": [
+        {
+          "originalFilename": "54.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 27,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 27 under section: ''"
+        },
+        {
+          "originalFilename": "55.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 27,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 27 under section: ''"
+        },
+        {
+          "originalFilename": "56.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 27,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 27 under section: ''"
+        },
+        {
+          "originalFilename": "57.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 27,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 27 under section: ''"
+        },
+        {
+          "originalFilename": "58.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 27,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 27 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "Al-Smaeel Tower",
+      "projectSlug": "al-smaeel-tower",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        29
+      ],
+      "images": [
+        {
+          "originalFilename": "59.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 29,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 29 under section: ''"
+        },
+        {
+          "originalFilename": "60.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 29,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 29 under section: ''"
+        },
+        {
+          "originalFilename": "61.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 29,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 29 under section: ''"
+        },
+        {
+          "originalFilename": "62.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 29,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 29 under section: ''"
+        },
+        {
+          "originalFilename": "63.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 29,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 29 under section: ''"
+        },
+        {
+          "originalFilename": "64.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 29,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 29 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "Crispy Restaurants — First Street",
+      "projectSlug": "crispy-first-street",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        31
+      ],
+      "images": [
+        {
+          "originalFilename": "65.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 31,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 31 under section: ''"
+        },
+        {
+          "originalFilename": "66.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 31,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 31 under section: ''"
+        },
+        {
+          "originalFilename": "67.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 31,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 31 under section: ''"
+        },
+        {
+          "originalFilename": "68.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 31,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 31 under section: ''"
+        },
+        {
+          "originalFilename": "69.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 31,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 31 under section: ''"
+        },
+        {
+          "originalFilename": "70.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 31,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 31 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "Krispy Kreme — Dhahran",
+      "projectSlug": "krispy-kreme-dhahran",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        33
+      ],
+      "images": [
+        {
+          "originalFilename": "71.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 33,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 33 under section: ''"
+        },
+        {
+          "originalFilename": "72.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 33,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 33 under section: ''"
+        },
+        {
+          "originalFilename": "73.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 33,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 33 under section: ''"
+        },
+        {
+          "originalFilename": "74.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 33,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 33 under section: ''"
+        },
+        {
+          "originalFilename": "75.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 33,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 33 under section: ''"
+        },
+        {
+          "originalFilename": "76.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 33,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 33 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "KFC & Hardee's — Prince Turki Khobar",
+      "projectSlug": "kfc-hardees-khobar",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        35
+      ],
+      "images": [
+        {
+          "originalFilename": "77.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 35,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 35 under section: ''"
+        },
+        {
+          "originalFilename": "78.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 35,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 35 under section: ''"
+        },
+        {
+          "originalFilename": "79.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 35,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 35 under section: ''"
+        },
+        {
+          "originalFilename": "80.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 35,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 35 under section: ''"
+        },
+        {
+          "originalFilename": "81.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 35,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 35 under section: ''"
+        },
+        {
+          "originalFilename": "82.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 35,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 35 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "KFC Al-Safa — Rakah",
+      "projectSlug": "kfc-safa-rakah",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        37
+      ],
+      "images": [
+        {
+          "originalFilename": "83.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 37,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 37 under section: ''"
+        },
+        {
+          "originalFilename": "84.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 37,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 37 under section: ''"
+        },
+        {
+          "originalFilename": "85.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 37,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 37 under section: ''"
+        },
+        {
+          "originalFilename": "86.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 37,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 37 under section: ''"
+        },
+        {
+          "originalFilename": "87.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 37,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 37 under section: ''"
+        },
+        {
+          "originalFilename": "88.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 37,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 37 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "Educational Buildings — Public Security Training City, Madinah",
+      "projectSlug": "educational-buildings-madinah-public-security",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        39
+      ],
+      "images": [
+        {
+          "originalFilename": "89.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 39,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 39 under section: ''"
+        },
+        {
+          "originalFilename": "90.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 39,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 39 under section: ''"
+        },
+        {
+          "originalFilename": "91.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 39,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 39 under section: ''"
+        },
+        {
+          "originalFilename": "92.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 39,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 39 under section: ''"
+        },
+        {
+          "originalFilename": "93.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 39,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 39 under section: ''"
+        },
+        {
+          "originalFilename": "94.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 39,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 39 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "Forensic Evidence Building Development — Riyadh",
+      "projectSlug": "forensic-evidence-building-riyadh",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        41
+      ],
+      "images": [
+        {
+          "originalFilename": "95.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 41,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 41 under section: ''"
+        },
+        {
+          "originalFilename": "96.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 41,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 41 under section: ''"
+        },
+        {
+          "originalFilename": "97.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 41,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 41 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "Disciplinary Councils Administration Building — Riyadh",
+      "projectSlug": "disciplinary-councils-riyadh",
+      "country": "saudi-arabia",
+      "sourcePages": [
+        42,
+        43,
+        49
+      ],
+      "images": [
+        {
+          "originalFilename": "98.jpg",
+          "projectRole": "cover",
+          "sourcePage": 42,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 42 under section: 'ﻣﺸﺮوع ﺗﻄﻮﻳﺮ وﺗﺮﻣﻴﻢ ﻣﺒﻨﻲ اﻻدارﻩ اﻟﻌﺎﻣﻪ | ﻟﻠﻤﺠﺎﻟﺲ اﻟﺘﺎدﻳﺒﻴﻪ ﺑﺎ'"
+        },
+        {
+          "originalFilename": "99.png",
+          "projectRole": "gallery",
+          "sourcePage": 43,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 43 under section: ''"
+        },
+        {
+          "originalFilename": "100.png",
+          "projectRole": "gallery",
+          "sourcePage": 43,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 43 under section: ''"
+        }
+      ]
+    },
+    {
+      "projectName": "Awlad Ragab Supermarket Chain (21+ Branches)",
+      "projectSlug": "awlad-ragab-supermarket-chain",
+      "country": "egypt",
+      "sourcePages": [
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "images": [
+        {
+          "originalFilename": "101.jpg",
+          "projectRole": "cover",
+          "sourcePage": 46,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 46 under section: 'EGYPT PROJECTS | إﻧﺸـــﺎء وﺗﺠﻬﻴـــﺰ اﻛﺜـــﺮ ﻣـــﻦ ٢١ ﻓــﺮع |'"
+        },
+        {
+          "originalFilename": "102.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 47,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 47 under section: ''"
+        },
+        {
+          "originalFilename": "103.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 47,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 47 under section: ''"
+        },
+        {
+          "originalFilename": "104.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 47,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 47 under section: ''"
+        },
+        {
+          "originalFilename": "105.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 47,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 47 under section: ''"
+        },
+        {
+          "originalFilename": "106.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 48,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 48 under section: ''"
+        },
+        {
+          "originalFilename": "107.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 48,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 48 under section: ''"
+        },
+        {
+          "originalFilename": "108.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 48,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 48 under section: ''"
+        },
+        {
+          "originalFilename": "109.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 48,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 48 under section: ''"
+        },
+        {
+          "originalFilename": "110.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 49,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 49 under section: ''"
+        },
+        {
+          "originalFilename": "111.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 49,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 49 under section: ''"
+        },
+        {
+          "originalFilename": "112.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 49,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 49 under section: ''"
+        },
+        {
+          "originalFilename": "113.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 50,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 50 under section: 'ﻓﺮع ﻣﺪﻳﻨﺘﻲ ﻋﻠﻲ | ﻣﺴﺎﺣﻪ ٠٠٠٦ ﻣﺘﺮ | ٥١٠٢ | ﻓﺮع اﻟﻐﺮدﻗﻪ ﻋﻠﻲ'"
+        }
+      ]
+    },
+    {
+      "projectName": "Qasr Al-Husseini Residential Towers (12 Towers)",
+      "projectSlug": "qasr-al-husseini-residential-towers",
+      "country": "egypt",
+      "sourcePages": [
+        51
+      ],
+      "images": [
+        {
+          "originalFilename": "114.jpg",
+          "projectRole": "cover",
+          "sourcePage": 51,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 51 under section: 'EGYPT PROJECTS | ﻣﺸﺮوع اﻧﺸﺎء ﻋﻤﺎرات ﻗﺼﺮ اﻟﺤﺴﻴﻨﻰ | )٢١ ﻋﻤﺎرة('"
+        }
+      ]
+    },
+    {
+      "projectName": "Al-Shorouk Housing Complex (30 Towers)",
+      "projectSlug": "al-shorouk-housing-complex",
+      "country": "egypt",
+      "sourcePages": [
+        52
+      ],
+      "images": [
+        {
+          "originalFilename": "115.jpg",
+          "projectRole": "cover",
+          "sourcePage": 52,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 52 under section: 'EGYPT PROJECTS | ﻣﺠﻤﻮﻋﺔ ﻋﻤﺎرات اﺳﻜﺎن )٠٣ﻋﻤﺎرة( ﺑﻤﺪﻳﻨﺔ | اﻟﺸﺮ'"
+        }
+      ]
+    },
+    {
+      "projectName": "Al-Hassan Towers (8 Towers)",
+      "projectSlug": "al-hassan-towers",
+      "country": "egypt",
+      "sourcePages": [
+        53,
+        54,
+        56,
+        57,
+        58,
+        59
+      ],
+      "images": [
+        {
+          "originalFilename": "116.jpg",
+          "projectRole": "cover",
+          "sourcePage": 53,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 53 under section: 'EGYPT PROJECTS | ﻣﺠﻤﻮﻋﺔ اﺑﺮاج اﻟﺤﺴﻦ )٨ا ﺑﺮاج( ﻟﺼﺎﻟﺢ ﺷﺮﻛﺔ | ا'"
+        }
+      ]
+    },
+    {
+      "projectName": "Al-Maraga Central Hospital Reconstruction & Expansion",
+      "projectSlug": "al-maraga-hospital-reconstruction",
+      "country": "egypt",
+      "sourcePages": [
+        54
+      ],
+      "images": [
+        {
+          "originalFilename": "117.png",
+          "projectRole": "cover",
+          "sourcePage": 54,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 54 under section: 'EGYPT PROJECTS | اﻋﻤﺎل هﺪم وإﻋﺎدة ﺑﻨﺎء وﺗﻮﺳﻌﺔ | ﻗﺴﻢ اﻻﺳﺘﻘﺒﺎل'"
+        },
+        {
+          "originalFilename": "118.jpg",
+          "projectRole": "cover",
+          "sourcePage": 54,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 54 under section: 'EGYPT PROJECTS | اﻋﻤﺎل هﺪم وإﻋﺎدة ﺑﻨﺎء وﺗﻮﺳﻌﺔ | ﻗﺴﻢ اﻻﺳﺘﻘﺒﺎل'"
+        },
+        {
+          "originalFilename": "119.jpg",
+          "projectRole": "cover",
+          "sourcePage": 54,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 54 under section: 'EGYPT PROJECTS | اﻋﻤﺎل هﺪم وإﻋﺎدة ﺑﻨﺎء وﺗﻮﺳﻌﺔ | ﻗﺴﻢ اﻻﺳﺘﻘﺒﺎل'"
+        }
+      ]
+    },
+    {
+      "projectName": "Private Villa — Al-Mishaf / Muwazzar Building",
+      "projectSlug": "villa-al-mishaf-qatar",
+      "country": "qatar",
+      "sourcePages": [
+        56
+      ],
+      "images": [
+        {
+          "originalFilename": "120.jpg",
+          "projectRole": "cover",
+          "sourcePage": 56,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 56 under section: 'QATAR PROJECTS | ﻣﺸﺮوع ﻓﻴﻼ ﺑﻤﻨﻄﻘﺔ اﻟﻤﺸﺎف | ﻟﺼﺎﻟﺢ ﻗﺎﺳﻢ اﻟﻌﺒﻴﺪ'"
+        },
+        {
+          "originalFilename": "121.jpg",
+          "projectRole": "cover",
+          "sourcePage": 56,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 56 under section: 'QATAR PROJECTS | ﻣﺸﺮوع ﻓﻴﻼ ﺑﻤﻨﻄﻘﺔ اﻟﻤﺸﺎف | ﻟﺼﺎﻟﺢ ﻗﺎﺳﻢ اﻟﻌﺒﻴﺪ'"
+        },
+        {
+          "originalFilename": "122.jpg",
+          "projectRole": "cover",
+          "sourcePage": 56,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 56 under section: 'QATAR PROJECTS | ﻣﺸﺮوع ﻓﻴﻼ ﺑﻤﻨﻄﻘﺔ اﻟﻤﺸﺎف | ﻟﺼﺎﻟﺢ ﻗﺎﺳﻢ اﻟﻌﺒﻴﺪ'"
+        }
+      ]
+    },
+    {
+      "projectName": "3 Villas — Al-Dakheel / Al-Sailiya",
+      "projectSlug": "three-villas-al-dakheel-qatar",
+      "country": "qatar",
+      "sourcePages": [
+        57
+      ],
+      "images": [
+        {
+          "originalFilename": "123.jpg",
+          "projectRole": "cover",
+          "sourcePage": 57,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 57 under section: 'QATAR PROJECTS | ﻣﺸﺮوع ﻋﺪد ٣ ﻓﻴﻼ ﺑﻤﻨﻄﻘﺔ اﻟﺪﺧﻴﻞ | ﻟﺼﺎﻟﺢ | ﻧﺎﺻ'"
+        },
+        {
+          "originalFilename": "124.jpg",
+          "projectRole": "cover",
+          "sourcePage": 57,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 57 under section: 'QATAR PROJECTS | ﻣﺸﺮوع ﻋﺪد ٣ ﻓﻴﻼ ﺑﻤﻨﻄﻘﺔ اﻟﺪﺧﻴﻞ | ﻟﺼﺎﻟﺢ | ﻧﺎﺻ'"
+        }
+      ]
+    },
+    {
+      "projectName": "Live Contracting Projects — State of Qatar",
+      "projectSlug": "qatar-live-projects-gallery",
+      "country": "qatar",
+      "sourcePages": [
+        58,
+        59
+      ],
+      "images": [
+        {
+          "originalFilename": "125.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 58,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 58 under section: 'QATAR PROJECTS | ﺻﻮر ﺣﻴﺔ ﻣﻦ ﻣﺸﺮوﻋﺎت اﻟﺸﺮﻛﺔ'"
+        },
+        {
+          "originalFilename": "126.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 58,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 58 under section: 'QATAR PROJECTS | ﺻﻮر ﺣﻴﺔ ﻣﻦ ﻣﺸﺮوﻋﺎت اﻟﺸﺮﻛﺔ'"
+        },
+        {
+          "originalFilename": "127.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 58,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 58 under section: 'QATAR PROJECTS | ﺻﻮر ﺣﻴﺔ ﻣﻦ ﻣﺸﺮوﻋﺎت اﻟﺸﺮﻛﺔ'"
+        },
+        {
+          "originalFilename": "128.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 58,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 58 under section: 'QATAR PROJECTS | ﺻﻮر ﺣﻴﺔ ﻣﻦ ﻣﺸﺮوﻋﺎت اﻟﺸﺮﻛﺔ'"
+        },
+        {
+          "originalFilename": "129.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 58,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 58 under section: 'QATAR PROJECTS | ﺻﻮر ﺣﻴﺔ ﻣﻦ ﻣﺸﺮوﻋﺎت اﻟﺸﺮﻛﺔ'"
+        },
+        {
+          "originalFilename": "130.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 58,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 58 under section: 'QATAR PROJECTS | ﺻﻮر ﺣﻴﺔ ﻣﻦ ﻣﺸﺮوﻋﺎت اﻟﺸﺮﻛﺔ'"
+        },
+        {
+          "originalFilename": "131.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 59,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 59 under section: 'ﺻﻮر ﺣﻴﺔ ﻣﻦ ﻣﺸﺮوﻋﺎت اﻟﺸﺮﻛﺔQATAR PROJECTS'"
+        },
+        {
+          "originalFilename": "132.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 59,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 59 under section: 'ﺻﻮر ﺣﻴﺔ ﻣﻦ ﻣﺸﺮوﻋﺎت اﻟﺸﺮﻛﺔQATAR PROJECTS'"
+        },
+        {
+          "originalFilename": "133.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 59,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 59 under section: 'ﺻﻮر ﺣﻴﺔ ﻣﻦ ﻣﺸﺮوﻋﺎت اﻟﺸﺮﻛﺔQATAR PROJECTS'"
+        },
+        {
+          "originalFilename": "134.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 59,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 59 under section: 'ﺻﻮر ﺣﻴﺔ ﻣﻦ ﻣﺸﺮوﻋﺎت اﻟﺸﺮﻛﺔQATAR PROJECTS'"
+        },
+        {
+          "originalFilename": "135.jpg",
+          "projectRole": "gallery",
+          "sourcePage": 59,
+          "confidence": "high",
+          "evidence": "Photo appears on PDF page 59 under section: 'ﺻﻮر ﺣﻴﺔ ﻣﻦ ﻣﺸﺮوﻋﺎت اﻟﺸﺮﻛﺔQATAR PROJECTS'"
+        }
+      ]
+    }
+  ],
+  "certificatesAndDocuments": [
+    {
+      "originalFilename": "136.jpg",
+      "certificateName": "Chamber of Commerce Certificate",
+      "sourcePages": [
+        60
+      ],
+      "confidence": "high",
+      "evidence": "Document on PDF page 60 (CHAMBER OO COMMERCE MEMBERSHIP CERTIFICATE)"
+    },
+    {
+      "originalFilename": "137.jpg",
+      "certificateName": "Commercial Activity License",
+      "sourcePages": [
+        61
+      ],
+      "confidence": "high",
+      "evidence": "Document on PDF page 61 (COMMERCIAL ACTIVITY LICENCE)"
+    },
+    {
+      "originalFilename": "138.jpg",
+      "certificateName": "Commercial Registration CR",
+      "sourcePages": [
+        62
+      ],
+      "confidence": "high",
+      "evidence": "Document on PDF page 62 (CR ENG)"
+    },
+    {
+      "originalFilename": "139.jpg",
+      "certificateName": "GOSI Certificate",
+      "sourcePages": [
+        63
+      ],
+      "confidence": "high",
+      "evidence": "Document on PDF page 63 (GOSI)"
+    },
+    {
+      "originalFilename": "140.jpg",
+      "certificateName": "Monshaat Certificate",
+      "sourcePages": [
+        64
+      ],
+      "confidence": "high",
+      "evidence": "Document on PDF page 64 (MONSHAAT CER-24265135034)"
+    },
+    {
+      "originalFilename": "141.jpg",
+      "certificateName": "Monshaat Certificate",
+      "sourcePages": [
+        64,
+        65,
+        66
+      ],
+      "confidence": "high",
+      "evidence": "Document on PDF page 64 (MONSHAAT CER-24265135034)"
+    },
+    {
+      "originalFilename": "142.jpg",
+      "certificateName": "VAT Tax Certificate",
+      "sourcePages": [
+        66
+      ],
+      "confidence": "high",
+      "evidence": "Document on PDF page 66 (VAT CERTIFICATE)"
+    },
+    {
+      "originalFilename": "143.jpg",
+      "certificateName": "Bank IBAN Letter (Confidential)",
+      "sourcePages": [
+        67
+      ],
+      "confidence": "high",
+      "evidence": "Document on PDF page 67 (BANK IBAN LETTER)"
+    }
+  ],
+  "corporateBranding": [
+    {
+      "originalFilename": "0.jpg",
+      "purpose": "Dar El Mashrq Corporate Overview",
+      "sourcePages": [
+        1,
+        8
+      ],
+      "confidence": "high",
+      "evidence": "Company profile graphic on PDF page 1 (CONTRACTING AND REAL ESTATE INVESTMENT)"
+    },
+    {
+      "originalFilename": "1.jpg",
+      "purpose": "Dar El Mashrq Corporate Overview",
+      "sourcePages": [
+        2,
+        9
+      ],
+      "confidence": "high",
+      "evidence": "Company profile graphic on PDF page 2 (CONTRACTING)"
+    },
+    {
+      "originalFilename": "2.jpg",
+      "purpose": "Dar El Mashrq Corporate Overview",
+      "sourcePages": [
+        3
+      ],
+      "confidence": "high",
+      "evidence": "Company profile graphic on PDF page 3 (REAL ESTATE)"
+    },
+    {
+      "originalFilename": "3.jpg",
+      "purpose": "Dar El Mashrq Corporate Overview",
+      "sourcePages": [
+        3,
+        4,
+        10,
+        11
+      ],
+      "confidence": "high",
+      "evidence": "Company profile graphic on PDF page 3 (REAL ESTATE)"
+    },
+    {
+      "originalFilename": "4.jpg",
+      "purpose": "Dar El Mashrq Corporate Overview",
+      "sourcePages": [
+        5
+      ],
+      "confidence": "high",
+      "evidence": "Company profile graphic on PDF page 5 (Dar ElMashrq Trading & Contracting Company was | e)"
+    },
+    {
+      "originalFilename": "5.jpg",
+      "purpose": "Dar El Mashrq Corporate Overview",
+      "sourcePages": [
+        5,
+        7,
+        9,
+        27
+      ],
+      "confidence": "high",
+      "evidence": "Company profile graphic on PDF page 5 (Dar ElMashrq Trading & Contracting Company was | e)"
+    },
+    {
+      "originalFilename": "6.jpg",
+      "purpose": "Dar El Mashrq Corporate Overview",
+      "sourcePages": [
+        6,
+        55,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68
+      ],
+      "confidence": "high",
+      "evidence": "Company profile graphic on PDF page 6 (Become the destination of choice for our clients i)"
+    },
+    {
+      "originalFilename": "7.jpg",
+      "purpose": "Dar El Mashrq Corporate Overview",
+      "sourcePages": [
+        7,
+        8
+      ],
+      "confidence": "high",
+      "evidence": "Company profile graphic on PDF page 7 (CIVIL WORKS | AND | FINISHING | ELECTRICAL)"
+    },
+    {
+      "originalFilename": "8.jpg",
+      "purpose": "Dar El Mashrq Corporate Overview",
+      "sourcePages": [
+        9,
+        10,
+        12,
+        14,
+        16,
+        18,
+        22,
+        26,
+        28,
+        30,
+        32,
+        34,
+        36,
+        38,
+        40,
+        42,
+        44,
+        45,
+        46,
+        50,
+        55
+      ],
+      "confidence": "high",
+      "evidence": "Company profile graphic on PDF page 9 (PROJECTS | SAUDI | ARABIA | EGYPT)"
+    }
+  ],
+  "unmatchedImages": [],
+  "needsReview": []
+}
