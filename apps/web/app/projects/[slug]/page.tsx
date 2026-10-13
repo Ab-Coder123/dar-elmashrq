@@ -86,7 +86,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
     'https://images.unsplash.com/photo-1541888946425-d0fbb18f15f6?auto=format&fit=crop&w=1600&q=85'
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0f2244] text-slate-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen bg-[#09182f] text-white">
       <TopNavBar />
       <main className="pt-28 pb-20 md:pt-36 md:pb-28">
         <ProjectDetailClientView project={project} imageUrl={imageUrl} />

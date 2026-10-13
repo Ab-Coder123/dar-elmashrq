@@ -57,8 +57,8 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
           href="/projects"
           className={
             isAr
-              ? "inline-flex items-center gap-2 font-['Cairo'] text-xs sm:text-sm text-[#ba9563] hover:text-slate-900 dark:hover:text-white transition-colors font-bold tracking-normal"
-              : "inline-flex items-center gap-2 font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] text-[#ba9563] hover:text-slate-900 dark:hover:text-white transition-colors font-bold"
+              ? "inline-flex items-center gap-2 font-['Cairo'] text-xs sm:text-sm text-[#ba9563] hover:text-[#d4b27a] transition-colors font-bold tracking-normal"
+              : "inline-flex items-center gap-2 font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] text-[#ba9563] hover:text-[#d4b27a] transition-colors font-bold"
           }
         >
           {isAr ? (
@@ -75,7 +75,7 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
         </Link>
       </div>
 
-      <div className="border border-[#ba9563]/40 bg-white dark:bg-[#0b1a37] relative shadow-2xl overflow-hidden">
+      <div className="border border-[#ba9563]/40 bg-[#09182f] text-white relative shadow-2xl overflow-hidden">
         <BlueprintCrosshair position="top-left" />
         <BlueprintCrosshair position="top-right" />
         <BlueprintCrosshair position="bottom-left" />
@@ -164,8 +164,8 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
             <p
               className={
                 isAr
-                  ? "font-['Cairo'] text-sm sm:text-base md:text-lg text-slate-700 dark:text-[#c4c6d2] leading-relaxed max-w-4xl tracking-normal"
-                  : "font-['Inter'] text-sm sm:text-base md:text-lg text-slate-700 dark:text-[#c4c6d2] leading-relaxed max-w-4xl"
+                  ? "font-['Cairo'] text-sm sm:text-base md:text-lg text-slate-200 leading-relaxed max-w-4xl tracking-normal"
+                  : "font-['Inter'] text-sm sm:text-base md:text-lg text-slate-200 leading-relaxed max-w-4xl"
               }
             >
               {displayDescription ||
@@ -180,8 +180,8 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
             <h2
               className={
                 isAr
-                  ? "font-['Cairo'] text-xs uppercase text-[#ba9563] font-bold mb-6 pb-2 border-b border-slate-200 dark:border-[#434651]/40 tracking-normal"
-                  : "font-['Space_Grotesk'] text-xs uppercase tracking-[0.2em] text-[#ba9563] font-bold mb-6 pb-2 border-b border-slate-200 dark:border-[#434651]/40"
+                  ? "font-['Cairo'] text-xs uppercase text-[#ba9563] font-bold mb-6 pb-2 border-b border-[#ba9563]/30 tracking-normal"
+                  : "font-['Space_Grotesk'] text-xs uppercase tracking-[0.2em] text-[#ba9563] font-bold mb-6 pb-2 border-b border-[#ba9563]/30"
               }
             >
               {isAr ? 'المواصفات الفنية والمؤشرات الهندسية' : 'TECHNICAL METRICS & SPECIFICATIONS'}
@@ -189,7 +189,7 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Location */}
-              <div className="bg-slate-50 dark:bg-[#0f2244] p-5 border border-slate-200 dark:border-[#434651]/50">
+              <div className="bg-[#0f2244] p-5 border border-[#ba9563]/30">
                 <span
                   className={
                     isAr
@@ -202,8 +202,8 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
                 <div
                   className={
                     isAr
-                      ? "font-['Cairo'] text-sm text-slate-900 dark:text-white font-bold flex items-center gap-1.5 tracking-normal"
-                      : "font-['Montserrat'] text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center gap-1.5"
+                      ? "font-['Cairo'] text-sm text-white font-bold flex items-center gap-1.5 tracking-normal"
+                      : "font-['Montserrat'] text-sm text-white font-bold uppercase flex items-center gap-1.5"
                   }
                 >
                   <MapPin className="w-4 h-4 text-[#ba9563]" />
@@ -212,7 +212,7 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
               </div>
 
               {/* Sector */}
-              <div className="bg-slate-50 dark:bg-[#0f2244] p-5 border border-slate-200 dark:border-[#434651]/50">
+              <div className="bg-[#0f2244] p-5 border border-[#ba9563]/30">
                 <span
                   className={
                     isAr
@@ -225,8 +225,8 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
                 <div
                   className={
                     isAr
-                      ? "font-['Cairo'] text-sm text-slate-900 dark:text-white font-bold tracking-normal"
-                      : "font-['Montserrat'] text-sm text-slate-900 dark:text-white font-bold uppercase"
+                      ? "font-['Cairo'] text-sm text-white font-bold tracking-normal"
+                      : "font-['Montserrat'] text-sm text-white font-bold uppercase"
                   }
                 >
                   {displayCategory}
@@ -234,7 +234,7 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
               </div>
 
               {/* Status */}
-              <div className="bg-slate-50 dark:bg-[#0f2244] p-5 border border-slate-200 dark:border-[#434651]/50">
+              <div className="bg-[#0f2244] p-5 border border-[#ba9563]/30">
                 <span
                   className={
                     isAr
@@ -247,8 +247,8 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
                 <div
                   className={
                     isAr
-                      ? "font-['Cairo'] text-sm text-slate-900 dark:text-white font-bold flex items-center gap-1.5 tracking-normal"
-                      : "font-['Montserrat'] text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center gap-1.5"
+                      ? "font-['Cairo'] text-sm text-white font-bold flex items-center gap-1.5 tracking-normal"
+                      : "font-['Montserrat'] text-sm text-white font-bold uppercase flex items-center gap-1.5"
                   }
                 >
                   <Calendar className="w-4 h-4 text-[#ba9563]" />
@@ -265,7 +265,7 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
               </div>
 
               {/* Territory */}
-              <div className="bg-slate-50 dark:bg-[#0f2244] p-5 border border-slate-200 dark:border-[#434651]/50">
+              <div className="bg-[#0f2244] p-5 border border-[#ba9563]/30">
                 <span
                   className={
                     isAr
@@ -278,8 +278,8 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
                 <div
                   className={
                     isAr
-                      ? "font-['Cairo'] text-sm text-slate-900 dark:text-white font-bold tracking-normal"
-                      : "font-['Montserrat'] text-sm text-slate-900 dark:text-white font-bold uppercase"
+                      ? "font-['Cairo'] text-sm text-white font-bold tracking-normal"
+                      : "font-['Montserrat'] text-sm text-white font-bold uppercase"
                   }
                 >
                   {displayCountry}
@@ -288,7 +288,7 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
 
               {/* Client */}
               {project.clientName && (
-                <div className="bg-slate-50 dark:bg-[#0f2244] p-5 border border-slate-200 dark:border-[#434651]/50 sm:col-span-2">
+                <div className="bg-[#0f2244] p-5 border border-[#ba9563]/30 sm:col-span-2">
                   <span
                     className={
                       isAr
@@ -301,8 +301,8 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
                   <div
                     className={
                       isAr
-                        ? "font-['Cairo'] text-sm text-slate-900 dark:text-white font-bold flex items-center gap-1.5 tracking-normal"
-                        : "font-['Montserrat'] text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center gap-1.5"
+                        ? "font-['Cairo'] text-sm text-white font-bold flex items-center gap-1.5 tracking-normal"
+                        : "font-['Montserrat'] text-sm text-white font-bold uppercase flex items-center gap-1.5"
                     }
                   >
                     <User className="w-4 h-4 text-[#ba9563]" />
@@ -313,7 +313,7 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
 
               {/* Contract Value */}
               {project.contractValue && (
-                <div className="bg-slate-50 dark:bg-[#0f2244] p-5 border border-slate-200 dark:border-[#434651]/50 sm:col-span-2">
+                <div className="bg-[#0f2244] p-5 border border-[#ba9563]/30 sm:col-span-2">
                   <span
                     className={
                       isAr
@@ -323,7 +323,7 @@ export function ProjectDetailClientView({ project, imageUrl }: ProjectDetailClie
                   >
                     {isAr ? 'القيمة التعاقدية المسجلة' : 'RECORDED CONTRACT VALUE'}
                   </span>
-                  <div className="font-mono text-sm text-slate-900 dark:text-white font-bold flex items-center gap-1.5">
+                  <div className="font-mono text-sm text-white font-bold flex items-center gap-1.5">
                     <Coins className="w-4 h-4 text-[#ba9563]" />
                     <span>
                       {project.contractValue.amount.toLocaleString()}{' '}
