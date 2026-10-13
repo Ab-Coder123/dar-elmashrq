@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowRight, ArrowLeft, Send, Mail, Phone, Building2 } from 'lucide-react'
 import { BlueprintCrosshair } from '@/components/ui/BlueprintCrosshair'

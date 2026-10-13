@@ -5,10 +5,14 @@
 export interface RegionalOffice {
   id: string
   city: string
+  cityAr?: string
   country: string
+  countryAr?: string
   countryCode: 'SA' | 'EG' | 'QA'
   role: string
+  roleAr?: string
   address: string
+  addressAr?: string
   phone?: string
   email?: string
 }

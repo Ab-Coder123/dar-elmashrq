@@ -6,8 +6,12 @@ import { BlueprintCrosshair } from '@/components/ui/BlueprintCrosshair'
 import { COMPANY_PROFILE } from '@/config/site'
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll'
 import { fadeUpVariants, scaleInVariants } from '@/lib/motion'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 export function ContactFormSection() {
+  const { language } = useLanguage()
+  const isAr = language === 'ar'
+
   const [submitted, setSubmitted] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
@@ -34,15 +38,35 @@ export function ContactFormSection() {
               <div>
                 <div className="inline-flex items-center gap-2 border border-[#ba9563]/40 bg-white dark:bg-[#0b1a37] px-3 py-1 mb-4">
                   <span className="w-2 h-2 bg-[#ba9563]" />
-                  <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold">
-                    OFFICIAL DIRECTORY
+                  <span
+                    className={
+                      isAr
+                        ? "font-['Cairo'] text-xs uppercase tracking-normal text-[#ba9563] font-bold"
+                        : "font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold"
+                    }
+                  >
+                    {isAr ? 'دليل الاتصال المعتمد' : 'OFFICIAL DIRECTORY'}
                   </span>
                 </div>
-                <h2 className="font-['Montserrat'] text-3xl sm:text-4xl text-slate-950 dark:text-white uppercase font-extrabold mb-4 leading-tight">
-                  CORPORATE HEADQUARTERS
+                <h2
+                  className={
+                    isAr
+                      ? "font-['Cairo'] text-2xl sm:text-3xl lg:text-4xl text-slate-950 dark:text-white font-extrabold mb-4 leading-tight tracking-normal"
+                      : "font-['Montserrat'] text-3xl sm:text-4xl text-slate-950 dark:text-white uppercase font-extrabold mb-4 leading-tight"
+                  }
+                >
+                  {isAr ? 'المقر الرئيسي والإدارة العامة' : 'CORPORATE HEADQUARTERS'}
                 </h2>
-                <p className="font-['Inter'] text-sm text-slate-600 dark:text-[#c4c6d2] leading-relaxed">
-                  Our headquarters in Riyadh coordinates tender estimation, project execution management, and technical logistics across the MENA region.
+                <p
+                  className={
+                    isAr
+                      ? "font-['Cairo'] text-sm text-slate-600 dark:text-[#c4c6d2] leading-relaxed tracking-normal"
+                      : "font-['Inter'] text-sm text-slate-600 dark:text-[#c4c6d2] leading-relaxed"
+                  }
+                >
+                  {isAr
+                    ? 'يتولى مقرنا الرئيسي في الرياض دراسة وتسعير المناقصات، وإدارة تنفيذ المشاريع، واللوجستيات الهندسية على مستوى منطقة الشرق الأوسط.'
+                    : 'Our headquarters in Riyadh coordinates tender estimation, project execution management, and technical logistics across the MENA region.'}
                 </p>
               </div>
             </RevealOnScroll>
@@ -58,11 +82,25 @@ export function ContactFormSection() {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider text-[#ba9563] mb-1">
-                      RIYADH HQ ADDRESS
+                    <h3
+                      className={
+                        isAr
+                          ? "font-['Cairo'] text-xs font-bold text-[#ba9563] mb-1 tracking-normal"
+                          : "font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider text-[#ba9563] mb-1"
+                      }
+                    >
+                      {isAr ? 'عنوان المقر الرئيسي — الرياض' : 'RIYADH HQ ADDRESS'}
                     </h3>
-                    <p className="font-['Inter'] text-sm text-slate-800 dark:text-slate-200 leading-snug">
-                      {COMPANY_PROFILE.address.district}, {COMPANY_PROFILE.address.city}, {COMPANY_PROFILE.address.country}
+                    <p
+                      className={
+                        isAr
+                          ? "font-['Cairo'] text-sm text-slate-800 dark:text-slate-200 leading-snug tracking-normal"
+                          : "font-['Inter'] text-sm text-slate-800 dark:text-slate-200 leading-snug"
+                      }
+                    >
+                      {isAr
+                        ? 'حي العليا، الرياض 12222، المملكة العربية السعودية'
+                        : `${COMPANY_PROFILE.address.district}, ${COMPANY_PROFILE.address.city}, ${COMPANY_PROFILE.address.country}`}
                     </p>
                   </div>
                 </div>
@@ -73,12 +111,18 @@ export function ContactFormSection() {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider text-[#ba9563] mb-1">
-                      CENTRAL EMAIL INQUIRIES
+                    <h3
+                      className={
+                        isAr
+                          ? "font-['Cairo'] text-xs font-bold text-[#ba9563] mb-1 tracking-normal"
+                          : "font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider text-[#ba9563] mb-1"
+                      }
+                    >
+                      {isAr ? 'البريد الإلكتروني المركزي' : 'CENTRAL EMAIL INQUIRIES'}
                     </h3>
                     <a
                       href={`mailto:${COMPANY_PROFILE.email}`}
-                      className="font-['Inter'] text-sm text-slate-800 dark:text-slate-200 hover:text-[#ba9563] transition-colors"
+                      className="font-mono text-sm text-slate-800 dark:text-slate-200 hover:text-[#ba9563] transition-colors"
                     >
                       {COMPANY_PROFILE.email}
                     </a>
@@ -91,10 +135,16 @@ export function ContactFormSection() {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider text-[#ba9563] mb-1">
-                      DIRECT TELEPHONE LINES
+                    <h3
+                      className={
+                        isAr
+                          ? "font-['Cairo'] text-xs font-bold text-[#ba9563] mb-1 tracking-normal"
+                          : "font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider text-[#ba9563] mb-1"
+                      }
+                    >
+                      {isAr ? 'أرقام الهاتف المباشرة' : 'DIRECT TELEPHONE LINES'}
                     </h3>
-                    <div className="flex flex-col space-y-1 font-['Space_Grotesk'] text-sm text-slate-800 dark:text-slate-200">
+                    <div className="flex flex-col space-y-1 font-mono text-sm text-slate-800 dark:text-slate-200" dir="ltr">
                       {COMPANY_PROFILE.phones.map((phone, idx) => (
                         <a key={idx} href={`tel:${phone}`} className="hover:text-[#ba9563] transition-colors">
                           {phone}
@@ -110,12 +160,33 @@ export function ContactFormSection() {
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider text-[#ba9563] mb-1">
-                      BUSINESS HOURS
+                    <h3
+                      className={
+                        isAr
+                          ? "font-['Cairo'] text-xs font-bold text-[#ba9563] mb-1 tracking-normal"
+                          : "font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider text-[#ba9563] mb-1"
+                      }
+                    >
+                      {isAr ? 'ساعات العمل الرسمية' : 'BUSINESS HOURS'}
                     </h3>
-                    <p className="font-['Inter'] text-xs text-slate-600 dark:text-[#c4c6d2]">
-                      Sunday – Thursday: 08:00 AM – 05:00 PM (AST)<br />
-                      Friday – Saturday: Closed
+                    <p
+                      className={
+                        isAr
+                          ? "font-['Cairo'] text-xs text-slate-600 dark:text-[#c4c6d2] tracking-normal"
+                          : "font-['Inter'] text-xs text-slate-600 dark:text-[#c4c6d2]"
+                      }
+                    >
+                      {isAr ? (
+                        <>
+                          الأحد – الخميس: 08:00 صباحاً – 05:00 مساءً (توقيت مكة)<br />
+                          الجمعة – السبت: عطلة أسبوعية
+                        </>
+                      ) : (
+                        <>
+                          Sunday – Thursday: 08:00 AM – 05:00 PM (AST)<br />
+                          Friday – Saturday: Closed
+                        </>
+                      )}
                     </p>
                   </div>
                 </div>
@@ -132,50 +203,98 @@ export function ContactFormSection() {
                 <BlueprintCrosshair position="bottom-left" />
                 <BlueprintCrosshair position="bottom-right" />
 
-                <h3 className="font-['Montserrat'] text-2xl sm:text-3xl text-slate-950 dark:text-white uppercase font-extrabold mb-2">
-                  TRANSMIT AN INQUIRY
+                <h3
+                  className={
+                    isAr
+                      ? "font-['Cairo'] text-2xl sm:text-3xl text-slate-950 dark:text-white font-extrabold mb-2 tracking-normal"
+                      : "font-['Montserrat'] text-2xl sm:text-3xl text-slate-950 dark:text-white uppercase font-extrabold mb-2"
+                  }
+                >
+                  {isAr ? 'إرسال طلب استفسار أو مناقصة' : 'TRANSMIT AN INQUIRY'}
                 </h3>
-                <p className="font-['Inter'] text-xs sm:text-sm text-slate-600 dark:text-[#c4c6d2] mb-8">
-                  Fill in your project details or tender inquiry below. Our senior engineering and procurement team will respond within 24 business hours.
+                <p
+                  className={
+                    isAr
+                      ? "font-['Cairo'] text-xs sm:text-sm text-slate-600 dark:text-[#c4c6d2] mb-8 tracking-normal"
+                      : "font-['Inter'] text-xs sm:text-sm text-slate-600 dark:text-[#c4c6d2] mb-8"
+                  }
+                >
+                  {isAr
+                    ? 'أدخل بيانات مشروعك أو استفسارك الهندسي أدناه. سيقوم فريق دراسة المشاريع والمناقصات بالرد خلال 24 ساعة عمل.'
+                    : 'Fill in your project details or tender inquiry below. Our senior engineering and procurement team will respond within 24 business hours.'}
                 </p>
 
                 {submitted ? (
                   <div className="py-16 text-center space-y-4">
                     <CheckCircle2 className="w-16 h-16 text-[#ba9563] mx-auto" />
-                    <h3 className="font-['Montserrat'] text-2xl text-slate-950 dark:text-white font-bold uppercase">
-                      INQUIRY TRANSMITTED SUCCESSFULLY
+                    <h3
+                      className={
+                        isAr
+                          ? "font-['Cairo'] text-2xl text-slate-950 dark:text-white font-bold tracking-normal"
+                          : "font-['Montserrat'] text-2xl text-slate-950 dark:text-white font-bold uppercase"
+                      }
+                    >
+                      {isAr ? 'تم إرسال الطلب بنجاح' : 'INQUIRY TRANSMITTED SUCCESSFULLY'}
                     </h3>
-                    <p className="font-['Inter'] text-sm text-slate-600 dark:text-[#c4c6d2] max-w-md mx-auto">
-                      Thank you for contacting Dar El Mashrq. Your communication has been routed to our executive engineering desk in Riyadh.
+                    <p
+                      className={
+                        isAr
+                          ? "font-['Cairo'] text-sm text-slate-600 dark:text-[#c4c6d2] max-w-md mx-auto tracking-normal"
+                          : "font-['Inter'] text-sm text-slate-600 dark:text-[#c4c6d2] max-w-md mx-auto"
+                      }
+                    >
+                      {isAr
+                        ? 'شكراً لتواصلك مع شركة دار المشرق. تم توجيه رسالتك إلى الإدارة الهندسية والتسعيرية في الرياض للمتابعة الفورية.'
+                        : 'Thank you for contacting Dar El Mashrq. Your communication has been routed to our executive engineering desk in Riyadh.'}
                     </p>
                     <button
                       type="button"
                       onClick={() => setSubmitted(false)}
-                      className="mt-6 font-['Space_Grotesk'] text-xs text-[#ba9563] uppercase tracking-wider border-b border-[#ba9563] pb-1 font-semibold hover:text-[#d4b27a] transition-colors"
+                      className={
+                        isAr
+                          ? "mt-6 font-['Cairo'] text-xs text-[#ba9563] border-b border-[#ba9563] pb-1 font-bold hover:text-[#d4b27a] transition-colors tracking-normal"
+                          : "mt-6 font-['Space_Grotesk'] text-xs text-[#ba9563] uppercase tracking-wider border-b border-[#ba9563] pb-1 font-semibold hover:text-[#d4b27a] transition-colors"
+                      }
                     >
-                      Send another message
+                      {isAr ? 'إرسال رسالة أخرى' : 'Send another message'}
                     </button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="block font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.15em] text-[#ba9563] mb-1.5 font-semibold">
-                          Full Name / Organization *
+                        <label
+                          className={
+                            isAr
+                              ? "block font-['Cairo'] text-xs text-[#ba9563] mb-1.5 font-bold tracking-normal"
+                              : "block font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.15em] text-[#ba9563] mb-1.5 font-semibold"
+                          }
+                        >
+                          {isAr ? 'الاسم الكامل / اسم الجهة أو الشركة *' : 'Full Name / Organization *'}
                         </label>
                         <input
                           required
                           type="text"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder="e.g. Eng. Abdullah Al-Mansoor"
-                          className="w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Inter'] text-xs px-4 py-3 rounded-none outline-none transition-colors"
+                          placeholder={isAr ? 'مثال: م. عبدالله المنصور' : 'e.g. Eng. Abdullah Al-Mansoor'}
+                          className={
+                            isAr
+                              ? "w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Cairo'] text-xs px-4 py-3 rounded-none outline-none transition-colors tracking-normal"
+                              : "w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Inter'] text-xs px-4 py-3 rounded-none outline-none transition-colors"
+                          }
                         />
                       </div>
 
                       <div>
-                        <label className="block font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.15em] text-[#ba9563] mb-1.5 font-semibold">
-                          Corporate Email *
+                        <label
+                          className={
+                            isAr
+                              ? "block font-['Cairo'] text-xs text-[#ba9563] mb-1.5 font-bold tracking-normal"
+                              : "block font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.15em] text-[#ba9563] mb-1.5 font-semibold"
+                          }
+                        >
+                          {isAr ? 'البريد الإلكتروني للعمل *' : 'Corporate Email *'}
                         </label>
                         <input
                           required
@@ -183,75 +302,133 @@ export function ContactFormSection() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="name@company.com"
-                          className="w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Inter'] text-xs px-4 py-3 rounded-none outline-none transition-colors"
+                          className="w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-mono text-xs px-4 py-3 rounded-none outline-none transition-colors"
+                          dir="ltr"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="block font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.15em] text-[#ba9563] mb-1.5 font-semibold">
-                          Phone Number
+                        <label
+                          className={
+                            isAr
+                              ? "block font-['Cairo'] text-xs text-[#ba9563] mb-1.5 font-bold tracking-normal"
+                              : "block font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.15em] text-[#ba9563] mb-1.5 font-semibold"
+                          }
+                        >
+                          {isAr ? 'رقم الهاتف / الجوال' : 'Phone Number'}
                         </label>
                         <input
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="+966 ..."
-                          className="w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Inter'] text-xs px-4 py-3 rounded-none outline-none transition-colors"
+                          className="w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-mono text-xs px-4 py-3 rounded-none outline-none transition-colors"
+                          dir="ltr"
                         />
                       </div>
 
                       <div>
-                        <label className="block font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.15em] text-[#ba9563] mb-1.5 font-semibold">
-                          Project Territory *
+                        <label
+                          className={
+                            isAr
+                              ? "block font-['Cairo'] text-xs text-[#ba9563] mb-1.5 font-bold tracking-normal"
+                              : "block font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.15em] text-[#ba9563] mb-1.5 font-semibold"
+                          }
+                        >
+                          {isAr ? 'نطاق المشروع الجغرافي *' : 'Project Territory *'}
                         </label>
                         <select
                           value={formData.territory}
                           onChange={(e) => setFormData({ ...formData, territory: e.target.value })}
-                          className="w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Inter'] text-xs px-4 py-3 rounded-none outline-none transition-colors"
+                          className={
+                            isAr
+                              ? "w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Cairo'] text-xs px-4 py-3 rounded-none outline-none transition-colors tracking-normal"
+                              : "w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Inter'] text-xs px-4 py-3 rounded-none outline-none transition-colors"
+                          }
                         >
-                          <option value="Saudi Arabia (Kingdom-wide)">Saudi Arabia (Kingdom-wide)</option>
-                          <option value="Arab Republic of Egypt">Arab Republic of Egypt</option>
-                          <option value="State of Qatar">State of Qatar</option>
-                          <option value="Other MENA Region">Other MENA Region</option>
+                          <option value="Saudi Arabia (Kingdom-wide)">
+                            {isAr ? 'المملكة العربية السعودية (كافة المناطق)' : 'Saudi Arabia (Kingdom-wide)'}
+                          </option>
+                          <option value="Arab Republic of Egypt">
+                            {isAr ? 'جمهورية مصر العربية' : 'Arab Republic of Egypt'}
+                          </option>
+                          <option value="State of Qatar">
+                            {isAr ? 'دولة قطر' : 'State of Qatar'}
+                          </option>
+                          <option value="Other MENA Region">
+                            {isAr ? 'منطقة الشرق الأوسط وشمال أفريقيا' : 'Other MENA Region'}
+                          </option>
                         </select>
                       </div>
                     </div>
 
                     <div>
-                      <label className="block font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.15em] text-[#ba9563] mb-1.5 font-semibold">
-                        Subject / Inquiry Type *
+                      <label
+                        className={
+                          isAr
+                            ? "block font-['Cairo'] text-xs text-[#ba9563] mb-1.5 font-bold tracking-normal"
+                            : "block font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.15em] text-[#ba9563] mb-1.5 font-semibold"
+                        }
+                      >
+                        {isAr ? 'موضوع الرسالة / نوع الطلب *' : 'Subject / Inquiry Type *'}
                       </label>
                       <input
                         required
                         type="text"
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        placeholder="e.g. Tender Prequalification / Civil Works Request"
-                        className="w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Inter'] text-xs px-4 py-3 rounded-none outline-none transition-colors"
+                        placeholder={
+                          isAr
+                            ? 'مثال: تأهيل مناقصة / طلب أعمال مدنية وإنشائية'
+                            : 'e.g. Tender Prequalification / Civil Works Request'
+                        }
+                        className={
+                          isAr
+                            ? "w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Cairo'] text-xs px-4 py-3 rounded-none outline-none transition-colors tracking-normal"
+                            : "w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Inter'] text-xs px-4 py-3 rounded-none outline-none transition-colors"
+                        }
                       />
                     </div>
 
                     <div>
-                      <label className="block font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.15em] text-[#ba9563] mb-1.5 font-semibold">
-                        Project Details &amp; Scope *
+                      <label
+                        className={
+                          isAr
+                            ? "block font-['Cairo'] text-xs text-[#ba9563] mb-1.5 font-bold tracking-normal"
+                            : "block font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.15em] text-[#ba9563] mb-1.5 font-semibold"
+                        }
+                      >
+                        {isAr ? 'تفاصيل ونطاق المشروع *' : 'Project Details & Scope *'}
                       </label>
                       <textarea
                         required
                         rows={4}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Provide project scope, location, required services (Civil, Electrical, HVAC, MEP), and timeline..."
-                        className="w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Inter'] text-xs px-4 py-3 rounded-none outline-none resize-none transition-colors"
+                        placeholder={
+                          isAr
+                            ? 'يرجى توضيح نطاق المشروع، موقعه، الخدمات المطلوبة (أعمال مدنية، كهرباء، تكييف، كهروميكانيك)، والجدول الزمني...'
+                            : 'Provide project scope, location, required services (Civil, Electrical, HVAC, MEP), and timeline...'
+                        }
+                        className={
+                          isAr
+                            ? "w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Cairo'] text-xs px-4 py-3 rounded-none outline-none resize-none transition-colors tracking-normal"
+                            : "w-full bg-slate-50 dark:bg-[#0f2244] border border-slate-300 dark:border-[#434651] focus:border-[#ba9563] focus:ring-0 text-slate-900 dark:text-white font-['Inter'] text-xs px-4 py-3 rounded-none outline-none resize-none transition-colors"
+                        }
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-bold py-4 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg"
+                      className={
+                        isAr
+                          ? "w-full bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Cairo'] text-xs sm:text-sm font-bold py-4 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg tracking-normal"
+                          : "w-full bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-bold py-4 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg"
+                      }
                     >
-                      <span>SUBMIT FORMAL INQUIRY</span>
+                      <span>{isAr ? 'إرسال الطلب الرسمي' : 'SUBMIT FORMAL INQUIRY'}</span>
                       <Send className="w-3.5 h-3.5 text-[#0b1a37]" />
                     </button>
                   </form>
@@ -265,3 +442,4 @@ export function ContactFormSection() {
     </section>
   )
 }
+
