@@ -54,13 +54,19 @@ export async function getAboutContent(): Promise<{
   const res = await publicApiClient<AboutApiData>('/about')
   const content = res?.content
 
+  const apiHeroImage = content?.hero?.heroImage
+  const resolvedHeroImage =
+    apiHeroImage && !apiHeroImage.includes('images.unsplash.com')
+      ? apiHeroImage
+      : fallbackHero.heroImage
+
   return {
     hero: {
       badge: content?.hero?.badge || fallbackHero.badge,
       headline: content?.hero?.headline || fallbackHero.headline,
       tagline: content?.hero?.tagline || fallbackHero.tagline,
       description: content?.hero?.description || fallbackHero.description,
-      heroImage: content?.hero?.heroImage || fallbackHero.heroImage,
+      heroImage: resolvedHeroImage,
     },
     history: Array.isArray(content?.history) && content.history.length > 0 ? content.history : ABOUT_HISTORY,
     capabilities: Array.isArray(content?.capabilities) && content.capabilities.length > 0 ? content.capabilities : WHAT_WE_DO,

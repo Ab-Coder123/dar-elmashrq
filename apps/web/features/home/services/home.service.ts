@@ -66,13 +66,20 @@ export async function getHomeContent(): Promise<{
   const res = await publicApiClient<HomeApiData>('/home')
   const content = res?.content
 
+  // Prioritize verified real local hero image if content contains old mock/unsplash URL
+  const apiHeroImage = content?.hero?.heroImage
+  const resolvedHeroImage =
+    apiHeroImage && !apiHeroImage.includes('images.unsplash.com')
+      ? apiHeroImage
+      : fallbackHero.heroImage
+
   return {
     hero: {
       badge: content?.hero?.badge || fallbackHero.badge,
       headline: content?.hero?.headline || fallbackHero.headline,
       tagline: content?.hero?.tagline || fallbackHero.tagline,
       bodyCopy: content?.hero?.bodyCopy || fallbackHero.bodyCopy,
-      heroImage: content?.hero?.heroImage || fallbackHero.heroImage,
+      heroImage: resolvedHeroImage,
       exploreCtaText: content?.hero?.exploreCtaText || fallbackHero.exploreCtaText,
       aboutCtaText: content?.hero?.aboutCtaText || fallbackHero.aboutCtaText,
     },
