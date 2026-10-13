@@ -6,14 +6,10 @@ import type {
 } from '../types'
 
 export const ABOUT_MEDIA = {
-  heroImage:
-    'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2400&q=90',
-  introImage:
-    'https://images.unsplash.com/photo-1541888946425-d0fbb18f15f6?auto=format&fit=crop&w=1600&q=85',
-  historyImage:
-    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85',
-  ctaImage:
-    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85',
+  heroImage: '/images/projects/way-care-medical-hospital/cover.jpg',
+  introImage: '/images/projects/residential-tower/cover.jpg',
+  historyImage: '/images/projects/educational-buildings-public-security-madinah/cover.jpg',
+  ctaImage: '/images/projects/beverly-al-azeeza-new-facade/cover.jpg',
 }
 
 export const ABOUT_HISTORY: Milestone[] = [

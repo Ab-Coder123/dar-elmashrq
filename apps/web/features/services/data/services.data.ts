@@ -4,12 +4,9 @@ import type { TechnicalService, IntegratedDiscipline, ServiceProjectRelation } f
  * High-fidelity architectural & construction photography for services
  */
 export const SERVICES_MEDIA = {
-  heroImage:
-    'https://images.unsplash.com/photo-1541888946425-d0fbb18f15f6?auto=format&fit=crop&w=2000&q=85',
-  introImage:
-    'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=85',
-  civilImage:
-    'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=1600&q=85',
+  heroImage: '/images/projects/grc-factory/cover.jpg',
+  introImage: '/images/projects/way-care-medical-hospital/cover.jpg',
+  civilImage: '/images/projects/residential-tower/cover.jpg',
   electricalImage:
     'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=85',
   hvacImage:

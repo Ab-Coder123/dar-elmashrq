@@ -5,6 +5,7 @@ import { BlueprintCrosshair } from '@/components/ui/BlueprintCrosshair'
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll'
 import { heroStaggerVariants, fadeUpVariants } from '@/lib/motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useLanguage } from '@/providers/LanguageProvider'
 
 export function ContactHero() {
@@ -12,10 +13,26 @@ export function ContactHero() {
   const isAr = language === 'ar'
 
   return (
-    <section className="relative bg-[#09182f] text-white pt-32 pb-20 md:pt-40 md:pb-28 border-b border-[#ba9563]/30 overflow-hidden">
+    <section className="relative min-h-[50vh] sm:min-h-[58vh] flex items-center bg-[#09182f] text-white pt-32 pb-20 md:pt-40 md:pb-28 border-b border-[#ba9563]/30 overflow-hidden">
+      {/* Background Image with Deep Navy Atmospheric Overlay */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <Image
+          src="/images/projects/beverly-al-azeeza-new-facade/cover.jpg"
+          alt={isAr ? 'تواصل مع دار المشرق' : 'Contact Dar El Mashrq'}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center scale-105"
+        />
+        {/* Deep Navy Linear Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#09182f]/95 via-[#0f2244]/85 to-[#123c82]/50" />
+        {/* Radial Dark Vignette */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,14,38,0.75)_100%)]" />
+      </div>
+
       {/* Subtle Background Pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ba9563_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" 
+        className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ba9563_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none z-10" 
       />
 
       <div className="w-full max-w-[1440px] px-4 sm:px-8 md:px-12 mx-auto relative z-10">

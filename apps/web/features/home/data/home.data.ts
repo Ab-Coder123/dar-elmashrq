@@ -6,12 +6,10 @@ import type {
 } from '../types'
 
 export const HOME_MEDIA = {
-  // Ultra high-res hero image (Riyadh modern financial towers / structural mega site at twilight)
-  heroImage:
-    'https://images.unsplash.com/photo-1541888946425-d0fbb18f15f6?auto=format&fit=crop&w=2400&q=90',
+  // Real verified high-res project photo from company profile (Residential Tower, Saudi Arabia)
+  heroImage: '/images/projects/residential-tower/cover.jpg',
   // High-res structural concrete & modern commercial architectural engineering
-  introImage:
-    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85',
+  introImage: '/images/projects/al-smaeel-tower/cover.jpg',
   // Skyscraper facade in blue hour
   visionBgImage:
     'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=85',
