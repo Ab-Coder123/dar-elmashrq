@@ -75,10 +75,14 @@ export function TopNavBar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6 lg:space-x-8 rtl:space-x-reverse" aria-label="Main Navigation">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8" aria-label="Main Navigation">
           <Link
             href="/"
-            className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-2 relative group font-medium ${pathname === '/' ? 'text-[#ba9563] font-bold' : 'text-slate-800 dark:text-[#d7e2ff] hover:text-[#ba9563]'}`}
+            className={`transition-colors py-2 relative group ${
+              locale === 'ar'
+                ? 'font-arabic text-sm tracking-normal font-bold'
+                : 'font-[\'Space_Grotesk\'] text-xs uppercase tracking-[0.15em] font-medium'
+            } ${pathname === '/' ? 'text-[#ba9563] font-bold' : 'text-slate-800 dark:text-[#d7e2ff] hover:text-[#ba9563]'}`}
           >
             {t.home}
             <span className={`absolute bottom-0 inset-x-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname === '/' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
@@ -86,7 +90,11 @@ export function TopNavBar() {
 
           <Link
             href="/about"
-            className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-2 relative group font-medium ${pathname === '/about' ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}
+            className={`transition-colors py-2 relative group ${
+              locale === 'ar'
+                ? 'font-arabic text-sm tracking-normal font-bold'
+                : 'font-[\'Space_Grotesk\'] text-xs uppercase tracking-[0.15em] font-medium'
+            } ${pathname === '/about' ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}
           >
             {t.about}
             <span className={`absolute bottom-0 inset-x-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname === '/about' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
@@ -94,7 +102,11 @@ export function TopNavBar() {
 
           <Link
             href="/services"
-            className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-2 relative group font-medium ${pathname === '/services' ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}
+            className={`transition-colors py-2 relative group ${
+              locale === 'ar'
+                ? 'font-arabic text-sm tracking-normal font-bold'
+                : 'font-[\'Space_Grotesk\'] text-xs uppercase tracking-[0.15em] font-medium'
+            } ${pathname === '/services' ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}
           >
             {t.services}
             <span className={`absolute bottom-0 inset-x-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname === '/services' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
@@ -102,7 +114,11 @@ export function TopNavBar() {
 
           <Link
             href="/projects"
-            className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-2 relative group font-medium ${pathname.startsWith('/projects') ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}
+            className={`transition-colors py-2 relative group ${
+              locale === 'ar'
+                ? 'font-arabic text-sm tracking-normal font-bold'
+                : 'font-[\'Space_Grotesk\'] text-xs uppercase tracking-[0.15em] font-medium'
+            } ${pathname.startsWith('/projects') ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}
           >
             {t.projects}
             <span className={`absolute bottom-0 inset-x-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname.startsWith('/projects') ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
@@ -110,7 +126,11 @@ export function TopNavBar() {
 
           <Link
             href="/contact"
-            className={`font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] transition-colors py-2 relative group font-medium ${pathname === '/contact' ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}
+            className={`transition-colors py-2 relative group ${
+              locale === 'ar'
+                ? 'font-arabic text-sm tracking-normal font-bold'
+                : 'font-[\'Space_Grotesk\'] text-xs uppercase tracking-[0.15em] font-medium'
+            } ${pathname === '/contact' ? 'text-[#ba9563] font-bold' : 'text-slate-700 dark:text-[#c4c6d2] hover:text-[#ba9563]'}`}
           >
             {t.contact}
             <span className={`absolute bottom-0 inset-x-0 h-[2px] bg-[#ba9563] transition-all duration-300 ${pathname === '/contact' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
@@ -118,12 +138,12 @@ export function TopNavBar() {
         </nav>
 
         {/* Action Controls */}
-        <div className="flex items-center space-x-2.5 sm:space-x-3.5 rtl:space-x-reverse">
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* Language Toggle Button */}
           <button
             type="button"
             onClick={toggleLanguage}
-            className="flex items-center gap-1.5 px-3 py-1.5 border border-slate-300 dark:border-[#434651]/60 text-slate-700 dark:text-[#d7e2ff] bg-slate-100 dark:bg-[#0f2244] hover:border-[#ba9563] hover:text-[#ba9563] transition-all cursor-pointer font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider shadow-2xs"
+            className="flex items-center gap-1.5 px-3 py-1.5 border border-slate-300 dark:border-[#434651]/60 text-slate-700 dark:text-[#d7e2ff] bg-slate-100 dark:bg-[#0f2244] hover:border-[#ba9563] hover:text-[#ba9563] transition-all cursor-pointer font-arabic text-xs font-bold uppercase tracking-wider shadow-2xs"
             aria-label="Toggle Language Arabic / English"
             title={locale === 'ar' ? 'Switch to English' : 'التحويل إلى العربية'}
           >
@@ -149,7 +169,7 @@ export function TopNavBar() {
           {/* Contact CTA Button */}
           <Link
             href="/contact"
-            className="hidden sm:inline-flex bg-[#123c82] hover:bg-[#ba9563] text-white hover:text-[#0b1a37] border border-[#ba9563]/60 font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-[0.15em] px-4 sm:px-5 py-2 transition-all duration-200 items-center space-x-2 rtl:space-x-reverse shadow-sm"
+            className="hidden sm:inline-flex bg-[#123c82] hover:bg-[#ba9563] text-white hover:text-[#0b1a37] border border-[#ba9563]/60 font-arabic text-xs font-bold px-4 sm:px-5 py-2 transition-all duration-200 items-center gap-2 shadow-sm"
           >
             <span>{t.contactUs}</span>
             <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
@@ -179,38 +199,45 @@ export function TopNavBar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`font-['Space_Grotesk'] text-sm uppercase tracking-[0.2em] transition-colors border-b border-slate-200 dark:border-[#434651]/30 pb-3 flex justify-between items-center ${pathname === item.href ? 'text-[#ba9563] font-bold' : 'text-slate-800 dark:text-[#d7e2ff] hover:text-[#ba9563]'}`}
+                className={`font-arabic text-sm font-bold transition-colors border-b border-slate-200 dark:border-[#434651]/30 pb-3 flex justify-between items-center ${pathname === item.href ? 'text-[#ba9563]' : 'text-slate-800 dark:text-[#d7e2ff] hover:text-[#ba9563]'}`}
               >
-                <span>{item.label}</span>
-                <span className="font-['Space_Grotesk'] text-xs text-[#ba9563] uppercase tracking-wider">
+                <span>{locale === 'ar' ? (item.labelAr || item.label) : item.label}</span>
+                <span className="font-['Space_Grotesk'] text-xs text-[#ba9563] uppercase tracking-wider font-bold">
                   0{MAIN_NAVIGATION.indexOf(item) + 1}
                 </span>
               </Link>
             ))}
 
             <div className="pt-2">
-              <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] block mb-2 font-semibold">
-                Home Direct Jump
+              <span className="font-arabic text-xs uppercase text-[#ba9563] block mb-2 font-bold">
+                {locale === 'ar' ? 'الانتقال السريع للأقسام' : 'Direct Navigation'}
               </span>
               <div className="grid grid-cols-2 gap-2">
-                {['projects', 'capabilities', 'presence', 'credentials'].map((section) => (
+                {[
+                  { id: 'projects', label: 'المشاريع', labelEn: 'Projects' },
+                  { id: 'capabilities', label: 'القدرات', labelEn: 'Capabilities' },
+                  { id: 'presence', label: 'التواجد', labelEn: 'Presence' },
+                  { id: 'credentials', label: 'الاعتمادات', labelEn: 'Credentials' },
+                ].map((section) => (
                   <Link
-                    key={section}
-                    href={`/#${section}`}
+                    key={section.id}
+                    href={`/#${section.id}`}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-2 text-xs font-['Space_Grotesk'] uppercase tracking-wider bg-slate-100 dark:bg-[#0f2244] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#434651]/40"
+                    className="p-2 text-xs font-arabic font-bold bg-slate-100 dark:bg-[#0f2244] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#434651]/40 text-center"
                   >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                    {locale === 'ar' ? section.label : section.labelEn}
                   </Link>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="pt-2 text-xs font-['Space_Grotesk'] tracking-wider text-slate-500 dark:text-[#8e909c]">
-            <p className="text-[#ba9563] font-semibold mb-1">RIYADH HEADQUARTERS</p>
-            <p>{COMPANY_PROFILE.address.district}, {COMPANY_PROFILE.address.city}, {COMPANY_PROFILE.address.country}</p>
-            <p className="mt-1 text-slate-700 dark:text-[#d7e2ff]">{COMPANY_PROFILE.phones[0]}</p>
+          <div className="pt-2 text-xs font-arabic tracking-wide text-slate-500 dark:text-[#8e909c]">
+            <p className="text-[#ba9563] font-bold mb-1">
+              {locale === 'ar' ? 'المقر الرئيسي — الرياض' : 'RIYADH HEADQUARTERS'}
+            </p>
+            <p>{COMPANY_PROFILE.address.district}، {COMPANY_PROFILE.address.city}، {locale === 'ar' ? 'المملكة العربية السعودية' : COMPANY_PROFILE.address.country}</p>
+            <p className="mt-1 text-slate-700 dark:text-[#d7e2ff]" dir="ltr">{COMPANY_PROFILE.phones[0]}</p>
           </div>
         </div>
       )}
