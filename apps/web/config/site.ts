@@ -24,19 +24,47 @@ export const COMPANY_PROFILE: CompanyProfile = {
   /** NEEDS_CONFIRMATION: Mission statement not found in PDF */
   mission: undefined,
   missionAr: undefined,
-  /** Source: PDF page 68 */
+  /** Source: Business Cards & Corporate Profile */
   website: 'https://www.elmashrq.com',
-  /** Source: PDF page 68 */
   email: 'info@elmashrq.com',
-  /** Source: PDF page 68 */
-  phones: ['00966581605812', '00966545051136'],
-  /** Source: PDF page 68 — "Saudi Arabia, Riyadh, Olaya" */
+  phones: ['+966 58 160 5812', '+966 54 882 1738', '+966 54 755 2373', '+974 70 5555 73'],
   address: {
     country: 'Saudi Arabia',
-    city: 'Riyadh',
-    district: 'Olaya',
+    city: 'Dammam',
+    district: 'Al-Shati Al-Sharqi, Prince Mohammed Bin Fahd Road, 8110, Al-Shati Business Center',
   },
 }
+
+/**
+ * Key Corporate Leadership Executives (from verified official business cards)
+ */
+export const COMPANY_LEADERSHIP = [
+  {
+    name: 'Raafat Hashim',
+    nameAr: 'رأفت هاشم',
+    role: 'Chief Executive Officer (CEO)',
+    roleAr: 'الرئيس التنفيذي',
+    phone: '+966 58 160 5812',
+    intlPhone: '+974 70 5555 73',
+    email: 'r.hashim@elmashrq.com',
+  },
+  {
+    name: 'Mohamed El Shenawy',
+    nameAr: 'محمد الشناوي',
+    role: 'Operations Director',
+    roleAr: 'مدير العمليات',
+    phone: '+966 54 882 1738',
+    email: 'm.elshenawy@elmashrq.com',
+  },
+  {
+    name: 'Walid Salem',
+    nameAr: 'وليد سالم',
+    role: 'Business Development Director',
+    roleAr: 'مدير تطوير الأعمال',
+    phone: '+966 54 755 2373',
+    email: 'w.salem@elmashrq.com',
+  },
+] as const
 
 /**
  * Primary navigation — single source of truth.

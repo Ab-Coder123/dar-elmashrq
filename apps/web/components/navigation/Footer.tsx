@@ -16,7 +16,8 @@ export function Footer() {
       : 'A tier-one civil, architectural, and electro-mechanical engineering powerhouse. Delivering sovereign value and structural excellence across the GCC and North Africa.'
 
   const regionalTitle = locale === 'ar' ? 'المكاتب والفروع الإقليمية' : 'Regional Bureaus'
-  const officeRiyadh = locale === 'ar' ? 'المقر الرئيسي، العليا، الرياض' : 'Olaya Head Office, Riyadh'
+  const officeDammam = locale === 'ar' ? 'مركز الشاطئ للأعمال، الدمام' : 'Al-Shati Business Center, Dammam'
+  const officeRiyadh = locale === 'ar' ? 'المقر الإداري، العليا، الرياض' : 'Olaya Office, Riyadh'
   const officeDoha = locale === 'ar' ? 'مركز العمليات، الدوحة' : 'Doha Operational Hub'
   const officeCairo = locale === 'ar' ? 'المكتب الإقليمي، القاهرة' : 'Cairo Regional Bureau'
 
@@ -83,17 +84,22 @@ export function Footer() {
             </h4>
             <ul className="space-y-3 font-arabic text-xs tracking-wide text-slate-600 dark:text-[#c4c6d2] font-medium">
               <li>
-                <Link href="/#presence" className="hover:text-[#ba9563] transition-colors block">
+                <Link href="/contact" className="hover:text-[#ba9563] transition-colors block">
+                  {officeDammam}
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-[#ba9563] transition-colors block">
                   {officeRiyadh}
                 </Link>
               </li>
               <li>
-                <Link href="/#presence" className="hover:text-[#ba9563] transition-colors block">
+                <Link href="/contact" className="hover:text-[#ba9563] transition-colors block">
                   {officeDoha}
                 </Link>
               </li>
               <li>
-                <Link href="/#presence" className="hover:text-[#ba9563] transition-colors block">
+                <Link href="/contact" className="hover:text-[#ba9563] transition-colors block">
                   {officeCairo}
                 </Link>
               </li>

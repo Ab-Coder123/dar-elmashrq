@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Send, CheckCircle2, Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { Send, CheckCircle2, Phone, Mail, MapPin, Clock, Building2 } from 'lucide-react'
 import { BlueprintCrosshair } from '@/components/ui/BlueprintCrosshair'
 import { COMPANY_PROFILE } from '@/config/site'
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll'
@@ -77,6 +77,7 @@ export function ContactFormSection() {
                 <BlueprintCrosshair position="bottom-right" />
 
                 {/* Address */}
+                {/* Main Branch - Dammam */}
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-slate-100 dark:bg-[#0f2244] border border-[#ba9563]/40 text-[#ba9563] shrink-0">
                     <MapPin className="w-5 h-5" />
@@ -89,7 +90,36 @@ export function ContactFormSection() {
                           : "font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider text-[#ba9563] mb-1"
                       }
                     >
-                      {isAr ? 'عنوان المقر الرئيسي — الرياض' : 'RIYADH HQ ADDRESS'}
+                      {isAr ? 'مركز الشاطئ للأعمال — الدمام' : 'AL-SHATI BUSINESS CENTER — DAMMAM'}
+                    </h3>
+                    <p
+                      className={
+                        isAr
+                          ? "font-['Cairo'] text-sm text-slate-800 dark:text-slate-200 leading-snug tracking-normal"
+                          : "font-['Inter'] text-sm text-slate-800 dark:text-slate-200 leading-snug"
+                      }
+                    >
+                      {isAr
+                        ? 'مركز الشاطئ للأعمال، 8110 طريق الأمير محمد بن فهد، حي الشاطئ الشرقي، الدمام، المملكة العربية السعودية'
+                        : 'Al-Shati Business Center, 8110 Prince Mohammed Bin Fahd Road, Al-Shati Al-Sharqi, Dammam, Saudi Arabia'}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Corporate HQ - Riyadh */}
+                <div className="flex items-start gap-4 border-t border-slate-100 dark:border-[#434651]/30 pt-6">
+                  <div className="p-3 bg-slate-100 dark:bg-[#0f2244] border border-[#ba9563]/40 text-[#ba9563] shrink-0">
+                    <Building2 className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3
+                      className={
+                        isAr
+                          ? "font-['Cairo'] text-xs font-bold text-[#ba9563] mb-1 tracking-normal"
+                          : "font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider text-[#ba9563] mb-1"
+                      }
+                    >
+                      {isAr ? 'المقر الإداري الرئيسي — الرياض' : 'CORPORATE HQ — RIYADH'}
                     </h3>
                     <p
                       className={
@@ -100,7 +130,7 @@ export function ContactFormSection() {
                     >
                       {isAr
                         ? 'حي العليا، الرياض 12222، المملكة العربية السعودية'
-                        : `${COMPANY_PROFILE.address.district}, ${COMPANY_PROFILE.address.city}, ${COMPANY_PROFILE.address.country}`}
+                        : 'Olaya District, Riyadh 12222, Saudi Arabia'}
                     </p>
                   </div>
                 </div>
@@ -188,6 +218,82 @@ export function ContactFormSection() {
                         </>
                       )}
                     </p>
+                  </div>
+                </div>
+
+                {/* Executive Direct Communication Directory */}
+                <div className="border-t border-slate-100 dark:border-[#434651]/30 pt-6">
+                  <h3
+                    className={
+                      isAr
+                        ? "font-['Cairo'] text-xs font-bold text-[#ba9563] mb-3 tracking-normal"
+                        : "font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider text-[#ba9563] mb-3"
+                    }
+                  >
+                    {isAr ? 'التواصل المباشر مع قيادات الشركة' : 'EXECUTIVE LEADERSHIP DIRECTORY'}
+                  </h3>
+                  <div className="space-y-3">
+                    {/* Raafat Hashim - CEO */}
+                    <div className="p-3 bg-slate-50 dark:bg-[#0f2244]/60 border border-slate-200 dark:border-[#434651]/40 text-xs">
+                      <div className="flex items-center justify-between font-bold text-slate-900 dark:text-white">
+                        <span>{isAr ? 'رأفت هاشم' : 'Raafat Hashim'}</span>
+                        <span className="text-[#ba9563] text-[10px] uppercase font-semibold">
+                          {isAr ? 'الرئيس التنفيذي' : 'CEO'}
+                        </span>
+                      </div>
+                      <div className="mt-1.5 flex flex-col gap-0.5 font-mono text-[11px] text-slate-600 dark:text-[#c4c6d2]">
+                        <div className="flex items-center gap-1.5" dir="ltr">
+                          <Phone className="w-3 h-3 text-[#ba9563]" />
+                          <a href="tel:+966581605812" className="hover:text-[#ba9563]">+966 58 160 5812</a>
+                          <span className="text-slate-400">/</span>
+                          <a href="tel:+97470555573" className="hover:text-[#ba9563]">+974 70 5555 73</a>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <Mail className="w-3 h-3 text-[#ba9563]" />
+                          <a href="mailto:r.hashim@elmashrq.com" className="hover:text-[#ba9563]">r.hashim@elmashrq.com</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Mohamed El Shenawy - Operations */}
+                    <div className="p-3 bg-slate-50 dark:bg-[#0f2244]/60 border border-slate-200 dark:border-[#434651]/40 text-xs">
+                      <div className="flex items-center justify-between font-bold text-slate-900 dark:text-white">
+                        <span>{isAr ? 'محمد الشناوي' : 'Mohamed El Shenawy'}</span>
+                        <span className="text-[#ba9563] text-[10px] uppercase font-semibold">
+                          {isAr ? 'مدير العمليات' : 'Operations Dir.'}
+                        </span>
+                      </div>
+                      <div className="mt-1.5 flex flex-col gap-0.5 font-mono text-[11px] text-slate-600 dark:text-[#c4c6d2]">
+                        <div className="flex items-center gap-1.5" dir="ltr">
+                          <Phone className="w-3 h-3 text-[#ba9563]" />
+                          <a href="tel:+966548821738" className="hover:text-[#ba9563]">+966 54 882 1738</a>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <Mail className="w-3 h-3 text-[#ba9563]" />
+                          <a href="mailto:m.elshenawy@elmashrq.com" className="hover:text-[#ba9563]">m.elshenawy@elmashrq.com</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Walid Salem - Business Development */}
+                    <div className="p-3 bg-slate-50 dark:bg-[#0f2244]/60 border border-slate-200 dark:border-[#434651]/40 text-xs">
+                      <div className="flex items-center justify-between font-bold text-slate-900 dark:text-white">
+                        <span>{isAr ? 'وليد سالم' : 'Walid Salem'}</span>
+                        <span className="text-[#ba9563] text-[10px] uppercase font-semibold">
+                          {isAr ? 'مدير تطوير الأعمال' : 'Business Dev.'}
+                        </span>
+                      </div>
+                      <div className="mt-1.5 flex flex-col gap-0.5 font-mono text-[11px] text-slate-600 dark:text-[#c4c6d2]">
+                        <div className="flex items-center gap-1.5" dir="ltr">
+                          <Phone className="w-3 h-3 text-[#ba9563]" />
+                          <a href="tel:+966547552373" className="hover:text-[#ba9563]">+966 54 755 2373</a>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <Mail className="w-3 h-3 text-[#ba9563]" />
+                          <a href="mailto:w.salem@elmashrq.com" className="hover:text-[#ba9563]">w.salem@elmashrq.com</a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
