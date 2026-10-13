@@ -9,12 +9,15 @@ import { ProjectFilters } from './ProjectFilters'
 import { ProjectGrid } from './ProjectGrid'
 import { ProjectDetailOverlay } from './ProjectDetailOverlay'
 import { FeaturedProjectSpotlight } from './FeaturedProjectSpotlight'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 interface ProjectExplorerProps {
   initialProjects: Project[]
 }
 
 export function ProjectExplorer({ initialProjects }: ProjectExplorerProps) {
+  const { language } = useLanguage()
+  const isAr = language === 'ar'
   const [activeCountry, setActiveCountry] = useState<Country | 'all'>('all')
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | 'all'>('all')
   const [searchQuery, setSearchQuery] = useState('')
@@ -79,15 +82,17 @@ export function ProjectExplorer({ initialProjects }: ProjectExplorerProps) {
             <div className="mb-10">
               <div className="inline-flex items-center gap-2 border border-[#ba9563]/40 bg-slate-50 dark:bg-[#0f2244] px-3 py-1 mb-3">
                 <span className="w-2 h-2 bg-[#ba9563]" />
-                <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold">
-                  INDEX &amp; REGISTER
+                <span className={`text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}>
+                  {isAr ? 'الفهرس والسجل التعاقدي' : 'INDEX & REGISTER'}
                 </span>
               </div>
-              <h2 className="font-['Montserrat'] text-3xl sm:text-4xl lg:text-5xl text-slate-950 dark:text-white uppercase font-extrabold tracking-tight">
-                MASTER CONTRACT ARCHIVE
+              <h2 className={`text-3xl sm:text-4xl lg:text-5xl text-slate-950 dark:text-white uppercase font-extrabold tracking-tight ${isAr ? 'font-arabic tracking-normal' : "font-['Montserrat']"}`}>
+                {isAr ? 'أرشيف العقود والمشاريع الرئيسي' : 'MASTER CONTRACT ARCHIVE'}
               </h2>
-              <p className="font-['Inter'] text-sm text-slate-600 dark:text-[#c4c6d2] mt-2 max-w-2xl">
-                Filter our active and historical contracting dossier by sovereign market, structural discipline, or keyword search.
+              <p className={`text-sm text-slate-600 dark:text-[#c4c6d2] mt-2 max-w-2xl ${isAr ? 'font-arabic tracking-normal' : "font-['Inter']"}`}>
+                {isAr
+                  ? 'تصفية سجل المقاولات المعتمد والتاريخي حسب الدولة، أو القطاع الهندسي، أو البحث المباشر بالكلمات المفتاحية.'
+                  : 'Filter our active and historical contracting dossier by sovereign market, structural discipline, or keyword search.'}
               </p>
             </div>
           </RevealOnScroll>

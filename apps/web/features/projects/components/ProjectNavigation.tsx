@@ -2,6 +2,7 @@
 
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import type { Project } from '@dar-elmashrq/types'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 interface ProjectNavigationProps {
   previousProject: Project | null
@@ -20,6 +21,9 @@ export function ProjectNavigation({
   currentIndex,
   totalCount,
 }: ProjectNavigationProps) {
+  const { language } = useLanguage()
+  const isAr = language === 'ar'
+
   return (
     <nav
       aria-label="Project detail navigation"
@@ -33,14 +37,26 @@ export function ProjectNavigation({
           className="flex items-center gap-2 text-slate-300 hover:text-[#ba9563] transition-colors group text-left"
         >
           <div className="p-2 border border-[#ba9563]/40 bg-[#0f2244] group-hover:bg-[#ba9563] group-hover:text-[#0b1a37] transition-colors">
-            <ChevronLeft className="w-4 h-4" />
+            {isAr ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
           </div>
           <div className="hidden sm:block">
-            <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#ba9563] font-bold block">
-              PREVIOUS
+            <span
+              className={
+                isAr
+                  ? "font-['Cairo'] text-[11px] text-[#ba9563] font-bold block tracking-normal text-right"
+                  : "font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#ba9563] font-bold block"
+              }
+            >
+              {isAr ? 'المشروع السابق' : 'PREVIOUS'}
             </span>
-            <span className="font-['Montserrat'] text-xs font-bold uppercase text-white truncate max-w-[180px] block">
-              {previousProject.name}
+            <span
+              className={
+                isAr
+                  ? "font-['Cairo'] text-xs font-bold text-white truncate max-w-[180px] block tracking-normal text-right"
+                  : "font-['Montserrat'] text-xs font-bold uppercase text-white truncate max-w-[180px] block"
+              }
+            >
+              {isAr && previousProject.nameAr ? previousProject.nameAr : previousProject.name}
             </span>
           </div>
         </button>
@@ -49,8 +65,16 @@ export function ProjectNavigation({
       )}
 
       {/* Center Index Indicator */}
-      <div className="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-[0.2em] text-[#ba9563] bg-[#0f2244] border border-[#ba9563]/30 px-4 py-1.5 shadow-inner">
-        CONTRACT {currentIndex + 1} OF {totalCount}
+      <div
+        className={
+          isAr
+            ? "font-['Cairo'] text-xs font-bold text-[#ba9563] bg-[#0f2244] border border-[#ba9563]/30 px-4 py-1.5 shadow-inner tracking-normal"
+            : "font-['Space_Grotesk'] text-xs font-bold uppercase tracking-[0.2em] text-[#ba9563] bg-[#0f2244] border border-[#ba9563]/30 px-4 py-1.5 shadow-inner"
+        }
+      >
+        {isAr
+          ? `العقد ${currentIndex + 1} من إجمالي ${totalCount}`
+          : `CONTRACT ${currentIndex + 1} OF ${totalCount}`}
       </div>
 
       {/* Next Project Button */}
@@ -61,15 +85,27 @@ export function ProjectNavigation({
           className="flex items-center gap-2 text-slate-300 hover:text-[#ba9563] transition-colors group text-right"
         >
           <div className="hidden sm:block">
-            <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#ba9563] font-bold block">
-              NEXT
+            <span
+              className={
+                isAr
+                  ? "font-['Cairo'] text-[11px] text-[#ba9563] font-bold block tracking-normal text-left"
+                  : "font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#ba9563] font-bold block"
+              }
+            >
+              {isAr ? 'المشروع التالي' : 'NEXT'}
             </span>
-            <span className="font-['Montserrat'] text-xs font-bold uppercase text-white truncate max-w-[180px] block">
-              {nextProject.name}
+            <span
+              className={
+                isAr
+                  ? "font-['Cairo'] text-xs font-bold text-white truncate max-w-[180px] block tracking-normal text-left"
+                  : "font-['Montserrat'] text-xs font-bold uppercase text-white truncate max-w-[180px] block"
+              }
+            >
+              {isAr && nextProject.nameAr ? nextProject.nameAr : nextProject.name}
             </span>
           </div>
           <div className="p-2 border border-[#ba9563]/40 bg-[#0f2244] group-hover:bg-[#ba9563] group-hover:text-[#0b1a37] transition-colors">
-            <ChevronRight className="w-4 h-4" />
+            {isAr ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
           </div>
         </button>
       ) : (
@@ -78,3 +114,4 @@ export function ProjectNavigation({
     </nav>
   )
 }
+

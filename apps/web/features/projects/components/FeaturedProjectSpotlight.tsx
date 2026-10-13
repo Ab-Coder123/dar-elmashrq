@@ -1,11 +1,13 @@
 'use client'
 
 import Image from 'next/image'
-import { ArrowRight, MapPin, Building, Calendar, Layers, ShieldCheck } from 'lucide-react'
+import { ArrowRight, ArrowLeft, MapPin, Building, Calendar, Layers, ShieldCheck } from 'lucide-react'
 import type { Project } from '@dar-elmashrq/types'
+import { PROJECT_CATEGORIES } from '@dar-elmashrq/types'
 import { BlueprintCrosshair } from '@/components/ui/BlueprintCrosshair'
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll'
 import { scaleInVariants } from '@/lib/motion'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 interface FeaturedProjectSpotlightProps {
   project?: Project | null
@@ -13,11 +15,31 @@ interface FeaturedProjectSpotlightProps {
 }
 
 export function FeaturedProjectSpotlight({ project, onOpenDossier }: FeaturedProjectSpotlightProps) {
+  const { language } = useLanguage()
+  const isAr = language === 'ar'
+
   if (!project) return null
 
   const imageUrl =
     project.images?.[0]?.url ||
     'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1600&q=85'
+
+  const title = isAr && project.nameAr ? project.nameAr : project.name
+  const subtitle = isAr ? project.name : project.nameAr
+  const locationText = isAr && project.locationAr ? project.locationAr : project.location
+  const categoryLabel = PROJECT_CATEGORIES[project.category]
+    ? (isAr ? PROJECT_CATEGORIES[project.category].labelAr : PROJECT_CATEGORIES[project.category].label)
+    : project.category
+
+  const countryLabels: Record<string, string> = {
+    'saudi-arabia': isAr ? 'المملكة العربية السعودية' : 'Saudi Arabia',
+    egypt: isAr ? 'جمهورية مصر العربية' : 'Egypt',
+    qatar: isAr ? 'دولة قطر' : 'Qatar',
+  }
+
+  const descText = isAr && project.descriptionAr
+    ? project.descriptionAr
+    : (project.description || (isAr ? 'تنفيذ هندسي شامل يغطي الهياكل المدنية والتركيبات الكهروميكانيكية والتشطيبات الفاخرة المعتمدة وفق المعايير الدولية.' : 'Comprehensive engineering execution covering civil structures, electro-mechanical installations, and specialized finishing works delivered to international quality standards.'))
 
   return (
     <section className="relative bg-slate-50 dark:bg-[#0f2244] py-16 md:py-24 border-b border-slate-200 dark:border-[#434651]/40 transition-colors duration-300">
@@ -34,7 +56,7 @@ export function FeaturedProjectSpotlight({ project, onOpenDossier }: FeaturedPro
               <div className="lg:col-span-7 relative min-h-[380px] lg:min-h-[520px] bg-slate-950 overflow-hidden group">
                 <Image
                   src={imageUrl}
-                  alt={project.name}
+                  alt={title}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 60vw"
@@ -44,75 +66,79 @@ export function FeaturedProjectSpotlight({ project, onOpenDossier }: FeaturedPro
                 <div className="absolute inset-0 bg-[#ba9563]/0 group-hover:bg-[#ba9563]/10 transition-colors duration-500" />
 
                 {/* Corner Flag */}
-                <div className="absolute top-6 left-6 bg-[#ba9563] text-[#0b1a37] px-3.5 py-1.5 font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.2em] font-bold shadow-md">
-                  FLAGSHIP BENCHMARK
+                <div className={`absolute top-6 ${isAr ? 'right-6 font-arabic' : "left-6 font-['Space_Grotesk']"} bg-[#ba9563] text-[#0b1a37] px-3.5 py-1.5 text-[11px] uppercase tracking-[0.2em] font-bold shadow-md`}>
+                  {isAr ? 'مشروع ريادي استثنائي' : 'FLAGSHIP BENCHMARK'}
                 </div>
 
                 <div className="absolute bottom-6 left-6 right-6">
-                  <span className="font-['Space_Grotesk'] text-xs uppercase tracking-[0.2em] text-[#ba9563] block mb-1 font-semibold">
-                    {project.category.toUpperCase()} // {project.location}
+                  <span className={`text-xs uppercase tracking-[0.2em] text-[#ba9563] block mb-1 font-semibold ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}>
+                    {categoryLabel} // {locationText}
                   </span>
-                  <h3 className="font-['Montserrat'] text-2xl sm:text-3xl lg:text-4xl text-white font-extrabold uppercase leading-tight drop-shadow-md">
-                    {project.name}
+                  <h3 className={`text-2xl sm:text-3xl lg:text-4xl text-white font-extrabold uppercase leading-tight drop-shadow-md ${isAr ? 'font-arabic tracking-normal' : "font-['Montserrat']"}`}>
+                    {title}
                   </h3>
+                  {subtitle && (
+                    <p className={`text-sm text-slate-300 mt-1 ${isAr ? "font-['Space_Grotesk']" : 'font-arabic'}`}>
+                      {subtitle}
+                    </p>
+                  )}
                 </div>
               </div>
 
               {/* Right Column: Specification Dossier */}
-              <div className="lg:col-span-5 p-8 sm:p-10 md:p-12 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-[#434651]/40 bg-white dark:bg-[#0b1a37]">
+              <div className={`lg:col-span-5 p-8 sm:p-10 md:p-12 flex flex-col justify-between border-t lg:border-t-0 ${isAr ? 'lg:border-r' : 'lg:border-l'} border-slate-200 dark:border-[#434651]/40 bg-white dark:bg-[#0b1a37]`}>
                 <div>
                   <div className="inline-flex items-center gap-2 text-[#ba9563] mb-4">
                     <ShieldCheck className="w-4 h-4" />
-                    <span className="font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-semibold">
-                      VERIFIED CONTRACT DOSSIER
+                    <span className={`text-xs uppercase tracking-[0.15em] font-semibold ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}>
+                      {isAr ? 'ملف تعاقدي معتمد وموثق' : 'VERIFIED CONTRACT DOSSIER'}
                     </span>
                   </div>
 
-                  <h4 className="font-['Montserrat'] text-xl sm:text-2xl text-slate-950 dark:text-white uppercase font-bold mb-4">
-                    EXECUTIVE TECHNICAL SCOPE
+                  <h4 className={`text-xl sm:text-2xl text-slate-950 dark:text-white uppercase font-bold mb-4 ${isAr ? 'font-arabic tracking-normal' : "font-['Montserrat']"}`}>
+                    {isAr ? 'النطاق الفني والتنفيذي' : 'EXECUTIVE TECHNICAL SCOPE'}
                   </h4>
 
-                  <p className="font-['Inter'] text-xs sm:text-sm text-slate-600 dark:text-[#c4c6d2] mb-6 leading-relaxed">
-                    {project.description ||
-                      'Comprehensive engineering execution covering civil structures, electro-mechanical installations, and specialized finishing works delivered to international quality standards.'}
+                  <p className={`text-xs sm:text-sm text-slate-600 dark:text-[#c4c6d2] mb-6 leading-relaxed ${isAr ? 'font-arabic tracking-normal' : "font-['Inter']"}`}>
+                    {descText}
                   </p>
 
                   {/* Spec Grid */}
                   <div className="grid grid-cols-2 gap-4 border-t border-b border-slate-200 dark:border-[#434651]/40 py-5 my-6">
                     <div>
-                      <span className="font-['Space_Grotesk'] text-[10px] text-[#ba9563] uppercase tracking-wider block mb-1 font-semibold">
-                        TERRITORY
+                      <span className={`text-[10px] text-[#ba9563] uppercase tracking-wider block mb-1 font-semibold ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}>
+                        {isAr ? 'الدولة' : 'TERRITORY'}
                       </span>
-                      <div className="font-['Montserrat'] text-xs sm:text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center gap-1.5">
+                      <div className={`text-xs sm:text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center gap-1.5 ${isAr ? 'font-arabic tracking-normal' : "font-['Montserrat']"}`}>
                         <MapPin className="w-3.5 h-3.5 text-[#ba9563]" />
-                        <span>{project.country.replace('-', ' ')}</span>
+                        <span>{countryLabels[project.country] || project.country}</span>
                       </div>
                     </div>
 
                     <div>
-                      <span className="font-['Space_Grotesk'] text-[10px] text-[#ba9563] uppercase tracking-wider block mb-1 font-semibold">
-                        LOCATION
+                      <span className={`text-[10px] text-[#ba9563] uppercase tracking-wider block mb-1 font-semibold ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}>
+                        {isAr ? 'المدينة / المنطقة' : 'LOCATION'}
                       </span>
-                      <div className="font-['Montserrat'] text-xs sm:text-sm text-slate-900 dark:text-white font-bold uppercase">
-                        {project.location}
+                      <div className={`text-xs sm:text-sm text-slate-900 dark:text-white font-bold uppercase ${isAr ? 'font-arabic tracking-normal' : "font-['Montserrat']"}`}>
+                        {locationText}
                       </div>
                     </div>
 
                     <div>
-                      <span className="font-['Space_Grotesk'] text-[10px] text-[#ba9563] uppercase tracking-wider block mb-1 font-semibold">
-                        SERVICES DELIVERED
+                      <span className={`text-[10px] text-[#ba9563] uppercase tracking-wider block mb-1 font-semibold ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}>
+                        {isAr ? 'الخدمات المنفذة' : 'SERVICES DELIVERED'}
                       </span>
-                      <div className="font-['Inter'] text-xs text-slate-800 dark:text-slate-200 font-medium">
+                      <div className={`text-xs text-slate-800 dark:text-slate-200 font-medium ${isAr ? 'font-arabic tracking-normal' : "font-['Inter']"}`}>
                         {project.services.slice(0, 2).join(' • ')}
                       </div>
                     </div>
 
                     <div>
-                      <span className="font-['Space_Grotesk'] text-[10px] text-[#ba9563] uppercase tracking-wider block mb-1 font-semibold">
-                        SECTOR
+                      <span className={`text-[10px] text-[#ba9563] uppercase tracking-wider block mb-1 font-semibold ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}>
+                        {isAr ? 'القطاع' : 'SECTOR'}
                       </span>
-                      <div className="font-['Montserrat'] text-xs sm:text-sm text-slate-900 dark:text-white font-bold uppercase">
-                        {project.category}
+                      <div className={`text-xs sm:text-sm text-slate-900 dark:text-white font-bold uppercase ${isAr ? 'font-arabic tracking-normal' : "font-['Montserrat']"}`}>
+                        {categoryLabel}
                       </div>
                     </div>
                   </div>
@@ -121,10 +147,14 @@ export function FeaturedProjectSpotlight({ project, onOpenDossier }: FeaturedPro
                 <button
                   type="button"
                   onClick={() => onOpenDossier(project)}
-                  className="w-full bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-bold py-4 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg group mt-4"
+                  className={`w-full bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] text-xs uppercase tracking-[0.15em] font-bold py-4 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg group mt-4 ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}
                 >
-                  <span>INSPECT FULL SPECIFICATION DOSSIER</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                  <span>{isAr ? 'استعراض الملف الفني والمواصفات الكاملة' : 'INSPECT FULL SPECIFICATION DOSSIER'}</span>
+                  {isAr ? (
+                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
+                  ) : (
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                  )}
                 </button>
               </div>
             </div>

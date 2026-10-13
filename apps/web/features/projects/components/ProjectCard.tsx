@@ -1,11 +1,13 @@
 'use client'
 
 import Image from 'next/image'
-import { ArrowRight, MapPin, Building, Calendar, Layers } from 'lucide-react'
+import { ArrowRight, ArrowLeft, MapPin, Building, Calendar, Layers } from 'lucide-react'
 import { motion } from 'framer-motion'
 import type { Project } from '@dar-elmashrq/types'
+import { PROJECT_CATEGORIES } from '@dar-elmashrq/types'
 import { BlueprintCrosshair } from '@/components/ui/BlueprintCrosshair'
 import { fadeUpVariants } from '@/lib/motion'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 interface ProjectCardProps {
   project: Project
@@ -52,6 +54,9 @@ const PROJECT_IMAGE_FALLBACKS: Record<string, string> = {
 }
 
 export function ProjectCard({ project, onOpenDossier, isPriority = false }: ProjectCardProps) {
+  const { language } = useLanguage()
+  const isAr = language === 'ar'
+
   const imageUrl: string =
     project.images?.[0]?.url ||
     PROJECT_IMAGE_FALLBACKS[project.slug] ||
@@ -59,24 +64,35 @@ export function ProjectCard({ project, onOpenDossier, isPriority = false }: Proj
     'https://images.unsplash.com/photo-1541888946425-d0fbb18f15f6?auto=format&fit=crop&w=1600&q=85'
 
   const countryLabels: Record<string, string> = {
-    'saudi-arabia': 'KSA',
-    egypt: 'EGY',
-    qatar: 'QAT',
+    'saudi-arabia': isAr ? 'السعودية' : 'KSA',
+    egypt: isAr ? 'مصر' : 'EGY',
+    qatar: isAr ? 'قطر' : 'QAT',
   }
+
+  const categoryLabel = PROJECT_CATEGORIES[project.category]
+    ? (isAr ? PROJECT_CATEGORIES[project.category].labelAr : PROJECT_CATEGORIES[project.category].label)
+    : project.category
+
+  const title = isAr && project.nameAr ? project.nameAr : project.name
+  const subtitle = isAr ? project.name : project.nameAr
+  const locationText = isAr && project.locationAr ? project.locationAr : project.location
+  const descText = isAr && project.descriptionAr
+    ? project.descriptionAr
+    : (project.description || (isAr ? 'أعمال البناء المدني والمقاولات الكهروميكانيكية والتشطيبات المعمارية الدقيقة المنفذة وفق أعلى الأكواد الهندسية.' : 'Civil construction, precision electro-mechanical contracting, and high-tolerance finishes executed to exact engineering codes.'))
 
   return (
     <motion.div
       variants={fadeUpVariants}
       className="group relative border border-slate-200 dark:border-[#ba9563]/30 bg-white dark:bg-[#0b1a37] overflow-hidden flex flex-col justify-between hover:border-[#ba9563] transition-all duration-300 shadow-md hover:shadow-2xl"
     >
-      <BlueprintCrosshair position="top-left" />
-      <BlueprintCrosshair position="bottom-right" />
+      <BlueprintCrosshair position={isAr ? 'top-right' : 'top-left'} />
+      <BlueprintCrosshair position={isAr ? 'bottom-left' : 'bottom-right'} />
 
       {/* Card Header Media */}
       <div className="relative h-64 sm:h-72 md:h-80 w-full overflow-hidden bg-slate-950">
         <Image
           src={imageUrl}
-          alt={project.name}
+          alt={title}
           fill
           priority={isPriority}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -90,21 +106,21 @@ export function ProjectCard({ project, onOpenDossier, isPriority = false }: Proj
         {/* Top Badges */}
         <div className="absolute top-4 inset-x-4 flex items-center justify-between z-10">
           {/* Location Badge */}
-          <div className="bg-white/95 dark:bg-[#0b1a37]/90 px-2.5 py-1 border border-[#ba9563]/40 font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.15em] text-[#ba9563] flex items-center gap-1.5 backdrop-blur-sm font-semibold shadow-sm">
+          <div className={`bg-white/95 dark:bg-[#0b1a37]/90 px-2.5 py-1 border border-[#ba9563]/40 text-[10px] uppercase tracking-[0.15em] text-[#ba9563] flex items-center gap-1.5 backdrop-blur-sm font-semibold shadow-sm ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}>
             <MapPin className="w-3 h-3 text-[#ba9563]" />
-            <span>{project.location}</span>
+            <span>{locationText}</span>
           </div>
 
           {/* Country Code Pill */}
-          <div className="bg-[#ba9563] text-[#0b1a37] px-2 py-0.5 font-['Space_Grotesk'] text-[10px] font-extrabold uppercase tracking-widest shadow-sm">
+          <div className={`bg-[#ba9563] text-[#0b1a37] px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-widest shadow-sm ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}>
             {countryLabels[project.country] || project.country}
           </div>
         </div>
 
         {/* Category Label at bottom of image */}
         <div className="absolute bottom-3 left-4 right-4 z-10">
-          <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold block">
-            {project.category.toUpperCase()}
+          <span className={`text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold block ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}>
+            {categoryLabel}
           </span>
         </div>
       </div>
@@ -113,14 +129,14 @@ export function ProjectCard({ project, onOpenDossier, isPriority = false }: Proj
       <div className="p-6 sm:p-7 flex flex-col justify-between flex-grow border-t border-slate-200 dark:border-[#ba9563]/20">
         <div>
           {/* Project Title */}
-          <h3 className="font-['Montserrat'] text-lg sm:text-xl text-slate-950 dark:text-white font-bold mb-2 group-hover:text-[#ba9563] transition-colors duration-300 uppercase leading-snug">
-            {project.name}
+          <h3 className={`text-lg sm:text-xl text-slate-950 dark:text-white font-bold mb-1.5 group-hover:text-[#ba9563] transition-colors duration-300 uppercase leading-snug ${isAr ? 'font-arabic tracking-normal' : "font-['Montserrat']"}`}>
+            {title}
           </h3>
 
-          {/* Arabic Name if present */}
-          {project.nameAr && (
-            <p className="font-['IBM_Plex_Sans_Arabic'] text-xs text-slate-500 dark:text-[#8e909c] mb-3 leading-relaxed" dir="rtl">
-              {project.nameAr}
+          {/* Subtitle / Alternate Name */}
+          {subtitle && (
+            <p className={`text-xs text-slate-500 dark:text-[#8e909c] mb-3 leading-relaxed ${isAr ? "font-['Space_Grotesk'] opacity-80" : 'font-arabic'}`}>
+              {subtitle}
             </p>
           )}
 
@@ -129,7 +145,7 @@ export function ProjectCard({ project, onOpenDossier, isPriority = false }: Proj
             {project.services.slice(0, 3).map((service, idx) => (
               <span
                 key={idx}
-                className="font-['Space_Grotesk'] text-[9px] uppercase tracking-wider px-2 py-0.5 bg-slate-100 dark:bg-[#0f2244] border border-slate-200 dark:border-[#434651]/50 text-slate-700 dark:text-slate-300 font-medium"
+                className={`text-[9px] uppercase tracking-wider px-2 py-0.5 bg-slate-100 dark:bg-[#0f2244] border border-slate-200 dark:border-[#434651]/50 text-slate-700 dark:text-slate-300 font-medium ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}
               >
                 {service}
               </span>
@@ -137,24 +153,23 @@ export function ProjectCard({ project, onOpenDossier, isPriority = false }: Proj
           </div>
 
           {/* Description Snippet */}
-          <p className="font-['Inter'] text-xs text-slate-600 dark:text-[#c4c6d2] line-clamp-2 leading-relaxed mb-4">
-            {project.description ||
-              'Civil construction, precision electro-mechanical contracting, and high-tolerance finishes executed to exact engineering codes.'}
+          <p className={`text-xs text-slate-600 dark:text-[#c4c6d2] line-clamp-2 leading-relaxed mb-4 ${isAr ? 'font-arabic tracking-normal' : "font-['Inter']"}`}>
+            {descText}
           </p>
         </div>
 
         {/* Card Footer: Metadata & Trigger */}
         <div className="pt-4 border-t border-slate-200 dark:border-[#434651]/40 flex items-center justify-between mt-auto">
-          <div className="font-['Space_Grotesk'] text-[11px] text-slate-500 dark:text-[#8e909c] flex items-center gap-1.5">
+          <div className={`text-[11px] text-slate-500 dark:text-[#8e909c] flex items-center gap-1.5 ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}>
             {project.year ? (
               <>
                 <Calendar className="w-3.5 h-3.5 text-[#ba9563]" />
-                <span>{project.year}</span>
+                <span>{isAr ? `عام ${project.year}` : project.year}</span>
               </>
             ) : (
               <>
                 <Building className="w-3.5 h-3.5 text-[#ba9563]" />
-                <span className="uppercase">{project.country.replace('-', ' ')}</span>
+                <span className="uppercase">{countryLabels[project.country] || project.country}</span>
               </>
             )}
           </div>
@@ -163,10 +178,14 @@ export function ProjectCard({ project, onOpenDossier, isPriority = false }: Proj
             type="button"
             onClick={() => onOpenDossier(project)}
             aria-label={`Inspect specification dossier for ${project.name}`}
-            className="font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] text-[#ba9563] hover:text-[#123c82] dark:hover:text-white inline-flex items-center gap-1.5 transition-all font-bold group/btn focus:outline-none focus:ring-1 focus:ring-[#ba9563]"
+            className={`text-xs uppercase tracking-[0.15em] text-[#ba9563] hover:text-[#123c82] dark:hover:text-white inline-flex items-center gap-1.5 transition-all font-bold group/btn focus:outline-none focus:ring-1 focus:ring-[#ba9563] ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}
           >
-            <span>Dossier</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform duration-200" />
+            <span>{isAr ? 'ملف المشروع' : 'Dossier'}</span>
+            {isAr ? (
+              <ArrowLeft className="w-3.5 h-3.5 group-hover/btn:-translate-x-1 transition-transform duration-200" />
+            ) : (
+              <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform duration-200" />
+            )}
           </button>
         </div>
       </div>
