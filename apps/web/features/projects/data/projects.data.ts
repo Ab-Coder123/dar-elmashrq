@@ -1497,6 +1497,10 @@ const PROJECTS: Project[] = [
   },
 ]
 
+export function getAllProjectsSync(): Project[] {
+  return PROJECTS
+}
+
 /**
  * Returns all projects.
  * Async signature — designed for drop-in replacement with API call.

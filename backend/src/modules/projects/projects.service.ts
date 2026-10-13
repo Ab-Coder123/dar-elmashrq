@@ -88,6 +88,44 @@ function mapToDto(row: ProjectRecord): ProjectDto {
     imageIds: (row.image_ids ?? []).map(Number),
     services: parseJsonField<ProjectLinkedService>(row.services),
     galleryImages: parseJsonField<ProjectLinkedImage>(row.gallery_images),
+    images: (() => {
+      const gallery = parseJsonField<ProjectLinkedImage>(row.gallery_images)
+      const list: Array<{
+        id: string
+        url: string
+        alt: string
+        altAr: string
+        isCover: boolean
+        order: number
+      }> = []
+
+      // If cover exists, ensure it's first or marked
+      if (row.cover_image_storage_key) {
+        list.push({
+          id: String(row.cover_image_id || `${row.slug}-cover`),
+          url: row.cover_image_storage_key,
+          alt: `${row.name} Cover`,
+          altAr: `صورة غلاف مشروع ${row.name_ar || row.name}`,
+          isCover: true,
+          order: 0,
+        })
+      }
+
+      gallery.forEach((g, idx) => {
+        if (!list.some((existing) => existing.url === g.storageKey)) {
+          list.push({
+            id: String(g.mediaId || `${row.slug}-${idx + 1}`),
+            url: g.storageKey,
+            alt: `${row.name} Photo ${g.sortOrder || idx + 1}`,
+            altAr: `صورة مشروع ${row.name_ar || row.name} رقم ${g.sortOrder || idx + 1}`,
+            isCover: list.length === 0,
+            order: g.sortOrder || idx + 1,
+          })
+        }
+      })
+
+      return list
+    })(),
   }
 }
 

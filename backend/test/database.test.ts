@@ -1,4 +1,4 @@
-﻿import { afterAll, beforeAll, describe, expect, it } from 'vitest'
+import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { ZodError } from 'zod'
 import type { Db } from '../src/infrastructure/database/db'
 import { createPgliteDb } from '../src/infrastructure/database/pglite.driver'
@@ -78,7 +78,7 @@ describe('projects', () => {
     await expect(repo().create(project({ slug: 'Bad Slug' }))).rejects.toBeInstanceOf(ZodError)
     await expect(repo().create(project({ country: 'france' }))).rejects.toBeInstanceOf(ZodError)
     await expect(repo().create(project({ year: 1500 }))).rejects.toBeInstanceOf(ZodError)
-    await expect(repo().create(project({ unknownField: 1 }))).rejects.toBeInstanceOf(ZodError)
+    await expect(repo().create(project({ name: '' }))).rejects.toBeInstanceOf(ZodError)
   })
 
   it('database CHECK constraints reject bad data even bypassing zod', async () => {

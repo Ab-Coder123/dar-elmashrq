@@ -8,15 +8,32 @@ import { publicApiClient } from '@/lib/api'
  * Consumes public REST API (/api/v1/projects) with seamless fallback to static verified assets.
  */
 
+import { getAllProjectsSync } from '../data/projects.data'
+
+const STATIC_PROJECTS_MAP = new Map<string, Project>()
+try {
+  // Pre-index static projects by slug for instant O(1) fail-safe lookup
+  const staticList = getAllProjectsSync()
+  for (const sp of staticList) {
+    STATIC_PROJECTS_MAP.set(sp.slug, sp)
+  }
+} catch {
+  // Non-blocking in case of async environment
+}
+
 function normalizeProject(p: any): Project {
   if (!p) return p
+  const fallbackProject = STATIC_PROJECTS_MAP.get(p.slug)
+  const apiImages = Array.isArray(p.images) && p.images.length > 0 ? p.images : []
+  const resolvedImages = apiImages.length > 0 ? apiImages : (fallbackProject?.images ?? [])
+
   return {
     ...p,
     id: String(p.id),
     services: Array.isArray(p.services)
       ? p.services.map((s: any) => (typeof s === 'string' ? s : s?.nameAr || s?.name || String(s)))
-      : [],
-    images: Array.isArray(p.images) ? p.images : [],
+      : (fallbackProject?.services ?? []),
+    images: resolvedImages,
   }
 }
 
