@@ -14,7 +14,7 @@ export function ProjectsIntro() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
               {/* Left Column: Heading & Discipline Badge */}
               <div className="lg:col-span-5">
-                <div className="inline-flex items-center space-x-2 border border-[#ba9563]/40 bg-white dark:bg-[#0b1a37] px-3 py-1 mb-4">
+                <div className="inline-flex items-center gap-2 border border-[#ba9563]/40 bg-white dark:bg-[#0b1a37] px-3 py-1 mb-4">
                   <span className="w-2 h-2 bg-[#ba9563]" />
                   <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold">
                     PORTFOLIO CRITERIA // SECTOR MASTERY

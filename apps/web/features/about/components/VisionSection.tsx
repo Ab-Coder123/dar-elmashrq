@@ -25,7 +25,7 @@ export function VisionSection() {
         {/* Section Header */}
         <RevealOnScroll>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-flex items-center space-x-2 rtl:space-x-reverse text-[#ba9563] text-xs uppercase tracking-[0.25em] font-arabic font-bold mb-3">
+            <div className="inline-flex items-center gap-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-arabic font-bold mb-3">
               <span className="w-1.5 h-1.5 bg-[#ba9563]" />
               <span>{locale === 'ar' ? '05 // التوجه الاستراتيجي' : '05 // STRATEGIC DIRECTION'}</span>
               <span className="w-1.5 h-1.5 bg-[#ba9563]" />

@@ -19,7 +19,7 @@ export function ServicesIntro() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start pb-12">
             {/* Left Column — Large Editorial Typography */}
             <div className="lg:col-span-6 space-y-4">
-              <div className="inline-flex items-center space-x-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-['Space_Grotesk'] font-bold">
+              <div className="inline-flex items-center gap-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-['Space_Grotesk'] font-bold">
                 <span className="w-1.5 h-1.5 bg-[#ba9563]" />
                 <span>01 // INTEGRATED METHODOLOGY</span>
               </div>
@@ -47,7 +47,7 @@ export function ServicesIntro() {
                     key={act.title}
                     className="p-3 bg-slate-50 dark:bg-[#0f2244]/80 border border-slate-200 dark:border-[#434651]/50 relative"
                   >
-                    <div className="flex items-center space-x-2 text-xs font-['Montserrat'] font-bold uppercase text-slate-900 dark:text-white mb-1">
+                    <div className="flex items-center gap-2 text-xs font-['Montserrat'] font-bold uppercase text-slate-900 dark:text-white mb-1">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#ba9563] shrink-0" />
                       <span>{act.title}</span>
                     </div>

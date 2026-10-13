@@ -38,7 +38,7 @@ export function ServicesExplorer({ services }: ServicesExplorerProps) {
         <RevealOnScroll>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-slate-300 dark:border-[#434651]/50">
             <div>
-              <div className="inline-flex items-center space-x-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-['Space_Grotesk'] font-bold mb-3">
+              <div className="inline-flex items-center gap-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-['Space_Grotesk'] font-bold mb-3">
                 <span className="w-1.5 h-1.5 bg-[#ba9563]" />
                 <span>02 // OFFICIAL TECHNICAL DISCIPLINES</span>
               </div>
@@ -85,7 +85,7 @@ export function ServicesExplorer({ services }: ServicesExplorerProps) {
                   )}
 
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center gap-4">
                       <span
                         className={`font-['Montserrat'] text-2xl font-black transition-colors ${
                           isActive ? 'text-[#ba9563]' : 'text-slate-400 dark:text-slate-600'
@@ -189,7 +189,7 @@ export function ServicesExplorer({ services }: ServicesExplorerProps) {
                       {activeService.scopeItems.map((item, idx) => (
                         <div
                           key={idx}
-                          className="flex items-start space-x-2 text-xs font-['Inter'] text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-[#0f2244] p-2.5 border border-slate-200 dark:border-[#434651]/40"
+                          className="flex items-start gap-2 text-xs font-['Inter'] text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-[#0f2244] p-2.5 border border-slate-200 dark:border-[#434651]/40"
                         >
                           <CheckCircle2 className="w-3.5 h-3.5 text-[#ba9563] shrink-0 mt-0.5" />
                           <span>{item}</span>
@@ -201,7 +201,7 @@ export function ServicesExplorer({ services }: ServicesExplorerProps) {
 
                 {/* Standards & Compliance Strip */}
                 <div className="pt-4 border-t border-slate-200 dark:border-[#434651]/50 flex flex-wrap items-center justify-between gap-3 text-xs">
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-2">
                     <span className="font-['Space_Grotesk'] text-[10px] text-slate-400 dark:text-slate-500 uppercase">
                       STANDARDS:
                     </span>
@@ -238,7 +238,7 @@ export function ServicesExplorer({ services }: ServicesExplorerProps) {
 
               {/* Service Header */}
               <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-200 dark:border-[#434651]/50">
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center gap-3">
                   <span className="font-['Montserrat'] text-2xl font-black text-[#ba9563]">
                     {service.number}
                   </span>
@@ -279,7 +279,7 @@ export function ServicesExplorer({ services }: ServicesExplorerProps) {
               {/* Scope Checklist */}
               <div className="space-y-1.5 pt-2 border-t border-slate-200 dark:border-[#434651]/40">
                 {service.scopeItems.map((item, idx) => (
-                  <div key={idx} className="flex items-start space-x-2 text-[11px] text-slate-700 dark:text-slate-300">
+                  <div key={idx} className="flex items-start gap-2 text-[11px] text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#ba9563] shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>

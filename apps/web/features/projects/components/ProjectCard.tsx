@@ -90,7 +90,7 @@ export function ProjectCard({ project, onOpenDossier, isPriority = false }: Proj
         {/* Top Badges */}
         <div className="absolute top-4 inset-x-4 flex items-center justify-between z-10">
           {/* Location Badge */}
-          <div className="bg-white/95 dark:bg-[#0b1a37]/90 px-2.5 py-1 border border-[#ba9563]/40 font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.15em] text-[#ba9563] flex items-center space-x-1.5 backdrop-blur-sm font-semibold shadow-sm">
+          <div className="bg-white/95 dark:bg-[#0b1a37]/90 px-2.5 py-1 border border-[#ba9563]/40 font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.15em] text-[#ba9563] flex items-center gap-1.5 backdrop-blur-sm font-semibold shadow-sm">
             <MapPin className="w-3 h-3 text-[#ba9563]" />
             <span>{project.location}</span>
           </div>
@@ -145,7 +145,7 @@ export function ProjectCard({ project, onOpenDossier, isPriority = false }: Proj
 
         {/* Card Footer: Metadata & Trigger */}
         <div className="pt-4 border-t border-slate-200 dark:border-[#434651]/40 flex items-center justify-between mt-auto">
-          <div className="font-['Space_Grotesk'] text-[11px] text-slate-500 dark:text-[#8e909c] flex items-center space-x-1.5">
+          <div className="font-['Space_Grotesk'] text-[11px] text-slate-500 dark:text-[#8e909c] flex items-center gap-1.5">
             {project.year ? (
               <>
                 <Calendar className="w-3.5 h-3.5 text-[#ba9563]" />
@@ -163,7 +163,7 @@ export function ProjectCard({ project, onOpenDossier, isPriority = false }: Proj
             type="button"
             onClick={() => onOpenDossier(project)}
             aria-label={`Inspect specification dossier for ${project.name}`}
-            className="font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] text-[#ba9563] hover:text-[#123c82] dark:hover:text-white inline-flex items-center space-x-1.5 transition-all font-bold group/btn focus:outline-none focus:ring-1 focus:ring-[#ba9563]"
+            className="font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] text-[#ba9563] hover:text-[#123c82] dark:hover:text-white inline-flex items-center gap-1.5 transition-all font-bold group/btn focus:outline-none focus:ring-1 focus:ring-[#ba9563]"
           >
             <span>Dossier</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform duration-200" />

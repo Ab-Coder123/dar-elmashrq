@@ -41,7 +41,7 @@ export function RegionalCapability() {
         <RevealOnScroll>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-slate-300 dark:border-[#434651]/50">
             <div>
-              <div className="inline-flex items-center space-x-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-['Space_Grotesk'] font-bold mb-3">
+              <div className="inline-flex items-center gap-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-['Space_Grotesk'] font-bold mb-3">
                 <span className="w-1.5 h-1.5 bg-[#ba9563]" />
                 <span>06 // REGIONAL CAPABILITY</span>
               </div>
@@ -98,7 +98,7 @@ export function RegionalCapability() {
                 {/* Capabilities */}
                 <div className="pt-4 border-t border-slate-100 dark:border-[#434651]/40 space-y-2">
                   {hub.capabilities.map((cap, cIdx) => (
-                    <div key={cIdx} className="flex items-start space-x-2 text-xs text-slate-700 dark:text-slate-300">
+                    <div key={cIdx} className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#ba9563] shrink-0 mt-0.5" />
                       <span>{cap}</span>
                     </div>

@@ -60,7 +60,7 @@ export function FinalCTA() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
               {/* Left Narrative & Contact Coordinates */}
               <div className="lg:col-span-7">
-                <div className="inline-flex items-center space-x-2 rtl:space-x-reverse border border-[#ba9563]/40 bg-slate-50 dark:bg-[#0f2244] px-3 py-1 mb-4">
+                <div className="inline-flex items-center gap-2 border border-[#ba9563]/40 bg-slate-50 dark:bg-[#0f2244] px-3 py-1 mb-4">
                   <span className="w-2 h-2 bg-[#ba9563]" />
                   <span className="font-arabic text-[11px] uppercase tracking-wider text-[#ba9563] font-bold">
                     {badgeText}
@@ -77,7 +77,7 @@ export function FinalCTA() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-slate-200 dark:border-[#434651]/40 pt-6">
                   <div>
-                    <span className="font-arabic text-[11px] text-[#ba9563] uppercase tracking-wider block mb-1 flex items-center space-x-1.5 rtl:space-x-reverse font-bold">
+                    <span className="font-arabic text-[11px] text-[#ba9563] uppercase tracking-wider block mb-1 flex items-center gap-1.5 font-bold">
                       <Mail className="w-3.5 h-3.5 shrink-0" />
                       <span>{inqLabel}</span>
                     </span>
@@ -91,7 +91,7 @@ export function FinalCTA() {
                   </div>
 
                   <div>
-                    <span className="font-arabic text-[11px] text-[#ba9563] uppercase tracking-wider block mb-1 flex items-center space-x-1.5 rtl:space-x-reverse font-bold">
+                    <span className="font-arabic text-[11px] text-[#ba9563] uppercase tracking-wider block mb-1 flex items-center gap-1.5 font-bold">
                       <Phone className="w-3.5 h-3.5 shrink-0" />
                       <span>{hqLabel}</span>
                     </span>
@@ -105,7 +105,7 @@ export function FinalCTA() {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-200 dark:border-[#434651]/30 flex items-center space-x-2 rtl:space-x-reverse text-xs text-slate-500 dark:text-[#8e909c] font-arabic font-medium">
+                <div className="mt-6 pt-4 border-t border-slate-200 dark:border-[#434651]/30 flex items-center gap-2 text-xs text-slate-500 dark:text-[#8e909c] font-arabic font-medium">
                   <Building className="w-3.5 h-3.5 text-[#ba9563] shrink-0" />
                   <span>{addressLine}</span>
                 </div>
@@ -210,7 +210,7 @@ export function FinalCTA() {
 
                     <button
                       type="submit"
-                      className="w-full bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-arabic text-xs sm:text-sm uppercase tracking-wider font-extrabold py-4 transition-all duration-200 flex items-center justify-center space-x-2 rtl:space-x-reverse shadow-lg cursor-pointer"
+                      className="w-full bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-arabic text-xs sm:text-sm uppercase tracking-wider font-extrabold py-4 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg cursor-pointer"
                     >
                       <span>{locale === 'ar' ? 'إرسال طلب التأهيل والمناقصة' : 'SUBMIT PRE-QUALIFICATION DOSSIER'}</span>
                       <Send className="w-4 h-4 text-[#0b1a37] shrink-0 rtl:rotate-180" />

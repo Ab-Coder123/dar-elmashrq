@@ -96,7 +96,7 @@ export function ServicesPreview() {
       <div className="w-full max-w-[1440px] px-4 sm:px-8 md:px-12 mx-auto">
         {/* Section Marker */}
         <RevealOnScroll>
-          <div className="flex items-center space-x-4 rtl:space-x-reverse mb-4">
+          <div className="flex items-center gap-4 mb-4">
             <span className="w-3 h-3 bg-[#ba9563] shrink-0" />
             <span className="font-arabic text-xs uppercase tracking-wider text-[#ba9563] font-bold">
               {marker}
@@ -179,7 +179,7 @@ export function ServicesPreview() {
         <RevealOnScroll className="mt-12 text-center" delay={0.15} variants={fadeUpVariants}>
           <Link
             href="/services"
-            className="inline-flex items-center space-x-3 rtl:space-x-reverse border border-[#ba9563]/70 bg-white dark:bg-[#0f2244] px-8 py-4 font-arabic text-xs sm:text-sm uppercase tracking-wider text-[#ba9563] hover:bg-[#ba9563] hover:text-[#0b1a37] font-bold transition-all duration-300 shadow-md group"
+            className="inline-flex items-center gap-3 border border-[#ba9563]/70 bg-white dark:bg-[#0f2244] px-8 py-4 font-arabic text-xs sm:text-sm uppercase tracking-wider text-[#ba9563] hover:bg-[#ba9563] hover:text-[#0b1a37] font-bold transition-all duration-300 shadow-md group"
           >
             <span>{ctaBtn}</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform duration-200 shrink-0" />

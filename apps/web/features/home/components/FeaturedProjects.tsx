@@ -160,7 +160,7 @@ export function FeaturedProjects({ initialProjects }: FeaturedProjectsProps) {
                   <div className="absolute inset-0 bg-[#ba9563]/0 group-hover:bg-[#ba9563]/10 transition-colors duration-500" />
 
                   {/* Location Badge */}
-                  <div className="absolute top-4 left-4 rtl:left-auto rtl:right-4 bg-white/95 dark:bg-[#0b1a37]/90 px-3 py-1.5 border border-[#ba9563]/40 font-arabic text-[11px] uppercase tracking-wider text-[#ba9563] flex items-center space-x-1.5 rtl:space-x-reverse backdrop-blur-sm shadow-sm font-bold">
+                  <div className="absolute top-4 left-4 rtl:left-auto rtl:right-4 bg-white/95 dark:bg-[#0b1a37]/90 px-3 py-1.5 border border-[#ba9563]/40 font-arabic text-[11px] uppercase tracking-wider text-[#ba9563] flex items-center gap-1.5 backdrop-blur-sm shadow-sm font-bold">
                     <MapPin className="w-3 h-3 text-[#ba9563] shrink-0" />
                     <span>{location}</span>
                   </div>
@@ -197,7 +197,7 @@ export function FeaturedProjects({ initialProjects }: FeaturedProjectsProps) {
 
                   {/* Bottom Dossier Action */}
                   <div className="flex items-center justify-between border-t border-slate-200 dark:border-[#434651]/40 pt-4 mt-auto">
-                    <div className="flex items-center space-x-2 rtl:space-x-reverse text-xs font-arabic text-slate-500 dark:text-[#8e909c] uppercase font-semibold">
+                    <div className="flex items-center gap-2 text-xs font-arabic text-slate-500 dark:text-[#8e909c] uppercase font-semibold">
                       {project.year ? (
                         <>
                           <Calendar className="w-3.5 h-3.5 text-[#ba9563] shrink-0" />
@@ -213,7 +213,7 @@ export function FeaturedProjects({ initialProjects }: FeaturedProjectsProps) {
 
                     <Link
                       href={`/projects/${project.slug}`}
-                      className="font-arabic text-xs sm:text-sm uppercase tracking-wider text-[#ba9563] hover:text-[#123c82] dark:hover:text-white inline-flex items-center space-x-1.5 rtl:space-x-reverse transition-all font-bold group/link"
+                      className="font-arabic text-xs sm:text-sm uppercase tracking-wider text-[#ba9563] hover:text-[#123c82] dark:hover:text-white inline-flex items-center gap-1.5 transition-all font-bold group/link"
                     >
                       <span>{dossierBtn}</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 rtl:group-hover/link:-translate-x-1 rtl:rotate-180 transition-transform duration-200 shrink-0" />
@@ -229,7 +229,7 @@ export function FeaturedProjects({ initialProjects }: FeaturedProjectsProps) {
         <RevealOnScroll className="mt-14 text-center" variants={fadeUpVariants} delay={0.1}>
           <Link
             href="/projects"
-            className="inline-flex items-center space-x-3 rtl:space-x-reverse border border-[#ba9563]/70 bg-white dark:bg-[#0f2244] px-8 py-4 font-arabic text-xs sm:text-sm uppercase tracking-wider text-[#ba9563] hover:bg-[#ba9563] hover:text-[#0b1a37] font-bold transition-all duration-300 shadow-md group"
+            className="inline-flex items-center gap-3 border border-[#ba9563]/70 bg-white dark:bg-[#0f2244] px-8 py-4 font-arabic text-xs sm:text-sm uppercase tracking-wider text-[#ba9563] hover:bg-[#ba9563] hover:text-[#0b1a37] font-bold transition-all duration-300 shadow-md group"
           >
             <span>{allProjectsBtn}</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform duration-200 shrink-0" />

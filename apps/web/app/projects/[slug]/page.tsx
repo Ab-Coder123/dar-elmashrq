@@ -98,7 +98,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           <div className="mb-8">
             <Link
               href="/projects"
-              className="inline-flex items-center space-x-2 font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] text-[#ba9563] hover:text-slate-900 dark:hover:text-white transition-colors font-bold"
+              className="inline-flex items-center gap-2 font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] text-[#ba9563] hover:text-slate-900 dark:hover:text-white transition-colors font-bold"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>RETURN TO MASTER PORTFOLIO ARCHIVE</span>
@@ -147,7 +147,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             <div className="p-6 sm:p-10 md:p-14 space-y-10">
               {/* Narrative & Scope */}
               <div>
-                <div className="inline-flex items-center space-x-2 text-[#ba9563] mb-3">
+                <div className="inline-flex items-center gap-2 text-[#ba9563] mb-3">
                   <ShieldCheck className="w-4 h-4" />
                   <span className="font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-semibold">
                     STRUCTURAL &amp; CONTRACTING EXECUTION
@@ -170,7 +170,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                     <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-wider text-[#ba9563] font-semibold block mb-1">
                       LOCATION
                     </span>
-                    <div className="font-['Montserrat'] text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center space-x-1.5">
+                    <div className="font-['Montserrat'] text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center gap-1.5">
                       <MapPin className="w-4 h-4 text-[#ba9563]" />
                       <span>{project.location}</span>
                     </div>
@@ -189,7 +189,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                     <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-wider text-[#ba9563] font-semibold block mb-1">
                       EXECUTION STATUS
                     </span>
-                    <div className="font-['Montserrat'] text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center space-x-1.5">
+                    <div className="font-['Montserrat'] text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center gap-1.5">
                       <Calendar className="w-4 h-4 text-[#ba9563]" />
                       <span>{project.year ? `DELIVERED ${project.year}` : 'COMPLETED & HANDED OVER'}</span>
                     </div>
@@ -209,7 +209,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                       <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-wider text-[#ba9563] font-semibold block mb-1">
                         CLIENT / STAKEHOLDER
                       </span>
-                      <div className="font-['Montserrat'] text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center space-x-1.5">
+                      <div className="font-['Montserrat'] text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center gap-1.5">
                         <User className="w-4 h-4 text-[#ba9563]" />
                         <span>{project.clientName}</span>
                       </div>
@@ -221,7 +221,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                       <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-wider text-[#ba9563] font-semibold block mb-1">
                         RECORDED CONTRACT VALUE
                       </span>
-                      <div className="font-['Space_Grotesk'] text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center space-x-1.5">
+                      <div className="font-['Space_Grotesk'] text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center gap-1.5">
                         <Coins className="w-4 h-4 text-[#ba9563]" />
                         <span>{project.contractValue.amount.toLocaleString()} {project.contractValue.currency}</span>
                       </div>
@@ -239,7 +239,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                   {project.services.map((service, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center space-x-2 bg-slate-100 dark:bg-[#0f2244] border border-[#ba9563]/40 px-4 py-2"
+                      className="flex items-center gap-2 bg-slate-100 dark:bg-[#0f2244] border border-[#ba9563]/40 px-4 py-2"
                     >
                       <Layers className="w-4 h-4 text-[#ba9563]" />
                       <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-slate-900 dark:text-white font-bold">
@@ -263,7 +263,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-bold px-8 py-4 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shrink-0"
+                  className="w-full sm:w-auto bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-bold px-8 py-4 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shrink-0"
                 >
                   <span>SUBMIT PROJECT RFP</span>
                   <Send className="w-4 h-4" />

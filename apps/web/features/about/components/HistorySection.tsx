@@ -18,7 +18,7 @@ export function HistorySection() {
         <RevealOnScroll>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-slate-300 dark:border-[#434651]/50">
             <div>
-              <div className="inline-flex items-center space-x-2 rtl:space-x-reverse text-[#ba9563] text-xs uppercase tracking-[0.25em] font-arabic font-bold mb-3">
+              <div className="inline-flex items-center gap-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-arabic font-bold mb-3">
                 <span className="w-1.5 h-1.5 bg-[#ba9563]" />
                 <span>{locale === 'ar' ? '02 // ثلاثة عقود من الإرث الهندسي' : '02 // THREE DECADES OF HERITAGE'}</span>
               </div>
@@ -65,7 +65,7 @@ export function HistorySection() {
                 <div>
                   {/* Year & Badge */}
                   <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100 dark:border-[#434651]/40">
-                    <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                    <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-[#ba9563]" />
                       <span className="font-arabic text-2xl sm:text-3xl font-black text-[#123c82] dark:text-[#ba9563] tracking-tight">
                         {item.year === 'TODAY' && locale === 'ar' ? 'اليوم' : item.year}
@@ -96,7 +96,7 @@ export function HistorySection() {
                 {details && details.length > 0 && (
                   <div className="pt-4 border-t border-slate-100 dark:border-[#434651]/40 space-y-2">
                     {details.map((detail, dIdx) => (
-                      <div key={dIdx} className="flex items-start space-x-2 rtl:space-x-reverse">
+                      <div key={dIdx} className="flex items-start gap-2">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#ba9563] shrink-0 mt-0.5" />
                         <span className="text-[11px] font-arabic text-slate-600 dark:text-slate-400 leading-tight">
                           {detail}

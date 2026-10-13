@@ -136,7 +136,7 @@ export function CredentialsSection() {
         <RevealOnScroll delay={0.15}>
           <div className="border border-slate-200 dark:border-[#434651]/40 bg-slate-50/70 dark:bg-[#0f2244]/60 p-6 relative shadow-sm">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 pb-3 border-b border-slate-200 dark:border-[#434651]/30">
-              <span className="font-arabic text-xs uppercase tracking-wider text-[#ba9563] font-bold flex items-center space-x-2 rtl:space-x-reverse">
+              <span className="font-arabic text-xs uppercase tracking-wider text-[#ba9563] font-bold flex items-center gap-2">
                 <FileCheck className="w-4 h-4 text-[#ba9563] shrink-0" />
                 <span>{stripTitle}</span>
               </span>

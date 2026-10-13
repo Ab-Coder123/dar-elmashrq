@@ -37,7 +37,7 @@ export function QualitySafety({ qualityImage }: QualitySafetyProps) {
         <RevealOnScroll>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-slate-200 dark:border-[#434651]/50">
             <div>
-              <div className="inline-flex items-center space-x-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-['Space_Grotesk'] font-bold mb-3">
+              <div className="inline-flex items-center gap-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-['Space_Grotesk'] font-bold mb-3">
                 <span className="w-1.5 h-1.5 bg-[#ba9563]" />
                 <span>07 // CORPORATE GOVERNANCE</span>
               </div>

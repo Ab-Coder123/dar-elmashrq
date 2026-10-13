@@ -61,7 +61,7 @@ export function FeaturedProjectSpotlight({ project, onOpenDossier }: FeaturedPro
               {/* Right Column: Specification Dossier */}
               <div className="lg:col-span-5 p-8 sm:p-10 md:p-12 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-[#434651]/40 bg-white dark:bg-[#0b1a37]">
                 <div>
-                  <div className="inline-flex items-center space-x-2 text-[#ba9563] mb-4">
+                  <div className="inline-flex items-center gap-2 text-[#ba9563] mb-4">
                     <ShieldCheck className="w-4 h-4" />
                     <span className="font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-semibold">
                       VERIFIED CONTRACT DOSSIER
@@ -83,7 +83,7 @@ export function FeaturedProjectSpotlight({ project, onOpenDossier }: FeaturedPro
                       <span className="font-['Space_Grotesk'] text-[10px] text-[#ba9563] uppercase tracking-wider block mb-1 font-semibold">
                         TERRITORY
                       </span>
-                      <div className="font-['Montserrat'] text-xs sm:text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center space-x-1.5">
+                      <div className="font-['Montserrat'] text-xs sm:text-sm text-slate-900 dark:text-white font-bold uppercase flex items-center gap-1.5">
                         <MapPin className="w-3.5 h-3.5 text-[#ba9563]" />
                         <span>{project.country.replace('-', ' ')}</span>
                       </div>
@@ -121,7 +121,7 @@ export function FeaturedProjectSpotlight({ project, onOpenDossier }: FeaturedPro
                 <button
                   type="button"
                   onClick={() => onOpenDossier(project)}
-                  className="w-full bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-bold py-4 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg group mt-4"
+                  className="w-full bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-bold py-4 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg group mt-4"
                 >
                   <span>INSPECT FULL SPECIFICATION DOSSIER</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />

@@ -133,7 +133,7 @@ export function HeroSection({ hero }: HeroSectionProps = {}) {
         >
           {/* Badge */}
           <motion.div
-            className="inline-flex items-center space-x-3 border border-[#ba9563]/50 bg-[#0b1a37]/85 px-4 py-2 mb-6 md:mb-8 backdrop-blur-md relative shadow-lg"
+            className="inline-flex items-center gap-3 border border-[#ba9563]/50 bg-[#0b1a37]/85 px-4 py-2 mb-6 md:mb-8 backdrop-blur-md relative shadow-lg"
             variants={slideInLeftVariants}
           >
             <BlueprintCrosshair position="top-left" />
@@ -189,7 +189,7 @@ export function HeroSection({ hero }: HeroSectionProps = {}) {
           >
             <Link
               href="/#projects"
-              className="bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-arabic text-xs sm:text-sm font-bold uppercase tracking-wider px-8 py-4 border border-[#ba9563] flex items-center justify-center space-x-3 rtl:space-x-reverse transition-all duration-200 shadow-lg shadow-[#ba9563]/20 group"
+              className="bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-arabic text-xs sm:text-sm font-bold uppercase tracking-wider px-8 py-4 border border-[#ba9563] flex items-center justify-center gap-3 transition-all duration-200 shadow-lg shadow-[#ba9563]/20 group"
             >
               <span>{exploreCtaText}</span>
               <HardHat className="w-4 h-4 text-[#0b1a37] group-hover:rotate-12 transition-transform duration-200 shrink-0" />
@@ -197,7 +197,7 @@ export function HeroSection({ hero }: HeroSectionProps = {}) {
 
             <Link
               href="/about"
-              className="border border-[#8e909c]/60 bg-[#162a4d]/70 hover:border-[#ba9563] hover:text-[#ba9563] text-white font-arabic text-xs sm:text-sm uppercase tracking-wider px-8 py-4 backdrop-blur-sm transition-all duration-300 text-center flex items-center justify-center space-x-2 rtl:space-x-reverse group font-semibold"
+              className="border border-[#8e909c]/60 bg-[#162a4d]/70 hover:border-[#ba9563] hover:text-[#ba9563] text-white font-arabic text-xs sm:text-sm uppercase tracking-wider px-8 py-4 backdrop-blur-sm transition-all duration-300 text-center flex items-center justify-center gap-2 group font-semibold"
             >
               <span>{aboutCtaText}</span>
               <ArrowRight className="w-3.5 h-3.5 opacity-70 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform duration-200 shrink-0" />

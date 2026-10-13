@@ -116,7 +116,7 @@ export function CompanyIntroSection() {
                   <span className="font-arabic text-[11px] text-[#ba9563] uppercase tracking-wider block mb-1 font-bold">
                     {pillar.code}
                   </span>
-                  <p className="font-arabic text-xs sm:text-sm text-slate-900 dark:text-white font-bold flex items-center space-x-2 rtl:space-x-reverse">
+                  <p className="font-arabic text-xs sm:text-sm text-slate-900 dark:text-white font-bold flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#ba9563] shrink-0" />
                     <span>{pillar.title}</span>
                   </p>
@@ -127,7 +127,7 @@ export function CompanyIntroSection() {
             <motion.div className="pt-4" variants={fadeUpVariants}>
               <Link
                 href="/about"
-                className="inline-flex items-center space-x-2 rtl:space-x-reverse font-arabic text-xs sm:text-sm uppercase tracking-wider text-[#ba9563] hover:text-[#123c82] dark:hover:text-white transition-colors group font-bold"
+                className="inline-flex items-center gap-2 font-arabic text-xs sm:text-sm uppercase tracking-wider text-[#ba9563] hover:text-[#123c82] dark:hover:text-white transition-colors group font-bold"
               >
                 <span className="border-b border-[#ba9563] pb-1 group-hover:border-[#123c82] dark:group-hover:border-white">
                   {ctaText}

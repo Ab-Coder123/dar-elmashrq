@@ -68,7 +68,7 @@ export function RegionalPresence() {
         <RevealOnScroll>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-slate-300 dark:border-[#434651]/50">
             <div>
-              <div className="inline-flex items-center space-x-2 rtl:space-x-reverse text-[#ba9563] text-xs uppercase tracking-[0.25em] font-arabic font-bold mb-3">
+              <div className="inline-flex items-center gap-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-arabic font-bold mb-3">
                 <span className="w-1.5 h-1.5 bg-[#ba9563]" />
                 <span>{locale === 'ar' ? '07 // التواجد الإقليمي والتشغيلي' : '07 // OPERATIONAL FOOTPRINT'}</span>
               </div>
@@ -112,7 +112,7 @@ export function RegionalPresence() {
                     <span className="text-[10px] font-arabic font-bold text-[#ba9563] uppercase tracking-wider bg-[#ba9563]/10 px-2.5 py-1 border border-[#ba9563]/30">
                       {badge}
                     </span>
-                    <div className="flex items-center space-x-1.5 rtl:space-x-reverse text-[10px] text-emerald-600 dark:text-emerald-400 font-arabic font-bold">
+                    <div className="flex items-center gap-1.5 text-[10px] text-emerald-600 dark:text-emerald-400 font-arabic font-bold">
                       <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
                       <span>{status}</span>
                     </div>
@@ -139,15 +139,15 @@ export function RegionalPresence() {
 
                   {/* Contact Points */}
                   <div className="space-y-2.5 text-xs text-slate-600 dark:text-slate-300 font-arabic">
-                    <div className="flex items-start space-x-2.5 rtl:space-x-reverse">
+                    <div className="flex items-start gap-2.5">
                       <MapPin className="w-4 h-4 text-[#ba9563] shrink-0 mt-0.5" />
                       <span>{address}</span>
                     </div>
-                    <div className="flex items-center space-x-2.5 rtl:space-x-reverse">
+                    <div className="flex items-center gap-2.5">
                       <Phone className="w-4 h-4 text-[#ba9563] shrink-0" />
                       <span dir="ltr">{region.phone.join(' / ')}</span>
                     </div>
-                    <div className="flex items-center space-x-2.5 rtl:space-x-reverse">
+                    <div className="flex items-center gap-2.5">
                       <Mail className="w-4 h-4 text-[#ba9563] shrink-0" />
                       <span>{region.email}</span>
                     </div>
@@ -156,7 +156,7 @@ export function RegionalPresence() {
 
                 {/* Verified Sovereign Compliance Tag */}
                 <div className="mt-8 pt-4 border-t border-slate-100 dark:border-[#434651]/40 flex items-center justify-between text-[10px] font-arabic text-slate-400 font-bold">
-                  <span className="inline-flex items-center space-x-1 rtl:space-x-reverse">
+                  <span className="inline-flex items-center gap-1">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#ba9563]" />
                     <span>{locale === 'ar' ? 'كيان رسمي معتمد' : 'OFFICIALLY REGISTERED'}</span>
                   </span>

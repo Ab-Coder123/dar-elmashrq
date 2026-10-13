@@ -39,7 +39,7 @@ export function AboutCTA() {
         <RevealOnScroll variants={scaleInVariants} threshold={0.15}>
           <div className="max-w-3xl mx-auto">
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 rtl:space-x-reverse border border-[#ba9563]/50 bg-[#0b1a37]/90 px-4 py-1.5 mb-6 backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 border border-[#ba9563]/50 bg-[#0b1a37]/90 px-4 py-1.5 mb-6 backdrop-blur-md">
               <span className="w-2 h-2 bg-[#ba9563]" />
               <span className="font-arabic text-xs uppercase tracking-wider text-[#ba9563] font-bold">
                 {locale === 'ar' ? 'التعاون الاستراتيجي • تنفيذ مشاريع EPC' : 'COLLABORATION • EPC EXECUTION'}
@@ -62,7 +62,7 @@ export function AboutCTA() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/projects"
-                className="w-full sm:w-auto px-8 py-4 bg-[#ba9563] hover:bg-[#d4b27a] text-slate-950 text-xs font-arabic uppercase tracking-wider font-extrabold inline-flex items-center justify-center space-x-2 rtl:space-x-reverse transition-colors duration-200 relative group shadow-lg"
+                className="w-full sm:w-auto px-8 py-4 bg-[#ba9563] hover:bg-[#d4b27a] text-slate-950 text-xs font-arabic uppercase tracking-wider font-extrabold inline-flex items-center justify-center gap-2 transition-colors duration-200 relative group shadow-lg"
               >
                 <BlueprintCrosshair position="top-left" />
                 <span>{locale === 'ar' ? 'استعرض محفظة مشاريعنا' : 'EXPLORE OUR PORTFOLIO'}</span>
@@ -71,7 +71,7 @@ export function AboutCTA() {
 
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-arabic uppercase tracking-wider font-extrabold inline-flex items-center justify-center space-x-2 rtl:space-x-reverse transition-colors duration-200 backdrop-blur-sm"
+                className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-arabic uppercase tracking-wider font-extrabold inline-flex items-center justify-center gap-2 transition-colors duration-200 backdrop-blur-sm"
               >
                 <Compass className="w-4 h-4 text-[#ba9563]" />
                 <span>{locale === 'ar' ? 'تواصل مع قيادة الشركة' : 'GET IN TOUCH WITH OUR LEADERSHIP'}</span>

@@ -95,7 +95,7 @@ export function AboutHero({ hero }: AboutHeroProps = {}) {
           {/* Breadcrumb Navigation */}
           <motion.nav
             aria-label="Breadcrumb"
-            className="flex items-center space-x-2 rtl:space-x-reverse text-xs font-arabic uppercase tracking-wider mb-6 text-[#ba9563] font-bold"
+            className="flex items-center gap-2 text-xs font-arabic uppercase tracking-wider mb-6 text-[#ba9563] font-bold"
             variants={fadeUpVariants}
           >
             <Link href="/" className="hover:text-white transition-colors">
@@ -107,7 +107,7 @@ export function AboutHero({ hero }: AboutHeroProps = {}) {
 
           {/* Badge */}
           <motion.div
-            className="inline-flex items-center space-x-3 rtl:space-x-reverse border border-[#ba9563]/50 bg-[#0b1a37]/85 px-4 py-2 mb-6 backdrop-blur-md relative shadow-lg"
+            className="inline-flex items-center gap-3 border border-[#ba9563]/50 bg-[#0b1a37]/85 px-4 py-2 mb-6 backdrop-blur-md relative shadow-lg"
             variants={slideInLeftVariants}
           >
             <BlueprintCrosshair position="top-left" />

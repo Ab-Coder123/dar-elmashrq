@@ -46,7 +46,7 @@ export function ProjectFilters({
       {/* Top Bar: Country Tabs & Search Bar */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-slate-200 dark:border-[#434651]/40 pb-4">
         {/* Country Navigation Tabs */}
-        <div className="flex items-center space-x-2 sm:space-x-6 overflow-x-auto no-scrollbar py-2">
+        <div className="flex items-center gap-2 sm:space-x-6 overflow-x-auto no-scrollbar py-2">
           {countryTabs.map((tab) => {
             const isActive = activeCountry === tab.id
             return (
@@ -91,8 +91,8 @@ export function ProjectFilters({
       {/* Bottom Filter Controls: Sector Selector & Counter */}
       <div className="flex flex-wrap items-center justify-between gap-4">
         {/* Category Pills / Select */}
-        <div className="flex items-center space-x-3">
-          <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#ba9563] font-semibold flex items-center space-x-1.5">
+        <div className="flex items-center gap-3">
+          <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#ba9563] font-semibold flex items-center gap-1.5">
             <Filter className="w-3 h-3" />
             <span>SECTOR:</span>
           </span>

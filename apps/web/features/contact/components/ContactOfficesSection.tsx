@@ -12,7 +12,7 @@ export async function ContactOfficesSection() {
       <div className="w-full max-w-[1440px] px-4 sm:px-8 md:px-12 mx-auto">
         <RevealOnScroll variants={fadeUpVariants}>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-flex items-center space-x-2 border border-[#ba9563]/40 bg-slate-50 dark:bg-[#0f2244] px-3 py-1 mb-4">
+            <div className="inline-flex items-center gap-2 border border-[#ba9563]/40 bg-slate-50 dark:bg-[#0f2244] px-3 py-1 mb-4">
               <span className="w-2 h-2 bg-[#ba9563]" />
               <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold">
                 REGIONAL FOOTPRINT
@@ -36,7 +36,7 @@ export async function ContactOfficesSection() {
 
                 <div>
                   <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200 dark:border-[#434651]/40">
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center gap-3">
                       <span className="font-['Space_Grotesk'] text-xs text-[#ba9563] font-bold border border-[#ba9563]/40 px-2 py-0.5">
                         {office.countryCode}
                       </span>
@@ -52,13 +52,13 @@ export async function ContactOfficesSection() {
                   </p>
 
                   <div className="space-y-3 font-['Inter'] text-xs text-slate-600 dark:text-[#c4c6d2]">
-                    <div className="flex items-start space-x-2">
+                    <div className="flex items-start gap-2">
                       <MapPin className="w-4 h-4 text-[#ba9563] shrink-0 mt-0.5" />
                       <span>{office.address}</span>
                     </div>
 
                     {office.phone && (
-                      <div className="flex items-center space-x-2">
+                      <div className="flex items-center gap-2">
                         <Phone className="w-4 h-4 text-[#ba9563] shrink-0" />
                         <a href={`tel:${office.phone}`} className="hover:text-[#ba9563] font-['Space_Grotesk']">
                           {office.phone}
@@ -67,7 +67,7 @@ export async function ContactOfficesSection() {
                     )}
 
                     {office.email && (
-                      <div className="flex items-center space-x-2">
+                      <div className="flex items-center gap-2">
                         <Mail className="w-4 h-4 text-[#ba9563] shrink-0" />
                         <a href={`mailto:${office.email}`} className="hover:text-[#ba9563]">
                           {office.email}

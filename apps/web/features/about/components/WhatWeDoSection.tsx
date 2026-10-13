@@ -19,7 +19,7 @@ export function WhatWeDoSection() {
         <RevealOnScroll>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-slate-200 dark:border-[#434651]/50">
             <div>
-              <div className="inline-flex items-center space-x-2 rtl:space-x-reverse text-[#ba9563] text-xs uppercase tracking-[0.25em] font-arabic font-bold mb-3">
+              <div className="inline-flex items-center gap-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-arabic font-bold mb-3">
                 <span className="w-1.5 h-1.5 bg-[#ba9563]" />
                 <span>{locale === 'ar' ? '03 // القدرات والخدمات الرئيسية' : '03 // CORE CAPABILITIES'}</span>
               </div>
@@ -87,7 +87,7 @@ export function WhatWeDoSection() {
                           {disciplines.map((disc, dIdx) => (
                             <div
                               key={dIdx}
-                              className="flex items-center space-x-2 rtl:space-x-reverse text-xs font-arabic text-slate-800 dark:text-slate-200 bg-white dark:bg-[#0b1a37] p-2.5 border border-slate-200 dark:border-[#434651]/50"
+                              className="flex items-center gap-2 text-xs font-arabic text-slate-800 dark:text-slate-200 bg-white dark:bg-[#0b1a37] p-2.5 border border-slate-200 dark:border-[#434651]/50"
                             >
                               <span className="w-1.5 h-1.5 bg-[#ba9563] shrink-0" />
                               <span>{disc}</span>
@@ -101,7 +101,7 @@ export function WhatWeDoSection() {
                     <div className="pt-4 border-t border-slate-200 dark:border-[#434651]/40 flex justify-between items-center">
                       <Link
                         href="/services"
-                        className="inline-flex items-center space-x-2 rtl:space-x-reverse text-xs uppercase font-arabic font-bold text-[#123c82] dark:text-[#ba9563] hover:underline"
+                        className="inline-flex items-center gap-2 text-xs uppercase font-arabic font-bold text-[#123c82] dark:text-[#ba9563] hover:underline"
                       >
                         <span>{locale === 'ar' ? 'استكشف التفاصيل والخدمات الفنية' : 'Explore Technical Details'}</span>
                         <ArrowUpRight className="w-4 h-4 rtl:rotate-90" />

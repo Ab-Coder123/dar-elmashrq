@@ -46,12 +46,12 @@ export function ProjectDetailHero({ project, imageUrl }: ProjectDetailHeroProps)
             <span className="bg-[#ba9563] text-[#0b1a37] px-3 py-1 font-['Space_Grotesk'] text-[11px] font-extrabold uppercase tracking-[0.2em] shadow-md">
               {project.category.toUpperCase()}
             </span>
-            <div className="bg-[#0f2244]/90 border border-[#ba9563]/40 px-3 py-1 text-slate-200 font-['Space_Grotesk'] text-[11px] uppercase tracking-wider flex items-center space-x-1.5 backdrop-blur-sm">
+            <div className="bg-[#0f2244]/90 border border-[#ba9563]/40 px-3 py-1 text-slate-200 font-['Space_Grotesk'] text-[11px] uppercase tracking-wider flex items-center gap-1.5 backdrop-blur-sm">
               <MapPin className="w-3.5 h-3.5 text-[#ba9563]" />
               <span>{project.location}, {project.country.replace('-', ' ').toUpperCase()}</span>
             </div>
             {project.year && (
-              <div className="bg-[#0f2244]/90 border border-[#ba9563]/40 px-3 py-1 text-slate-200 font-['Space_Grotesk'] text-[11px] uppercase tracking-wider flex items-center space-x-1.5 backdrop-blur-sm">
+              <div className="bg-[#0f2244]/90 border border-[#ba9563]/40 px-3 py-1 text-slate-200 font-['Space_Grotesk'] text-[11px] uppercase tracking-wider flex items-center gap-1.5 backdrop-blur-sm">
                 <Calendar className="w-3.5 h-3.5 text-[#ba9563]" />
                 <span>YEAR {project.year}</span>
               </div>

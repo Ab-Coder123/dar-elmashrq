@@ -61,7 +61,7 @@ export function TechnicalCapabilities() {
         <RevealOnScroll>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-slate-300 dark:border-[#434651]/50">
             <div>
-              <div className="inline-flex items-center space-x-2 rtl:space-x-reverse text-[#ba9563] text-xs uppercase tracking-[0.25em] font-arabic font-bold mb-3">
+              <div className="inline-flex items-center gap-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-arabic font-bold mb-3">
                 <span className="w-1.5 h-1.5 bg-[#ba9563]" />
                 <span>{locale === 'ar' ? '04 // التخصصات الفنية والهندسية' : '04 // TECHNICAL DISCIPLINES'}</span>
               </div>
@@ -138,7 +138,7 @@ export function TechnicalCapabilities() {
             </div>
             <Link
               href="/services"
-              className="shrink-0 inline-flex items-center space-x-2 rtl:space-x-reverse px-6 py-3.5 bg-[#123c82] hover:bg-[#0d2e6a] text-white text-xs uppercase font-arabic font-bold tracking-wider border border-[#123c82] transition-colors"
+              className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 bg-[#123c82] hover:bg-[#0d2e6a] text-white text-xs uppercase font-arabic font-bold tracking-wider border border-[#123c82] transition-colors"
             >
               <span>{locale === 'ar' ? 'استعراض كافة الخدمات' : 'VIEW ALL SERVICES'}</span>
               <ArrowRight className="w-4 h-4 rtl:rotate-180" />

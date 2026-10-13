@@ -68,7 +68,7 @@ export function Footer() {
               {brandDesc}
             </p>
 
-            <div className="flex items-center space-x-4 rtl:space-x-reverse text-[#ba9563]">
+            <div className="flex items-center gap-4 text-[#ba9563]">
               <Ruler className="w-5 h-5" />
               <Compass className="w-5 h-5" />
               <ShieldCheck className="w-5 h-5" />
@@ -152,7 +152,7 @@ export function Footer() {
           <div>
             {copyrightText}
           </div>
-          <div className="mt-4 md:mt-0 flex items-center space-x-4 rtl:space-x-reverse text-[#ba9563]">
+          <div className="mt-4 md:mt-0 flex items-center gap-4 text-[#ba9563]">
             <span className="uppercase font-bold">{engineeredCad}</span>
             <span>//</span>
             <span className="uppercase font-bold">{tierOne}</span>

@@ -29,7 +29,7 @@ export function ProjectGallery({ images, projectName, onOpenLightbox }: ProjectG
         {/* Gallery Header & Navigation Controls */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-[#ba9563]/30 gap-4">
           <div>
-            <div className="inline-flex items-center space-x-2 border border-[#ba9563]/40 bg-[#0f2244] px-3 py-1 mb-3">
+            <div className="inline-flex items-center gap-2 border border-[#ba9563]/40 bg-[#0f2244] px-3 py-1 mb-3">
               <Camera className="w-3.5 h-3.5 text-[#ba9563]" />
               <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold">
                 ARCHITECTURAL ARCHIVE
@@ -41,7 +41,7 @@ export function ProjectGallery({ images, projectName, onOpenLightbox }: ProjectG
           </div>
 
           {/* Previous / Next Arrow Controls */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={() => scroll('left')}
@@ -64,7 +64,7 @@ export function ProjectGallery({ images, projectName, onOpenLightbox }: ProjectG
         {/* Scrollable Image Container */}
         <div
           ref={scrollRef}
-          className="flex space-x-6 overflow-x-auto no-scrollbar pb-6 snap-x snap-mandatory"
+          className="flex gap-6 overflow-x-auto no-scrollbar pb-6 snap-x snap-mandatory"
         >
           {images.map((imgUrl, idx) => (
             <div

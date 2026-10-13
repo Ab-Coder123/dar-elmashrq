@@ -77,7 +77,7 @@ export function ProjectExplorer({ initialProjects }: ProjectExplorerProps) {
           {/* Section Header */}
           <RevealOnScroll variants={fadeUpVariants}>
             <div className="mb-10">
-              <div className="inline-flex items-center space-x-2 border border-[#ba9563]/40 bg-slate-50 dark:bg-[#0f2244] px-3 py-1 mb-3">
+              <div className="inline-flex items-center gap-2 border border-[#ba9563]/40 bg-slate-50 dark:bg-[#0f2244] px-3 py-1 mb-3">
                 <span className="w-2 h-2 bg-[#ba9563]" />
                 <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold">
                   INDEX &amp; REGISTER

@@ -18,7 +18,7 @@ export function ProjectsCTA() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
               <div className="lg:col-span-8">
-                <div className="inline-flex items-center space-x-2 border border-[#ba9563]/40 bg-white dark:bg-[#0b1a37] px-3 py-1 mb-4">
+                <div className="inline-flex items-center gap-2 border border-[#ba9563]/40 bg-white dark:bg-[#0b1a37] px-3 py-1 mb-4">
                   <span className="w-2 h-2 bg-[#ba9563]" />
                   <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold">
                     EPC TENDER PROCUREMENT
@@ -35,13 +35,13 @@ export function ProjectsCTA() {
                 </p>
 
                 <div className="flex flex-wrap gap-6 text-xs font-['Space_Grotesk'] text-slate-700 dark:text-slate-300">
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-2">
                     <Mail className="w-4 h-4 text-[#ba9563]" />
                     <a href={`mailto:${COMPANY_PROFILE.email}`} className="hover:text-[#ba9563]">
                       {COMPANY_PROFILE.email}
                     </a>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-2">
                     <Phone className="w-4 h-4 text-[#ba9563]" />
                     <a href={`tel:${COMPANY_PROFILE.phones[0]}`} className="hover:text-[#ba9563]">
                       {COMPANY_PROFILE.phones[0]}
@@ -53,7 +53,7 @@ export function ProjectsCTA() {
               <div className="lg:col-span-4 flex flex-col space-y-4">
                 <Link
                   href="/contact"
-                  className="w-full bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-bold py-4 px-6 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg group text-center"
+                  className="w-full bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-bold py-4 px-6 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg group text-center"
                 >
                   <span>SUBMIT TENDER DOSSIER</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
@@ -61,7 +61,7 @@ export function ProjectsCTA() {
 
                 <Link
                   href="/services"
-                  className="w-full border border-slate-300 dark:border-[#434651] hover:border-[#ba9563] bg-white dark:bg-[#0b1a37] text-slate-900 dark:text-white font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-semibold py-4 px-6 transition-all duration-200 flex items-center justify-center space-x-2 text-center"
+                  className="w-full border border-slate-300 dark:border-[#434651] hover:border-[#ba9563] bg-white dark:bg-[#0b1a37] text-slate-900 dark:text-white font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-semibold py-4 px-6 transition-all duration-200 flex items-center justify-center gap-2 text-center"
                 >
                   <span>REVIEW TECHNICAL CAPABILITIES</span>
                 </Link>

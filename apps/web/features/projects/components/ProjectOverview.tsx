@@ -13,7 +13,7 @@ export function ProjectOverview({ project }: ProjectOverviewProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           {/* Left Column: Heading & Datum Badge */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="inline-flex items-center space-x-2 border border-[#ba9563]/40 bg-[#0f2244] px-3 py-1">
+            <div className="inline-flex items-center gap-2 border border-[#ba9563]/40 bg-[#0f2244] px-3 py-1">
               <span className="w-2 h-2 bg-[#ba9563]" />
               <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold">
                 EXECUTIVE DOSSIER
@@ -52,7 +52,7 @@ export function ProjectOverview({ project }: ProjectOverviewProps) {
                 <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-wider text-[#ba9563] font-semibold block mb-1">
                   LOCATION &amp; REGION
                 </span>
-                <div className="font-['Montserrat'] text-xs sm:text-sm text-white font-bold uppercase flex items-center space-x-1.5">
+                <div className="font-['Montserrat'] text-xs sm:text-sm text-white font-bold uppercase flex items-center gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-[#ba9563]" />
                   <span>{project.location}, {project.country.replace('-', ' ')}</span>
                 </div>
@@ -73,7 +73,7 @@ export function ProjectOverview({ project }: ProjectOverviewProps) {
                 <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-wider text-[#ba9563] font-semibold block mb-1">
                   CONTRACT STATUS
                 </span>
-                <div className="font-['Montserrat'] text-xs sm:text-sm text-white font-bold uppercase flex items-center space-x-1.5">
+                <div className="font-['Montserrat'] text-xs sm:text-sm text-white font-bold uppercase flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5 text-[#ba9563]" />
                   <span>{project.year ? `DELIVERED ${project.year}` : 'COMPLETED & COMMISSIONED'}</span>
                 </div>
@@ -85,7 +85,7 @@ export function ProjectOverview({ project }: ProjectOverviewProps) {
                   <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-wider text-[#ba9563] font-semibold block mb-1">
                     CLIENT / DEVELOPER ENTITY
                   </span>
-                  <div className="font-['Montserrat'] text-xs sm:text-sm text-white font-bold uppercase flex items-center space-x-1.5">
+                  <div className="font-['Montserrat'] text-xs sm:text-sm text-white font-bold uppercase flex items-center gap-1.5">
                     <User className="w-3.5 h-3.5 text-[#ba9563]" />
                     <span>{project.clientName}</span>
                   </div>
@@ -98,7 +98,7 @@ export function ProjectOverview({ project }: ProjectOverviewProps) {
                   <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-wider text-[#ba9563] font-semibold block mb-1">
                     DISCLOSED CONTRACT VALUE
                   </span>
-                  <div className="font-['Space_Grotesk'] text-xs sm:text-sm text-[#ba9563] font-bold uppercase flex items-center space-x-1.5">
+                  <div className="font-['Space_Grotesk'] text-xs sm:text-sm text-[#ba9563] font-bold uppercase flex items-center gap-1.5">
                     <Coins className="w-3.5 h-3.5" />
                     <span>{project.contractValue.amount.toLocaleString()} {project.contractValue.currency}</span>
                   </div>

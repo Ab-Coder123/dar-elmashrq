@@ -27,7 +27,7 @@ export function ProjectsHero() {
             <BlueprintCrosshair position="bottom-right" />
 
             {/* Breadcrumb */}
-            <div className="flex items-center space-x-2 font-['Space_Grotesk'] text-xs uppercase tracking-[0.2em] text-[#ba9563] mb-4 font-semibold">
+            <div className="flex items-center gap-2 font-['Space_Grotesk'] text-xs uppercase tracking-[0.2em] text-[#ba9563] mb-4 font-semibold">
               <Link href="/" className="hover:underline">
                 HOME
               </Link>
@@ -53,7 +53,7 @@ export function ProjectsHero() {
                 const Icon = kpi.icon
                 return (
                   <div key={idx} className="space-y-1">
-                    <div className="flex items-center space-x-2 text-[#ba9563]">
+                    <div className="flex items-center gap-2 text-[#ba9563]">
                       <Icon className="w-4 h-4" />
                       <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.15em] font-semibold text-[#ba9563]">
                         {kpi.label}

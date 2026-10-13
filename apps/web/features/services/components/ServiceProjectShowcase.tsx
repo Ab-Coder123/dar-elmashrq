@@ -21,7 +21,7 @@ export function ServiceProjectShowcase({ showcases }: ServiceProjectShowcaseProp
         <RevealOnScroll>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-slate-200 dark:border-[#434651]/50">
             <div>
-              <div className="inline-flex items-center space-x-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-['Space_Grotesk'] font-bold mb-3">
+              <div className="inline-flex items-center gap-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-['Space_Grotesk'] font-bold mb-3">
                 <span className="w-1.5 h-1.5 bg-[#ba9563]" />
                 <span>05 // SERVICES IN PRACTICE</span>
               </div>
@@ -70,7 +70,7 @@ export function ServiceProjectShowcase({ showcases }: ServiceProjectShowcaseProp
                 </div>
 
                 <div className="p-5">
-                  <div className="flex items-center space-x-1.5 text-xs font-['Space_Grotesk'] text-[#ba9563] mb-2 font-semibold">
+                  <div className="flex items-center gap-1.5 text-xs font-['Space_Grotesk'] text-[#ba9563] mb-2 font-semibold">
                     <MapPin className="w-3.5 h-3.5" />
                     <span>{project.location}</span>
                   </div>
@@ -98,7 +98,7 @@ export function ServiceProjectShowcase({ showcases }: ServiceProjectShowcaseProp
         <RevealOnScroll delay={0.2} className="text-center">
           <Link
             href="/projects"
-            className="inline-flex items-center space-x-3 px-8 py-4 bg-white dark:bg-[#0f2244] border border-[#ba9563] text-xs font-['Space_Grotesk'] uppercase tracking-widest text-[#ba9563] hover:bg-[#ba9563] hover:text-[#0b1a37] font-bold transition-all shadow-md group"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-white dark:bg-[#0f2244] border border-[#ba9563] text-xs font-['Space_Grotesk'] uppercase tracking-widest text-[#ba9563] hover:bg-[#ba9563] hover:text-[#0b1a37] font-bold transition-all shadow-md group"
           >
             <span>EXPLORE ALL PROJECTS</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

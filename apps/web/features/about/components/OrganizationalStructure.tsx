@@ -18,7 +18,7 @@ export function OrganizationalStructure() {
         <RevealOnScroll>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-slate-200 dark:border-[#434651]/50">
             <div>
-              <div className="inline-flex items-center space-x-2 rtl:space-x-reverse text-[#ba9563] text-xs uppercase tracking-[0.25em] font-arabic font-bold mb-3">
+              <div className="inline-flex items-center gap-2 text-[#ba9563] text-xs uppercase tracking-[0.25em] font-arabic font-bold mb-3">
                 <span className="w-1.5 h-1.5 bg-[#ba9563]" />
                 <span>{locale === 'ar' ? '06 // الحوكمة والهيكل الإداري' : '06 // GOVERNANCE & HIERARCHY'}</span>
               </div>
@@ -43,7 +43,7 @@ export function OrganizationalStructure() {
             <div className="p-8 bg-slate-50 dark:bg-[#0f2244] border-2 border-[#123c82] dark:border-[#ba9563] text-center relative shadow-xl">
               <BlueprintCrosshair position="top-left" />
               <BlueprintCrosshair position="bottom-right" />
-              <div className="inline-flex items-center space-x-2 rtl:space-x-reverse px-3 py-1 bg-[#123c82] dark:bg-[#ba9563] text-white dark:text-slate-950 text-[10px] font-arabic uppercase font-bold tracking-wider mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#123c82] dark:bg-[#ba9563] text-white dark:text-slate-950 text-[10px] font-arabic uppercase font-bold tracking-wider mb-3">
                 <UserCheck className="w-3.5 h-3.5" />
                 <span>{locale === 'ar' ? 'مجلس الإدارة والقيادة التنفيذية' : 'EXECUTIVE BOARD & LEADERSHIP'}</span>
               </div>
@@ -136,7 +136,7 @@ export function OrganizationalStructure() {
 
                 {/* Bottom footer tag */}
                 <div className="mt-6 pt-4 border-t border-slate-200 dark:border-[#434651]/40 flex items-center justify-between text-[10px] font-arabic text-slate-400 uppercase font-bold">
-                  <span className="inline-flex items-center space-x-1 rtl:space-x-reverse">
+                  <span className="inline-flex items-center gap-1">
                     <Layers className="w-3 h-3 text-[#ba9563]" />
                     <span>{locale === 'ar' ? `${division.departments.length} إدارات تخصصية` : `${division.departments.length} DEPARTMENTS`}</span>
                   </span>

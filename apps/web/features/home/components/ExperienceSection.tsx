@@ -43,7 +43,7 @@ export function ExperienceSection({ stats = HOME_STATS }: ExperienceSectionProps
       <div className="w-full max-w-[1440px] px-4 sm:px-8 md:px-12 mx-auto">
         {/* Section Header */}
         <RevealOnScroll>
-          <div className="flex items-center space-x-4 rtl:space-x-reverse mb-8">
+          <div className="flex items-center gap-4 mb-8">
             <span className="w-3 h-3 bg-[#ba9563] shrink-0" />
             <span className="font-arabic text-xs uppercase tracking-wider text-[#ba9563] font-bold">
               {sectionSub}

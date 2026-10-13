@@ -110,11 +110,11 @@ export function RegionalPresence() {
                   </p>
 
                   <div className="space-y-3 font-arabic text-xs text-slate-600 dark:text-[#c4c6d2] border-t border-slate-200 dark:border-[#434651]/40 pt-4 font-medium">
-                    <div className="flex items-start space-x-2 rtl:space-x-reverse">
+                    <div className="flex items-start gap-2">
                       <MapPin className="w-4 h-4 text-[#ba9563] shrink-0 mt-0.5" />
                       <span>{address}</span>
                     </div>
-                    <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                    <div className="flex items-center gap-2">
                       <Phone className="w-4 h-4 text-[#ba9563] shrink-0" />
                       <span className="font-['Space_Grotesk'] text-[#ba9563] font-semibold" dir="ltr">{hub.phone}</span>
                     </div>

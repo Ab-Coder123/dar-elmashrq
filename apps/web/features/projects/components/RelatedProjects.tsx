@@ -54,7 +54,7 @@ export function RelatedProjects({ relatedProjects, onSelectProject }: RelatedPro
     <section className="relative py-16 md:py-24 border-b border-[#ba9563]/30 bg-[#0b1a37] text-white">
       <div className="w-full max-w-[1440px] px-4 sm:px-8 md:px-12 mx-auto">
         <div className="mb-10">
-          <div className="inline-flex items-center space-x-2 border border-[#ba9563]/40 bg-[#0f2244] px-3 py-1 mb-3">
+          <div className="inline-flex items-center gap-2 border border-[#ba9563]/40 bg-[#0f2244] px-3 py-1 mb-3">
             <span className="w-2 h-2 bg-[#ba9563]" />
             <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold">
               CROSS-PORTFOLIO
@@ -107,7 +107,7 @@ export function RelatedProjects({ relatedProjects, onSelectProject }: RelatedPro
                     <span className="font-['Space_Grotesk'] text-xs text-slate-400">
                       {relProject.location}
                     </span>
-                    <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#ba9563] font-bold inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                    <span className="font-['Space_Grotesk'] text-xs uppercase tracking-wider text-[#ba9563] font-bold inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                       <span>Inspect</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </span>

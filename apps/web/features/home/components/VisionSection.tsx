@@ -53,7 +53,7 @@ export function VisionSection() {
             <BlueprintCrosshair position="bottom-left" />
             <BlueprintCrosshair position="bottom-right" />
 
-            <div className="flex items-center space-x-3 rtl:space-x-reverse mb-6">
+            <div className="flex items-center gap-3 mb-6">
               <span className="w-2.5 h-2.5 bg-[#ba9563] shrink-0" />
               <span className="font-arabic text-xs uppercase tracking-wider text-[#ba9563] font-bold">
                 {mandateLabel}
@@ -71,7 +71,7 @@ export function VisionSection() {
 
             {/* Signature / Governance Bar */}
             <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-200 dark:border-[#434651]/40">
-              <div className="flex items-center space-x-4 rtl:space-x-reverse">
+              <div className="flex items-center gap-4">
                 <div className="w-10 h-10 border border-[#ba9563] flex items-center justify-center font-arabic text-sm font-bold text-[#ba9563] bg-slate-50 dark:bg-[#0b1a37]">
                   {locale === 'ar' ? 'دم' : 'DM'}
                 </div>

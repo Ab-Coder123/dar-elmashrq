@@ -21,7 +21,7 @@ export function ContactHero() {
             <BlueprintCrosshair position="bottom-right" />
 
             {/* Breadcrumb */}
-            <div className="flex items-center space-x-2 font-['Space_Grotesk'] text-xs uppercase tracking-[0.2em] text-[#ba9563] mb-4 font-semibold">
+            <div className="flex items-center gap-2 font-['Space_Grotesk'] text-xs uppercase tracking-[0.2em] text-[#ba9563] mb-4 font-semibold">
               <Link href="/" className="hover:underline">HOME</Link>
               <span>/</span>
               <span>CONTACT US</span>

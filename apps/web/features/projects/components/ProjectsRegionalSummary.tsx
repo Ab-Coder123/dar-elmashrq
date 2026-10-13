@@ -45,7 +45,7 @@ export function ProjectsRegionalSummary() {
       <div className="w-full max-w-[1440px] px-4 sm:px-8 md:px-12 mx-auto">
         <RevealOnScroll variants={fadeUpVariants}>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-flex items-center space-x-2 border border-[#ba9563]/40 bg-white dark:bg-[#0b1a37] px-3 py-1 mb-4">
+            <div className="inline-flex items-center gap-2 border border-[#ba9563]/40 bg-white dark:bg-[#0b1a37] px-3 py-1 mb-4">
               <span className="w-2 h-2 bg-[#ba9563]" />
               <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold">
                 REGIONAL EXECUTION HUBS
@@ -85,7 +85,7 @@ export function ProjectsRegionalSummary() {
 
                   <div className="space-y-2.5">
                     {reg.highlights.map((item, hIdx) => (
-                      <div key={hIdx} className="flex items-start space-x-2 text-xs font-['Inter'] text-slate-700 dark:text-slate-300">
+                      <div key={hIdx} className="flex items-start gap-2 text-xs font-['Inter'] text-slate-700 dark:text-slate-300">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#ba9563] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </div>

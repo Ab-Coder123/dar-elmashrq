@@ -25,7 +25,7 @@ export function ProjectGrid({ projects, onOpenDossier, onResetFilters }: Project
         <button
           type="button"
           onClick={onResetFilters}
-          className="inline-flex items-center space-x-2 bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-bold px-6 py-3 transition-colors shadow-md"
+          className="inline-flex items-center gap-2 bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-bold px-6 py-3 transition-colors shadow-md"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>RESET ALL FILTERS</span>

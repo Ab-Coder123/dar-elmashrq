@@ -30,7 +30,7 @@ export function ProjectNavigation({
         <button
           type="button"
           onClick={onPrevious}
-          className="flex items-center space-x-2 text-slate-300 hover:text-[#ba9563] transition-colors group text-left"
+          className="flex items-center gap-2 text-slate-300 hover:text-[#ba9563] transition-colors group text-left"
         >
           <div className="p-2 border border-[#ba9563]/40 bg-[#0f2244] group-hover:bg-[#ba9563] group-hover:text-[#0b1a37] transition-colors">
             <ChevronLeft className="w-4 h-4" />
@@ -58,7 +58,7 @@ export function ProjectNavigation({
         <button
           type="button"
           onClick={onNext}
-          className="flex items-center space-x-2 text-slate-300 hover:text-[#ba9563] transition-colors group text-right"
+          className="flex items-center gap-2 text-slate-300 hover:text-[#ba9563] transition-colors group text-right"
         >
           <div className="hidden sm:block">
             <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#ba9563] font-bold block">

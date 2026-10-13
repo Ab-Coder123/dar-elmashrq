@@ -58,7 +58,7 @@ export function ServicesHero({ heroImage }: ServicesHeroProps) {
           {/* Breadcrumb Navigation */}
           <motion.nav
             aria-label="Breadcrumb"
-            className="flex items-center space-x-2 text-xs font-['Space_Grotesk'] uppercase tracking-[0.2em] mb-6 text-[#ba9563]"
+            className="flex items-center gap-2 text-xs font-['Space_Grotesk'] uppercase tracking-[0.2em] mb-6 text-[#ba9563]"
             variants={fadeUpVariants}
           >
             <Link href="/" className="hover:text-white transition-colors">
@@ -70,7 +70,7 @@ export function ServicesHero({ heroImage }: ServicesHeroProps) {
 
           {/* Architectural Badge */}
           <motion.div
-            className="inline-flex items-center space-x-3 border border-[#ba9563]/50 bg-[#0b1a37]/85 px-4 py-2 mb-6 backdrop-blur-md relative shadow-lg"
+            className="inline-flex items-center gap-3 border border-[#ba9563]/50 bg-[#0b1a37]/85 px-4 py-2 mb-6 backdrop-blur-md relative shadow-lg"
             variants={slideInLeftVariants}
           >
             <BlueprintCrosshair position="top-left" />
@@ -124,7 +124,7 @@ export function ServicesHero({ heroImage }: ServicesHeroProps) {
           >
             <Link
               href="#core-services"
-              className="bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs font-bold uppercase tracking-[0.15em] px-8 py-4 border border-[#ba9563] flex items-center justify-center space-x-3 transition-all duration-200 shadow-lg shadow-[#ba9563]/20 group"
+              className="bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs font-bold uppercase tracking-[0.15em] px-8 py-4 border border-[#ba9563] flex items-center justify-center gap-3 transition-all duration-200 shadow-lg shadow-[#ba9563]/20 group"
             >
               <span>EXPLORE SERVICES</span>
               <HardHat className="w-4 h-4 text-[#0b1a37] group-hover:rotate-12 transition-transform duration-200" />
@@ -132,7 +132,7 @@ export function ServicesHero({ heroImage }: ServicesHeroProps) {
 
             <Link
               href="/projects"
-              className="border border-[#8e909c]/60 bg-[#162a4d]/70 hover:border-[#ba9563] hover:text-[#ba9563] text-white font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] px-8 py-4 backdrop-blur-sm transition-all duration-200 text-center flex items-center justify-center space-x-2 group"
+              className="border border-[#8e909c]/60 bg-[#162a4d]/70 hover:border-[#ba9563] hover:text-[#ba9563] text-white font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] px-8 py-4 backdrop-blur-sm transition-all duration-200 text-center flex items-center justify-center gap-2 group"
             >
               <span>VIEW PROJECTS</span>
               <ArrowRight className="w-3.5 h-3.5 opacity-70 group-hover:translate-x-1 transition-transform duration-200" />

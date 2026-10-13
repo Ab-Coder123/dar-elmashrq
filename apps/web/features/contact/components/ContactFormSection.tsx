@@ -32,7 +32,7 @@ export function ContactFormSection() {
           <div className="lg:col-span-5 space-y-8">
             <RevealOnScroll variants={fadeUpVariants}>
               <div>
-                <div className="inline-flex items-center space-x-2 border border-[#ba9563]/40 bg-white dark:bg-[#0b1a37] px-3 py-1 mb-4">
+                <div className="inline-flex items-center gap-2 border border-[#ba9563]/40 bg-white dark:bg-[#0b1a37] px-3 py-1 mb-4">
                   <span className="w-2 h-2 bg-[#ba9563]" />
                   <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#ba9563] font-semibold">
                     OFFICIAL DIRECTORY
@@ -53,7 +53,7 @@ export function ContactFormSection() {
                 <BlueprintCrosshair position="bottom-right" />
 
                 {/* Address */}
-                <div className="flex items-start space-x-4">
+                <div className="flex items-start gap-4">
                   <div className="p-3 bg-slate-100 dark:bg-[#0f2244] border border-[#ba9563]/40 text-[#ba9563] shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
@@ -68,7 +68,7 @@ export function ContactFormSection() {
                 </div>
 
                 {/* Email */}
-                <div className="flex items-start space-x-4 border-t border-slate-100 dark:border-[#434651]/30 pt-6">
+                <div className="flex items-start gap-4 border-t border-slate-100 dark:border-[#434651]/30 pt-6">
                   <div className="p-3 bg-slate-100 dark:bg-[#0f2244] border border-[#ba9563]/40 text-[#ba9563] shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
@@ -86,7 +86,7 @@ export function ContactFormSection() {
                 </div>
 
                 {/* Phones */}
-                <div className="flex items-start space-x-4 border-t border-slate-100 dark:border-[#434651]/30 pt-6">
+                <div className="flex items-start gap-4 border-t border-slate-100 dark:border-[#434651]/30 pt-6">
                   <div className="p-3 bg-slate-100 dark:bg-[#0f2244] border border-[#ba9563]/40 text-[#ba9563] shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
@@ -105,7 +105,7 @@ export function ContactFormSection() {
                 </div>
 
                 {/* Business Hours */}
-                <div className="flex items-start space-x-4 border-t border-slate-100 dark:border-[#434651]/30 pt-6">
+                <div className="flex items-start gap-4 border-t border-slate-100 dark:border-[#434651]/30 pt-6">
                   <div className="p-3 bg-slate-100 dark:bg-[#0f2244] border border-[#ba9563]/40 text-[#ba9563] shrink-0">
                     <Clock className="w-5 h-5" />
                   </div>
@@ -249,7 +249,7 @@ export function ContactFormSection() {
 
                     <button
                       type="submit"
-                      className="w-full bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-bold py-4 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
+                      className="w-full bg-[#ba9563] hover:bg-[#d4b27a] text-[#0b1a37] font-['Space_Grotesk'] text-xs uppercase tracking-[0.15em] font-bold py-4 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg"
                     >
                       <span>SUBMIT FORMAL INQUIRY</span>
                       <Send className="w-3.5 h-3.5 text-[#0b1a37]" />
