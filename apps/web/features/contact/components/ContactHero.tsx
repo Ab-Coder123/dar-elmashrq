@@ -17,7 +17,7 @@ export function ContactHero() {
       {/* Background Image with Deep Navy Atmospheric Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
-          src="/images/projects/beverly-al-azeeza-new-facade/cover.jpg"
+          src="/images/hero/saudi-kafd-district.jpg"
           alt={isAr ? 'تواصل مع دار المشرق' : 'Contact Dar El Mashrq'}
           fill
           priority

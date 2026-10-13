@@ -106,7 +106,7 @@ export function ContactFormSection() {
                   </div>
                 </div>
 
-                {/* Corporate HQ - Riyadh */}
+                {/* Egypt Regional Hub - New Cairo */}
                 <div className="flex items-start gap-4 border-t border-slate-100 dark:border-[#434651]/30 pt-6">
                   <div className="p-3 bg-slate-100 dark:bg-[#0f2244] border border-[#ba9563]/40 text-[#ba9563] shrink-0">
                     <Building2 className="w-5 h-5" />
@@ -119,7 +119,7 @@ export function ContactFormSection() {
                           : "font-['Space_Grotesk'] text-xs font-semibold uppercase tracking-wider text-[#ba9563] mb-1"
                       }
                     >
-                      {isAr ? 'المقر الإداري الرئيسي — الرياض' : 'CORPORATE HQ — RIYADH'}
+                      {isAr ? 'الفرع الإقليمي بمصر — التجمع الخامس' : 'EGYPT REGIONAL HUB — 5TH SETTLEMENT'}
                     </h3>
                     <p
                       className={
@@ -129,8 +129,11 @@ export function ContactFormSection() {
                       }
                     >
                       {isAr
-                        ? 'حي العليا، الرياض 12222، المملكة العربية السعودية'
-                        : 'Olaya District, Riyadh 12222, Saudi Arabia'}
+                        ? 'شارع التسعين الجنوبي، التجمع الخامس، مصر'
+                        : 'South 90th Street, 5th Settlement, New Cairo, Egypt'}
+                    </p>
+                    <p className="mt-1 text-xs text-[#ba9563] font-mono" dir="ltr">
+                      +20 111 62 5555 6
                     </p>
                   </div>
                 </div>

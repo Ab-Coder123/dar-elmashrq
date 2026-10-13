@@ -6,8 +6,8 @@ import type {
 } from '../types'
 
 export const HOME_MEDIA = {
-  // Real verified high-res project photo from company profile (Residential Tower, Saudi Arabia)
-  heroImage: '/images/projects/residential-tower/cover.jpg',
+  // Iconic Saudi Architectural Landmark: Riyadh Skyline featuring KAFD & Kingdom Centre
+  heroImage: '/images/hero/saudi-riyadh-skyline-kafd.jpg',
   // High-res structural concrete & modern commercial architectural engineering
   introImage: '/images/projects/al-smaeel-tower/cover.jpg',
   // Skyscraper facade in blue hour
@@ -133,12 +133,12 @@ export const REGIONAL_HUBS: RegionalHub[] = [
     country: 'saudi-arabia',
     countryName: 'Kingdom of Saudi Arabia',
     countryNameAr: 'المملكة العربية السعودية',
-    coordinates: '24.7136° N, 46.6753° E',
+    coordinates: '26.4207° N, 50.0888° E',
     badge: 'CORPORATE HEADQUARTERS',
     description:
-      'Anchored in Riyadh’s central financial corridor. Directing mega civil undertakings, commercial ventures, and sovereign development frameworks.',
-    address: 'Olaya District, Riyadh 12213',
-    phone: '+966 58 160 5812 / +966 54 505 1136',
+      'Al-Shati Business Center, Dammam. Directing sovereign civil undertakings, commercial ventures, and developments across the Kingdom.',
+    address: 'Al-Shati Business Center, 8110 Prince Mohammed Bin Fahd Rd, Dammam',
+    phone: '+966 58 160 5812',
     classification: 'CLASS-1 GENERAL CONTRACTOR',
   },
   {
@@ -148,9 +148,9 @@ export const REGIONAL_HUBS: RegionalHub[] = [
     coordinates: '30.0444° N, 31.2357° E',
     badge: 'REGIONAL BUREAU',
     description:
-      'Full-scale engineering bureau overseeing residential developments, New Administrative Capital projects, and retail rollouts across Egypt.',
-    address: 'Cairo Engineering Center, Egypt',
-    phone: '+20 2 2795 1994',
+      'Engineering bureau in New Cairo overseeing residential developments, mega commercial projects, and retail rollouts across Egypt.',
+    address: 'South 90th Street, 5th Settlement, New Cairo, Egypt',
+    phone: '+20 111 62 5555 6',
     classification: 'REGIONAL ENGINEERING HUB',
   },
   {

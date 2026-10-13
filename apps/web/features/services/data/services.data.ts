@@ -4,7 +4,8 @@ import type { TechnicalService, IntegratedDiscipline, ServiceProjectRelation } f
  * High-fidelity architectural & construction photography for services
  */
 export const SERVICES_MEDIA = {
-  heroImage: '/images/projects/grc-factory/cover.jpg',
+  // Iconic Saudi Architectural Landmark: King Abdullah Financial District (KAFD) Complex
+  heroImage: '/images/hero/saudi-kafd-architectural.jpg',
   introImage: '/images/projects/way-care-medical-hospital/cover.jpg',
   civilImage: '/images/projects/residential-tower/cover.jpg',
   electricalImage:

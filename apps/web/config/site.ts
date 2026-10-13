@@ -27,11 +27,11 @@ export const COMPANY_PROFILE: CompanyProfile = {
   /** Source: Business Cards & Corporate Profile */
   website: 'https://www.elmashrq.com',
   email: 'info@elmashrq.com',
-  phones: ['+966 58 160 5812', '+966 54 882 1738', '+966 54 755 2373', '+974 70 5555 73'],
+  phones: ['+966 58 160 5812', '+20 111 62 5555 6', '+966 54 882 1738', '+974 70 5555 73'],
   address: {
     country: 'Saudi Arabia',
     city: 'Dammam',
-    district: 'Al-Shati Al-Sharqi, Prince Mohammed Bin Fahd Road, 8110, Al-Shati Business Center',
+    district: 'Al-Shati Al-Sharqi, 8110 Prince Mohammed Bin Fahd Road, Al-Shati Business Center',
   },
 }
 

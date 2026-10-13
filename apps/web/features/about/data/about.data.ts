@@ -6,7 +6,8 @@ import type {
 } from '../types'
 
 export const ABOUT_MEDIA = {
-  heroImage: '/images/projects/way-care-medical-hospital/cover.jpg',
+  // Iconic Saudi Architectural Landmark: Kingdom Centre Tower (Riyadh)
+  heroImage: '/images/hero/saudi-kingdom-centre.jpg',
   introImage: '/images/projects/residential-tower/cover.jpg',
   historyImage: '/images/projects/educational-buildings-public-security-madinah/cover.jpg',
   ctaImage: '/images/projects/beverly-al-azeeza-new-facade/cover.jpg',
@@ -62,11 +63,11 @@ export const ABOUT_HISTORY: Milestone[] = [
     descriptionAr:
       'تأسيس المكاتب التشغيلية في المملكة العربية السعودية ودولة قطر والحصول على تصنيفات المقاولين المعتمدة وتراخيص الدرجة الأولى.',
     details: [
-      'Establishment of Riyadh Corporate Headquarters in Olaya District',
+      'Establishment of Kingdom-wide operations and business hubs',
       'Delivery of specialized public security training cities and infrastructure facilities',
     ],
     detailsAr: [
-      'تأسيس المقر الرئيسي بالرياض في حي العليا',
+      'تأسيس العمليات التشغيلية ومراكز الأعمال المعتمدة في المملكة',
       'تنفيذ مبانٍ ومنشآت متخصصة لمدن تدريب الأمن العام ومرافق البنية التحتية',
     ],
   },

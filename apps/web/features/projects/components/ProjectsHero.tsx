@@ -42,7 +42,7 @@ export function ProjectsHero() {
       {/* Background Image with Deep Navy Atmospheric Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
-          src="/images/projects/al-smaeel-tower/cover.jpg"
+          src="/images/hero/saudi-al-faisaliah-tower.jpg"
           alt={isAr ? 'مشاريع وسجل مقاولات دار المشرق' : 'Dar El Mashrq Project Portfolio'}
           fill
           priority

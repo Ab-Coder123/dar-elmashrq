@@ -17,9 +17,8 @@ export function Footer() {
 
   const regionalTitle = locale === 'ar' ? 'المكاتب والفروع الإقليمية' : 'Regional Bureaus'
   const officeDammam = locale === 'ar' ? 'مركز الشاطئ للأعمال، الدمام' : 'Al-Shati Business Center, Dammam'
-  const officeRiyadh = locale === 'ar' ? 'المقر الإداري، العليا، الرياض' : 'Olaya Office, Riyadh'
+  const officeCairo = locale === 'ar' ? 'شارع التسعين الجنوبي، التجمع الخامس، مصر' : 'South 90th St, New Cairo'
   const officeDoha = locale === 'ar' ? 'مركز العمليات، الدوحة' : 'Doha Operational Hub'
-  const officeCairo = locale === 'ar' ? 'المكتب الإقليمي، القاهرة' : 'Cairo Regional Bureau'
 
   const complianceTitle = locale === 'ar' ? 'المعايير والاعتمادات' : 'Compliance'
   const stdEng = locale === 'ar' ? 'المعايير الهندسية والمواصفات' : 'Engineering Standards'
@@ -90,17 +89,12 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/contact" className="hover:text-[#ba9563] transition-colors block">
-                  {officeRiyadh}
+                  {officeCairo}
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-[#ba9563] transition-colors block">
                   {officeDoha}
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-[#ba9563] transition-colors block">
-                  {officeCairo}
                 </Link>
               </li>
             </ul>
