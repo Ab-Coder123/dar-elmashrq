@@ -6,7 +6,9 @@ export type Locale = 'ar' | 'en'
 
 interface LanguageContextType {
   locale: Locale
+  language: Locale
   isRtl: boolean
+  isAr: boolean
   toggleLanguage: () => void
   setLanguage: (locale: Locale) => void
 }
@@ -41,7 +43,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     <LanguageContext.Provider
       value={{
         locale,
+        language: locale,
         isRtl: locale === 'ar',
+        isAr: locale === 'ar',
         toggleLanguage,
         setLanguage,
       }}

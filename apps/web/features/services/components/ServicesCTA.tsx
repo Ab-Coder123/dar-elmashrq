@@ -1,24 +1,28 @@
-﻿'use client'
+'use client'
 
 import Link from 'next/link'
 import Image from 'next/image'
 import { BlueprintCrosshair } from '@/components/ui/BlueprintCrosshair'
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll'
 import { scaleInVariants } from '@/lib/motion'
-import { ArrowRight, Send } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Send } from 'lucide-react'
+import { useLanguage } from '@/providers/LanguageProvider'
 
 interface ServicesCTAProps {
   ctaImage: string
 }
 
 export function ServicesCTA({ ctaImage }: ServicesCTAProps) {
+  const { language } = useLanguage()
+  const isAr = language === 'ar'
+
   return (
     <section className="relative py-28 overflow-hidden bg-[#0b1a37] text-white">
       {/* Background Image with Dark Blue Tint */}
       <div className="absolute inset-0 z-0">
         <Image
           src={ctaImage}
-          alt="Dar El Mashrq Engineering & Construction Execution"
+          alt={isAr ? 'تنفيذ الهندسة والمقاولات بدار المشرق' : 'Dar El Mashrq Engineering & Construction Execution'}
           fill
           sizes="100vw"
           className="object-cover object-center opacity-25"
@@ -41,36 +45,42 @@ export function ServicesCTA({ ctaImage }: ServicesCTAProps) {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 border border-[#ba9563]/50 bg-[#0b1a37]/90 px-4 py-1.5 mb-6 backdrop-blur-md">
               <span className="w-2 h-2 bg-[#ba9563]" />
-              <span className="font-['Space_Grotesk'] text-xs uppercase tracking-[0.2em] text-[#ba9563] font-medium">
-                TENDER PRE-QUALIFICATION &bull; EPC PROPOSALS
+              <span className={`text-xs uppercase tracking-[0.2em] text-[#ba9563] font-medium ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}>
+                {isAr ? 'تأهيل المناقصات • عروض المقاولات والـ EPC' : 'TENDER PRE-QUALIFICATION • EPC PROPOSALS'}
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-white font-['Montserrat'] leading-tight mb-6">
-              ENGAGE OUR ENGINEERING DESK
+            <h2 className={`text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-white leading-tight mb-6 ${isAr ? 'font-arabic tracking-normal' : "font-['Montserrat']"}`}>
+              {isAr ? 'تواصل مع مكتبنا الهندسي المتخصص' : 'ENGAGE OUR ENGINEERING DESK'}
             </h2>
 
-            <p className="font-['Inter'] text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed mb-10">
-              Submit your project scope, tender parameters, or engineering inquiries directly to our central estimating team in Riyadh.
+            <p className={`text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed mb-10 ${isAr ? 'font-arabic tracking-normal' : "font-['Inter']"}`}>
+              {isAr
+                ? 'أرسل نطاق عمل مشروعك أو كراسة الشروط والمواصفات الهندسية مباشرة إلى فريق التسعير والدراسات بالرياض.'
+                : 'Submit your project scope, tender parameters, or engineering inquiries directly to our central estimating team in Riyadh.'}
             </p>
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-8 py-4 bg-[#ba9563] hover:bg-[#d4b27a] text-slate-950 text-xs font-['Space_Grotesk'] uppercase tracking-widest font-bold inline-flex items-center justify-center gap-2 transition-colors duration-200 relative group shadow-lg"
+                className={`w-full sm:w-auto px-8 py-4 bg-[#ba9563] hover:bg-[#d4b27a] text-slate-950 text-xs uppercase tracking-widest font-bold inline-flex items-center justify-center gap-2 transition-colors duration-200 relative group shadow-lg ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}
               >
-                <BlueprintCrosshair position="top-left" />
-                <span>SUBMIT TENDER INQUIRY</span>
+                <BlueprintCrosshair position={isAr ? 'top-right' : 'top-left'} />
+                <span>{isAr ? 'تقديم استفسار أو مناقصة' : 'SUBMIT TENDER INQUIRY'}</span>
                 <Send className="w-4 h-4 text-slate-950" />
               </Link>
 
               <Link
                 href="/projects"
-                className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-['Space_Grotesk'] uppercase tracking-widest font-bold inline-flex items-center justify-center gap-2 transition-colors duration-200 backdrop-blur-sm"
+                className={`w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs uppercase tracking-widest font-bold inline-flex items-center justify-center gap-2 transition-colors duration-200 backdrop-blur-sm ${isAr ? 'font-arabic tracking-normal' : "font-['Space_Grotesk']"}`}
               >
-                <span>EXPLORE DELIVERED WORKS</span>
-                <ArrowRight className="w-4 h-4 text-[#ba9563]" />
+                <span>{isAr ? 'استعراض المشاريع المنفذة' : 'EXPLORE DELIVERED WORKS'}</span>
+                {isAr ? (
+                  <ArrowLeft className="w-4 h-4 text-[#ba9563] group-hover:-translate-x-1 transition-transform" />
+                ) : (
+                  <ArrowRight className="w-4 h-4 text-[#ba9563] group-hover:translate-x-1 transition-transform" />
+                )}
               </Link>
             </div>
           </div>
