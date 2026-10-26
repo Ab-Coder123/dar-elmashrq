@@ -45,6 +45,14 @@ export interface ProjectDto {
   imageIds: number[]
   services: ProjectLinkedService[]
   galleryImages: ProjectLinkedImage[]
+  images?: Array<{
+    id: string
+    url: string
+    alt: string
+    altAr: string
+    isCover: boolean
+    order: number
+  }>
 }
 
 function parseJsonField<T>(val: T[] | string | undefined | null): T[] {
