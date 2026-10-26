@@ -46,9 +46,10 @@ export async function getProjects(filters?: ProjectFilters): Promise<ProjectSumm
   const queryString = queryParams.toString()
   const endpoint = `/projects${queryString ? `?${queryString}` : ''}`
 
-  const apiProjects = await publicApiClient<any[]>(endpoint)
-  if (apiProjects && Array.isArray(apiProjects) && apiProjects.length > 0) {
-    return apiProjects.map(normalizeProject)
+  const res = await publicApiClient<any>(endpoint)
+  const items = Array.isArray(res) ? res : res?.items
+  if (items && Array.isArray(items) && items.length > 0) {
+    return items.map(normalizeProject)
   }
 
   // Fallback to static verified PDF projects
@@ -58,9 +59,10 @@ export async function getProjects(filters?: ProjectFilters): Promise<ProjectSumm
 }
 
 export async function getAllProjectDetails(): Promise<Project[]> {
-  const apiProjects = await publicApiClient<any[]>('/projects')
-  if (apiProjects && Array.isArray(apiProjects) && apiProjects.length > 0) {
-    return apiProjects.map(normalizeProject)
+  const res = await publicApiClient<any>('/projects')
+  const items = Array.isArray(res) ? res : res?.items
+  if (items && Array.isArray(items) && items.length > 0) {
+    return items.map(normalizeProject)
   }
   return getAllProjects()
 }
