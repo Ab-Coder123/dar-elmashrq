@@ -15,7 +15,7 @@ const REGIONS = [
     hubAr: 'مركز المنطقة الشرقية والمقر الإقليمي',
     address: 'Al-Shati Business Center, 8110 Prince Mohammed Bin Fahd Rd, Al-Shati Al-Sharqi, Dammam, Saudi Arabia',
     addressAr: 'مركز الشاطئ للأعمال، 8110 طريق الأمير محمد بن فهد، حي الشاطئ الشرقي، الدمام، السعودية',
-    phone: ['+966 58 160 5812', '+966 54 755 2373'],
+    phone: ['+966 58 160 5812', '+966 51 070 1704'],
     email: 'info@elmashrq.com',
     scope: 'General Contracting, EPC Turnkey Projects, Civil Defense Certified, GOSI & Monshaat Compliant',
     scopeAr: 'المقاولات العامة، مشاريع تسليم المفتاح EPC، الدفاع المدني المعتمد، والتأمينات الاجتماعية ومنشآت',

@@ -27,7 +27,7 @@ export const COMPANY_PROFILE: CompanyProfile = {
   /** Source: Business Cards & Corporate Profile */
   website: 'https://www.elmashrq.com',
   email: 'info@elmashrq.com',
-  phones: ['+966 58 160 5812', '+966 54 755 2373'],
+  phones: ['+966 58 160 5812', '+966 51 070 1704'],
   address: {
     country: 'Saudi Arabia',
     city: 'Dammam',
@@ -61,7 +61,7 @@ export const COMPANY_LEADERSHIP = [
     nameAr: 'وليد سالم',
     role: 'Business Development Director',
     roleAr: 'مدير تطوير الأعمال',
-    phone: '+966 54 755 2373',
+    phone: '',
     email: 'w.salem@elmashrq.com',
   },
 ] as const

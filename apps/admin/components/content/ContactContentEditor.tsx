@@ -380,14 +380,14 @@ export function ContactContentEditor() {
           </div>
 
           <div className="space-y-2">
-            {(data.settings.directPhones || ['+966 58 160 5812', '+966 54 755 2373']).map((phone, idx) => (
+            {(data.settings.directPhones || ['+966 58 160 5812', '+966 51 070 1704']).map((phone, idx) => (
               <div key={idx} className="flex items-center gap-2">
                 <input
                   type="text"
                   value={phone}
                   placeholder="+966 5X XXX XXXX"
                   onChange={(e) => {
-                    const updated = [...(data.settings.directPhones || ['+966 58 160 5812', '+966 54 755 2373'])]
+                    const updated = [...(data.settings.directPhones || ['+966 58 160 5812', '+966 51 070 1704'])]
                     updated[idx] = e.target.value
                     setData({
                       ...data,
@@ -402,7 +402,7 @@ export function ContactContentEditor() {
                 <button
                   type="button"
                   onClick={() => {
-                    const updated = (data.settings.directPhones || ['+966 58 160 5812', '+966 54 755 2373']).filter((_, i) => i !== idx)
+                    const updated = (data.settings.directPhones || ['+966 58 160 5812', '+966 51 070 1704']).filter((_, i) => i !== idx)
                     setData({
                       ...data,
                       settings: {
