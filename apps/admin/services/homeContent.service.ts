@@ -169,7 +169,7 @@ export const INITIAL_HOME_CONTENT: HomeContentState = {
       description:
         'Anchored in Riyadh’s central financial corridor. Directing mega civil undertakings, commercial ventures, and sovereign development frameworks.',
       address: 'Olaya District, Riyadh 12213',
-      phone: '+966 58 160 5812 / +966 54 505 1136',
+      phone: '+966 58 160 5812 / +966 51 070 1704',
       classification: 'CLASS-1 GENERAL CONTRACTOR',
     },
     {

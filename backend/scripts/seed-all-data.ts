@@ -124,7 +124,7 @@ const SEED_CONTACT = {
   ],
   generalEmail: 'info@elmashrq.com',
   supportEmail: 'inquiries@elmashrq.com',
-  phones: ['00966581605812', '00966545051136'],
+  phones: ['00966581605812', '00966510701704'],
   workingHours: 'Sun - Thu: 8:00 AM - 5:00 PM',
   workingHoursAr: 'الأحد - الخميس: 8:00 صباحاً - 5:00 مساءً',
   status: 'published',
@@ -137,7 +137,7 @@ const SEED_SETTINGS = {
   taglineAr: 'حلول البناء والمقاولات الرائدة منذ عام 1994',
   foundedYear: 1994,
   officialEmail: 'info@elmashrq.com',
-  phones: ['00966581605812', '00966545051136'],
+  phones: ['00966581605812', '00966510701704'],
   socialLinks: {
     linkedin: 'https://linkedin.com/company/dar-elmashrq',
     twitter: 'https://twitter.com/darelmashrq',

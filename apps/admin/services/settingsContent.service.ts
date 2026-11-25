@@ -72,7 +72,7 @@ export const mockSettingsAdapter = {
           taglineAr: newSettings.taglineAr,
           foundedYear: 1994,
           officialEmail: 'info@elmashrq.com',
-          phones: ['00966581605812', '00966545051136'],
+          phones: ['00966581605812', '00966510701704'],
           socialLinks: {
             linkedin: 'https://linkedin.com/company/dar-elmashrq',
             twitter: 'https://twitter.com/darelmashrq',
