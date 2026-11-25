@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     'Get in touch with Dar El Mashrq Trading & Contracting Company. Submit tender inquiries, request pre-qualification dossiers, or reach our offices in Saudi Arabia, Egypt, and Qatar.',
 }
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default async function ContactPage() {
   const [offices, phones] = await Promise.all([
     getOffices(),

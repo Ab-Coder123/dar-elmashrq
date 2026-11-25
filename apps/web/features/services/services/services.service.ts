@@ -41,16 +41,18 @@ function normalizeTechnicalService(s: any, index: number): TechnicalService {
 }
 
 export async function getTechnicalServices(): Promise<TechnicalService[]> {
-  const apiServices = await publicApiClient<any[]>('/services')
-  if (apiServices && Array.isArray(apiServices) && apiServices.length > 0) {
-    return apiServices.map(normalizeTechnicalService)
+  const res = await publicApiClient<any>('/services')
+  const items = Array.isArray(res) ? res : res?.items || res?.data
+  if (items && Array.isArray(items) && items.length > 0) {
+    return items.map(normalizeTechnicalService)
   }
   return TECHNICAL_SERVICES
 }
 
 export async function getTechnicalServiceBySlug(slug: string): Promise<TechnicalService | null> {
-  const apiService = await publicApiClient<any>(`/services/${slug}`)
-  if (apiService) return normalizeTechnicalService(apiService, 0)
+  const res = await publicApiClient<any>(`/services/${slug}`)
+  const item = res && 'data' in res ? res.data : res
+  if (item && item.slug) return normalizeTechnicalService(item, 0)
 
   const service = TECHNICAL_SERVICES.find((s) => s.slug === slug)
   return service ?? null

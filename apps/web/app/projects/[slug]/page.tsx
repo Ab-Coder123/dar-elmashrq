@@ -9,6 +9,9 @@ interface ProjectDetailPageProps {
   params: Promise<{ slug: string }>
 }
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export async function generateStaticParams() {
   const projects = await getAllProjectDetails()
   return projects.map((p) => ({
