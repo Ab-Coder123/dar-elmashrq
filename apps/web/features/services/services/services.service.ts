@@ -41,21 +41,32 @@ function normalizeTechnicalService(s: any, index: number): TechnicalService {
 }
 
 export async function getTechnicalServices(): Promise<TechnicalService[]> {
-  const res = await publicApiClient<any>('/services')
-  const items = Array.isArray(res) ? res : res?.items || res?.data
-  if (items && Array.isArray(items) && items.length > 0) {
-    return items.map(normalizeTechnicalService)
+  try {
+    const res = await publicApiClient<any>('/services')
+    const items = Array.isArray(res) ? res : res?.items || res?.data
+    if (items && Array.isArray(items) && items.length > 0) {
+      return items.map(normalizeTechnicalService)
+    }
+    return TECHNICAL_SERVICES
+  } catch (err) {
+    console.warn('Failed to fetch technical services from API, using fallback:', err)
+    return TECHNICAL_SERVICES
   }
-  return TECHNICAL_SERVICES
 }
 
 export async function getTechnicalServiceBySlug(slug: string): Promise<TechnicalService | null> {
-  const res = await publicApiClient<any>(`/services/${slug}`)
-  const item = res && 'data' in res ? res.data : res
-  if (item && item.slug) return normalizeTechnicalService(item, 0)
+  try {
+    const res = await publicApiClient<any>(`/services/${slug}`)
+    const item = res && 'data' in res ? res.data : res
+    if (item && item.slug) return normalizeTechnicalService(item, 0)
 
-  const service = TECHNICAL_SERVICES.find((s) => s.slug === slug)
-  return service ?? null
+    const service = TECHNICAL_SERVICES.find((s) => s.slug === slug)
+    return service ?? null
+  } catch (err) {
+    console.warn(`Failed to fetch service ${slug} from API, using fallback:`, err)
+    const service = TECHNICAL_SERVICES.find((s) => s.slug === slug)
+    return service ?? null
+  }
 }
 
 export async function getIntegratedDisciplines(): Promise<IntegratedDiscipline[]> {

@@ -117,10 +117,11 @@ export const mockMediaAdapter = {
         }
         return JSON.parse(JSON.stringify(mediaState))
       }
-    } catch {
-      // Fallback
+      return JSON.parse(JSON.stringify(mediaState))
+    } catch (err) {
+      console.warn('Falling back to in-memory media state:', err)
+      return JSON.parse(JSON.stringify(mediaState))
     }
-    return JSON.parse(JSON.stringify(mediaState))
   },
 
   uploadAsset: async (fileData: Partial<MediaAsset>): Promise<MediaAsset> => {
@@ -160,13 +161,15 @@ export const mockMediaAdapter = {
       if (res && res.item) {
         newAsset.id = String(res.item.id)
       }
-    } catch {
-      // Fallback
+      mediaState.assets.unshift(newAsset)
+      mediaState.updatedAt = new Date().toISOString()
+      return JSON.parse(JSON.stringify(newAsset))
+    } catch (err) {
+      console.warn('Backend unavailable, saving in-memory media asset:', err)
+      mediaState.assets.unshift(newAsset)
+      mediaState.updatedAt = new Date().toISOString()
+      return JSON.parse(JSON.stringify(newAsset))
     }
-
-    mediaState.assets.unshift(newAsset)
-    mediaState.updatedAt = new Date().toISOString()
-    return JSON.parse(JSON.stringify(newAsset))
   },
 
   updateAsset: async (id: string, updates: Partial<MediaAsset>): Promise<MediaAsset> => {
@@ -190,11 +193,11 @@ export const mockMediaAdapter = {
           isPublic: updated.isPublic,
         }),
       })
-    } catch {
-      // Fallback
+      return JSON.parse(JSON.stringify(updated))
+    } catch (err) {
+      console.warn('Backend unavailable, updating in-memory asset:', err)
+      return JSON.parse(JSON.stringify(updated))
     }
-
-    return JSON.parse(JSON.stringify(updated))
   },
 
   deleteAsset: async (id: string): Promise<boolean> => {
@@ -205,11 +208,11 @@ export const mockMediaAdapter = {
       await adminApiClient(`/admin/media/${id}`, {
         method: 'DELETE',
       })
-    } catch {
-      // Fallback
+      return true
+    } catch (err) {
+      console.warn('Backend unavailable, deleting in-memory asset:', err)
+      return true
     }
-
-    return true
   },
 
   resetToDefault: async (): Promise<AdminMediaContent> => {

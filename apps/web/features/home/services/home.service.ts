@@ -63,30 +63,44 @@ export async function getHomeContent(): Promise<{
     aboutCtaText: 'About The Enterprise',
   }
 
-  const res = await publicApiClient<HomeApiData>('/home')
-  const content = res?.content
+  const getFallback = () => ({
+    hero: fallbackHero,
+    stats: HOME_STATS,
+    services: HOME_SERVICES,
+    whyPillars: WHY_PILLARS,
+    regionalHubs: REGIONAL_HUBS,
+    credentials: HOME_CREDENTIALS,
+  })
 
-  // Prioritize verified real local hero image if content contains old mock/unsplash URL
-  const apiHeroImage = content?.hero?.heroImage
-  const resolvedHeroImage =
-    apiHeroImage && !apiHeroImage.includes('images.unsplash.com')
-      ? apiHeroImage
-      : fallbackHero.heroImage
+  try {
+    const res = await publicApiClient<HomeApiData>('/home')
+    const content = res?.content
 
-  return {
-    hero: {
-      badge: content?.hero?.badge || fallbackHero.badge,
-      headline: content?.hero?.headline || fallbackHero.headline,
-      tagline: content?.hero?.tagline || fallbackHero.tagline,
-      bodyCopy: content?.hero?.bodyCopy || fallbackHero.bodyCopy,
-      heroImage: resolvedHeroImage,
-      exploreCtaText: content?.hero?.exploreCtaText || fallbackHero.exploreCtaText,
-      aboutCtaText: content?.hero?.aboutCtaText || fallbackHero.aboutCtaText,
-    },
-    stats: Array.isArray(content?.stats) && content.stats.length > 0 ? content.stats : HOME_STATS,
-    services: Array.isArray(content?.services) && content.services.length > 0 ? content.services : HOME_SERVICES,
-    whyPillars: Array.isArray(content?.whyPillars) && content.whyPillars.length > 0 ? content.whyPillars : WHY_PILLARS,
-    regionalHubs: Array.isArray(content?.regionalHubs) && content.regionalHubs.length > 0 ? content.regionalHubs : REGIONAL_HUBS,
-    credentials: Array.isArray(content?.credentials) && content.credentials.length > 0 ? content.credentials : HOME_CREDENTIALS,
+    // Prioritize verified real local hero image if content contains old mock/unsplash URL
+    const apiHeroImage = content?.hero?.heroImage
+    const resolvedHeroImage =
+      apiHeroImage && !apiHeroImage.includes('images.unsplash.com')
+        ? apiHeroImage
+        : fallbackHero.heroImage
+
+    return {
+      hero: {
+        badge: content?.hero?.badge || fallbackHero.badge,
+        headline: content?.hero?.headline || fallbackHero.headline,
+        tagline: content?.hero?.tagline || fallbackHero.tagline,
+        bodyCopy: content?.hero?.bodyCopy || fallbackHero.bodyCopy,
+        heroImage: resolvedHeroImage,
+        exploreCtaText: content?.hero?.exploreCtaText || fallbackHero.exploreCtaText,
+        aboutCtaText: content?.hero?.aboutCtaText || fallbackHero.aboutCtaText,
+      },
+      stats: Array.isArray(content?.stats) && content.stats.length > 0 ? content.stats : HOME_STATS,
+      services: Array.isArray(content?.services) && content.services.length > 0 ? content.services : HOME_SERVICES,
+      whyPillars: Array.isArray(content?.whyPillars) && content.whyPillars.length > 0 ? content.whyPillars : WHY_PILLARS,
+      regionalHubs: Array.isArray(content?.regionalHubs) && content.regionalHubs.length > 0 ? content.regionalHubs : REGIONAL_HUBS,
+      credentials: Array.isArray(content?.credentials) && content.credentials.length > 0 ? content.credentials : HOME_CREDENTIALS,
+    }
+  } catch (err) {
+    console.warn('Failed to fetch home content from API, using static fallback:', err)
+    return getFallback()
   }
 }

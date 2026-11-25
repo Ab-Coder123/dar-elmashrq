@@ -104,10 +104,11 @@ export const mockAboutContentAdapter: IAboutContentAdapter = {
         inMemoryAboutContent = JSON.parse(JSON.stringify(content))
         return inMemoryAboutContent
       }
+      return JSON.parse(JSON.stringify(inMemoryAboutContent))
     } catch (err) {
       console.warn('Falling back to in-memory about content:', err)
+      return JSON.parse(JSON.stringify(inMemoryAboutContent))
     }
-    return JSON.parse(JSON.stringify(inMemoryAboutContent))
   },
 
   async updateAboutHero(heroUpdate: Partial<AboutContentState['hero']>): Promise<AboutContentState['hero']> {
@@ -128,11 +129,11 @@ export const mockAboutContentAdapter: IAboutContentAdapter = {
           status: 'published',
         }),
       })
-    } catch {
-      // Backend not running (offline dev or unit tests) -> fallback to inMemory
+      return JSON.parse(JSON.stringify(inMemoryAboutContent.hero))
+    } catch (err) {
+      console.warn('Backend unavailable, returning in-memory hero:', err)
+      return JSON.parse(JSON.stringify(inMemoryAboutContent.hero))
     }
-
-    return JSON.parse(JSON.stringify(inMemoryAboutContent.hero))
   },
 
   async updateAboutVision(visionUpdate: Partial<AboutContentState['vision']>): Promise<AboutContentState['vision']> {
@@ -153,11 +154,11 @@ export const mockAboutContentAdapter: IAboutContentAdapter = {
           status: 'published',
         }),
       })
-    } catch {
-      // Backend not running (offline dev or unit tests) -> fallback to inMemory
+      return JSON.parse(JSON.stringify(inMemoryAboutContent.vision))
+    } catch (err) {
+      console.warn('Backend unavailable, returning in-memory vision:', err)
+      return JSON.parse(JSON.stringify(inMemoryAboutContent.vision))
     }
-
-    return JSON.parse(JSON.stringify(inMemoryAboutContent.vision))
   },
 
   async updateMilestones(historyUpdate: AboutContentState['history']): Promise<AboutContentState['history']> {
@@ -175,11 +176,11 @@ export const mockAboutContentAdapter: IAboutContentAdapter = {
           status: 'published',
         }),
       })
-    } catch {
-      // Backend not running (offline dev or unit tests) -> fallback to inMemory
+      return JSON.parse(JSON.stringify(inMemoryAboutContent.history))
+    } catch (err) {
+      console.warn('Backend unavailable, returning in-memory history:', err)
+      return JSON.parse(JSON.stringify(inMemoryAboutContent.history))
     }
-
-    return JSON.parse(JSON.stringify(inMemoryAboutContent.history))
   },
 
   async resetToDefault(): Promise<AboutContentState> {
@@ -192,9 +193,10 @@ export const mockAboutContentAdapter: IAboutContentAdapter = {
           status: 'published',
         }),
       })
-    } catch {
-      // Fallback
+      return JSON.parse(JSON.stringify(inMemoryAboutContent))
+    } catch (err) {
+      console.warn('Backend unavailable during reset, returning default:', err)
+      return JSON.parse(JSON.stringify(inMemoryAboutContent))
     }
-    return JSON.parse(JSON.stringify(inMemoryAboutContent))
   },
 }

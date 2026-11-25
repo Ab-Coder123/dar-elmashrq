@@ -38,51 +38,76 @@ function normalizeProject(p: any): Project {
 }
 
 export async function getProjects(filters?: ProjectFilters): Promise<ProjectSummary[]> {
-  const queryParams = new URLSearchParams()
-  queryParams.set('pageSize', '100')
-  if (filters?.country && filters.country !== 'all') queryParams.set('country', filters.country)
-  if (filters?.category && filters.category !== 'all') queryParams.set('category', filters.category)
-  if (filters?.search) queryParams.set('search', filters.search)
-
-  const queryString = queryParams.toString()
-  const endpoint = `/projects${queryString ? `?${queryString}` : ''}`
-
-  const res = await publicApiClient<any>(endpoint)
-  const items = Array.isArray(res) ? res : res?.items
-  if (items && Array.isArray(items) && items.length > 0) {
-    return items.map(normalizeProject)
+  const getStaticFallback = async () => {
+    const staticProjects = await getAllProjects()
+    if (!filters) return staticProjects
+    return filterProjects(staticProjects, filters)
   }
 
-  // Fallback to static verified PDF projects
-  const staticProjects = await getAllProjects()
-  if (!filters) return staticProjects
-  return filterProjects(staticProjects, filters)
+  try {
+    const queryParams = new URLSearchParams()
+    queryParams.set('pageSize', '100')
+    if (filters?.country && filters.country !== 'all') queryParams.set('country', filters.country)
+    if (filters?.category && filters.category !== 'all') queryParams.set('category', filters.category)
+    if (filters?.search) queryParams.set('search', filters.search)
+
+    const queryString = queryParams.toString()
+    const endpoint = `/projects${queryString ? `?${queryString}` : ''}`
+
+    const res = await publicApiClient<any>(endpoint)
+    const items = Array.isArray(res) ? res : res?.items
+    if (items && Array.isArray(items) && items.length > 0) {
+      return items.map(normalizeProject)
+    }
+    return await getStaticFallback()
+  } catch (err) {
+    console.warn('Failed to fetch projects from API, using static fallback:', err)
+    return await getStaticFallback()
+  }
 }
 
 export async function getAllProjectDetails(): Promise<Project[]> {
-  const res = await publicApiClient<any>('/projects?pageSize=100')
-  const items = Array.isArray(res) ? res : res?.items
-  if (items && Array.isArray(items) && items.length > 0) {
-    return items.map(normalizeProject)
+  try {
+    const res = await publicApiClient<any>('/projects?pageSize=100')
+    const items = Array.isArray(res) ? res : res?.items
+    if (items && Array.isArray(items) && items.length > 0) {
+      return items.map(normalizeProject)
+    }
+    return getAllProjects()
+  } catch (err) {
+    console.warn('Failed to fetch all projects details from API, using static fallback:', err)
+    return getAllProjects()
   }
-  return getAllProjects()
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
-  const apiProject = await publicApiClient<any>(`/projects/${slug}`)
-  if (apiProject) return normalizeProject(apiProject)
+  const getStaticProject = async () => {
+    const staticProjects = await getAllProjects()
+    const found = staticProjects.find((p) => p.slug === slug) ?? null
+    return found ? normalizeProject(found) : null
+  }
 
-  const staticProjects = await getAllProjects()
-  const found = staticProjects.find((p) => p.slug === slug) ?? null
-  return found ? normalizeProject(found) : null
+  try {
+    const apiProject = await publicApiClient<any>(`/projects/${slug}`)
+    if (apiProject) return normalizeProject(apiProject)
+    return await getStaticProject()
+  } catch (err) {
+    console.warn(`Failed to fetch project ${slug} from API, using static fallback:`, err)
+    return await getStaticProject()
+  }
 }
 
 export async function getFeatured(): Promise<Project[]> {
-  const apiFeatured = await publicApiClient<any[]>('/projects/featured')
-  if (apiFeatured && Array.isArray(apiFeatured) && apiFeatured.length > 0) {
-    return apiFeatured.map(normalizeProject)
+  try {
+    const apiFeatured = await publicApiClient<any[]>('/projects/featured')
+    if (apiFeatured && Array.isArray(apiFeatured) && apiFeatured.length > 0) {
+      return apiFeatured.map(normalizeProject)
+    }
+    return getFeaturedProjects()
+  } catch (err) {
+    console.warn('Failed to fetch featured projects from API, using static fallback:', err)
+    return getFeaturedProjects()
   }
-  return getFeaturedProjects()
 }
 
 export async function getProjectCountByCountry(): Promise<Record<string, number>> {

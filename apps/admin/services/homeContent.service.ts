@@ -254,10 +254,11 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
         inMemoryHomeContent = JSON.parse(JSON.stringify(content))
         return inMemoryHomeContent
       }
+      return JSON.parse(JSON.stringify(inMemoryHomeContent))
     } catch (err) {
       console.warn('Falling back to in-memory home content:', err)
+      return JSON.parse(JSON.stringify(inMemoryHomeContent))
     }
-    return JSON.parse(JSON.stringify(inMemoryHomeContent))
   },
 
   async updateHomeHero(heroUpdate: Partial<HomeContentState['hero']>): Promise<HomeContentState['hero']> {
@@ -278,11 +279,11 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
           status: 'published',
         }),
       })
-    } catch {
-      // Backend not running (offline dev or unit tests) -> fallback to inMemory
+      return JSON.parse(JSON.stringify(inMemoryHomeContent.hero))
+    } catch (err) {
+      console.warn('Backend unavailable, returning in-memory hero:', err)
+      return JSON.parse(JSON.stringify(inMemoryHomeContent.hero))
     }
-
-    return JSON.parse(JSON.stringify(inMemoryHomeContent.hero))
   },
 
   async updateHomeStats(statsUpdate: HomeContentState['stats']): Promise<HomeContentState['stats']> {
@@ -300,11 +301,11 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
           status: 'published',
         }),
       })
-    } catch {
-      // Backend not running (offline dev or unit tests) -> fallback to inMemory
+      return JSON.parse(JSON.stringify(inMemoryHomeContent.stats))
+    } catch (err) {
+      console.warn('Backend unavailable, returning in-memory stats:', err)
+      return JSON.parse(JSON.stringify(inMemoryHomeContent.stats))
     }
-
-    return JSON.parse(JSON.stringify(inMemoryHomeContent.stats))
   },
 
   async updateWhyPillars(pillarsUpdate: HomeContentState['whyPillars']): Promise<HomeContentState['whyPillars']> {
@@ -322,11 +323,11 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
           status: 'published',
         }),
       })
-    } catch {
-      // Backend not running (offline dev or unit tests) -> fallback to inMemory
+      return JSON.parse(JSON.stringify(inMemoryHomeContent.whyPillars))
+    } catch (err) {
+      console.warn('Backend unavailable, returning in-memory why pillars:', err)
+      return JSON.parse(JSON.stringify(inMemoryHomeContent.whyPillars))
     }
-
-    return JSON.parse(JSON.stringify(inMemoryHomeContent.whyPillars))
   },
 
   async updateRegionalHubs(hubsUpdate: HomeContentState['regionalHubs']): Promise<HomeContentState['regionalHubs']> {
@@ -344,11 +345,11 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
           status: 'published',
         }),
       })
-    } catch {
-      // Backend not running (offline dev or unit tests) -> fallback to inMemory
+      return JSON.parse(JSON.stringify(inMemoryHomeContent.regionalHubs))
+    } catch (err) {
+      console.warn('Backend unavailable, returning in-memory regional hubs:', err)
+      return JSON.parse(JSON.stringify(inMemoryHomeContent.regionalHubs))
     }
-
-    return JSON.parse(JSON.stringify(inMemoryHomeContent.regionalHubs))
   },
 
   async resetToDefault(): Promise<HomeContentState> {
@@ -361,9 +362,10 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
           status: 'published',
         }),
       })
-    } catch {
-      // Fallback
+      return JSON.parse(JSON.stringify(inMemoryHomeContent))
+    } catch (err) {
+      console.warn('Backend unavailable during reset, returning default:', err)
+      return JSON.parse(JSON.stringify(inMemoryHomeContent))
     }
-    return JSON.parse(JSON.stringify(inMemoryHomeContent))
   },
 }

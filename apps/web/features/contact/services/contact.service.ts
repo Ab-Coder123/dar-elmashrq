@@ -56,11 +56,11 @@ export async function getOffices(): Promise<RegionalOffice[]> {
         email: off.email || 'info@elmashrq.com',
       }))
     }
-  } catch {
-    // Fallback
+    return getRegionalOffices()
+  } catch (err) {
+    console.warn('Failed to fetch contact offices from API, using static fallback:', err)
+    return getRegionalOffices()
   }
-
-  return getRegionalOffices()
 }
 
 export async function getContactPhones(): Promise<string[]> {
@@ -70,8 +70,9 @@ export async function getContactPhones(): Promise<string[]> {
     if (content?.phones && Array.isArray(content.phones) && content.phones.length > 0) {
       return content.phones
     }
-  } catch {
-    // Fallback
+    return ['+966 58 160 5812', '+966 51 070 1704']
+  } catch (err) {
+    console.warn('Failed to fetch contact phones from API, using fallback:', err)
+    return ['+966 58 160 5812', '+966 51 070 1704']
   }
-  return ['+966 58 160 5812', '+966 54 755 2373']
 }

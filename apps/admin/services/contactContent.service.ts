@@ -113,10 +113,11 @@ export const mockContactAdapter = {
         }
         return JSON.parse(JSON.stringify(contactState))
       }
+      return JSON.parse(JSON.stringify(contactState))
     } catch (err) {
       console.warn('Falling back to in-memory contact state:', err)
+      return JSON.parse(JSON.stringify(contactState))
     }
-    return JSON.parse(JSON.stringify(contactState))
   },
 
   updateContactContent: async (data: AdminContactContent): Promise<AdminContactContent> => {
@@ -157,10 +158,11 @@ export const mockContactAdapter = {
           status: 'published',
         }),
       })
-    } catch {
-      // Backend not running (offline dev or unit tests) -> fallback to inMemory
+      return JSON.parse(JSON.stringify(contactState))
+    } catch (err) {
+      console.warn('Backend unavailable, returning in-memory contact state:', err)
+      return JSON.parse(JSON.stringify(contactState))
     }
-    return JSON.parse(JSON.stringify(contactState))
   },
 
   saveOffice: async (office: OfficeLocation): Promise<OfficeLocation> => {
@@ -179,10 +181,11 @@ export const mockContactAdapter = {
 
     try {
       await mockContactAdapter.updateContactContent(contactState)
-    } catch {
-      // Fallback
+      return JSON.parse(JSON.stringify(office))
+    } catch (err) {
+      console.warn('saveOffice fallback:', err)
+      return JSON.parse(JSON.stringify(office))
     }
-    return JSON.parse(JSON.stringify(office))
   },
 
   deleteOffice: async (id: string): Promise<boolean> => {
@@ -190,19 +193,21 @@ export const mockContactAdapter = {
     contactState.updatedAt = new Date().toISOString()
     try {
       await mockContactAdapter.updateContactContent(contactState)
-    } catch {
-      // Fallback
+      return true
+    } catch (err) {
+      console.warn('deleteOffice fallback:', err)
+      return true
     }
-    return true
   },
 
   resetToDefault: async (): Promise<AdminContactContent> => {
     contactState = JSON.parse(JSON.stringify(INITIAL_CONTACT_CONTENT))
     try {
       await mockContactAdapter.updateContactContent(contactState)
-    } catch {
-      // Fallback
+      return JSON.parse(JSON.stringify(contactState))
+    } catch (err) {
+      console.warn('resetToDefault fallback:', err)
+      return JSON.parse(JSON.stringify(contactState))
     }
-    return JSON.parse(JSON.stringify(contactState))
   },
 }

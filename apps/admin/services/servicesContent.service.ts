@@ -40,10 +40,11 @@ export const mockServicesAdapter: IServicesAdapter = {
           disciplines: s.disciplines || ['Engineering Standard', 'QA/QC Compliance', 'Regional Execution'],
         }))
       }
+      return JSON.parse(JSON.stringify(inMemoryServices))
     } catch (err) {
       console.warn('Falling back to in-memory services:', err)
+      return JSON.parse(JSON.stringify(inMemoryServices))
     }
-    return JSON.parse(JSON.stringify(inMemoryServices))
   },
 
   async getServiceById(id: string): Promise<AdminServiceItem | null> {
@@ -64,15 +65,26 @@ export const mockServicesAdapter: IServicesAdapter = {
           disciplines: s.disciplines || ['Engineering Standard', 'QA/QC Compliance', 'Regional Execution'],
         }
       }
+      const item = inMemoryServices.find((s) => s.id === id || s.slug === id)
+      return item ? JSON.parse(JSON.stringify(item)) : null
     } catch (err) {
       console.warn('Service fetch fallback:', err)
+      const item = inMemoryServices.find((s) => s.id === id || s.slug === id)
+      return item ? JSON.parse(JSON.stringify(item)) : null
     }
-    const item = inMemoryServices.find((s) => s.id === id || s.slug === id)
-    return item ? JSON.parse(JSON.stringify(item)) : null
   },
 
   async createService(serviceData: Omit<AdminServiceItem, 'id'>): Promise<AdminServiceItem> {
     const slug = serviceData.slug || serviceData.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+    const fallbackCreate = () => {
+      const newService: AdminServiceItem = {
+        ...serviceData,
+        id: serviceData.slug || `service-${Date.now()}`,
+      }
+      inMemoryServices.push(newService)
+      return JSON.parse(JSON.stringify(newService))
+    }
+
     try {
       const created = await adminApiClient<any>('/admin/services', {
         method: 'POST',
@@ -94,16 +106,11 @@ export const mockServicesAdapter: IServicesAdapter = {
           order: created.displayOrder ?? serviceData.order ?? 1,
         }
       }
-    } catch {
-      // Backend not running (offline dev or unit tests) -> fallback to inMemory
+      return fallbackCreate()
+    } catch (err) {
+      console.warn('Backend unavailable, creating in-memory service:', err)
+      return fallbackCreate()
     }
-
-    const newService: AdminServiceItem = {
-      ...serviceData,
-      id: serviceData.slug || `service-${Date.now()}`,
-    }
-    inMemoryServices.push(newService)
-    return JSON.parse(JSON.stringify(newService))
   },
 
   async updateService(id: string, updates: Partial<AdminServiceItem>): Promise<AdminServiceItem> {
@@ -120,6 +127,25 @@ export const mockServicesAdapter: IServicesAdapter = {
 
     for (const key of Object.keys(payload)) {
       if (payload[key] === undefined) delete payload[key]
+    }
+
+    const fallbackUpdate = () => {
+      const idx = inMemoryServices.findIndex((s) => s.id === id || s.slug === id)
+      if (idx === -1) {
+        throw new Error(`Service with id ${id} not found`)
+      }
+      const current = inMemoryServices[idx]!
+      const updatedItem: AdminServiceItem = {
+        ...current,
+        ...updates,
+        status: updates.status ?? current.status,
+        id: current.id,
+        slug: updates.slug ?? current.slug,
+        name: updates.name ?? current.name,
+        order: updates.order ?? current.order,
+      }
+      inMemoryServices[idx] = updatedItem
+      return JSON.parse(JSON.stringify(updatedItem))
     }
 
     try {
@@ -141,26 +167,11 @@ export const mockServicesAdapter: IServicesAdapter = {
           specCode: updates.specCode || `SPEC: DM-${String(updated.displayOrder ?? updates.order ?? 1).padStart(2, '0')}`,
         }
       }
-    } catch {
-      // Backend not running (offline dev or unit tests) -> fallback to inMemory
+      return fallbackUpdate()
+    } catch (err) {
+      console.warn('Backend unavailable, updating in-memory service:', err)
+      return fallbackUpdate()
     }
-
-    const idx = inMemoryServices.findIndex((s) => s.id === id || s.slug === id)
-    if (idx === -1) {
-      throw new Error(`Service with id ${id} not found`)
-    }
-    const current = inMemoryServices[idx]!
-    const updatedItem: AdminServiceItem = {
-      ...current,
-      ...updates,
-      status: updates.status ?? current.status,
-      id: current.id,
-      slug: updates.slug ?? current.slug,
-      name: updates.name ?? current.name,
-      order: updates.order ?? current.order,
-    }
-    inMemoryServices[idx] = updatedItem
-    return JSON.parse(JSON.stringify(updatedItem))
   },
 
   async deleteService(id: string): Promise<boolean> {
@@ -169,12 +180,12 @@ export const mockServicesAdapter: IServicesAdapter = {
         method: 'DELETE',
       })
       return true
-    } catch {
-      // Backend not running (offline dev or unit tests) -> fallback to inMemory
+    } catch (err) {
+      console.warn('Backend unavailable, deleting from in-memory services:', err)
+      const initialLen = inMemoryServices.length
+      inMemoryServices = inMemoryServices.filter((s) => s.id !== id && s.slug !== id)
+      return inMemoryServices.length < initialLen
     }
-    const initialLen = inMemoryServices.length
-    inMemoryServices = inMemoryServices.filter((s) => s.id !== id && s.slug !== id)
-    return inMemoryServices.length < initialLen
   },
 
   async resetToDefault(): Promise<AdminServiceItem[]> {

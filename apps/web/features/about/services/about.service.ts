@@ -51,26 +51,39 @@ export async function getAboutContent(): Promise<{
     heroImage: ABOUT_MEDIA.heroImage,
   }
 
-  const res = await publicApiClient<AboutApiData>('/about')
-  const content = res?.content
+  const getFallback = () => ({
+    hero: fallbackHero,
+    history: ABOUT_HISTORY,
+    capabilities: WHAT_WE_DO,
+    divisions: ORGANIZATIONAL_DIVISIONS,
+    credentials: ABOUT_CREDENTIALS,
+  })
 
-  const apiHeroImage = content?.hero?.heroImage
-  const resolvedHeroImage =
-    apiHeroImage && !apiHeroImage.includes('images.unsplash.com')
-      ? apiHeroImage
-      : fallbackHero.heroImage
+  try {
+    const res = await publicApiClient<AboutApiData>('/about')
+    const content = res?.content
 
-  return {
-    hero: {
-      badge: content?.hero?.badge || fallbackHero.badge,
-      headline: content?.hero?.headline || fallbackHero.headline,
-      tagline: content?.hero?.tagline || fallbackHero.tagline,
-      description: content?.hero?.description || fallbackHero.description,
-      heroImage: resolvedHeroImage,
-    },
-    history: Array.isArray(content?.history) && content.history.length > 0 ? content.history : ABOUT_HISTORY,
-    capabilities: Array.isArray(content?.capabilities) && content.capabilities.length > 0 ? content.capabilities : WHAT_WE_DO,
-    divisions: Array.isArray(content?.divisions) && content.divisions.length > 0 ? content.divisions : ORGANIZATIONAL_DIVISIONS,
-    credentials: Array.isArray(content?.credentials) && content.credentials.length > 0 ? content.credentials : ABOUT_CREDENTIALS,
+    const apiHeroImage = content?.hero?.heroImage
+    const resolvedHeroImage =
+      apiHeroImage && !apiHeroImage.includes('images.unsplash.com')
+        ? apiHeroImage
+        : fallbackHero.heroImage
+
+    return {
+      hero: {
+        badge: content?.hero?.badge || fallbackHero.badge,
+        headline: content?.hero?.headline || fallbackHero.headline,
+        tagline: content?.hero?.tagline || fallbackHero.tagline,
+        description: content?.hero?.description || fallbackHero.description,
+        heroImage: resolvedHeroImage,
+      },
+      history: Array.isArray(content?.history) && content.history.length > 0 ? content.history : ABOUT_HISTORY,
+      capabilities: Array.isArray(content?.capabilities) && content.capabilities.length > 0 ? content.capabilities : WHAT_WE_DO,
+      divisions: Array.isArray(content?.divisions) && content.divisions.length > 0 ? content.divisions : ORGANIZATIONAL_DIVISIONS,
+      credentials: Array.isArray(content?.credentials) && content.credentials.length > 0 ? content.credentials : ABOUT_CREDENTIALS,
+    }
+  } catch (err) {
+    console.warn('Failed to fetch about content from API, using static fallback:', err)
+    return getFallback()
   }
 }

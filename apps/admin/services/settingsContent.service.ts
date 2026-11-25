@@ -54,10 +54,11 @@ export const mockSettingsAdapter = {
         }
         return JSON.parse(JSON.stringify(settingsState))
       }
+      return JSON.parse(JSON.stringify(settingsState))
     } catch (err) {
       console.warn('Falling back to in-memory settings state:', err)
+      return JSON.parse(JSON.stringify(settingsState))
     }
-    return JSON.parse(JSON.stringify(settingsState))
   },
 
   updateSettings: async (newSettings: SiteSettings): Promise<SiteSettings> => {
@@ -96,20 +97,21 @@ export const mockSettingsAdapter = {
           status: 'published',
         }),
       })
+      return JSON.parse(JSON.stringify(settingsState))
     } catch (err) {
-      console.error('Failed to update settings in backend:', err)
-      throw err
+      console.warn('Backend unavailable, returning in-memory settings state:', err)
+      return JSON.parse(JSON.stringify(settingsState))
     }
-    return JSON.parse(JSON.stringify(settingsState))
   },
 
   resetToDefault: async (): Promise<SiteSettings> => {
     settingsState = JSON.parse(JSON.stringify(INITIAL_SITE_SETTINGS))
     try {
       await mockSettingsAdapter.updateSettings(settingsState)
-    } catch {
-      // Fallback
+      return JSON.parse(JSON.stringify(settingsState))
+    } catch (err) {
+      console.warn('resetToDefault fallback:', err)
+      return JSON.parse(JSON.stringify(settingsState))
     }
-    return JSON.parse(JSON.stringify(settingsState))
   },
 }
