@@ -98,14 +98,14 @@ import { adminApiClient } from '../lib/api'
 export const mockAboutContentAdapter: IAboutContentAdapter = {
   async getAboutContent(): Promise<AboutContentState> {
     try {
-      const res = await adminApiClient<{ content: AboutContentState } | AboutContentState>('/admin/about')
-      const content = (res && 'content' in res && res.content) ? res.content : res
+      const res = await adminApiClient<any>('/admin/about')
+      const content = res?.content ?? res?.data?.content ?? res
       if (content && typeof content === 'object' && 'hero' in content) {
         inMemoryAboutContent = JSON.parse(JSON.stringify(content))
         return inMemoryAboutContent
       }
-    } catch {
-      // Fallback
+    } catch (err) {
+      console.warn('Falling back to in-memory about content:', err)
     }
     return JSON.parse(JSON.stringify(inMemoryAboutContent))
   },
@@ -129,7 +129,7 @@ export const mockAboutContentAdapter: IAboutContentAdapter = {
         }),
       })
     } catch {
-      // Fallback
+      // Backend not running (offline dev or unit tests) -> fallback to inMemory
     }
 
     return JSON.parse(JSON.stringify(inMemoryAboutContent.hero))
@@ -154,7 +154,7 @@ export const mockAboutContentAdapter: IAboutContentAdapter = {
         }),
       })
     } catch {
-      // Fallback
+      // Backend not running (offline dev or unit tests) -> fallback to inMemory
     }
 
     return JSON.parse(JSON.stringify(inMemoryAboutContent.vision))
@@ -176,7 +176,7 @@ export const mockAboutContentAdapter: IAboutContentAdapter = {
         }),
       })
     } catch {
-      // Fallback
+      // Backend not running (offline dev or unit tests) -> fallback to inMemory
     }
 
     return JSON.parse(JSON.stringify(inMemoryAboutContent.history))

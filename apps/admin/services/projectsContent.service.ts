@@ -25,20 +25,29 @@ export const mockAdminProjectsAdapter: IAdminProjectsAdapter = {
   async getProjects(filters?: AdminProjectFilters): Promise<Project[]> {
     try {
       const queryParams = new URLSearchParams()
+      queryParams.set('pageSize', '100')
       if (filters?.country && filters.country !== 'all') queryParams.set('country', filters.country)
       if (filters?.category && filters.category !== 'all') queryParams.set('category', filters.category)
       if (filters?.search) queryParams.set('search', filters.search)
 
       const qs = queryParams.toString()
-      const data = await adminApiClient<{ items: Project[] } | Project[]>(
+      const data = await adminApiClient<{ items: any[] } | any[]>(
         `/admin/projects${qs ? `?${qs}` : ''}`
       )
       const items = Array.isArray(data) ? data : data?.items ?? []
       if (items && items.length > 0) {
-        return items
+        return items.map((p: any, idx: number) => ({
+          ...p,
+          id: String(p.id),
+          order: p.displayOrder ?? p.order ?? idx + 1,
+          services: Array.isArray(p.services)
+            ? p.services.map((s: any) => (typeof s === 'string' ? s : s?.nameAr || s?.name || String(s)))
+            : (p.serviceSlugs || []),
+          images: Array.isArray(p.images) && p.images.length > 0 ? p.images : [],
+        }))
       }
-    } catch {
-      // Graceful fallback to local in-memory
+    } catch (err) {
+      console.warn('Falling back to local projects in-memory:', err)
     }
 
     await initProjectsIfNeeded()
@@ -67,10 +76,20 @@ export const mockAdminProjectsAdapter: IAdminProjectsAdapter = {
 
   async getProjectById(id: string): Promise<Project | null> {
     try {
-      const project = await adminApiClient<Project>(`/admin/projects/${id}`)
-      if (project) return project
-    } catch {
-      // Fallback
+      const p = await adminApiClient<any>(`/admin/projects/${id}`)
+      if (p) {
+        return {
+          ...p,
+          id: String(p.id),
+          order: p.displayOrder ?? p.order ?? 1,
+          services: Array.isArray(p.services)
+            ? p.services.map((s: any) => (typeof s === 'string' ? s : s?.nameAr || s?.name || String(s)))
+            : (p.serviceSlugs || []),
+          images: Array.isArray(p.images) && p.images.length > 0 ? p.images : [],
+        }
+      }
+    } catch (err) {
+      console.warn('Project fetch fallback:', err)
     }
 
     await initProjectsIfNeeded()
@@ -81,17 +100,25 @@ export const mockAdminProjectsAdapter: IAdminProjectsAdapter = {
   async createProject(data: ProjectFormData): Promise<Project> {
     const slug = data.slug || data.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
     try {
-      const created = await adminApiClient<Project>('/admin/projects', {
+      const created = await adminApiClient<any>('/admin/projects', {
         method: 'POST',
         body: JSON.stringify({
           ...data,
           slug,
+          displayOrder: data.order ?? 1,
           status: 'published',
         }),
       })
-      if (created) return created
+      if (created) {
+        return {
+          ...data,
+          ...created,
+          id: String(created.id),
+          order: created.displayOrder ?? data.order ?? 1,
+        }
+      }
     } catch {
-      // Fallback
+      // Backend not running (offline dev or unit tests) -> fallback to inMemory
     }
 
     await initProjectsIfNeeded()
@@ -109,7 +136,7 @@ export const mockAdminProjectsAdapter: IAdminProjectsAdapter = {
   },
 
   async updateProject(id: string, updates: Partial<Project>): Promise<Project> {
-    const payload = {
+    const payload: Record<string, any> = {
       name: updates.name,
       nameAr: updates.nameAr,
       slug: updates.slug,
@@ -124,21 +151,32 @@ export const mockAdminProjectsAdapter: IAdminProjectsAdapter = {
       scopeAr: updates.scopeAr,
       clientName: updates.clientName,
       isFeatured: updates.isFeatured,
-      displayOrder: updates.order,
+      displayOrder: updates.order ?? (updates as any).displayOrder,
+    }
+
+    for (const key of Object.keys(payload)) {
+      if (payload[key] === undefined) delete payload[key]
     }
 
     try {
-      const updated = await adminApiClient<Project>(`/admin/projects/${id}`, {
+      const updated = await adminApiClient<any>(`/admin/projects/${id}`, {
         method: 'PUT',
         body: JSON.stringify(payload),
       })
-      if (updated) return updated
+      if (updated) {
+        return {
+          ...updates,
+          ...updated,
+          id: String(updated.id || id),
+          order: updated.displayOrder ?? updates.order ?? 1,
+        } as Project
+      }
     } catch {
-      // Backend not running (e.g. offline dev or unit tests) -> fallback to inMemory
+      // Backend not running (offline dev or unit tests) -> fallback to inMemory
     }
 
     await initProjectsIfNeeded()
-    const idx = inMemoryProjects.findIndex((p) => p.id === id)
+    const idx = inMemoryProjects.findIndex((p) => p.id === id || p.slug === id)
     if (idx === -1) {
       throw new Error(`Project with id ${id} not found`)
     }
@@ -168,12 +206,12 @@ export const mockAdminProjectsAdapter: IAdminProjectsAdapter = {
       })
       return true
     } catch {
-      // Fallback
+      // Backend not running (offline dev or unit tests) -> fallback to inMemory
     }
 
     await initProjectsIfNeeded()
     const initialLen = inMemoryProjects.length
-    inMemoryProjects = inMemoryProjects.filter((p) => p.id !== id)
+    inMemoryProjects = inMemoryProjects.filter((p) => p.id !== id && p.slug !== id)
     return inMemoryProjects.length < initialLen
   },
 

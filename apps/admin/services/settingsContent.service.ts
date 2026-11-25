@@ -40,8 +40,8 @@ let settingsState: SiteSettings = JSON.parse(JSON.stringify(INITIAL_SITE_SETTING
 export const mockSettingsAdapter = {
   getSettings: async (): Promise<SiteSettings> => {
     try {
-      const res = await adminApiClient<{ data: any } | SiteSettings>('/admin/settings')
-      const payload = res && 'data' in res ? res.data : res
+      const res = await adminApiClient<any>('/admin/settings')
+      const payload = res?.content ?? res?.data?.content ?? (res && 'siteName' in res ? res : null)
       if (payload && payload.siteName) {
         settingsState = {
           ...settingsState,
@@ -54,8 +54,8 @@ export const mockSettingsAdapter = {
         }
         return JSON.parse(JSON.stringify(settingsState))
       }
-    } catch {
-      // Fallback
+    } catch (err) {
+      console.warn('Falling back to in-memory settings state:', err)
     }
     return JSON.parse(JSON.stringify(settingsState))
   },
@@ -72,7 +72,7 @@ export const mockSettingsAdapter = {
           taglineAr: newSettings.taglineAr,
           foundedYear: 1994,
           officialEmail: 'info@elmashrq.com',
-          phones: ['00966581605812', '00966510701704'],
+          phones: ['+966 58 160 5812', '+966 51 070 1704'],
           socialLinks: {
             linkedin: 'https://linkedin.com/company/dar-elmashrq',
             twitter: 'https://twitter.com/darelmashrq',
@@ -96,8 +96,9 @@ export const mockSettingsAdapter = {
           status: 'published',
         }),
       })
-    } catch {
-      // Fallback
+    } catch (err) {
+      console.error('Failed to update settings in backend:', err)
+      throw err
     }
     return JSON.parse(JSON.stringify(settingsState))
   },

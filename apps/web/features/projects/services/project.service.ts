@@ -39,6 +39,7 @@ function normalizeProject(p: any): Project {
 
 export async function getProjects(filters?: ProjectFilters): Promise<ProjectSummary[]> {
   const queryParams = new URLSearchParams()
+  queryParams.set('pageSize', '100')
   if (filters?.country && filters.country !== 'all') queryParams.set('country', filters.country)
   if (filters?.category && filters.category !== 'all') queryParams.set('category', filters.category)
   if (filters?.search) queryParams.set('search', filters.search)
@@ -59,7 +60,7 @@ export async function getProjects(filters?: ProjectFilters): Promise<ProjectSumm
 }
 
 export async function getAllProjectDetails(): Promise<Project[]> {
-  const res = await publicApiClient<any>('/projects')
+  const res = await publicApiClient<any>('/projects?pageSize=100')
   const items = Array.isArray(res) ? res : res?.items
   if (items && Array.isArray(items) && items.length > 0) {
     return items.map(normalizeProject)

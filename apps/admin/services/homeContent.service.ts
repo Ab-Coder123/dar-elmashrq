@@ -248,14 +248,14 @@ import { adminApiClient } from '../lib/api'
 export const mockHomeContentAdapter: IHomeContentAdapter = {
   async getHomeContent(): Promise<HomeContentState> {
     try {
-      const res = await adminApiClient<{ content: HomeContentState } | HomeContentState>('/admin/home')
-      const content = (res && 'content' in res && res.content) ? res.content : res
+      const res = await adminApiClient<any>('/admin/home')
+      const content = res?.content ?? res?.data?.content ?? res
       if (content && typeof content === 'object' && 'hero' in content) {
         inMemoryHomeContent = JSON.parse(JSON.stringify(content))
         return inMemoryHomeContent
       }
-    } catch {
-      // Fallback to local
+    } catch (err) {
+      console.warn('Falling back to in-memory home content:', err)
     }
     return JSON.parse(JSON.stringify(inMemoryHomeContent))
   },
@@ -279,7 +279,7 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
         }),
       })
     } catch {
-      // Fallback
+      // Backend not running (offline dev or unit tests) -> fallback to inMemory
     }
 
     return JSON.parse(JSON.stringify(inMemoryHomeContent.hero))
@@ -301,7 +301,7 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
         }),
       })
     } catch {
-      // Fallback
+      // Backend not running (offline dev or unit tests) -> fallback to inMemory
     }
 
     return JSON.parse(JSON.stringify(inMemoryHomeContent.stats))
@@ -323,7 +323,7 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
         }),
       })
     } catch {
-      // Fallback
+      // Backend not running (offline dev or unit tests) -> fallback to inMemory
     }
 
     return JSON.parse(JSON.stringify(inMemoryHomeContent.whyPillars))
@@ -345,7 +345,7 @@ export const mockHomeContentAdapter: IHomeContentAdapter = {
         }),
       })
     } catch {
-      // Fallback
+      // Backend not running (offline dev or unit tests) -> fallback to inMemory
     }
 
     return JSON.parse(JSON.stringify(inMemoryHomeContent.regionalHubs))

@@ -13,7 +13,7 @@ export const INITIAL_CONTACT_CONTENT: AdminContactContent = {
       districtAr: 'حي الشاطئ الشرقي',
       address: 'Al-Shati Business Center, 8110 Prince Mohammed Bin Fahd Road, Al-Shati Al-Sharqi, Dammam, Saudi Arabia',
       addressAr: 'مركز الشاطئ للأعمال، 8110 طريق الأمير محمد بن فهد، حي الشاطئ الشرقي، الدمام، السعودية',
-      phones: ['+966 58 160 5812', '+966 54 755 2373'],
+      phones: ['+966 58 160 5812', '+966 51 070 1704'],
       email: 'info@elmashrq.com',
       workingHours: 'Sun - Thu: 8:00 AM - 5:00 PM',
       workingHoursAr: 'الأحد - الخميس: 8:00 صباحاً - 5:00 مساءً',
@@ -62,7 +62,7 @@ export const INITIAL_CONTACT_CONTENT: AdminContactContent = {
     inquiryEmail: 'inquiries@elmashrq.com',
     careersEmail: 'careers@elmashrq.com',
     emergencyPhone: '+966 58 160 5812',
-    directPhones: ['+966 58 160 5812', '+966 54 755 2373'],
+    directPhones: ['+966 58 160 5812', '+966 51 070 1704'],
     socialLinks: {
       linkedin: 'https://linkedin.com/company/dar-elmashrq',
       twitter: 'https://twitter.com/darelmashrq',
@@ -79,9 +79,9 @@ let contactState: AdminContactContent = JSON.parse(JSON.stringify(INITIAL_CONTAC
 export const mockContactAdapter = {
   getContactContent: async (): Promise<AdminContactContent> => {
     try {
-      const res = await adminApiClient<{ data: any } | AdminContactContent>('/admin/contact')
-      const payload = res && 'data' in res ? res.data : res
-      if (payload && payload.offices && Array.isArray(payload.offices)) {
+      const res = await adminApiClient<any>('/admin/contact')
+      const payload = res?.content ?? res?.data?.content ?? (res && 'offices' in res ? res : null)
+      if (payload && Array.isArray(payload.offices)) {
         contactState = {
           offices: payload.offices.map((off: any) => ({
             id: off.id || `off-${Math.random().toString(36).substr(2, 9)}`,
@@ -94,7 +94,7 @@ export const mockContactAdapter = {
             districtAr: off.districtAr || off.district || '',
             address: off.address || '',
             addressAr: off.addressAr || off.address || '',
-            phones: off.phones || (off.phone ? [off.phone] : ['00966581605812']),
+            phones: off.phones || (off.phone ? [off.phone] : ['+966 58 160 5812']),
             email: off.email || 'info@elmashrq.com',
             workingHours: off.workingHours || 'Sun - Thu: 8:00 AM - 5:00 PM',
             workingHoursAr: off.workingHoursAr || 'الأحد - الخميس: 8:00 صباحاً - 5:00 مساءً',
@@ -106,15 +106,15 @@ export const mockContactAdapter = {
             inquiryEmail: payload.supportEmail || contactState.settings.inquiryEmail,
             careersEmail: contactState.settings.careersEmail,
             emergencyPhone: (payload.phones && payload.phones[0]) || contactState.settings.emergencyPhone,
-            directPhones: payload.phones && payload.phones.length > 0 ? payload.phones : (contactState.settings.directPhones || ['+966 58 160 5812', '+966 54 755 2373']),
+            directPhones: payload.phones && payload.phones.length > 0 ? payload.phones : (contactState.settings.directPhones || ['+966 58 160 5812', '+966 51 070 1704']),
             socialLinks: contactState.settings.socialLinks,
           },
           updatedAt: new Date().toISOString(),
         }
         return JSON.parse(JSON.stringify(contactState))
       }
-    } catch {
-      // Fallback to in-memory state
+    } catch (err) {
+      console.warn('Falling back to in-memory contact state:', err)
     }
     return JSON.parse(JSON.stringify(contactState))
   },
@@ -140,7 +140,7 @@ export const mockContactAdapter = {
             district: off.district || '',
             address: off.address,
             addressAr: off.addressAr,
-            phone: off.phones[0] || '00966581605812',
+            phone: off.phones[0] || '+966 58 160 5812',
             email: off.email,
             coordinates: '',
             isHQ: off.isHeadquarters,
@@ -158,7 +158,7 @@ export const mockContactAdapter = {
         }),
       })
     } catch {
-      // Fallback
+      // Backend not running (offline dev or unit tests) -> fallback to inMemory
     }
     return JSON.parse(JSON.stringify(contactState))
   },
