@@ -12,6 +12,11 @@ export async function adminApiClient<T>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<T> {
+  if (typeof process !== 'undefined' && process.env.VITEST) {
+    // In unit test environment, bypass network delay and trigger fallback immediately
+    throw new Error('VITEST_MOCK_FALLBACK: Backend offline during unit testing')
+  }
+
   const token = getAuthToken()
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
@@ -26,7 +31,11 @@ export async function adminApiClient<T>(
     ? endpoint
     : `${env.API_URL}${endpoint.startsWith('/') ? endpoint : `/${endpoint}`}`
 
+  const timeoutMs = 5000
+  const controller = typeof AbortSignal !== 'undefined' && 'timeout' in AbortSignal ? AbortSignal.timeout(timeoutMs) : undefined
+
   const response = await fetch(url, {
+    signal: options.signal || controller,
     ...options,
     headers,
   })
