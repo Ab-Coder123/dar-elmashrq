@@ -22,6 +22,7 @@ export interface ContactSettings {
   inquiryEmail: string
   careersEmail: string
   emergencyPhone: string
+  directPhones?: string[]
   socialLinks: {
     linkedin: string
     twitter: string

@@ -27,7 +27,7 @@ export const COMPANY_PROFILE: CompanyProfile = {
   /** Source: Business Cards & Corporate Profile */
   website: 'https://www.elmashrq.com',
   email: 'info@elmashrq.com',
-  phones: ['+966 58 160 5812', '+20 111 62 5555 6', '+966 54 882 1738', '+974 70 5555 73'],
+  phones: ['+966 58 160 5812', '+966 54 755 2373'],
   address: {
     country: 'Saudi Arabia',
     city: 'Dammam',
@@ -45,7 +45,7 @@ export const COMPANY_LEADERSHIP = [
     role: 'Chief Executive Officer (CEO)',
     roleAr: 'الرئيس التنفيذي',
     phone: '+966 58 160 5812',
-    intlPhone: '+974 70 5555 73',
+    intlPhone: '',
     email: 'r.hashim@elmashrq.com',
   },
   {
@@ -53,7 +53,7 @@ export const COMPANY_LEADERSHIP = [
     nameAr: 'محمد الشناوي',
     role: 'Operations Director',
     roleAr: 'مدير العمليات',
-    phone: '+966 54 882 1738',
+    phone: '',
     email: 'm.elshenawy@elmashrq.com',
   },
   {

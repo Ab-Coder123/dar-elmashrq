@@ -37,7 +37,7 @@ const DEFAULT_OFFICES: RegionalOffice[] = [
     roleAr: 'الفرع الإقليمي بمصر — التجمع الخامس',
     address: 'South 90th Street, 5th Settlement, New Cairo, Egypt',
     addressAr: 'شارع التسعين الجنوبي، التجمع الخامس، مصر',
-    phone: '+20 111 62 5555 6',
+    phone: '+966 58 160 5812',
     email: 'info@elmashrq.com',
   },
   {
@@ -51,7 +51,7 @@ const DEFAULT_OFFICES: RegionalOffice[] = [
     roleAr: 'المكتب الإقليمي — عمليات الخليج العربي',
     address: 'Doha, State of Qatar',
     addressAr: 'الدوحة، دولة قطر',
-    phone: '+974 70 5555 73',
+    phone: '+966 58 160 5812',
     email: 'r.hashim@elmashrq.com',
   },
 ]

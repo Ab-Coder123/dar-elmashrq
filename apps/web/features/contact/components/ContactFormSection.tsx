@@ -8,9 +8,14 @@ import { RevealOnScroll } from '@/components/motion/RevealOnScroll'
 import { fadeUpVariants, scaleInVariants } from '@/lib/motion'
 import { useLanguage } from '@/providers/LanguageProvider'
 
-export function ContactFormSection() {
+interface ContactFormSectionProps {
+  directPhones?: string[]
+}
+
+export function ContactFormSection({ directPhones }: ContactFormSectionProps) {
   const { language } = useLanguage()
   const isAr = language === 'ar'
+  const activePhones = directPhones && directPhones.length > 0 ? directPhones : COMPANY_PROFILE.phones
 
   const [submitted, setSubmitted] = useState(false)
   const [formData, setFormData] = useState({
@@ -133,7 +138,7 @@ export function ContactFormSection() {
                         : 'South 90th Street, 5th Settlement, New Cairo, Egypt'}
                     </p>
                     <p className="mt-1 text-xs text-[#ba9563] font-mono" dir="ltr">
-                      +20 111 62 5555 6
+                      +966 58 160 5812
                     </p>
                   </div>
                 </div>
@@ -178,7 +183,7 @@ export function ContactFormSection() {
                       {isAr ? 'أرقام الهاتف المباشرة' : 'DIRECT TELEPHONE LINES'}
                     </h3>
                     <div className="flex flex-col space-y-1 font-mono text-sm text-slate-800 dark:text-slate-200" dir="ltr">
-                      {COMPANY_PROFILE.phones.map((phone, idx) => (
+                      {activePhones.map((phone, idx) => (
                         <a key={idx} href={`tel:${phone}`} className="hover:text-[#ba9563] transition-colors">
                           {phone}
                         </a>
@@ -248,8 +253,6 @@ export function ContactFormSection() {
                         <div className="flex items-center gap-1.5" dir="ltr">
                           <Phone className="w-3 h-3 text-[#ba9563]" />
                           <a href="tel:+966581605812" className="hover:text-[#ba9563]">+966 58 160 5812</a>
-                          <span className="text-slate-400">/</span>
-                          <a href="tel:+97470555573" className="hover:text-[#ba9563]">+974 70 5555 73</a>
                         </div>
                         <div className="flex items-center gap-1.5">
                           <Mail className="w-3 h-3 text-[#ba9563]" />
@@ -267,10 +270,6 @@ export function ContactFormSection() {
                         </span>
                       </div>
                       <div className="mt-1.5 flex flex-col gap-0.5 font-mono text-[11px] text-slate-600 dark:text-[#c4c6d2]">
-                        <div className="flex items-center gap-1.5" dir="ltr">
-                          <Phone className="w-3 h-3 text-[#ba9563]" />
-                          <a href="tel:+966548821738" className="hover:text-[#ba9563]">+966 54 882 1738</a>
-                        </div>
                         <div className="flex items-center gap-1.5">
                           <Mail className="w-3 h-3 text-[#ba9563]" />
                           <a href="mailto:m.elshenawy@elmashrq.com" className="hover:text-[#ba9563]">m.elshenawy@elmashrq.com</a>

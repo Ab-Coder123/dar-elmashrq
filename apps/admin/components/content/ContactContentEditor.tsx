@@ -353,6 +353,74 @@ export function ContactContentEditor() {
           </div>
         </div>
 
+        {/* Direct Telephone Lines Manager */}
+        <div className="border-t border-slate-100 pt-4 space-y-3">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-sm font-bold text-slate-900">أرقام الهاتف المباشرة للموقع (Direct Telephone Lines)</h3>
+              <p className="text-xs text-slate-500">أضف أو احذف أرقام الهواتف المعروضة للجمهور في الموقع الرئيسي والتذييل وصفحة الاتصال.</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                const current = data.settings.directPhones || ['+966 58 160 5812']
+                setData({
+                  ...data,
+                  settings: {
+                    ...data.settings,
+                    directPhones: [...current, ''],
+                  },
+                })
+              }}
+              className="flex items-center gap-1.5 rounded-lg border border-[#123C82] px-3 py-1.5 text-xs font-bold text-[#123C82] hover:bg-[#123C82]/5"
+            >
+              <Plus className="h-3.5 w-3.5" />
+              إضافة رقم هاتف
+            </button>
+          </div>
+
+          <div className="space-y-2">
+            {(data.settings.directPhones || ['+966 58 160 5812', '+966 54 755 2373']).map((phone, idx) => (
+              <div key={idx} className="flex items-center gap-2">
+                <input
+                  type="text"
+                  value={phone}
+                  placeholder="+966 5X XXX XXXX"
+                  onChange={(e) => {
+                    const updated = [...(data.settings.directPhones || ['+966 58 160 5812', '+966 54 755 2373'])]
+                    updated[idx] = e.target.value
+                    setData({
+                      ...data,
+                      settings: {
+                        ...data.settings,
+                        directPhones: updated,
+                      },
+                    })
+                  }}
+                  className="flex-1 rounded-lg border border-slate-300 p-2.5 text-sm font-mono focus:border-[#123C82] focus:outline-none"
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    const updated = (data.settings.directPhones || ['+966 58 160 5812', '+966 54 755 2373']).filter((_, i) => i !== idx)
+                    setData({
+                      ...data,
+                      settings: {
+                        ...data.settings,
+                        directPhones: updated.length > 0 ? updated : ['+966 58 160 5812'],
+                      },
+                    })
+                  }}
+                  className="rounded-lg p-2.5 text-slate-400 hover:bg-rose-50 hover:text-rose-600 border border-slate-200"
+                  title="حذف الرقم"
+                >
+                  <Trash2 className="h-4 w-4" />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="flex justify-end pt-3">
           <button
             type="submit"
@@ -360,7 +428,7 @@ export function ContactContentEditor() {
             className="flex items-center gap-2 rounded-lg bg-[#123C82] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#123C82]/90 disabled:opacity-50"
           >
             <Save className="h-4 w-4" />
-            حفظ إعدادات البريد العامة
+            حفظ إعدادات الهواتف والبريد العامة
           </button>
         </div>
       </form>
@@ -454,20 +522,53 @@ export function ContactContentEditor() {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">الهاتف (تفصل الفواصل بين الأرقام)</label>
-                  <input
-                    type="text"
-                    required
-                    value={editingOffice.phones.join(', ')}
-                    onChange={(e) =>
-                      setEditingOffice({
-                        ...editingOffice,
-                        phones: e.target.value.split(',').map((p) => p.trim()),
-                      })
-                    }
-                    className="w-full rounded-lg border border-slate-300 p-2.5 text-sm font-mono focus:border-[#123C82] focus:outline-none"
-                  />
+                <div className="md:col-span-2">
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="block text-xs font-semibold text-slate-700">أرقام هواتف هذا الفرع</label>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setEditingOffice({
+                          ...editingOffice,
+                          phones: [...editingOffice.phones, ''],
+                        })
+                      }
+                      className="text-xs font-bold text-[#123C82] hover:underline flex items-center gap-1"
+                    >
+                      <Plus className="h-3 w-3" /> إضافة رقم هاتف للفرع
+                    </button>
+                  </div>
+                  <div className="space-y-2">
+                    {editingOffice.phones.map((ph, phIdx) => (
+                      <div key={phIdx} className="flex items-center gap-2">
+                        <input
+                          type="text"
+                          required
+                          value={ph}
+                          placeholder="+966 5X XXX XXXX"
+                          onChange={(e) => {
+                            const newPhones = [...editingOffice.phones]
+                            newPhones[phIdx] = e.target.value
+                            setEditingOffice({ ...editingOffice, phones: newPhones })
+                          }}
+                          className="flex-1 rounded-lg border border-slate-300 p-2 text-sm font-mono focus:border-[#123C82] focus:outline-none"
+                        />
+                        {editingOffice.phones.length > 1 && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const newPhones = editingOffice.phones.filter((_, i) => i !== phIdx)
+                              setEditingOffice({ ...editingOffice, phones: newPhones })
+                            }}
+                            className="rounded-lg p-2 text-slate-400 hover:bg-rose-50 hover:text-rose-600 border border-slate-200"
+                            title="حذف هذا الرقم"
+                          >
+                            <Trash2 className="h-3.5 w-3.5" />
+                          </button>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <div>

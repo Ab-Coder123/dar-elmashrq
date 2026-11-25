@@ -150,7 +150,7 @@ export const REGIONAL_HUBS: RegionalHub[] = [
     description:
       'Engineering bureau in New Cairo overseeing residential developments, mega commercial projects, and retail rollouts across Egypt.',
     address: 'South 90th Street, 5th Settlement, New Cairo, Egypt',
-    phone: '+20 111 62 5555 6',
+    phone: '+966 58 160 5812',
     classification: 'REGIONAL ENGINEERING HUB',
   },
   {
